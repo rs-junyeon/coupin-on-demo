@@ -1,6 +1,11 @@
 /* ON 관리자: 쿠핀+ 관리자 웹(plus-admin-web, libs/cims-assets)의 박스·검색조건·표·상세 모양을 antd 위에 덮는다. 색은 쿠핀 컬러 시스템 */
 .a-root { font-family: var(--f-sans); color: var(--ink); }
-.a-sider .ant-layout-sider-children { display: flex; flex-direction: column; }
+/* 레이아웃은 화면 높이 이상. 사이드바는 화면 높이에 고정하고, 메뉴가 넘칠 때만 메뉴 안에서 스크롤한다 */
+.a-root.ant-layout { min-height: 100vh; min-height: 100dvh; }
+.a-root.ant-layout > .ant-layout { min-height: 100vh; min-height: 100dvh; }
+.a-sider.ant-layout-sider { position: sticky; top: 0; align-self: flex-start; height: 100vh; height: 100dvh; }
+.a-sider .ant-layout-sider-children { display: flex; flex-direction: column; min-height: 0; }
+.a-sider .ant-layout-sider-children > .ant-menu { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: rgba(255,255,255,.22) transparent; }
 .a-logo { height: 64px; display: flex; align-items: center; gap: 8px; padding: 0 20px; color: #fff; font-weight: 800; font-size: 15px; flex: none; }
 .a-logo .mark { width: 28px; height: 28px; border-radius: 8px; background: var(--on-grad); color: var(--ink); display: grid; place-items: center; font-size: 11px; font-weight: 800; }
 .a-sider .ant-menu-dark .ant-menu-submenu-title { color: var(--navy-200); font-weight: 600; font-size: 15px; }
