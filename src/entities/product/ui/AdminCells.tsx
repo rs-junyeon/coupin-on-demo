@@ -1,5 +1,5 @@
 // 관리자 상품 표 칸 (PLUS 상품·상품 관리·판매 조건): 상품·가게, 카테고리, ON 판매가, 상품별 한도, 노출 상태
-import { CatIcon } from '@/entities/category/@x/product';
+import { CatIcon } from '@/entities/category';
 import { type DB, type Product, storeOf } from '@/shared/api';
 import { won } from '@/shared/lib';
 import { StatusTag, type TagKind } from '@/shared/ui/admin';

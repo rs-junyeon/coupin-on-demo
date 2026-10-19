@@ -1,7 +1,7 @@
 // 가게: 가게 안 상품 순서, 대표 카테고리, 거리, 지도·매장 탭에 보일 가게
 import type { DB, LatLng, Product, Store } from '@/shared/api';
 import { distanceLabel, distanceM } from '@/shared/lib';
-import { filterOn, matches, visible, type ListFilter } from '@/entities/product/@x/store';
+import { filterOn, matches, visible, type ListFilter } from '@/entities/product';
 
 /** 가게 안 상품 순서: 조건에 맞는 상품 먼저, 대표 상품, 최근 게시 순 */
 export function storeProducts(db: DB, sid: string, f: ListFilter = { cat: '전체', q: '' }) {

@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
+  "sideEffects": ["*.css", "./src/app/index.tsx", "./src/shared/api/db.ts"],
   "packageManager": "pnpm@10.30.3",
   "scripts": {
     "dev": "vite",
