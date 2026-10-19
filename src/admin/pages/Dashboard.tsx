@@ -150,10 +150,10 @@ export default function Dashboard() {
         <p>유료는 판매가 합계, 무료는 쿠폰 수량 기준이에요. 한도에 닿으면 그 종류의 받기·구매가 모두 막혀요.</p>
         <Form layout="vertical" component="div">
           <Form.Item label="유료 · 판매가 합계" extra={`지금까지 ${won(db.limit.used)} 사용`}>
-            <InputNumber className={s.wide} aria-label="유료 한도" min={0} step={100000} value={lim.total} formatter={numFmt} parser={numParse} addonAfter="원" onChange={v => setLim(x => ({ ...x, total: Number(v) || 0 }))} />
+            <InputNumber className={s.wide} aria-label="유료 한도" min={0} step={100000} value={lim.total} formatter={numFmt} parser={numParse} suffix="원" onChange={v => setLim(x => ({ ...x, total: Number(v) || 0 }))} />
           </Form.Item>
           <Form.Item label="무료 · 쿠폰 수량" extra={`지금까지 ${db.limit.fused.toLocaleString()}장 발급`}>
-            <InputNumber className={s.wide} aria-label="무료 한도" min={0} value={lim.ftotal} formatter={numFmt} parser={numParse} addonAfter="장" onChange={v => setLim(x => ({ ...x, ftotal: Number(v) || 0 }))} />
+            <InputNumber className={s.wide} aria-label="무료 한도" min={0} value={lim.ftotal} formatter={numFmt} parser={numParse} suffix="장" onChange={v => setLim(x => ({ ...x, ftotal: Number(v) || 0 }))} />
           </Form.Item>
         </Form>
       </Modal>

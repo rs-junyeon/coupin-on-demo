@@ -93,11 +93,11 @@ export default function Terms() {
             <Form.Item label="ON 판매가 · 고객이 내는 금액" validateStatus={field?.k === 'p' ? 'error' : undefined}
               help={field?.k === 'p' ? <span role="alert">{field.t}</span> : undefined}
               extra={free ? '무료 상품은 판매가가 없어요.' : '점주 판매가 이하로만 낮출 수 있어요 (할인만, 0원 불가). 바꾸면 PLUS 내보내기 페이지에 보이고 점주에게 알려요.'}>
-              <InputNumber className={s.wide} aria-label="ON 판매가" min={0} value={free ? 0 : price} disabled={free} formatter={numFmt} parser={numParse} addonAfter="원" onChange={x => { setPrice(x); setSaveErr(''); }} />
+              <InputNumber className={s.wide} aria-label="ON 판매가" min={0} value={free ? 0 : price} disabled={free} formatter={numFmt} parser={numParse} suffix="원" onChange={x => { setPrice(x); setSaveErr(''); }} />
             </Form.Item>
             <Form.Item label={`상품별 월 한도 · ${free ? '쿠폰 수량' : '판매가 합계'}`} validateStatus={field?.k === 'l' ? 'error' : undefined}
               help={field?.k === 'l' ? <span role="alert">{field.t}</span> : limNote}>
-              <InputNumber className={s.wide} aria-label="상품별 월 한도" min={0} value={limit} formatter={numFmt} parser={numParse} addonAfter={free ? '장' : '원'} onChange={x => { setLimit(x); setSaveErr(''); }} />
+              <InputNumber className={s.wide} aria-label="상품별 월 한도" min={0} value={limit} formatter={numFmt} parser={numParse} suffix={free ? '장' : '원'} onChange={x => { setLimit(x); setSaveErr(''); }} />
             </Form.Item>
             <div className="a-calc">
               <div><span>할인율 (소비자가 대비)</span><b className="num">{free ? '무료' : p.list ? `${Math.round((1 - pr / p.list) * 100)}%` : '-'}</b></div>
