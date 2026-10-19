@@ -3,7 +3,7 @@ import { Navigate, useLocation, useNavigate, useParams, useSearchParams } from '
 import { blockReason, isFree, validityTxt } from '@/entities/product';
 import { PAY_METHODS, type PayMethod, storeOf, useDB } from '@/shared/api';
 import { won } from '@/shared/lib';
-import { CatIcon } from '@/ui/CatIcon';
+import { CatIcon } from '@/entities/category';
 import { TopBar } from '@/shared/ui/mobile';
 import s from './purchase.module.css';
 

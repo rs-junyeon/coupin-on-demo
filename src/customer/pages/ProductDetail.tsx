@@ -2,13 +2,12 @@ import { useEffect, useRef } from 'react';
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { blockReason, isFree, pct, validityTxt } from '@/entities/product';
 import { catName } from '@/entities/category';
-import { distTxt } from '@/entities/store';
+import { distTxt, StoreActions } from '@/entities/store';
 import { storeOf, useDB } from '@/shared/api';
 import { useOrigin, won } from '@/shared/lib';
 import { runBusy, TopBar, useUi } from '@/shared/ui/mobile';
 import { Icon } from '@/shared/ui/icon';
 import { photo } from '@/shared/assets';
-import { StoreActions } from '../components/StoreCard';
 import styles from './Detail.module.css';
 import NotFound from './NotFound';
 

@@ -1,13 +1,12 @@
 import { useParams } from 'react-router-dom';
 import { catName } from '@/entities/category';
-import { distTxt, storeCat, storeProducts } from '@/entities/store';
+import { distTxt, StoreActions, storeCat, storeProducts } from '@/entities/store';
 import { useDB } from '@/shared/api';
 import { TopBar } from '@/shared/ui/mobile';
 import { useOrigin } from '@/shared/lib';
 import { Icon } from '@/shared/ui/icon';
 import { photo } from '@/shared/assets';
-import { ProductRow } from '../components/ProductRow';
-import { StoreActions } from '../components/StoreCard';
+import { ProductRow } from '@/entities/product';
 import styles from './Detail.module.css';
 import NotFound from './NotFound';
 

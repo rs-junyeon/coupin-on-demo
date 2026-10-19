@@ -1,20 +1,11 @@
 // 고객 앱 C 묶음(마이·주문·문의·설정·계정) 공용 부품: 휴대폰 문자 인증, 약관 문서, 표기 도우미
 import { useState } from 'react';
 import { digits } from '@/shared/lib';
-import type { Account, InquiryStatus, OrderStatus, SocialProvider } from '@/shared/api';
 import { useUi } from '@/shared/ui/mobile';
 import s from './account.module.css';
 
 export { fmtPhone, maskId, maskPhone, safeNext } from '@/shared/lib';
 export { DocBody, DOCS, isDocKey, type DocKey } from '@/shared/ui/legal-doc';
-
-export const SNS: Record<SocialProvider, string> = { kakao: '카카오', google: 'Google' };
-export const isProv = (x: string | null | undefined): x is SocialProvider => x === 'kakao' || x === 'google';
-
-export const loginWays = (l: Account['links']) => [l.pw && '아이디·비밀번호', l.kakao && '카카오', l.google && 'Google'].filter(Boolean).join(', ');
-
-export const orderChip = (st: OrderStatus) => (st === '완료' ? 'st-ok' : st === '환불 완료' || st.startsWith('실패') ? 'st-cancel' : 'st-warn');
-export const inqChip = (st: InquiryStatus) => (st === '답변 완료' ? 'st-ok' : st === '처리 중' ? 'st-part' : 'st-warn');
 
 const PHONE_RE = /^01\d{8,9}$/;
 /**

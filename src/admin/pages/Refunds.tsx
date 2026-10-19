@@ -6,8 +6,9 @@ import { type Order, prodOf, type Product, type Refund, storeOf, useDB } from '@
 import { who } from '@/entities/account';
 import { dtA, won } from '@/shared/lib';
 import { ListBox, PageHead, SearchBox, SearchRadio, StatusTag, tableProps } from '@/shared/ui/admin';
-import { ListQFields, listHit, Q0, refundTag } from './listFilter';
+import { ListQFields, listHit, Q0 } from './listFilter';
 import s from './orders.module.css';
+import { refundTag } from '@/entities/order';
 
 type Res = 'all' | Refund['result'];
 const RES: { value: Res; label: string }[] = [{ value: 'all', label: '전체' }, { value: '처리 중', label: '처리 중' }, { value: '완료', label: '완료' }, { value: '거절', label: '거절' }];

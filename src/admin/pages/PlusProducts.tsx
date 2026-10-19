@@ -3,11 +3,11 @@ import { SyncOutlined } from '@ant-design/icons';
 import { App, Button, Table } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 import { useNavigate } from 'react-router-dom';
-import { adminStatus, isFree } from '@/entities/product';
+import { adminStatus, CatCell, isFree, LimitCell, OnPriceCell, ProdCell, StateCell } from '@/entities/product';
 import { dtA, won } from '@/shared/lib';
 import { type Product, useDB } from '@/shared/api';
 import { ListBox, PageHead, StatusTag, tableProps } from '@/shared/ui/admin';
-import { CatCell, LimitCell, OnPriceCell, ProdCell, StateCell, useProductFilter } from './catalog';
+import { useProductFilter } from './catalog';
 import s from './catalog.module.css';
 
 export default function PlusProducts() {

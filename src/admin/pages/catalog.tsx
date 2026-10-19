@@ -1,14 +1,9 @@
 // PLUS 상품·상품 관리 공용: 검색조건(노출 상태·카테고리·판매 여부)과 표 칸, 숫자 입력 표기
 import { Select } from 'antd';
 import { useSearchParams } from 'react-router-dom';
-import { type AdminState, adminStatus, isFree, limTxt } from '@/entities/product';
-import { type DB, type Product, storeOf } from '@/shared/api';
-import { won } from '@/shared/lib';
-import { CatIcon } from '@/ui/CatIcon';
-import { SearchBox, SearchField, SearchRadio, StatusTag, type TagKind } from '@/shared/ui/admin';
-
-export const ST_KIND: Record<AdminState['k'], TagKind> = { pub: 'ok', hidden: 'exp', draft: 'warn', block: 'cancel' };
-export const PLUS_KIND: Record<string, TagKind> = { '판매 중': 'ok', '재승인 대기': 'warn', '판매 중지': 'cancel', '구독 종료': 'cancel' };
+import { type AdminState, adminStatus } from '@/entities/product';
+import { type DB } from '@/shared/api';
+import { SearchBox, SearchField, SearchRadio } from '@/shared/ui/admin';
 
 export { numFmt, numParse } from '@/shared/lib';
 
@@ -40,15 +35,3 @@ export function useProductFilter(db: DB) {
   );
   return { rows, search, filterKey: sp.toString() };
 }
-
-export const ProdCell = ({ db, p }: { db: DB; p: Product }) => (
-  <div className="pmini"><CatIcon cat={p.cat} size={16} /><div>{p.name}<span className="sub">{storeOf(db, p.sid).name}</span></div></div>
-);
-export const CatCell = ({ p }: { p: Product }) => (p.cat ? <>{p.cat}</> : <StatusTag kind="warn">미분류</StatusTag>);
-export const OnPriceCell = ({ p }: { p: Product }) => (isFree(p) ? <>무료</> : <>{won(p.price)}{p.price < p.own && <span className="sub">ON에서 할인</span>}</>);
-export const LimitCell = ({ p }: { p: Product }) => (p.limit
-  ? <>{Math.round((p.limitUsed / p.limit) * 100)}% 사용<span className="sub">{limTxt(p, p.limit)}</span></>
-  : <span className="sub">전체 한도만</span>);
-export const StateCell = ({ st }: { st: AdminState }) => (
-  <><StatusTag kind={ST_KIND[st.k]}>{st.t}</StatusTag>{st.why && <span className="why">{st.why}</span>}</>
-);

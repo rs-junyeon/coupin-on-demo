@@ -1,1 +1,1 @@
-export { who } from './model/account';
+export { isProv, loginWays, SNS, who } from './model/account';

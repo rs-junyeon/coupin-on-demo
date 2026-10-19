@@ -1,5 +1,6 @@
 // 주문: 관리자 상태 표기, 고객 주문·환불 내역의 취소/환불 탭
-import { type DB, ME, myCoupons, type Order } from '@/shared/api';
+import { type DB, ME, myCoupons, type Order, type OrderStatus, type Refund } from '@/shared/api';
+import type { TagKind } from '@/shared/ui/admin';
 
 /** 결과 미확인은 고객에게는 '발급 중'으로, 관리자에게만 따로 보인다 */
 export const oStatus = (o: Order) => (o.unconfirmed ? '결과 미확인' : o.status);
@@ -20,3 +21,9 @@ export function myRefunds(db: DB): MyRefund[] {
     : { cid: c.id, free: true, at: c.selfCancelRejected!.at, result: '거절', why: '매장에서 이미 사용돼 취소하지 않았어요', amount: 0, pid: c.pid }));
   return rs.sort((a, b) => +new Date(b.at) - +new Date(a.at));
 }
+
+export const orderChip = (st: OrderStatus) => (st === '완료' ? 'st-ok' : st === '환불 완료' || st.startsWith('실패') ? 'st-cancel' : 'st-warn');
+
+/** 주문 상태 표시: 완료, 환불 완료·실패, 그 밖(발급 중·결과 미확인·환불 처리 중)은 확인 필요 */
+export const orderTag = (st: string): TagKind => (st === '완료' ? 'ok' : st === '환불 완료' || st.startsWith('실패') ? 'cancel' : 'warn');
+export const refundTag = (r: Refund['result']): TagKind => (r === '완료' ? 'ok' : r === '거절' ? 'cancel' : 'warn');

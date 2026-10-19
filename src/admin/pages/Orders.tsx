@@ -2,12 +2,12 @@
 import { Button, Table, type TableColumnsType } from 'antd';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { oStatus } from '@/entities/order';
+import { orderTag, oStatus } from '@/entities/order';
 import { type Order, prodOf, storeOf, useDB } from '@/shared/api';
 import { who } from '@/entities/account';
 import { dtA, won } from '@/shared/lib';
 import { ListBox, PageHead, SearchBox, SearchRadio, StatusTag, tableProps } from '@/shared/ui/admin';
-import { ListQFields, listHit, orderTag, Q0 } from './listFilter';
+import { ListQFields, listHit, Q0 } from './listFilter';
 import s from './orders.module.css';
 
 type Chip = 'all' | 'unk' | 'stuck';

@@ -1,9 +1,8 @@
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { ME, prodOf, useDB } from '@/shared/api';
-import { type MyRefund, myRefunds } from '@/entities/order';
+import { type MyRefund, myRefunds, orderChip } from '@/entities/order';
 import { won, ymdDot } from '@/shared/lib';
 import { TopBar } from '@/shared/ui/mobile';
-import { orderChip } from './accountKit';
 
 const PAID_CHIP: Record<MyRefund['result'], [string, string]> = { '완료': ['st-ok', '환불 완료'], '처리 중': ['st-warn', '환불 처리 중'], '거절': ['st-cancel', '환불 불가'] };
 const refundChip = (r: MyRefund): [string, string] => (!r.free ? PAID_CHIP[r.result] : r.result === '거절' ? ['st-cancel', '취소 불가'] : ['st-ok', '취소 완료']);

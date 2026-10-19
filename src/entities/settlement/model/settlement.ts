@@ -2,6 +2,7 @@
 import { type DB, prodOf } from '@/shared/api';
 import { FEE } from '@/shared/config';
 import { dtA, monthKey, monthLabel, today } from '@/shared/lib';
+import type { TagKind } from '@/shared/ui/admin';
 
 /** 판매 현황: 어제까지 누적 + 이 앱에서 오늘 발급한 쿠폰 */
 export function stats(db: DB) {
@@ -44,3 +45,5 @@ export function settleMonths(db: DB, base = today()): SettleMonth[] {
     { key: monthKey(m(3)), label: monthLabel(m(3)), st: '확정', n: 128, amt: 1515600, at: `${monthKey(m(2))}-01 06:00 (자동)` },
   ];
 }
+
+export const settleTag = (st: '확정' | '대사 중' | '차이 있음'): TagKind => (st === '확정' ? 'ok' : st === '차이 있음' ? 'warn' : 'part');

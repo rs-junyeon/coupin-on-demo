@@ -1,1 +1,1 @@
-export { settleCalc, type SettleMonth, settleMonths, type SettleRow, settleRows, settleTot, stats } from './model/settlement';
+export { settleCalc, type SettleMonth, settleMonths, type SettleRow, settleRows, settleTag, settleTot, stats } from './model/settlement';

@@ -3,9 +3,9 @@ import { useParams } from 'react-router-dom';
 import { ME, useDB } from '@/shared/api';
 import { hm, ymdDot } from '@/shared/lib';
 import { TopBar } from '@/shared/ui/mobile';
-import { inqChip } from './accountKit';
 import s from './account.module.css';
 import NotFound from './NotFound';
+import { inqChip } from '@/entities/inquiry';
 
 /** 문의 상세: 열면 새 답변 표시를 지운다 */
 export default function InquiryDetail() {

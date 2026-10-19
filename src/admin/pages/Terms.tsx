@@ -3,13 +3,13 @@ import { App, Button, Form, Input, InputNumber, Select, Table } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 import { useState } from 'react';
 import { Navigate, useLocation, useNavigate, useParams } from 'react-router-dom';
-import { adminStatus, editable, isFree, validityTxt } from '@/entities/product';
+import { adminStatus, editable, isFree, ST_KIND, validityTxt } from '@/entities/product';
 import { FEE } from '@/shared/config';
 import { storeOf, type TermsLog, useDB } from '@/shared/api';
 import { dtA, won } from '@/shared/lib';
 import { photo } from '@/shared/assets';
 import { BtnBox, Card, DlGroup, PageHead, StatusTag, tableProps } from '@/shared/ui/admin';
-import { numFmt, numParse, ST_KIND } from './catalog';
+import { numFmt, numParse } from './catalog';
 import s from './catalog.module.css';
 
 const NEW = '__new';

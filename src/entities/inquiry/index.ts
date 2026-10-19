@@ -1,1 +1,1 @@
-export { unseenAnswer } from './model/inquiry';
+export { inqChip, unseenAnswer } from './model/inquiry';

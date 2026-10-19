@@ -4,10 +4,10 @@ import { cStatus } from '@/entities/coupon';
 import { ME, prodOf, storeOf, useDB } from '@/shared/api';
 import { hm, won, ymdDot } from '@/shared/lib';
 import { runBusy, Sheet, TopBar, useUi } from '@/shared/ui/mobile';
-import { CatIcon } from '@/ui/CatIcon';
-import { orderChip } from './accountKit';
+import { CatIcon } from '@/entities/category';
 import s from './account.module.css';
 import NotFound from './NotFound';
+import { orderChip } from '@/entities/order';
 
 const REASONS = ['단순 변심', '매장 방문이 어려워요', '다른 상품으로 바꾸고 싶어요', '기타'];
 

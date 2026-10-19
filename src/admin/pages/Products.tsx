@@ -3,10 +3,10 @@ import { App, Button, Input, Select, Table, type CheckboxProps } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { adminStatus, editable } from '@/entities/product';
+import { adminStatus, CatCell, editable, LimitCell, OnPriceCell, ProdCell, StateCell } from '@/entities/product';
 import { type Product, storeOf, useDB } from '@/shared/api';
 import { ListBox, PageHead, tableProps } from '@/shared/ui/admin';
-import { CatCell, LimitCell, OnPriceCell, ProdCell, StateCell, useProductFilter } from './catalog';
+import { useProductFilter } from './catalog';
 import s from './catalog.module.css';
 
 const NEW = '__new';

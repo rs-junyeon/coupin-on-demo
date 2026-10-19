@@ -2,7 +2,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { isFree } from '@/entities/product';
 import { ME, prodOf, storeOf, useDB } from '@/shared/api';
 import { md, won } from '@/shared/lib';
-import { CatIcon } from '@/ui/CatIcon';
+import { CatIcon } from '@/entities/category';
 import { Icon } from '@/shared/ui/icon';
 import { TopBar } from '@/shared/ui/mobile';
 import s from './purchase.module.css';

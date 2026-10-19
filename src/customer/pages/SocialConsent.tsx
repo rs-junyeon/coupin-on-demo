@@ -1,9 +1,10 @@
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { useDB } from '@/shared/api';
 import { useUi } from '@/shared/ui/mobile';
-import { isProv, safeNext, SNS } from './accountKit';
+import { safeNext } from './accountKit';
 import s from './account.module.css';
 import NotFound from './NotFound';
+import { isProv, SNS } from '@/entities/account';
 
 const EXT = {
   kakao: { acct: '카카오계정', mail: 'kim.on@kakao.com', items: '닉네임, 이메일', mark: 'K' },

@@ -3,8 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import { digits } from '@/shared/lib';
 import { useDB } from '@/shared/api';
 import { TopBar, useUi } from '@/shared/ui/mobile';
-import { loginWays, maskId, PhoneVerify } from './accountKit';
+import { maskId, PhoneVerify } from './accountKit';
 import s from './account.module.css';
+import { loginWays } from '@/entities/account';
 
 type Tab = 'id' | 'pw';
 const PW_OK = (v: string) => v.length >= 8 && /[A-Za-z]/.test(v) && /\d/.test(v);

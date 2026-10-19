@@ -2,7 +2,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 import { cStatus } from '@/entities/coupon';
 import { type Coupon, myCoupons, prodOf, storeOf, useDB } from '@/shared/api';
 import { daysLeft, md, won, ymdDot } from '@/shared/lib';
-import { CatIcon } from '@/ui/CatIcon';
+import { CatIcon } from '@/entities/category';
 import { Icon } from '@/shared/ui/icon';
 import { TopBar } from '@/shared/ui/mobile';
 import s from './purchase.module.css';

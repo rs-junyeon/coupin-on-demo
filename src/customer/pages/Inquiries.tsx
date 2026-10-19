@@ -3,8 +3,8 @@ import { ME, useDB } from '@/shared/api';
 import { hm, ymdDot } from '@/shared/lib';
 import { Icon } from '@/shared/ui/icon';
 import { TopBar } from '@/shared/ui/mobile';
-import { inqChip } from './accountKit';
 import s from './account.module.css';
+import { inqChip } from '@/entities/inquiry';
 
 /** 내 문의 목록. 새 답변은 점으로 표시한다 */
 export default function Inquiries() {

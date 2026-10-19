@@ -1,8 +1,9 @@
 import { useNavigate } from 'react-router-dom';
 import { type SocialProvider, useDB } from '@/shared/api';
 import { TopBar, useUi } from '@/shared/ui/mobile';
-import { maskPhone, SNS } from './accountKit';
+import { maskPhone } from './accountKit';
 import s from './account.module.css';
+import { SNS } from '@/entities/account';
 
 /** 회원 정보: 같은 휴대폰 번호의 계정 하나에 아이디·카카오·Google 로그인을 연결한다. 마지막 하나는 해제할 수 없다 */
 export default function Profile() {

@@ -1,9 +1,9 @@
 import type { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
-import { blockReason, isFree, pct } from '@/entities/product';
+import { blockReason, isFree, pct } from '../model/product';
 import { won } from '@/shared/lib';
 import { type Product, useDB } from '@/shared/api';
-import { CatIcon } from '@/ui/CatIcon';
+import { CatIcon } from '@/entities/category/@x/product';
 
 /** 상품 한 줄 (목업 productRow). 누르면 상품 상세. rep이면 대표 상품 표시, icon·sub는 검색 결과용 */
 export function ProductRow({ p, rep = false, icon = false, sub }: { p: Product; rep?: boolean; icon?: boolean; sub?: ReactNode }) {

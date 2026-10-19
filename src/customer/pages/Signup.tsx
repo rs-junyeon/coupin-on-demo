@@ -3,8 +3,9 @@ import { Navigate, useNavigate, useSearchParams } from 'react-router-dom';
 import { useDB } from '@/shared/api';
 import { TopBar, useUi } from '@/shared/ui/mobile';
 import { Icon } from '@/shared/ui/icon';
-import { DocBody, DOCS, fmtPhone, isProv, loginWays, maskId, PhoneVerify, safeNext, SNS, type DocKey } from './accountKit';
+import { DocBody, DOCS, fmtPhone, maskId, PhoneVerify, safeNext, type DocKey } from './accountKit';
 import s from './account.module.css';
+import { isProv, loginWays, SNS } from '@/entities/account';
 
 type AgreeKey = 'age' | 'svc' | 'priv' | 'loc' | 'mkt';
 const ROWS: { k: AgreeKey; t: string; req: boolean; doc?: DocKey }[] = [

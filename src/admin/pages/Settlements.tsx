@@ -2,11 +2,10 @@
 import { ReloadOutlined } from '@ant-design/icons';
 import { App, Button, Table, type TableColumnsType } from 'antd';
 import { useNavigate } from 'react-router-dom';
-import { type SettleMonth, settleMonths } from '@/entities/settlement';
+import { type SettleMonth, settleMonths, settleTag } from '@/entities/settlement';
 import { won } from '@/shared/lib';
 import { useDB } from '@/shared/api';
 import { ListBox, PageHead, StatusTag, tableProps } from '@/shared/ui/admin';
-import { settleTag } from './listFilter';
 
 export default function Settlements() {
   const db = useDB();

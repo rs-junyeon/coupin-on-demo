@@ -1,12 +1,11 @@
 import { useState } from 'react';
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
-import { catShown, matchQ, visible } from '@/entities/product';
+import { catShown, matchQ, ProductRow, visible } from '@/entities/product';
 import { distTxt } from '@/entities/store';
 import { storeOf, useDB } from '@/shared/api';
 import { useOrigin } from '@/shared/lib';
-import { CatIcon } from '@/ui/CatIcon';
+import { CatIcon } from '@/entities/category';
 import { Icon } from '@/shared/ui/icon';
-import { ProductRow } from '../components/ProductRow';
 
 /** 검색 (목업 mSearch): 검색어가 없으면 카테고리로 찾기, 있으면 상품 결과. 고르면 둘러보기 지도에 적용한다 */
 export default function Search() {
