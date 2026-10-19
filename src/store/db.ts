@@ -36,7 +36,8 @@ type Actions = {
   withdraw(): void;
   // 받기·구매·취소
   issue(pid: string, method?: PayMethod): Result<{ cid: string; oid: string | null }>;
-  requestRefund(cid: string): Result<{ amount: number }>;
+  /** reason: 고객이 고른 환불 사유 (관리자 환불 기록에 남는다) */
+  requestRefund(cid: string, reason?: string): Result<{ amount: number }>;
   cancelFree(cid: string): Result;
   createInquiry(o: { type: InquiryType; title: string; body: string }): string;
   markInquirySeen(qid: string): void;
@@ -135,12 +136,13 @@ export const useDB = create<Store>()(
           return { ok: true, cid, oid };
         },
         // 서버가 바로 처리한다: PLUS 발급 취소 → 결제 취소. 관리자 환불 화면에 기록이 남는다
-        requestRefund: cid => {
+        requestRefund: (cid, reason) => {
           const c = get().coupons.find(x => x.id === cid);
           if (!c || c.owner !== ME || c.paid === 0 || c.status !== 'ISSUED') return { ok: false, error: '환불할 수 없는 쿠폰이에요' };
           mut(d => {
             const { o } = cancelCoupon(d, cid);
-            if (o) { o.log.push([iso(), '고객 환불 요청 → PLUS 발급 취소 → 결제 취소 완료']); d.refunds.push({ oid: o.id, at: iso(), result: '완료', memo: '고객 요청 · 자동 처리', kind: 'req' }); }
+            const why = reason ? ` (${reason})` : '';
+            if (o) { o.log.push([iso(), `고객 환불 요청${why} → PLUS 발급 취소 → 결제 취소 완료`]); d.refunds.push({ oid: o.id, at: iso(), result: '완료', memo: `고객 요청${why} · 자동 처리`, kind: 'req' }); }
           });
           return { ok: true, amount: c.paid };
         },

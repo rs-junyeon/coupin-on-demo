@@ -36,7 +36,7 @@ export default function CouponView() {
   const openRefund = () => { setReason(REASONS[0]); setSheet('refund'); };
   const refund = async () => {
     setSheet(null);
-    const r = await runBusy(['쿠폰을 취소하고 있어요', '결제를 취소하고 있어요'], () => useDB.getState().requestRefund(c.id));
+    const r = await runBusy(['쿠폰을 취소하고 있어요', '결제를 취소하고 있어요'], () => useDB.getState().requestRefund(c.id, reason));
     toast(r.ok ? `${won(r.amount)} 환불을 요청했어요. 카드사에 따라 3~5영업일 걸려요` : r.error);
   };
   const cancelFree = async () => {

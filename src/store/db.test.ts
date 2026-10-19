@@ -18,8 +18,8 @@ describe('db 동작', () => {
     const r = S().issue('p4', 'card');
     expect(r.ok && r.oid).toBeTruthy();
     if (!r.ok) return;
-    expect(S().requestRefund(r.cid).ok).toBe(true);
-    expect(S().refunds.some(x => x.oid === r.oid && x.result === '완료')).toBe(true);
+    expect(S().requestRefund(r.cid, '단순 변심').ok).toBe(true);
+    expect(S().refunds.some(x => x.oid === r.oid && x.result === '완료' && x.memo.includes('단순 변심'))).toBe(true);
   });
   it('판매 조건: 점주 판매가보다 높일 수 없고, 카테고리를 고르면 게시된다', () => {
     expect(S().saveTerms('p14', { cat: '사진', price: 60000, limit: null }, true).ok).toBe(false);

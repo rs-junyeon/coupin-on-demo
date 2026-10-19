@@ -30,7 +30,7 @@ export default function OrderDetail() {
   const refund = () => {
     if (!c) return;
     setOpen(false);
-    void runBusy(['쿠폰을 취소하고 있어요', '결제를 취소하고 있어요'], () => db.requestRefund(c.id)).then(r => {
+    void runBusy(['쿠폰을 취소하고 있어요', '결제를 취소하고 있어요'], () => db.requestRefund(c.id, reason)).then(r => {
       toast(r.ok ? `${won(r.amount)} 환불을 요청했어요. 카드사에 따라 3~5영업일 걸려요` : r.error);
     });
   };
