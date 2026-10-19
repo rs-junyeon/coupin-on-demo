@@ -1,7 +1,7 @@
 import { useState, type FormEvent } from 'react';
 import { Navigate, useNavigate, useSearchParams } from 'react-router-dom';
 import { useDB } from '@/shared/api';
-import { accountCss as s, BizInfo, TopBar, useUi } from '@/shared/ui/mobile';
+import { BizInfo, TopBar, useUi } from '@/shared/ui/mobile';
 import { safeNext } from '@/shared/lib';
 import { login } from '@/features/auth';
 
@@ -14,15 +14,14 @@ export default function Login() {
   const logged = useDB(st => st.account.logged);
   const toast = useUi(st => st.showToast);
   const [wasLogged] = useState(logged);
-  const [id, setId] = useState('');
-  const [pw, setPw] = useState('');
-  const [err, setErr] = useState('');
+  // 데모: 처음부터 채워 두고, 무엇을 넣어도 로그인된다
+  const [id, setId] = useState('on_user');
+  const [pw, setPw] = useState('onmockup1');
   if (wasLogged) return <Navigate to={next} replace />;
   const q = rawNext ? `?next=${encodeURIComponent(next)}` : '';
   const submit = (e: FormEvent) => {
     e.preventDefault();
-    const r = login(id, pw);
-    if (!r.ok) { setErr(r.error); return; }
+    login();
     nav(next, { replace: true });
     if (!rawNext) toast('로그인했어요');
   };
@@ -33,12 +32,11 @@ export default function Login() {
         <h2>쿠핀 ON 계정으로<br />로그인해 주세요</h2>
         <p className="sub">{rawNext ? '로그인하면 하려던 일로 바로 이어져요.' : '받은 쿠폰과 주문 내역을 어느 기기에서든 볼 수 있어요.'}</p>
         <label className="field" htmlFor="lid"><span>아이디</span>
-          <input id="lid" value={id} autoComplete="username" autoCapitalize="off" onChange={e => { setId(e.target.value); setErr(''); }} />
+          <input id="lid" value={id} autoComplete="username" autoCapitalize="off" onChange={e => setId(e.target.value)} />
         </label>
         <label className="field" htmlFor="lpw"><span>비밀번호</span>
-          <input id="lpw" type="password" value={pw} autoComplete="current-password" onChange={e => { setPw(e.target.value); setErr(''); }} />
+          <input id="lpw" type="password" value={pw} autoComplete="current-password" onChange={e => setPw(e.target.value)} />
         </label>
-        {err && <p className={s.err} role="alert">{err}</p>}
         <button className="cta dark" type="submit">로그인</button>
         <div className="links">
           <button type="button" className="lnk" onClick={() => nav('/find-account')}>아이디·비밀번호 찾기</button>

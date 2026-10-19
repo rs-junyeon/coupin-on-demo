@@ -14,17 +14,24 @@ async function verifyPhone(user: ReturnType<typeof userEvent.setup>, phone: stri
 }
 
 describe('로그인', () => {
-  it('틀린 아이디는 안내하고, 맞으면 next 화면으로 간다', async () => {
+  it('아이디·비밀번호가 미리 채워져 있고, 그대로 누르면 next 화면으로 간다', async () => {
     const user = userEvent.setup();
     const { router } = renderAt('/login?next=/my/orders');
-    await user.type(screen.getByLabelText('아이디'), 'nobody');
-    await user.type(screen.getByLabelText('비밀번호'), 'pass1234');
-    await user.click(screen.getByRole('button', { name: '로그인' }));
-    expect(screen.getByRole('alert')).toHaveTextContent('아이디 또는 비밀번호가 맞지 않아요');
-    await user.clear(screen.getByLabelText('아이디'));
-    await user.type(screen.getByLabelText('아이디'), 'on_user');
+    expect(screen.getByLabelText('아이디')).toHaveValue('on_user');
+    expect(screen.getByLabelText('비밀번호')).toHaveValue('onmockup1');
     await user.click(screen.getByRole('button', { name: '로그인' }));
     await waitFor(() => expect(router.state.location.pathname).toBe('/my/orders'));
+    expect(S().account.logged).toBe(true);
+  });
+
+  it('아무 값이나 넣어도 (비워도) 로그인된다', async () => {
+    const user = userEvent.setup();
+    const { router } = renderAt('/login?next=/my');
+    await user.clear(screen.getByLabelText('아이디'));
+    await user.type(screen.getByLabelText('아이디'), 'nobody');
+    await user.clear(screen.getByLabelText('비밀번호'));
+    await user.click(screen.getByRole('button', { name: '로그인' }));
+    await waitFor(() => expect(router.state.location.pathname).toBe('/my'));
     expect(S().account.logged).toBe(true);
   });
 
