@@ -1,11 +1,9 @@
-// PLUS 상품·상품 관리 공용: 검색조건(노출 상태·카테고리·판매 여부)과 표 칸, 숫자 입력 표기
+// PLUS 상품·상품 관리 공용 검색조건: 노출 상태·카테고리·판매 여부 (주소 검색어에 둔다)
 import { Select } from 'antd';
 import { useSearchParams } from 'react-router-dom';
 import { type AdminState, adminStatus } from '@/entities/product';
 import { type DB } from '@/shared/api';
 import { SearchBox, SearchField, SearchRadio } from '@/shared/ui/admin';
-
-export { numFmt, numParse } from '@/shared/lib';
 
 type St = 'all' | AdminState['k'];
 const ST_OPTS: [St, string][] = [['all', '전체'], ['pub', '게시 중'], ['draft', '미게시'], ['hidden', '숨김'], ['block', '노출 불가']];

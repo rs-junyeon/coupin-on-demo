@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { prodOf, useDB } from '@/shared/api';
 import { who } from '@/entities/account';
 import { won } from '@/shared/lib';
-import s from '../pages/orders.module.css';
+import { ordersCss as s } from '@/shared/ui/admin';
 
 const REASONS = ['고객 요청', '매장 영업 종료', '잘못 발급됨', '직접 입력'] as const;
 

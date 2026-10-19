@@ -1,11 +1,6 @@
-// 고객 앱 C 묶음(마이·주문·문의·설정·계정) 공용 부품: 휴대폰 문자 인증, 약관 문서, 표기 도우미
 import { useState } from 'react';
 import { digits } from '@/shared/lib';
-import { useUi } from '@/shared/ui/mobile';
-import s from './account.module.css';
-
-export { fmtPhone, maskId, maskPhone, safeNext } from '@/shared/lib';
-export { DocBody, DOCS, isDocKey, type DocKey } from '@/shared/ui/legal-doc';
+import { accountCss as s, useUi } from '@/shared/ui/mobile';
 
 const PHONE_RE = /^01\d{8,9}$/;
 /**

@@ -6,9 +6,8 @@ import { useNavigate } from 'react-router-dom';
 import { adminStatus, CatCell, isFree, LimitCell, OnPriceCell, ProdCell, StateCell } from '@/entities/product';
 import { dtA, won } from '@/shared/lib';
 import { type Product, useDB } from '@/shared/api';
-import { ListBox, PageHead, StatusTag, tableProps } from '@/shared/ui/admin';
-import { useProductFilter } from './catalog';
-import s from './catalog.module.css';
+import { catalogCss as s, ListBox, PageHead, StatusTag, tableProps } from '@/shared/ui/admin';
+import { useProductFilter } from '@/features/product-filter';
 
 export default function PlusProducts() {
   const db = useDB();

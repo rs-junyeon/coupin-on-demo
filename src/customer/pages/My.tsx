@@ -3,8 +3,8 @@ import { ME, useDB } from '@/shared/api';
 import { unseenAnswer } from '@/entities/inquiry';
 import { BizInfo, useUi } from '@/shared/ui/mobile';
 import { Icon } from '@/shared/ui/icon';
-import { maskPhone } from './accountKit';
 import { loginWays } from '@/entities/account';
+import { maskPhone } from '@/shared/lib';
 
 /** 마이 탭: 프로필, 회원 정보·주문·문의·설정, 로그아웃 */
 export default function My() {

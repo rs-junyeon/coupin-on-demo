@@ -5,10 +5,11 @@ import { catShown, filterOn, type ListFilter } from '@/entities/product';
 import { shownStores } from '@/entities/store';
 import { type Bounds, type Store, useDB } from '@/shared/api';
 import { KakaoGate, useKakaoReady } from '@/shared/ui/kakao-map';
-import { StoreMap, useLocateOrigin } from '@/map/StoreMap';
+import { StoreMap } from '@/map/StoreMap';
 import { Icon } from '@/shared/ui/icon';
 import { StoreCard } from '../components/StoreCard';
 import styles from './Home.module.css';
+import { useLocateOrigin } from '@/features/locate-me';
 
 /** 둘러보기 탭 (목업 baseHome): 지도에 가게 핀, 핀을 누르면 아래 가게 시트. 지도를 쓸 수 없으면 가까운 가게 목록 */
 export default function Home() {

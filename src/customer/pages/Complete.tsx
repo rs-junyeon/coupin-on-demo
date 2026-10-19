@@ -4,8 +4,7 @@ import { ME, prodOf, storeOf, useDB } from '@/shared/api';
 import { md, won } from '@/shared/lib';
 import { CatIcon } from '@/entities/category';
 import { Icon } from '@/shared/ui/icon';
-import { TopBar } from '@/shared/ui/mobile';
-import s from './purchase.module.css';
+import { purchaseCss as s, TopBar } from '@/shared/ui/mobile';
 
 /** 발급·구매 완료 (C-03-04) */
 export default function Complete() {

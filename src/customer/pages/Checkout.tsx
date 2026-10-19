@@ -4,8 +4,7 @@ import { blockReason, isFree, validityTxt } from '@/entities/product';
 import { PAY_METHODS, type PayMethod, storeOf, useDB } from '@/shared/api';
 import { won } from '@/shared/lib';
 import { CatIcon } from '@/entities/category';
-import { TopBar } from '@/shared/ui/mobile';
-import s from './purchase.module.css';
+import { purchaseCss as s, TopBar } from '@/shared/ui/mobile';
 
 const payMethodOf = (m: string | null): PayMethod => (m && m in PAY_METHODS ? (m as PayMethod) : 'easy');
 

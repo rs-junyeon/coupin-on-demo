@@ -1,9 +1,8 @@
 import { useState, type FormEvent } from 'react';
 import { Navigate, useNavigate, useSearchParams } from 'react-router-dom';
 import { useDB } from '@/shared/api';
-import { BizInfo, TopBar, useUi } from '@/shared/ui/mobile';
-import { safeNext } from './accountKit';
-import s from './account.module.css';
+import { accountCss as s, BizInfo, TopBar, useUi } from '@/shared/ui/mobile';
+import { safeNext } from '@/shared/lib';
 
 /** 로그인: 아이디·비밀번호 또는 카카오·Google. 로그인하면 ?next= 화면으로 이어진다 */
 export default function Login() {

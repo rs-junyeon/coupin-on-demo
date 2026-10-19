@@ -4,8 +4,7 @@ import { type Coupon, myCoupons, prodOf, storeOf, useDB } from '@/shared/api';
 import { daysLeft, md, won, ymdDot } from '@/shared/lib';
 import { CatIcon } from '@/entities/category';
 import { Icon } from '@/shared/ui/icon';
-import { TopBar } from '@/shared/ui/mobile';
-import s from './purchase.module.css';
+import { purchaseCss as s, TopBar } from '@/shared/ui/mobile';
 
 type Tab = 'all' | 'active' | 'past';
 const TABS: [Tab, string][] = [['all', '전체'], ['active', '사용 가능'], ['past', '사용 완료·만료']];

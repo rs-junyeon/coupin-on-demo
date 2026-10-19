@@ -3,9 +3,8 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { cStatus } from '@/entities/coupon';
 import { ME, prodOf, storeOf, useDB } from '@/shared/api';
 import { hm, won, ymdDot } from '@/shared/lib';
-import { runBusy, Sheet, TopBar, useUi } from '@/shared/ui/mobile';
+import { accountCss as s, runBusy, Sheet, TopBar, useUi } from '@/shared/ui/mobile';
 import { CatIcon } from '@/entities/category';
-import s from './account.module.css';
 import NotFound from './NotFound';
 import { orderChip } from '@/entities/order';
 

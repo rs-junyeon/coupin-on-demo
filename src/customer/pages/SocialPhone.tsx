@@ -2,9 +2,10 @@ import { useState } from 'react';
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { useDB } from '@/shared/api';
 import { TopBar, useUi } from '@/shared/ui/mobile';
-import { fmtPhone, maskId, maskPhone, PhoneVerify, safeNext } from './accountKit';
 import NotFound from './NotFound';
 import { isProv, loginWays, SNS } from '@/entities/account';
+import { fmtPhone, maskId, maskPhone, safeNext } from '@/shared/lib';
+import { PhoneVerify } from '@/features/verify-phone';
 
 /**
  * 소셜 로그인을 처음 쓸 때: 휴대폰 번호를 문자로 확인해 같은 사람의 계정을 찾는다.

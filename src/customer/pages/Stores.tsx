@@ -5,11 +5,11 @@ import { catShown, isFree, type ListFilter, pct } from '@/entities/product';
 import { distTxt, storeCat, storeProducts, tabStores } from '@/entities/store';
 import { hm, useOrigin, won } from '@/shared/lib';
 import { type Store, useDB } from '@/shared/api';
-import { useLocateOrigin } from '@/map/StoreMap';
 import { TopBar } from '@/shared/ui/mobile';
 import { Icon } from '@/shared/ui/icon';
 import { photo } from '@/shared/assets';
 import styles from './Stores.module.css';
+import { useLocateOrigin } from '@/features/locate-me';
 
 /** 매장 탭 (목업 baseStores): 카테고리 칩과 검색으로 거르고, 가까운 순으로 가게 목록. 누르면 매장 상세 */
 export default function Stores() {

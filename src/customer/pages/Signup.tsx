@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import { Navigate, useNavigate, useSearchParams } from 'react-router-dom';
 import { useDB } from '@/shared/api';
-import { TopBar, useUi } from '@/shared/ui/mobile';
+import { accountCss as s, TopBar, useUi } from '@/shared/ui/mobile';
 import { Icon } from '@/shared/ui/icon';
-import { DocBody, DOCS, fmtPhone, maskId, PhoneVerify, safeNext, type DocKey } from './accountKit';
-import s from './account.module.css';
 import { isProv, loginWays, SNS } from '@/entities/account';
+import { DocBody, type DocKey, DOCS } from '@/shared/ui/legal-doc';
+import { fmtPhone, maskId, safeNext } from '@/shared/lib';
+import { PhoneVerify } from '@/features/verify-phone';
 
 type AgreeKey = 'age' | 'svc' | 'priv' | 'loc' | 'mkt';
 const ROWS: { k: AgreeKey; t: string; req: boolean; doc?: DocKey }[] = [

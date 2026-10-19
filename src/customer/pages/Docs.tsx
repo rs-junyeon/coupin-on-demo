@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { TopBar } from '@/shared/ui/mobile';
-import { DocBody, DOCS, isDocKey } from './accountKit';
 import NotFound from './NotFound';
+import { DocBody, DOCS, isDocKey } from '@/shared/ui/legal-doc';
 
 /** 약관 문서: /docs/terms · /docs/privacy · /docs/privacy-policy · /docs/location */
 export default function Docs() {

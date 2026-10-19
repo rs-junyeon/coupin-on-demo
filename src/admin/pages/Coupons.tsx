@@ -6,10 +6,9 @@ import { type CouponState, cStatus, maskPin } from '@/entities/coupon';
 import { type Coupon, prodOf, storeOf, useDB } from '@/shared/api';
 import { who } from '@/entities/account';
 import { dtA, won } from '@/shared/lib';
-import { CancelCouponModal } from '../components/CancelCouponModal';
-import { ListBox, PageHead, SearchBox, SearchRadio, StatusTag, tableProps } from '@/shared/ui/admin';
-import { ListQFields, listHit, Q0 } from './listFilter';
-import s from './orders.module.css';
+import { ListBox, ordersCss as s, PageHead, SearchBox, SearchRadio, StatusTag, tableProps } from '@/shared/ui/admin';
+import { CancelCouponModal } from '@/features/cancel-coupon';
+import { listHit, ListQFields, Q0 } from '@/features/order-list-filter';
 
 type St = 'all' | 'active' | 'used' | 'cancel' | 'exp';
 const STS: { value: St; label: string }[] = [{ value: 'all', label: '전체' }, { value: 'active', label: '사용 가능' }, { value: 'used', label: '사용 완료' }, { value: 'cancel', label: '취소' }, { value: 'exp', label: '만료' }];

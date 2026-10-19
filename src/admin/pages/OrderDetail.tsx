@@ -9,9 +9,8 @@ import { type Coupon, type Order, prodOf, storeOf, useDB } from '@/shared/api';
 import { validityTxt } from '@/entities/product';
 import { who } from '@/entities/account';
 import { dtA, won } from '@/shared/lib';
-import { CancelCouponModal } from '../components/CancelCouponModal';
-import { BtnBox, Card, DlGroup, PageHead, StatusTag } from '@/shared/ui/admin';
-import s from './orders.module.css';
+import { BtnBox, Card, DlGroup, ordersCss as s, PageHead, StatusTag } from '@/shared/ui/admin';
+import { CancelCouponModal } from '@/features/cancel-coupon';
 
 function orderHist(o: Order, c: Coupon | null): [string, string][] {
   const h: [string, string][] = [[o.at, `결제 승인 · ${o.method} ${won(o.amount)}`]];

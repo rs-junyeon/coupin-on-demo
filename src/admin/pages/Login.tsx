@@ -3,7 +3,7 @@ import { Button, Form, Input } from 'antd';
 import { useState } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { useDB } from '@/shared/api';
-import s from './catalog.module.css';
+import { catalogCss as s } from '@/shared/ui/admin';
 
 export default function Login() {
   const logged = useDB(x => x.admin.logged);

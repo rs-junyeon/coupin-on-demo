@@ -3,9 +3,8 @@ import { Navigate, useNavigate, useParams, useSearchParams } from 'react-router-
 import { isFree } from '@/entities/product';
 import { won } from '@/shared/lib';
 import { PAY_METHODS, useDB, type PayMethod } from '@/shared/api';
-import { runBusy, useUi } from '@/shared/ui/mobile';
+import { purchaseCss as s, runBusy, useUi } from '@/shared/ui/mobile';
 import { Icon } from '@/shared/ui/icon';
-import s from './purchase.module.css';
 
 /** PG 결제창 (C-03-02-01). 쿠핀 ON이 아니라 결제사가 띄우는 화면이라 다른 모양(.ext)으로 보여 준다 */
 export default function PgPay() {

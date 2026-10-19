@@ -2,12 +2,11 @@ import { useParams } from 'react-router-dom';
 import { catName } from '@/entities/category';
 import { distTxt, StoreActions, storeCat, storeProducts } from '@/entities/store';
 import { useDB } from '@/shared/api';
-import { TopBar } from '@/shared/ui/mobile';
+import { detailCss as styles, TopBar } from '@/shared/ui/mobile';
 import { useOrigin } from '@/shared/lib';
 import { Icon } from '@/shared/ui/icon';
 import { photo } from '@/shared/assets';
 import { ProductRow } from '@/entities/product';
-import styles from './Detail.module.css';
 import NotFound from './NotFound';
 
 /** 매장 상세 (목업 pStore): 소개·주소·영업시간, [길찾기]·[전화], 받을 수 있는 쿠폰 목록 */

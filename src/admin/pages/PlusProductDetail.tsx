@@ -7,8 +7,7 @@ import { adminStatus, editable, isFree, limTxt, PLUS_KIND, type PlusSnap, plusSn
 import { storeOf, useDB } from '@/shared/api';
 import { dtA, won } from '@/shared/lib';
 import { photo } from '@/shared/assets';
-import { BtnBox, Card, DlGroup, PageHead, StatusTag, tableProps } from '@/shared/ui/admin';
-import s from './catalog.module.css';
+import { BtnBox, Card, catalogCss as s, DlGroup, PageHead, StatusTag, tableProps } from '@/shared/ui/admin';
 
 const PlusTag = ({ t }: { t: string }) => <StatusTag kind={PLUS_KIND[t] ?? 'used'}>{t}</StatusTag>;
 const lines = (xs: string[]) => (xs.length ? xs.map((x, i) => <span key={i}>{i > 0 && <br />}{x}</span>) : '없음');

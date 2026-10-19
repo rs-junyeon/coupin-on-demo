@@ -6,9 +6,8 @@ import { orderTag, oStatus } from '@/entities/order';
 import { type Order, prodOf, storeOf, useDB } from '@/shared/api';
 import { who } from '@/entities/account';
 import { dtA, won } from '@/shared/lib';
-import { ListBox, PageHead, SearchBox, SearchRadio, StatusTag, tableProps } from '@/shared/ui/admin';
-import { ListQFields, listHit, Q0 } from './listFilter';
-import s from './orders.module.css';
+import { ListBox, ordersCss as s, PageHead, SearchBox, SearchRadio, StatusTag, tableProps } from '@/shared/ui/admin';
+import { listHit, ListQFields, Q0 } from '@/features/order-list-filter';
 
 type Chip = 'all' | 'unk' | 'stuck';
 const CHIPS: { value: Chip; label: string }[] = [{ value: 'all', label: '전체' }, { value: 'unk', label: '결과 미확인' }, { value: 'stuck', label: '환불 처리 중' }];

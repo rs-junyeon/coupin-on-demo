@@ -5,10 +5,9 @@ import { catName } from '@/entities/category';
 import { distTxt, StoreActions } from '@/entities/store';
 import { storeOf, useDB } from '@/shared/api';
 import { useOrigin, won } from '@/shared/lib';
-import { runBusy, TopBar, useUi } from '@/shared/ui/mobile';
+import { detailCss as styles, runBusy, TopBar, useUi } from '@/shared/ui/mobile';
 import { Icon } from '@/shared/ui/icon';
 import { photo } from '@/shared/assets';
-import styles from './Detail.module.css';
 import NotFound from './NotFound';
 
 /** 상품 상세 (목업 mDetail): 가격·유효기간·사용 장소·유의사항, 아래 [무료로 받기]·[구매하기]. 받을 수 없으면 이유를 보여 준다 */

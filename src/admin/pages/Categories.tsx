@@ -8,8 +8,7 @@ import { CAT_ICONS, CatIcon } from '@/entities/category';
 import { catShown, visible } from '@/entities/product';
 import { type IconName, useDB } from '@/shared/api';
 import { Icon } from '@/shared/ui/icon';
-import { Card, ListBox, PageHead, StatusTag, tableProps } from '@/shared/ui/admin';
-import s from './catalog.module.css';
+import { Card, catalogCss as s, ListBox, PageHead, StatusTag, tableProps } from '@/shared/ui/admin';
 
 const IC_NAME: Record<(typeof CAT_ICONS)[number], string> = { beauty: '뷰티', hair: '헤어', fit: '운동', cafe: '카페', class: '클래스', photo: '사진', food: '음식', pet: '반려동물', gift: '선물', box: '기타' };
 

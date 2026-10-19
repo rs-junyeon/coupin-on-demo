@@ -11,10 +11,8 @@ import { type Coupon, ME, prodOf, storeOf, useDB } from '@/shared/api';
 import { opsAlerts } from './opsAlerts';
 import { stats } from '@/entities/settlement';
 import { who } from '@/entities/account';
-import { dtA, monthLabel, today, won } from '@/shared/lib';
-import { Card, DlGroup, ListBox, PageHead, StatusTag, tableProps } from '@/shared/ui/admin';
-import { numFmt, numParse } from './catalog';
-import s from './catalog.module.css';
+import { dtA, monthLabel, numFmt, numParse, today, won } from '@/shared/lib';
+import { Card, catalogCss as s, DlGroup, ListBox, PageHead, StatusTag, tableProps } from '@/shared/ui/admin';
 
 function Meter({ label, used, total, big, unit }: { label: string; used: number; total: number; big?: boolean; unit?: string }) {
   const f = (v: number) => (unit ? `${v.toLocaleString()}${unit}` : won(v));

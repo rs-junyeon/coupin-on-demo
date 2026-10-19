@@ -1,9 +1,7 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { CustomOverlayMap, Map as KakaoMap } from 'react-kakao-maps-sdk';
-import { SEONGSU, useMyLocation, useOrigin } from '@/shared/lib';
 import { type ListFilter } from '@/entities/product';
 import type { Bounds, LatLng, Store } from '@/shared/api';
-import { useUi } from '@/shared/ui/mobile';
 import styles from './StoreMap.module.css';
 import { StorePin } from './StorePin';
 
@@ -39,22 +37,4 @@ export function StoreMap({ stores, f, sel, onPin, origin, originReal, focus, onM
       {stores.map(s => <StorePin key={s.id} store={s} f={f} sel={sel === s.id} onClick={() => onPin(s.id)} />)}
     </KakaoMap>
   );
-}
-
-/** [내 위치]: 실제 위치를 받아 거리 기준점으로 쓴다. 실패하거나 성수동 밖이면 성수역 기준. 새 기준점을 돌려준다 */
-export function useLocateOrigin() {
-  const { locate, busy } = useMyLocation();
-  const run = useCallback(async (): Promise<LatLng> => {
-    const r = await locate();
-    const { setOrigin } = useOrigin.getState(), { showToast } = useUi.getState();
-    if (r.kind === 'ok') {
-      setOrigin(r.origin, true);
-      showToast('지금 있는 곳 근처 가게로 다시 찾았어요');
-      return r.origin;
-    }
-    setOrigin(SEONGSU, false);
-    showToast('위치를 가져오지 못해 성수역 기준으로 보여 드려요');
-    return SEONGSU;
-  }, [locate]);
-  return { run, busy };
 }

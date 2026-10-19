@@ -4,8 +4,7 @@ import { App, Button, Table } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 import { dtA } from '@/shared/lib';
 import { type SyncLog, useDB } from '@/shared/api';
-import { ListBox, PageHead, StatusTag, tableProps } from '@/shared/ui/admin';
-import s from './catalog.module.css';
+import { catalogCss as s, ListBox, PageHead, StatusTag, tableProps } from '@/shared/ui/admin';
 
 export default function Sync() {
   const log = useDB(x => x.syncLog);

@@ -1,8 +1,7 @@
 import { useRef, useState, type FormEvent } from 'react';
 import { useBlocker, useNavigate } from 'react-router-dom';
 import { type InquiryType, useDB } from '@/shared/api';
-import { Sheet, TopBar, useUi } from '@/shared/ui/mobile';
-import s from './account.module.css';
+import { accountCss as s, Sheet, TopBar, useUi } from '@/shared/ui/mobile';
 
 const TYPES: InquiryType[] = ['결제·환불', '쿠폰 사용', '매장 정보 오류', '기타'];
 const TITLE_MAX = 40;

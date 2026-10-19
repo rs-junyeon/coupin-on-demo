@@ -2,8 +2,7 @@ import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { ME, useDB } from '@/shared/api';
 import { hm, ymdDot } from '@/shared/lib';
-import { TopBar } from '@/shared/ui/mobile';
-import s from './account.module.css';
+import { accountCss as s, TopBar } from '@/shared/ui/mobile';
 import NotFound from './NotFound';
 import { inqChip } from '@/entities/inquiry';
 

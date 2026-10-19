@@ -1,8 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useDB } from '@/shared/api';
-import { BizInfo, TopBar, useUi } from '@/shared/ui/mobile';
-import { DOCS, type DocKey } from './accountKit';
-import s from './account.module.css';
+import { accountCss as s, BizInfo, TopBar, useUi } from '@/shared/ui/mobile';
+import { type DocKey, DOCS } from '@/shared/ui/legal-doc';
 
 const APP_VERSION = '1.0.0';
 const REQUIRED: DocKey[] = ['terms', 'privacy', 'location'];

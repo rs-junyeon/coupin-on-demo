@@ -7,8 +7,7 @@ import { oStatus } from '@/entities/order';
 import { type Inquiry, type InquiryStatus, type InquiryType, prodOf, useDB } from '@/shared/api';
 import { who } from '@/entities/account';
 import { dtA } from '@/shared/lib';
-import { PageHead, SearchBox, SearchField, StatusTag, type TagKind } from '@/shared/ui/admin';
-import s from './orders.module.css';
+import { ordersCss as s, PageHead, SearchBox, SearchField, StatusTag, type TagKind } from '@/shared/ui/admin';
 
 const TYPES: InquiryType[] = ['결제·환불', '쿠폰 사용', '매장 정보 오류', '기타'];
 const STS: InquiryStatus[] = ['접수', '처리 중', '답변 완료'];

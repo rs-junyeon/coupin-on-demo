@@ -6,11 +6,9 @@ import { Navigate, useLocation, useNavigate, useParams } from 'react-router-dom'
 import { adminStatus, editable, isFree, ST_KIND, validityTxt } from '@/entities/product';
 import { FEE } from '@/shared/config';
 import { storeOf, type TermsLog, useDB } from '@/shared/api';
-import { dtA, won } from '@/shared/lib';
+import { dtA, numFmt, numParse, won } from '@/shared/lib';
 import { photo } from '@/shared/assets';
-import { BtnBox, Card, DlGroup, PageHead, StatusTag, tableProps } from '@/shared/ui/admin';
-import { numFmt, numParse } from './catalog';
-import s from './catalog.module.css';
+import { BtnBox, Card, catalogCss as s, DlGroup, PageHead, StatusTag, tableProps } from '@/shared/ui/admin';
 
 const NEW = '__new';
 

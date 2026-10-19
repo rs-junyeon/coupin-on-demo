@@ -5,9 +5,8 @@ import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { adminStatus, CatCell, editable, LimitCell, OnPriceCell, ProdCell, StateCell } from '@/entities/product';
 import { type Product, storeOf, useDB } from '@/shared/api';
-import { ListBox, PageHead, tableProps } from '@/shared/ui/admin';
-import { useProductFilter } from './catalog';
-import s from './catalog.module.css';
+import { catalogCss as s, ListBox, PageHead, tableProps } from '@/shared/ui/admin';
+import { useProductFilter } from '@/features/product-filter';
 
 const NEW = '__new';
 

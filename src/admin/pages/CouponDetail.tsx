@@ -6,9 +6,8 @@ import { cStatus, maskPin } from '@/entities/coupon';
 import { type Coupon, type DB, prodOf, useDB } from '@/shared/api';
 import { who } from '@/entities/account';
 import { dtA, won, ymd } from '@/shared/lib';
-import { CancelCouponModal } from '../components/CancelCouponModal';
-import { BtnBox, Card, DlGroup, PageHead, StatusTag } from '@/shared/ui/admin';
-import s from './orders.module.css';
+import { BtnBox, Card, DlGroup, ordersCss as s, PageHead, StatusTag } from '@/shared/ui/admin';
+import { CancelCouponModal } from '@/features/cancel-coupon';
 
 function couponHist(db: Pick<DB, 'refunds'>, c: Coupon): [string, string][] {
   const h: [string, string][] = [[c.issuedAt, `PLUS 발급 · 주문 ${c.oid}`]];

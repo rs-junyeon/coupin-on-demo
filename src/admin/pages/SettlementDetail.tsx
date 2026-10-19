@@ -7,8 +7,7 @@ import { FEE } from '@/shared/config';
 import { prodOf, storeOf, useDB } from '@/shared/api';
 import { settleCalc, settleMonths, type SettleRow, settleRows, settleTot } from '@/entities/settlement';
 import { md, p2, won } from '@/shared/lib';
-import { BtnBox, ListBox, PageHead, StatusTag, tableProps } from '@/shared/ui/admin';
-import s from './orders.module.css';
+import { BtnBox, ListBox, ordersCss as s, PageHead, StatusTag, tableProps } from '@/shared/ui/admin';
 
 type View = 'store' | 'product';
 type Line = { key: string; label: string; sub: string; n: number; cx: number; gross: number; ded: number; fee: number; pay: number; plusN: number | null };

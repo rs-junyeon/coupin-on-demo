@@ -3,9 +3,8 @@ import { useParams } from 'react-router-dom';
 import { cStatus, fmtPin } from '@/entities/coupon';
 import { ME, prodOf, storeOf, useDB } from '@/shared/api';
 import { daysLeft, hm, won, ymdDot } from '@/shared/lib';
-import { Barcode, runBusy, Sheet, TopBar, useUi } from '@/shared/ui/mobile';
+import { Barcode, purchaseCss as s, runBusy, Sheet, TopBar, useUi } from '@/shared/ui/mobile';
 import { Icon } from '@/shared/ui/icon';
-import s from './purchase.module.css';
 
 const REASONS = ['단순 변심', '매장 방문이 어려워요', '다른 상품으로 바꾸고 싶어요', '기타'];
 

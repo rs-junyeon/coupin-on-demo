@@ -2,8 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { cStatus } from '@/entities/coupon';
 import { myCoupons, useDB } from '@/shared/api';
-import { Sheet, TopBar, useUi } from '@/shared/ui/mobile';
-import s from './account.module.css';
+import { accountCss as s, Sheet, TopBar, useUi } from '@/shared/ui/mobile';
 
 /** 회원 탈퇴: 안내 확인 → [탈퇴하기] → 확인 시트 → 탈퇴 */
 export default function Withdraw() {
