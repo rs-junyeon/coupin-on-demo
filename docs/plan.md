@@ -1,8 +1,8 @@
 # 쿠핀 ON 데모: 지금 기획(2026-10-16)으로 옮기기
 
-- 작성: 2026-10-19 · 브랜치 `feat/current-spec` (테스트 후 main 머지)
+- 작성: 2026-10-19 · 브랜치 `feat/current-spec`에서 작업하고 테스트 후 main에 머지함 (2026-10-19)
 - 원본 화면: `~/Documents/company/on-planning/on-mockup-split.html` (상품 탭 분리안, 쿠핀+ 디자인 맞춘 버전)
-- 기획 문서: PRD·IA 시트·첫 출시 범위 (Google Docs). 시연 장치(가이드·시연 상황·화면 설명·흐름 띠·연동 로그)는 넣지 않는다. **실제 서비스 화면처럼** 만든다.
+- 기획 문서: [PRD](https://docs.google.com/document/d/1GtdLziD9oJuto-a25ZCMMmhbz7Xru84yAoz6xQ5ZYy4/edit) · [IA 시트](https://docs.google.com/spreadsheets/d/14w8AZtN1QRWIVaoa3FjKefu8RxSkAZa9Zh0Vp3CXa4k/edit) · [첫 출시 범위](https://docs.google.com/document/d/1uycjl93NupoXuT5iOje9jxzkYxXhfHHqDn2oWMityws/edit). 시연 장치(가이드·시연 상황·화면 설명·흐름 띠·연동 로그)는 넣지 않는다. **실제 서비스 화면처럼** 만든다.
 
 ## 결정
 
@@ -23,10 +23,20 @@ src/
   domain/   types.ts · time.ts(날짜·금액 표기) · rules.ts(노출·상태·한도·정산 계산, 순수 함수) · geo.ts
   data/     seed.ts (목업 예시 데이터)
   store/    db.ts (persist, 모든 동작) · ui.ts (토스트·처리 중, 저장 안 함)
-  ui/       Icon.tsx (목업 아이콘) · CatIcon.tsx
+  ui/       Icon.tsx (목업 아이콘) · CatIcon.tsx · photos.ts (예시 사진)
   map/      KakaoGate · status · useMyLocation · StoreMap · StorePin
   customer/ CustomerLayout, components/, pages/   (라우트 /)
   admin/    AdminLayout, theme.ts, admin.css, components/, pages/   (라우트 /admin)
 ```
 
 규칙: 인라인 스타일 금지(CSS Modules·클래스), 노출 문구에 줄표(—) 부연 금지, 화면은 store 동작만 부르고 계산은 domain/rules.ts.
+
+## 기획에 없어 데모에서 임시로 정한 것
+
+| 항목 | 데모 | 정할 곳 |
+| --- | --- | --- |
+| 상품 화면 구성 | 관리자 상품 화면은 비교용 분리안(PLUS 상품 보기 \| 상품 관리). 기획 문서는 아직 탭 하나(A-02-01) 기준 | 팀 비교 후 IA·PRD 6.8 |
+| 동기화 주기 | PLUS 동기화 화면에 "3시간마다"로 표시 | PRD 11장 (주기 확인 필요) |
+| 상품별 한도 기본값 | 빈칸. 비우면 전체 한도만 적용 (목업은 50장·50만 원을 미리 채움) | PRD 6.9 |
+| 사업자 정보 | "(예시)" 자리표시 (`customer/components/BizInfo.tsx`) | 법무 확인 (P5) |
+| 지도 | 카카오 키가 없어 실제 지도 화면(핀·가게 시트·이 지역에서 다시 찾기)은 아직 확인하지 못함 | `.env`에 키를 넣고 확인 |
