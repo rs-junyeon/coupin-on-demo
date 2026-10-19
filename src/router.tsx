@@ -1,22 +1,6 @@
 import type { ReactElement } from 'react';
 import { createBrowserRouter, Navigate, type RouteObject } from 'react-router-dom';
-import { AdminLayout, AdminProviders, type Crumb } from './admin/AdminLayout';
-import ACategories from './admin/pages/Categories';
-import ACouponDetail from './admin/pages/CouponDetail';
-import ACoupons from './admin/pages/Coupons';
-import ADashboard from './admin/pages/Dashboard';
-import AInquiries from './admin/pages/Inquiries';
-import ALogin from './admin/pages/Login';
-import AOrderDetail from './admin/pages/OrderDetail';
-import AOrders from './admin/pages/Orders';
-import APlusProductDetail from './admin/pages/PlusProductDetail';
-import APlusProducts from './admin/pages/PlusProducts';
-import AProducts from './admin/pages/Products';
-import ARefunds from './admin/pages/Refunds';
-import ASettlementDetail from './admin/pages/SettlementDetail';
-import ASettlements from './admin/pages/Settlements';
-import ASync from './admin/pages/Sync';
-import ATerms from './admin/pages/Terms';
+import type { Crumb } from './admin/AdminLayout';
 import { RequireLogin } from './customer/components/RequireLogin';
 import { CustomerLayout } from './customer/CustomerLayout';
 import AccountDelete from './customer/pages/AccountDelete';
@@ -49,33 +33,35 @@ import Wallet from './customer/pages/Wallet';
 import Withdraw from './customer/pages/Withdraw';
 
 const c = (...crumb: string[]): Crumb => ({ crumb });
+/** 관리자(antd)는 화면마다 나눠 불러온다. 고객 모바일 웹은 관리자 코드를 내려받지 않는다 */
+const A = (page: string): Pick<RouteObject, 'lazy'> => ({ lazy: async () => ({ Component: (await import(`./admin/pages/${page}.tsx`)).default }) });
 const L = (el: ReactElement) => <RequireLogin>{el}</RequireLogin>;
 
 /** 고객 앱 `/` (모바일 웹), 관리자 `/admin` (웹) */
 export const routes: RouteObject[] = [
   {
     path: '/admin',
-    element: <AdminProviders />,
+    lazy: async () => ({ Component: (await import('./admin/AdminLayout')).AdminProviders }),
     children: [
-      { path: 'login', element: <ALogin /> },
+      { path: 'login', ...A('Login') },
       {
-        element: <AdminLayout />,
+        lazy: async () => ({ Component: (await import('./admin/AdminLayout')).AdminLayout }),
         children: [
-          { index: true, element: <ADashboard />, handle: c('판매 현황') },
-          { path: 'plus-products', element: <APlusProducts />, handle: c('상품·판매 관리', 'PLUS 상품') },
-          { path: 'plus-products/:pid', element: <APlusProductDetail />, handle: c('상품·판매 관리', 'PLUS 상품', '상품 상세') },
-          { path: 'products', element: <AProducts />, handle: c('상품·판매 관리', '상품 관리') },
-          { path: 'products/:pid/terms', element: <ATerms />, handle: c('상품·판매 관리', '상품 관리', '판매 조건') },
-          { path: 'categories', element: <ACategories />, handle: c('상품·판매 관리', '카테고리') },
-          { path: 'orders', element: <AOrders />, handle: c('주문·쿠폰', '주문') },
-          { path: 'orders/:oid', element: <AOrderDetail />, handle: c('주문·쿠폰', '주문', '주문 상세') },
-          { path: 'refunds', element: <ARefunds />, handle: c('주문·쿠폰', '환불') },
-          { path: 'coupons', element: <ACoupons />, handle: c('주문·쿠폰', '발급 내역') },
-          { path: 'coupons/:cid', element: <ACouponDetail />, handle: c('주문·쿠폰', '발급 내역', '쿠폰 상세') },
-          { path: 'settlements', element: <ASettlements />, handle: c('정산', '월별 정산') },
-          { path: 'settlements/:month', element: <ASettlementDetail />, handle: c('정산', '월별 정산', '정산 상세') },
-          { path: 'inquiries', element: <AInquiries />, handle: c('고객 지원', '문의') },
-          { path: 'sync', element: <ASync />, handle: c('시스템', 'PLUS 동기화') },
+          { index: true, ...A('Dashboard'), handle: c('판매 현황') },
+          { path: 'plus-products', ...A('PlusProducts'), handle: c('상품·판매 관리', 'PLUS 상품') },
+          { path: 'plus-products/:pid', ...A('PlusProductDetail'), handle: c('상품·판매 관리', 'PLUS 상품', '상품 상세') },
+          { path: 'products', ...A('Products'), handle: c('상품·판매 관리', '상품 관리') },
+          { path: 'products/:pid/terms', ...A('Terms'), handle: c('상품·판매 관리', '상품 관리', '판매 조건') },
+          { path: 'categories', ...A('Categories'), handle: c('상품·판매 관리', '카테고리') },
+          { path: 'orders', ...A('Orders'), handle: c('주문·쿠폰', '주문') },
+          { path: 'orders/:oid', ...A('OrderDetail'), handle: c('주문·쿠폰', '주문', '주문 상세') },
+          { path: 'refunds', ...A('Refunds'), handle: c('주문·쿠폰', '환불') },
+          { path: 'coupons', ...A('Coupons'), handle: c('주문·쿠폰', '발급 내역') },
+          { path: 'coupons/:cid', ...A('CouponDetail'), handle: c('주문·쿠폰', '발급 내역', '쿠폰 상세') },
+          { path: 'settlements', ...A('Settlements'), handle: c('정산', '월별 정산') },
+          { path: 'settlements/:month', ...A('SettlementDetail'), handle: c('정산', '월별 정산', '정산 상세') },
+          { path: 'inquiries', ...A('Inquiries'), handle: c('고객 지원', '문의') },
+          { path: 'sync', ...A('Sync'), handle: c('시스템', 'PLUS 동기화') },
           { path: '*', element: <Navigate to="/admin" replace /> },
         ],
       },

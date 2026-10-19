@@ -1,7 +1,7 @@
 import { fireEvent, screen, waitFor, within } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 import { useDB } from '../../store/db';
-import { renderAt } from '../../test/render';
+import { renderReady, settle } from '../../test/render';
 
 const prod = (id: string) => useDB.getState().products.find(p => p.id === id)!;
 /** antd Select 열고 옵션 고르기 */
@@ -13,7 +13,7 @@ function pick(label: string, option: string) {
 
 describe('관리자 상품', () => {
   it('로그인하지 않으면 운영자 로그인으로 보내고, 로그인하면 판매 현황이 열린다', async () => {
-    const { router } = renderAt('/admin/products');
+    const { router } = await renderReady('/admin/products');
     expect(router.state.location.pathname).toBe('/admin/login');
     expect(screen.getByLabelText('아이디')).toHaveValue('ops.park');
     fireEvent.change(screen.getByLabelText('비밀번호'), { target: { value: 'pw1234' } });
@@ -24,10 +24,12 @@ describe('관리자 상품', () => {
   });
 
   it('p14 판매 조건에서 카테고리를 고르고 저장하고 게시한다', async () => {
-    const { router } = renderAt('/admin/products?st=draft', { admin: true });
+    const { router } = await renderReady('/admin/products?st=draft', { admin: true });
     const row = screen.getByText('프로필 사진 촬영 체험').closest('tr')!;
     fireEvent.click(within(row).getByRole('button', { name: /판매 조건/ }));
-    expect(router.state.location.pathname).toBe('/admin/products/p14/terms');
+    await waitFor(() => expect(router.state.location.pathname).toBe('/admin/products/p14/terms'));
+    await settle(router);
+    await screen.findByRole('button', { name: '저장하고 게시' });
 
     // 카테고리 없이 게시하면 막는다
     fireEvent.click(screen.getByRole('button', { name: '저장하고 게시' }));
@@ -42,7 +44,7 @@ describe('관리자 상품', () => {
   });
 
   it('여러 상품을 골라 카테고리를 지정하고 게시한다 (노출 불가는 건너뜀)', async () => {
-    renderAt('/admin/products?cat=none', { admin: true });
+    await renderReady('/admin/products?cat=none', { admin: true });
     ['프로필 사진 촬영 체험', '물레 체험 2인', '소금빵 3개 교환권'].forEach(name =>
       fireEvent.click(within(screen.getByText(name).closest('tr')!).getByRole('checkbox')));
     const bar = screen.getByRole('region', { name: '일괄 처리' });
@@ -55,19 +57,19 @@ describe('관리자 상품', () => {
     expect(screen.queryByRole('region', { name: '일괄 처리' })).not.toBeInTheDocument();
   });
 
-  it('카테고리 화면의 미분류 상품 보기는 미분류만 보여 준다', () => {
-    const { router } = renderAt('/admin/categories', { admin: true });
+  it('카테고리 화면의 미분류 상품 보기는 미분류만 보여 준다', async () => {
+    const { router } = await renderReady('/admin/categories', { admin: true });
     fireEvent.click(screen.getByRole('link', { name: '미분류 상품 보기' }));
-    expect(router.state.location.search).toBe('?cat=none');
+    await waitFor(() => expect(router.state.location.search).toBe('?cat=none'));
     const n = useDB.getState().products.filter(p => !p.cat).length;
-    expect(screen.getByText(`전체 ${n}건`)).toBeInTheDocument();
+    expect(await screen.findByText(`전체 ${n}건`)).toBeInTheDocument();
   });
 
   it('PLUS 상품 상세의 상품변경 이력은 바뀐 칸을 표시하고, 동기화를 실행하면 기록이 쌓인다', async () => {
-    const { router } = renderAt('/admin/plus-products', { admin: true });
+    const { router } = await renderReady('/admin/plus-products', { admin: true });
     fireEvent.click(screen.getByText('1:1 체험 레슨 50분'));
-    expect(router.state.location.pathname).toBe('/admin/plus-products/p4');
-    fireEvent.click(screen.getByRole('tab', { name: /상품변경 이력/ }));
+    await waitFor(() => expect(router.state.location.pathname).toBe('/admin/plus-products/p4'));
+    fireEvent.click(await screen.findByRole('tab', { name: /상품변경 이력/ }));
     expect(router.state.location.search).toBe('?tab=history');
     expect(document.querySelectorAll('td.cell-chg').length).toBeGreaterThan(0);
 
@@ -79,7 +81,7 @@ describe('관리자 상품', () => {
   });
 
   it('카테고리를 추가하고 행 안에서 이름을 바꾼다, 판매 현황에서 한도를 고친다', async () => {
-    const { router } = renderAt('/admin/categories', { admin: true });
+    const { router } = await renderReady('/admin/categories', { admin: true });
     fireEvent.change(screen.getByLabelText('새 카테고리 이름'), { target: { value: '반려동물' } });
     fireEvent.click(screen.getByRole('button', { name: '아이콘 반려동물' }));
     fireEvent.click(screen.getByRole('button', { name: '추가' }));

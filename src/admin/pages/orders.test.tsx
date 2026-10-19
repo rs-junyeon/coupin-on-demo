@@ -4,13 +4,13 @@ import { describe, expect, it } from 'vitest';
 import { seed } from '../../data/seed';
 import { settleMonths } from '../../domain/rules';
 import { useDB } from '../../store/db';
-import { renderAt } from '../../test/render';
+import { renderReady } from '../../test/render';
 
 const S = () => useDB.getState();
 
 describe('관리자 주문·쿠폰·정산', () => {
   it('주문: 검색칸 여러 개는 모두 맞는 주문만 남긴다', async () => {
-    renderAt('/admin/orders', { admin: true });
+    await renderReady('/admin/orders', { admin: true });
     expect(await screen.findByText('전체 11건')).toBeInTheDocument();
     await userEvent.type(screen.getByLabelText('가게 이름으로 찾기'), '공방');
     expect(screen.getByText('전체 2건')).toBeInTheDocument();
@@ -23,7 +23,7 @@ describe('관리자 주문·쿠폰·정산', () => {
 
   it('결과 미확인 주문: tid로 확인하면 쿠폰을 복구하고 완료로 바뀐다', async () => {
     const oid = seed().orders.find(o => o.unconfirmed)!.id;
-    renderAt(`/admin/orders/${oid}`, { admin: true });
+    await renderReady(`/admin/orders/${oid}`, { admin: true });
     await userEvent.click(await screen.findByRole('button', { name: 'tid로 발급 결과 확인' }));
     const o = S().orders.find(x => x.id === oid)!;
     expect(o.unconfirmed).toBe(false);
@@ -34,7 +34,7 @@ describe('관리자 주문·쿠폰·정산', () => {
   });
 
   it('쿠폰 취소 모달: 유료 쿠폰을 취소하면 결제도 취소되고 환불 기록이 남는다', async () => {
-    renderAt('/admin/coupons/c1', { admin: true });
+    await renderReady('/admin/coupons/c1', { admin: true });
     await userEvent.click(await screen.findByRole('button', { name: '쿠폰 취소' }));
     const dlg = await screen.findByRole('dialog');
     expect(within(dlg).getByText(/결제 19,900원도 함께 취소돼요/)).toBeInTheDocument();
@@ -50,7 +50,7 @@ describe('관리자 주문·쿠폰·정산', () => {
 
   it('정산 상세: PLUS와 차이를 반영해야 확정할 수 있다', async () => {
     const key = settleMonths(seed())[1].key, mm = Number(key.slice(5));
-    renderAt(`/admin/settlements/${key}`, { admin: true });
+    await renderReady(`/admin/settlements/${key}`, { admin: true });
     const confirm = await screen.findByRole('button', { name: `${mm}월 정산 확정` });
     expect(confirm).toBeDisabled();
     await userEvent.click(screen.getByRole('button', { name: /ON 6장 · PLUS 7장/ }));
