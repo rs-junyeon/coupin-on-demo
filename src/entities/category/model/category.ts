@@ -10,8 +10,13 @@ export const catOf = (db: Pick<DB, 'cats'>, k: string | null) => (k && db.cats[k
 
 export const catName = (db: Pick<DB, 'cats'>, k: string | null) => (k && db.cats[k] ? k : '미분류');
 
-/** 카테고리 추가: 아직 쓰지 않은 색을 앞에서부터 준다 */
-export function addCategoryIn(d: DB, name: string, icon: IconName) {
-  const used = Object.values(d.cats).map(c => c.color);
-  d.cats[name] = { color: CAT_COLORS.find(c => !used.includes(c)) ?? CAT_COLORS[Object.keys(d.cats).length % CAT_COLORS.length], icon };
+/** 새 카테고리가 받을 색: 아직 쓰지 않은 색을 앞에서부터 */
+export function nextCatColor(cats: DB['cats']) {
+  const used = Object.values(cats).map(c => c.color);
+  return CAT_COLORS.find(c => !used.includes(c)) ?? CAT_COLORS[Object.keys(cats).length % CAT_COLORS.length];
+}
+
+/** 카테고리 추가. img(올린 아이콘)가 있으면 icon 대신 쓴다 */
+export function addCategoryIn(d: DB, name: string, icon: IconName, img?: string) {
+  d.cats[name] = { color: nextCatColor(d.cats), icon, ...(img ? { img } : {}) };
 }
