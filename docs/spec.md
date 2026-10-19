@@ -1,6 +1,6 @@
 # 쿠핀 ON 설계 (지금 기획 기준)
 
-- 갱신: 2026-10-19 · 기획: PRD·IA 시트·첫 출시 범위 (2026-10-16) · 화면 원본: `on-planning/on-mockup-split.html` (상품 탭 분리안)
+- 갱신: 2026-10-19 · 기획: [PRD](https://docs.google.com/document/d/1GtdLziD9oJuto-a25ZCMMmhbz7Xru84yAoz6xQ5ZYy4/edit) · [IA 시트](https://docs.google.com/spreadsheets/d/14w8AZtN1QRWIVaoa3FjKefu8RxSkAZa9Zh0Vp3CXa4k/edit) · [첫 출시 범위](https://docs.google.com/document/d/1uycjl93NupoXuT5iOje9jxzkYxXhfHHqDn2oWMityws/edit) (2026-10-16) · 화면 원본: `on-planning/on-mockup-split.html` (상품 탭 분리안)
 - 이전 버전(2026-10-12, Halo 보강 구조)은 git 기록에 있다.
 
 ## 1. 서비스 구조
@@ -34,8 +34,9 @@
 
 | 메뉴 | 주소 | IA |
 | --- | --- | --- |
+| 로그인 | `/admin/login` | A-00-01 |
 | 판매 현황 | `/admin` | A-01, 운영 알림 A-00-03·04, 발급 한도 A-02-04 |
-| PLUS 상품 | `/admin/plus-products`, `/:pid` (`?tab=history`) | A-02-01, 상품 상세 A-02-01-03 (상품정보 \| 상품변경 이력) |
+| PLUS 상품 (분리안, 확정 전) | `/admin/plus-products`, `/:pid` (`?tab=history`) | A-02-01, 상품 상세 A-02-01-03 (상품정보 \| 상품변경 이력) |
 | 상품 관리 | `/admin/products`, `/:pid/terms` | A-02-06 (일괄 처리 A-02-06-01), 판매 조건 A-02-02 (변경 기록 A-02-02-01) |
 | 카테고리 | `/admin/categories` | A-02-05 |
 | 주문 | `/admin/orders`, `/:oid` | A-03-01, A-03-01-01 |
@@ -44,6 +45,8 @@
 | 월별 정산 | `/admin/settlements`, `/:month` | A-04-01, A-04-01-01 |
 | 문의 | `/admin/inquiries` (`?id=`) | A-05-01, A-05-01-01 |
 | PLUS 동기화 | `/admin/sync` | A-06-01 |
+
+A-02-01-03(상품변경 이력)과 A-02-06·A-02-06-01(상품 관리·일괄 처리)은 분리안 목업에서 붙인 번호이고 IA 시트에는 아직 없다. IA 시트는 PLUS 상품 탭 하나(A-02-01, 일괄 처리 A-02-01-02) 기준이다.
 
 화면 구조는 쿠핀+ 관리자 웹: 어두운 사이드바, 브레드크럼 헤더, "검색조건"(이름표 붙은 칸·상태 칩 묶음·[검색][초기화]) / "목록"(전체 N건·오른쪽 버튼·표·가운데 페이지 넘김), 상세는 카드와 라벨·값 줄, 아래 버튼 영역([목록] 맨 앞).
 
@@ -55,7 +58,7 @@ src/
   data/     seed.ts (예시 데이터)
   store/    db.ts (zustand persist, 모든 동작, 탭 간 동기화) · ui.ts (토스트·처리 중·내 위치)
   ui/       Icon · CatIcon · photos
-  map/      KakaoGate · StoreMap · StorePin · useMyLocation
+  map/      KakaoGate · status · StoreMap · StorePin · useMyLocation
   customer/ CustomerLayout · customer.css · components/ · pages/
   admin/    AdminLayout · theme.ts · admin.css · components/ · pages/   (화면마다 나눠 불러옴)
   router.tsx
