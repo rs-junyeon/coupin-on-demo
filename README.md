@@ -17,6 +17,8 @@ pnpm dev               # http://localhost:5173
 카카오 키: [카카오 디벨로퍼스](https://developers.kakao.com) → 내 애플리케이션 → 앱 키의 **JavaScript 키**.
 플랫폼 → Web 사이트 도메인에 `http://localhost:5173` 등록. 키가 없거나 도메인이 맞지 않으면 지도 자리에 안내가 나오고, 그 아래 가까운 가게 목록으로 계속 쓸 수 있다.
 
+배포(Vercel): 화면 주소는 브라우저 안 라우터가 처리하므로 `vercel.json`이 모든 경로를 `index.html`로 리라이트한다 (주소는 그대로, `/admin` 등을 직접 열거나 새로고침해도 404가 나지 않는다).
+
 `pnpm test` 화면·규칙 테스트 · `pnpm typecheck` · `pnpm lint:fsd` FSD 구조 검사 · `pnpm build`
 
 코드는 Feature-Sliced Design으로 나눴다 (`app → pages → features → entities → shared`). 자세한 구성은 [docs/spec.md 4장](docs/spec.md#4-코드-구조-feature-sliced-design).
