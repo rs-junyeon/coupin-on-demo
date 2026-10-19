@@ -1,15 +1,11 @@
 // 고객 로그인·가입·소셜 로그인. 같은 사람인지는 문자로 인증한 휴대폰 번호로 판단한다
-import { mutate, useDB, type Result, type SocialProvider } from '@/shared/api';
+import { mutate, useDB, type SocialProvider } from '@/shared/api';
 import { digits } from '@/shared/lib';
 
 const get = () => useDB.getState();
 
-export function login(userId: string, pw: string): Result {
-  if (!userId.trim() || !pw) return { ok: false, error: '아이디와 비밀번호를 입력해 주세요' };
-  if (userId.trim() !== get().account.userId || !get().account.links.pw) return { ok: false, error: '아이디 또는 비밀번호가 맞지 않아요' };
-  mutate(d => { d.account.logged = true; });
-  return { ok: true };
-}
+/** 데모: 아이디·비밀번호에 무엇을 넣어도 이 데모 계정으로 로그인한다 */
+export const login = () => mutate(d => { d.account.logged = true; });
 export const logout = () => mutate(d => { d.account.logged = false; });
 
 /** 자체 가입. 이미 가입한 휴대폰 번호면 새로 만들지 않는다 */

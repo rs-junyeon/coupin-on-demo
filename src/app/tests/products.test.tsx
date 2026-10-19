@@ -15,8 +15,9 @@ describe('관리자 상품', () => {
   it('로그인하지 않으면 운영자 로그인으로 보내고, 로그인하면 판매 현황이 열린다', async () => {
     const { router } = await renderReady('/admin/products');
     expect(router.state.location.pathname).toBe('/admin/login');
+    // 아이디·비밀번호가 미리 채워져 있어 그대로 누르면 된다
     expect(screen.getByLabelText('아이디')).toHaveValue('ops.park');
-    fireEvent.change(screen.getByLabelText('비밀번호'), { target: { value: 'pw1234' } });
+    expect(screen.getByLabelText('비밀번호')).toHaveValue('onadmin1');
     fireEvent.click(screen.getByRole('button', { name: '로그인' }));
     await waitFor(() => expect(router.state.location.pathname).toBe('/admin'));
     expect(await screen.findByRole('heading', { name: /판매 현황/ })).toBeInTheDocument();

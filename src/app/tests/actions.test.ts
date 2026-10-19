@@ -8,7 +8,7 @@ const S = () => useDB.getState();
 describe('받기·구매·환불', () => {
   beforeEach(() => resetDB());
   it('무료 쿠폰 받기 → 1인 1회 → 취소하면 한도가 돌아간다', () => {
-    login('on_user', 'x');
+    login();
     const before = S().limit.fused;
     const r = issue('p6');
     expect(r.ok).toBe(true);
