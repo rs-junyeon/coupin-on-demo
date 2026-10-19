@@ -5,9 +5,8 @@ import { useState } from 'react';
 import { Navigate, useLocation, useNavigate, useParams } from 'react-router-dom';
 import { adminStatus, editable, isFree, ST_KIND, validityTxt } from '@/entities/product';
 import { FEE } from '@/shared/config';
-import { storeOf, type TermsLog, useDB } from '@/shared/api';
+import { photo, storeOf, type TermsLog, useDB } from '@/shared/api';
 import { dtA, numFmt, numParse, won } from '@/shared/lib';
-import { photo } from '@/shared/assets';
 import { BtnBox, Card, catalogCss as s, DlGroup, PageHead, StatusTag, tableProps } from '@/shared/ui/admin';
 
 const NEW = '__new';

@@ -4,10 +4,9 @@ import { catName } from '@/entities/category';
 import { catShown, isFree, type ListFilter, pct } from '@/entities/product';
 import { distTxt, storeCat, storeProducts, tabStores } from '@/entities/store';
 import { hm, useOrigin, won } from '@/shared/lib';
-import { type Store, useDB } from '@/shared/api';
+import { photo, type Store, useDB } from '@/shared/api';
 import { TopBar } from '@/shared/ui/mobile';
 import { Icon } from '@/shared/ui/icon';
-import { photo } from '@/shared/assets';
 import styles from './Stores.module.css';
 import { useLocateOrigin } from '@/features/locate-me';
 
