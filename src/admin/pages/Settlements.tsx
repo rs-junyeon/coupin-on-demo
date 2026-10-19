@@ -3,7 +3,7 @@ import { ReloadOutlined } from '@ant-design/icons';
 import { App, Button, Table, type TableColumnsType } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { settleMonths, type SettleMonth } from '../../domain/rules';
-import { dtA, won } from '../../domain/time';
+import { won } from '../../domain/time';
 import { useDB } from '../../store/db';
 import { ListBox, PageHead, StatusTag, tableProps } from '../components/ui';
 import { settleTag } from './listFilter';
@@ -15,14 +15,13 @@ export default function Settlements() {
   const months = settleMonths(db);
   const cur = months[0], last = months[1];
   // 수동 실행 시각은 ISO로 저장돼 있어 관리자 표기로 바꾼다
-  const atTxt = (m: SettleMonth) => (m.key === cur.key && db.settle.runAt ? `${dtA(db.settle.runAt)} (수동)` : m.at);
 
   const columns: TableColumnsType<SettleMonth> = [
     { title: '정산 월', dataIndex: 'label' },
     { title: '상태', dataIndex: 'st', render: (v: SettleMonth['st']) => <StatusTag kind={settleTag(v)}>{v}</StatusTag> },
     { title: '발급', dataIndex: 'n', align: 'right', render: (v: number) => `${v.toLocaleString()}장` },
     { title: '점주 지급액', dataIndex: 'amt', align: 'right', render: (v: number) => won(v) },
-    { title: '생성', key: 'at', render: (_, m) => atTxt(m) },
+    { title: '생성', key: 'at', dataIndex: 'at' },
     {
       title: '동작', key: 'act', render: (_, m) => (
         <Button size="small" onClick={() => (m.key === last.key ? nav(`/admin/settlements/${m.key}`) : message.info(m.key === cur.key ? '이번 달은 아직 집계 중이에요. 상세 내역은 지난달 정산만 볼 수 있어요' : '상세 내역은 지난달 정산만 볼 수 있어요'))}>상세</Button>

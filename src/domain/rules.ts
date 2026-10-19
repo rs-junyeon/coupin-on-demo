@@ -1,6 +1,6 @@
 // 노출·상태·한도·정산 계산 (순수 함수). 화면은 여기 값을 그대로 보여 준다
 import { distanceLabel, distanceM } from './geo';
-import { addDays, monthKey, monthLabel, startOfDay, today, won, ymdDot, md } from './time';
+import { addDays, dtA, monthKey, monthLabel, startOfDay, today, won, ymdDot, md } from './time';
 import type { Category, Coupon, DB, LatLng, Order, PlusLogEntry, Product, Store } from './types';
 
 /** 판매수수료 n%(미정). 데모는 10%로 계산한다. 무료 쿠폰은 0원, 환불·취소 주문은 수수료 없음 */
@@ -193,7 +193,7 @@ export function settleMonths(db: DB, base = today()): SettleMonth[] {
   const m = (k: number) => new Date(base.getFullYear(), base.getMonth() - k, 1);
   const sep = db.settle.done ? '확정' : !db.settle.checked ? '차이 있음' : '대사 중';
   return [
-    { key: monthKey(m(0)), label: monthLabel(m(0)), st: '대사 중', n: st.issued, amt: st.gmv - st.fee, at: db.settle.runAt ?? `${monthKey(m(0))}-${String(base.getDate()).padStart(2, '0')} 06:00 (자동)` },
+    { key: monthKey(m(0)), label: monthLabel(m(0)), st: '대사 중', n: st.issued, amt: st.gmv - st.fee, at: db.settle.runAt ? `${dtA(db.settle.runAt)} (수동)` : `${monthKey(m(0))}-${String(base.getDate()).padStart(2, '0')} 06:00 (자동)` },
     { key: monthKey(m(1)), label: monthLabel(m(1)), st: sep, n: t.n, amt: t.pay, at: `${monthKey(m(0))}-01 06:00 (자동)` },
     { key: monthKey(m(2)), label: monthLabel(m(2)), st: '확정', n: 152, amt: 1782450, at: `${monthKey(m(1))}-01 06:00 (자동)` },
     { key: monthKey(m(3)), label: monthLabel(m(3)), st: '확정', n: 128, amt: 1515600, at: `${monthKey(m(2))}-01 06:00 (자동)` },
