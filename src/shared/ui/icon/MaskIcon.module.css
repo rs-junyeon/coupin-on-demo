@@ -1,0 +1,2 @@
+/* 이미지의 모양(투명하지 않은 부분)만 따서 글자색으로 칠한다 */
+.mask { display: block; flex: none; width: var(--s); height: var(--s); background: currentColor; -webkit-mask: var(--m) center / contain no-repeat; mask: var(--m) center / contain no-repeat; }

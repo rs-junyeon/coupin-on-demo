@@ -49,7 +49,8 @@ export type Product = {
   plusLog: PlusLogEntry[];
 };
 
-export type Category = { color: string; icon: IconName };
+/** img: 운영자가 올린 아이콘(투명 PNG data URL). 있으면 icon 대신 흰색 실루엣으로 그린다 */
+export type Category = { color: string; icon: IconName; img?: string };
 
 /** 쿠폰 상태: PLUS 쿠폰 상태 값 */
 export type CouponStatus = 'ISSUED' | 'IN_USE' | 'EXCHANGED' | 'CANCELLED';
