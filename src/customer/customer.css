@@ -441,3 +441,5 @@
 .c-busy-hint { margin-top: 4px; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .c-sheet-layer { position: absolute; inset: 0; z-index: 50; }
+/* 가게 머리줄(.store-h span 등)의 글자 규칙이 카테고리 아이콘을 덮지 않게 */
+.c-app .cat-ico { display: grid; place-items: center; color: var(--white); }
