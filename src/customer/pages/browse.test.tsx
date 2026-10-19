@@ -84,7 +84,18 @@ describe('상품 상세', () => {
     const { router } = renderAt('/products/p6');
     await userEvent.click(screen.getByRole('button', { name: /무료로 받기/ }));
     expect(router.state.location.pathname).toBe('/login');
-    expect(q(router.state.location.search).get('next')).toBe('/products/p6');
+    expect(q(router.state.location.search).get('next')).toBe('/products/p6?claim=1');
+  });
+
+  it('로그인하고 돌아오면 하려던 무료 받기를 이어서 한다', async () => {
+    const { router } = renderAt('/products/p6?claim=1', { logged: true });
+    await waitFor(() => expect(router.state.location.pathname).toMatch(/^\/complete\//), { timeout: 3000 });
+  });
+
+  it('유료 상품은 로그인 뒤 결제 화면으로 이어진다', async () => {
+    const { router } = renderAt('/products/p4');
+    await userEvent.click(screen.getByRole('button', { name: /구매하기/ }));
+    expect(q(router.state.location.search).get('next')).toBe('/checkout/p4');
   });
 
   it('무료 쿠폰을 받으면 발급 완료 화면으로 간다', async () => {

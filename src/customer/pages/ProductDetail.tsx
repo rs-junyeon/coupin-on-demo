@@ -1,4 +1,5 @@
-import { useNavigate, useParams } from 'react-router-dom';
+import { useEffect, useRef } from 'react';
+import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { blockReason, catName, distTxt, isFree, pct, storeOf, validityTxt } from '../../domain/rules';
 import { won } from '../../domain/time';
 import { useDB } from '../../store/db';
@@ -16,18 +17,31 @@ export default function ProductDetail() {
   const nav = useNavigate();
   const db = useDB();
   const origin = useUi(s => s.origin);
+  const [sp, setSp] = useSearchParams();
   const p = db.products.find(x => x.id === pid);
+  // 로그인하러 갔다가 돌아오면 하려던 무료 받기를 이어서 한다 (?claim=1, 한 번만)
+  const resumed = useRef(false);
+  const resume = sp.get('claim') === '1' && db.account.logged && !!p;
+  useEffect(() => {
+    if (!resume || resumed.current) return;
+    resumed.current = true;
+    setSp({}, { replace: true });
+    void claimRef.current?.();
+  }, [resume, setSp]);
+  const claimRef = useRef<(() => Promise<void>) | null>(null);
   if (!p) return <NotFound />;
   const s = storeOf(db, p.sid), v = validityTxt(p), why = blockReason(db, p), free = isFree(p);
   const useFor = 'until' in p.val ? `${v.main} 쓸 수 있어요` : `${v.main} 동안 쓸 수 있어요`;
 
   const claim = async () => {
-    if (!db.account.logged) { nav(`/login?next=${encodeURIComponent(`/products/${p.id}`)}`); return; }
+    // 로그인을 결제보다 먼저 끝낸다. 로그인하면 유료는 결제 화면으로, 무료는 이 화면에서 바로 받기를 이어 간다
+    if (!db.account.logged) { nav(`/login?next=${encodeURIComponent(free ? `/products/${p.id}?claim=1` : `/checkout/${p.id}`)}`); return; }
     if (!free) { nav(`/checkout/${p.id}`); return; }
     const r = await runBusy(['쿠폰을 발급하고 있어요'], () => useDB.getState().issue(p.id));
     if (r.ok) nav(`/complete/${r.cid}`);
     else useUi.getState().showToast(r.error);
   };
+  claimRef.current = claim;
 
   return (
     <div className="c-page">
