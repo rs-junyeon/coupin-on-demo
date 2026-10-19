@@ -15,22 +15,12 @@
 | 상태 | zustand persist (`coupin-on-demo-v2`), 다른 탭과 storage 이벤트로 동기화 (관리자에서 게시하면 고객 앱 탭에 반영) |
 | 날짜 | 실제 오늘 기준. 시드 데이터는 목업 기준일(2026-10-15)과의 차이만큼 옮겨 만든다 |
 | 관리자 상품 화면 | 분리안으로 확정 (2026-10-19). PLUS 상품(보기, 상품 상세: 상품정보 \| 상품변경 이력)과 상품 관리(판매 조건 페이지·게시·숨김·일괄 처리). PRD 6.8·IA 시트·첫 출시 범위에 반영함 |
+| 코드 구조 | Feature-Sliced Design v2.1 (화면 먼저 나누고, 여러 화면이 쓰는 것만 features·entities로). Steiger로 검사 (`pnpm lint:fsd`) |
 | 결제·소셜 로그인·문자 인증 | 외부 화면(PG 결제창, 카카오·Google 동의)은 테스트용 화면으로 대신한다. 인증번호는 6자리면 통과 |
 
 ## 구조
 
-```
-src/
-  domain/   types.ts · time.ts(날짜·금액 표기) · rules.ts(노출·상태·한도·정산 계산, 순수 함수) · geo.ts
-  data/     seed.ts (목업 예시 데이터)
-  store/    db.ts (persist, 모든 동작) · ui.ts (토스트·처리 중, 저장 안 함)
-  ui/       Icon.tsx (목업 아이콘) · CatIcon.tsx · photos.ts (예시 사진)
-  map/      KakaoGate · status · useMyLocation · StoreMap · StorePin
-  customer/ CustomerLayout, components/, pages/   (라우트 /)
-  admin/    AdminLayout, theme.ts, admin.css, components/, pages/   (라우트 /admin)
-```
-
-규칙: 인라인 스타일 금지(CSS Modules·클래스), 노출 문구에 줄표(—) 부연 금지, 화면은 store 동작만 부르고 계산은 domain/rules.ts.
+Feature-Sliced Design(2026-10-19 적용). 레이어·조각 구성과 규칙은 [spec.md 4장](spec.md#4-코드-구조-feature-sliced-design).
 
 ## 기획에 없어 데모에서 임시로 정한 것
 
