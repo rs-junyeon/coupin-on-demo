@@ -38,7 +38,7 @@
 | 판매 현황 | `/admin` | A-01, 운영 알림 A-00-03·04, 발급 한도 A-02-04 |
 | PLUS 상품 | `/admin/plus-products`, `/:pid` (`?tab=history`) | A-02-01, 상품 상세 A-02-01-03 (상품정보 \| 상품변경 이력) |
 | 상품 관리 | `/admin/products`, `/:pid/terms` | A-02-06 (일괄 처리 A-02-06-01), 판매 조건 A-02-02 (변경 기록 A-02-02-01) |
-| 카테고리 | `/admin/categories` | A-02-05 |
+| 카테고리 | `/admin/categories` | A-02-05 (기본 아이콘에서 고르거나 PNG·SVG 직접 올리기) |
 | 주문 | `/admin/orders`, `/:oid` | A-03-01, A-03-01-01 |
 | 환불 | `/admin/refunds` | A-03-02 |
 | 발급 내역 | `/admin/coupons`, `/:cid` | A-03-03, 쿠폰 상세 A-03-03-01, 취소 A-03-03-02 |
