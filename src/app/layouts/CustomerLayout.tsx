@@ -1,4 +1,4 @@
-import { NavLink, Outlet, useLocation } from 'react-router-dom';
+import { Link, NavLink, Outlet, useLocation } from 'react-router-dom';
 import { KakaoLoader } from '@/shared/ui/kakao-map';
 import { myCoupons, useDB } from '@/shared/api';
 import { cStatus } from '@/entities/coupon';
@@ -25,6 +25,8 @@ export function CustomerLayout() {
   return (
     <div className="c-shell">
       <KakaoLoader />
+      {/* 고객 앱 ↔ 관리자 오가기. 앱 폭(480px) 바깥이 남는 넓은 화면에서만 보인다 */}
+      <Link to="/admin" className="mode-switch">관리자 화면<Icon name="chev" size={14} /></Link>
       <div className={`c-app ${showTabs ? '' : 'no-tabs'}`}>
         <Outlet />
         {showTabs && (
