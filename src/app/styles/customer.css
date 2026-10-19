@@ -443,3 +443,11 @@
 .c-sheet-layer { position: absolute; inset: 0; z-index: 50; }
 /* 가게 머리줄(.store-h span 등)의 글자 규칙이 카테고리 아이콘을 덮지 않게 */
 .c-app .cat-ico { display: grid; place-items: center; color: var(--white); }
+
+/* 고객 앱 ↔ 관리자 오가기 (앱 바깥, 넓은 화면에서만) */
+.mode-switch { display: none; }
+@media (min-width: 760px) {
+  .mode-switch { position: fixed; top: 16px; right: 16px; z-index: 20; display: inline-flex; align-items: center; gap: 2px; height: 34px; padding: 0 10px 0 14px; border-radius: 17px; background: var(--white); color: var(--ink-2); font-family: var(--f-sans); font-size: 13px; font-weight: 600; text-decoration: none; box-shadow: 0 0 0 1px var(--line), 0 4px 12px -6px rgba(36,50,74,.3); }
+  .mode-switch:hover { color: var(--ink); }
+  .mode-switch:focus-visible { outline: 2px solid var(--sky-700); outline-offset: 2px; }
+}

@@ -53,3 +53,5 @@
 .icpick button:hover { border-color: var(--lime-700); }
 .icpick button[aria-pressed="true"] { background: var(--lime-50); border-color: var(--lime-700); color: var(--lime-900); box-shadow: 0 0 0 2px rgba(127,165,87,.18); }
 .editRow { display: grid; gap: 8px; }
+.loginBack { display: block; margin-top: 16px; text-align: center; font-size: 13.5px; color: var(--ink-3); }
+.loginBack:hover { color: var(--ink); }

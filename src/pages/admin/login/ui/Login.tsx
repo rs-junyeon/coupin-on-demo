@@ -1,7 +1,7 @@
 // 운영자 로그인 (A-00-01): 고객 계정과 따로 관리한다
 import { Button, Form, Input } from 'antd';
 import { useState } from 'react';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { useDB } from '@/shared/api';
 import { catalogCss as s } from '@/shared/ui/admin';
 import { adminLogin } from '@/features/admin-auth';
@@ -30,6 +30,7 @@ export default function Login() {
           </Form.Item>
           <Button type="primary" htmlType="submit" className={s.loginBtn}>로그인</Button>
         </Form>
+        <Link to="/" className={s.loginBack}>고객 앱으로 가기</Link>
       </div>
     </div>
   );

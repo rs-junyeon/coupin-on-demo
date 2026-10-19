@@ -1,4 +1,4 @@
-import { AccountBookOutlined, AppstoreOutlined, BarChartOutlined, CustomerServiceOutlined, LogoutOutlined, SettingOutlined, ShoppingCartOutlined } from '@ant-design/icons';
+import { AccountBookOutlined, AppstoreOutlined, BarChartOutlined, CustomerServiceOutlined, LogoutOutlined, MobileOutlined, SettingOutlined, ShoppingCartOutlined } from '@ant-design/icons';
 import { App as AntApp, Breadcrumb, Button, ConfigProvider, Layout, Menu, type MenuProps } from 'antd';
 import koKR from 'antd/locale/ko_KR';
 import { Link, Outlet, useLocation, useMatches, useNavigate } from 'react-router-dom';
@@ -51,6 +51,7 @@ function Shell() {
         <Layout.Header className="a-header">
           <Breadcrumb items={crumb.map(t => ({ title: t }))} />
           <span className="sp" />
+          <Button icon={<MobileOutlined />} onClick={() => nav('/')}>고객 앱</Button>
           <span className="a-user"><b>{name}</b> 님</span>
           <Button type="text" icon={<LogoutOutlined />} aria-label="로그아웃" onClick={() => { adminLogout(); nav('/admin/login'); }} />
         </Layout.Header>
