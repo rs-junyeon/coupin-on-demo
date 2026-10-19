@@ -1,0 +1,55 @@
+/* 관리자 D1 묶음 전용 (로그인·판매 현황·상품·카테고리·동기화). 공용 모양은 admin.css */
+
+/* 운영자 로그인 (A-00-01) */
+.login { min-height: 100vh; display: grid; place-items: center; padding: 24px 16px; background: var(--navy); }
+.loginCard { width: 400px; max-width: 100%; background: #fff; border-radius: 14px; padding: 32px 32px 28px; box-shadow: 0 16px 48px rgba(16,22,46,.24); }
+.loginLogo { display: flex; align-items: center; gap: 8px; font-size: 18px; font-weight: 800; margin-bottom: 8px; }
+.loginLogo .mark { width: 32px; height: 32px; border-radius: 9px; background: var(--on-grad); color: var(--ink); display: grid; place-items: center; font-size: 12px; font-weight: 800; }
+.loginDesc { margin: 0 0 24px; color: var(--ink-3); font-size: 13.5px; line-height: 1.6; }
+.loginBtn { width: 100%; height: 44px !important; font-size: 15px !important; }
+
+/* 카드 머리 보조 문구 */
+.cardSub { font-size: 12.5px; font-weight: 500; color: var(--ink-3); }
+
+/* 운영 알림 */
+.alerts { display: grid; gap: 8px; }
+.alertGroups { display: grid; gap: 20px; }
+.danger { background: var(--coral-50); border-color: var(--coral-100); color: var(--coral-900); }
+.alertIcon { margin-top: 3px; flex: none; }
+.none { margin: 0; font-size: 13px; color: var(--ink-3); }
+.mono { font-family: var(--f-mono); font-size: 12.5px; }
+
+/* 일별 발급 막대 그래프 */
+.grid { stroke: var(--line); stroke-width: 1; }
+.bar { fill: var(--lime-700); }
+.barToday { fill: var(--mint-700); }
+.hit { fill: transparent; }
+.barG:hover .bar, .barG:hover .barToday { opacity: .8; }
+
+/* KPI 3칸 (PLUS 동기화) */
+.kpis3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 1100px) { .kpis3 { grid-template-columns: minmax(0, 1fr); } }
+
+/* 표 안 동작 버튼, 일괄 처리 막대 */
+.acts { display: flex; gap: 6px; flex-wrap: nowrap; }
+.sp { flex: 1; }
+.bulkSel { width: 200px; }
+.bulkInput { width: 180px !important; }
+.err { flex-basis: 100%; margin: 6px 0 0; color: var(--coral-800); font-size: 12.5px; font-weight: 600; }
+.dash { color: var(--ink-3); }
+
+/* 판매 조건 */
+.newCat { margin-top: 8px; }
+.roVal { font-size: 15px; font-weight: 700; }
+.wide { width: 100% !important; }
+.terms :global(.ant-form-item-extra) { font-size: 12.5px; line-height: 1.55; margin-top: 4px; }
+.imgGap { margin-bottom: 16px; }
+
+/* 카테고리: 아이콘 고르기 */
+.catForm { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+.catName { width: 220px !important; }
+.icpick { display: flex; gap: 6px; flex-wrap: wrap; }
+.icpick button { width: 36px; height: 36px; border-radius: 8px; border: 1px solid var(--line-2); background: #fff; color: var(--ink-2); display: grid; place-items: center; padding: 0; }
+.icpick button:hover { border-color: var(--lime-700); }
+.icpick button[aria-pressed="true"] { background: var(--lime-50); border-color: var(--lime-700); color: var(--lime-900); box-shadow: 0 0 0 2px rgba(127,165,87,.18); }
+.editRow { display: grid; gap: 8px; }

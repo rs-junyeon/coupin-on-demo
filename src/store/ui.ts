@@ -1,50 +1,33 @@
+// 화면에만 쓰는 상태 (저장하지 않음): 고객 앱 토스트, 처리 중 화면, 내 위치
 import { create } from 'zustand';
-import type { CheckId } from '../data/checks';
 import { SEONGSU } from '../domain/geo';
-import type { Bounds, CategoryId, LatLng } from '../domain/types';
+import type { LatLng } from '../domain/types';
 
-export type View = 'split' | 'admin' | 'app';
-export type AdminPage = 'halo' | 'edit' | 'published' | 'stats';
-export type AppScreen = 'home' | 'detail' | 'checkout' | 'done' | 'wallet' | 'coupon';
-export type Pop = 'guide' | 'checks' | 'log';
-
-type AppState = {
-  screen: AppScreen; mode: 'map' | 'list'; cat: CategoryId | 'ALL'; q: string;
-  selected: string | null; detail: string | null; couponId: string | null;
-  walletTab: 'ACTIVE' | 'PAST'; lastIssued: string | null;
-};
-type AdminState = { page: AdminPage; filter: 'ALL' | 'DRAFT' | 'PUBLISHED' | 'HIDDEN'; editing: string | null };
-
+type Toast = { text: string; id: number; action?: { label: string; to: string } };
 type Ui = {
-  view: View; admin: AdminState; app: AppState;
-  pop: Pop | null; popFocus: CheckId | null; toast: { text: string; id: number } | null;
-  origin: LatLng; bounds: Bounds | null; justPublished: string | null;
-  setView(v: View): void;
-  setAdmin(p: Partial<AdminState>): void;
-  setApp(p: Partial<AppState>): void;
-  setPop(p: Pop | null): void;
-  openCheck(id: CheckId): void;
-  showToast(text: string): void;
-  setOrigin(o: LatLng): void;
-  setBounds(b: Bounds | null): void;
-  setJustPublished(code: string | null): void;
-  resetUi(): void;
+  toast: Toast | null;
+  /** 처리 중 화면 문구 (결제 확인, 발급 중 등) */
+  busy: string | null;
+  /** 거리 기준점. 위치 권한이 없거나 성수동 밖이면 성수역 */
+  origin: LatLng;
+  originAt: string | null;
+  originReal: boolean;
+  showToast(text: string, action?: Toast['action']): void;
+  hideToast(): void;
+  setBusy(text: string | null): void;
+  setOrigin(o: LatLng, real: boolean): void;
 };
-
-const initialAdmin: AdminState = { page: 'halo', filter: 'ALL', editing: null };
-const initialApp: AppState = { screen: 'home', mode: 'map', cat: 'ALL', q: '', selected: null, detail: null, couponId: null, walletTab: 'ACTIVE', lastIssued: null };
-
 export const useUi = create<Ui>()(set => ({
-  view: 'split', admin: initialAdmin, app: initialApp,
-  pop: null, popFocus: null, toast: null, origin: SEONGSU, bounds: null, justPublished: null,
-  setView: view => set({ view }),
-  setAdmin: p => set(s => ({ admin: { ...s.admin, ...p } })),
-  setApp: p => set(s => ({ app: { ...s.app, ...p } })),
-  setPop: pop => set({ pop, popFocus: null }),
-  openCheck: id => set({ pop: 'checks', popFocus: id }),
-  showToast: text => set(s => ({ toast: { text, id: (s.toast?.id ?? 0) + 1 } })),
-  setOrigin: origin => set({ origin }),
-  setBounds: bounds => set({ bounds }),
-  setJustPublished: justPublished => set({ justPublished }),
-  resetUi: () => set(s => ({ admin: initialAdmin, app: initialApp, pop: null, popFocus: null, origin: SEONGSU, bounds: null, justPublished: null, view: s.view })),
+  toast: null, busy: null, origin: SEONGSU, originAt: null, originReal: false,
+  showToast: (text, action) => set(s => ({ toast: { text, action, id: (s.toast?.id ?? 0) + 1 } })),
+  hideToast: () => set({ toast: null }),
+  setBusy: busy => set({ busy }),
+  setOrigin: (origin, originReal) => set({ origin, originReal, originAt: new Date().toISOString() }),
 }));
+
+/** 처리 중 화면을 단계별로 보여 준 뒤 실행한다 */
+export async function runBusy<T>(phases: string[], fn: () => T, ms = 800): Promise<T> {
+  const { setBusy } = useUi.getState();
+  for (const p of phases) { setBusy(p); await new Promise(r => setTimeout(r, ms)); }
+  try { return fn(); } finally { setBusy(null); }
+}

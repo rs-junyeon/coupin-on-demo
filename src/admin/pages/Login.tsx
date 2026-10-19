@@ -1,0 +1,36 @@
+// 운영자 로그인 (A-00-01): 고객 계정과 따로 관리한다
+import { Button, Form, Input } from 'antd';
+import { useState } from 'react';
+import { Navigate, useNavigate } from 'react-router-dom';
+import { useDB } from '../../store/db';
+import s from './catalog.module.css';
+
+export default function Login() {
+  const logged = useDB(x => x.admin.logged);
+  const adminLogin = useDB(x => x.adminLogin);
+  const nav = useNavigate();
+  const [err, setErr] = useState('');
+  if (logged) return <Navigate to="/admin" replace />;
+
+  const submit = (v: { id: string; pw: string }) => {
+    const r = adminLogin(v.id ?? '', v.pw ?? '');
+    if (!r.ok) { setErr(r.error); return; }
+    nav('/admin', { replace: true });
+  };
+
+  return (
+    <div className={s.login}>
+      <div className={s.loginCard}>
+        <div className={s.loginLogo}><span className={s.mark}>ON</span>ON 관리자<span className="a-sid">A-00-01</span></div>
+        <p className={s.loginDesc}>운영자 계정으로 로그인해요. 고객 계정과는 따로 관리해요.</p>
+        <Form layout="vertical" requiredMark={false} initialValues={{ id: 'ops.park' }} onFinish={submit} onValuesChange={() => setErr('')}>
+          <Form.Item label="아이디" name="id"><Input autoComplete="username" /></Form.Item>
+          <Form.Item label="비밀번호" name="pw" validateStatus={err ? 'error' : undefined} help={err ? <span role="alert">{err}</span> : undefined}>
+            <Input.Password autoComplete="current-password" />
+          </Form.Item>
+          <Button type="primary" htmlType="submit" className={s.loginBtn}>로그인</Button>
+        </Form>
+      </div>
+    </div>
+  );
+}

@@ -1,0 +1,7 @@
+/* 둘러보기 탭: 지도 위 머리, 지역 다시 찾기, 지도를 쓸 수 없을 때의 목록 */
+.searchWrap { position: relative; }
+:global(.c-app) .clear { position: absolute; right: 8px; top: 8px; width: 30px; height: 30px; display: grid; place-items: center; border-radius: 8px; color: var(--ink-3); }
+.static:global(.home-top) { position: static; padding-bottom: 10px; }
+:global(.c-app) .area { justify-self: center; height: 36px; padding: 0 14px; border-radius: 999px; background: var(--white); box-shadow: var(--shadow-1); color: var(--sky-700); font-size: 13px; font-weight: 700; display: inline-flex; align-items: center; gap: 6px; }
+.locate { bottom: 20px; }
+.card { background: var(--white); border: 1px solid var(--line); border-radius: 12px; padding: 14px; }

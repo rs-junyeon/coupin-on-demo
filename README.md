@@ -1,39 +1,39 @@
-# 쿠핀 ON 데모 (Vite + React)
+# 쿠핀 ON (Vite + React)
 
-쿠핀 ON 기획을 설명하는 클릭형 데모. 왼쪽은 ON 관리자, 오른쪽은 고객 웹앱(폰 화면)이고 샘플 데이터로만 동작한다.
+쿠핀 ON 고객 모바일 웹과 ON 관리자를 예시 데이터로 동작하게 만든 프로젝트. 기획(PRD·IA 시트·첫 출시 범위, 2026-10-16)과 `on-planning/on-mockup-split.html`을 실제 서비스 화면처럼 옮겼다.
 
-- 기획서: 노션 「회사 > ON 기획」 https://app.notion.com/p/ON-3f78e59a2a2780508948ee6dd9ea35c4?source=copy_link
-- 설계: [docs/spec.md](docs/spec.md) · 구현 계획: [docs/plan.md](docs/plan.md)
-- 이전 버전(단일 HTML): `../index.html`
-- 디자인: 쿠핀 컬러 시스템 `~/Documents/company/all.html` (토큰은 `src/styles/tokens.css`). ON 시그니처 Lime→Mint, 흐름 띠 노드는 각 서비스 시그니처(PLUS Mint→Sky, HALO Coral→Apricot, 인증 Sky→Navy)
+- 고객 앱: http://localhost:5173/ (모바일 웹, 가운데 최대 480px)
+- 관리자: http://localhost:5173/admin (antd 5, 쿠핀+ 관리자 웹 구조)
+- 설계: [docs/spec.md](docs/spec.md) · 옮기기 결정: [docs/plan.md](docs/plan.md)
 
 ## 실행
 
 ```sh
-cp .env.example .env   # VITE_KAKAO_JS_KEY 채우기
+cp .env.example .env   # VITE_KAKAO_JS_KEY 채우기 (없어도 지도 말고는 다 동작)
 pnpm install
 pnpm dev               # http://localhost:5173
 ```
 
 카카오 키: [카카오 디벨로퍼스](https://developers.kakao.com) → 내 애플리케이션 → 앱 키의 **JavaScript 키**.
-플랫폼 → Web 사이트 도메인에 `http://localhost:5173` 등록. 키가 없거나 도메인이 맞지 않으면 지도 자리에 안내가 나오고, 나머지 기능은 그대로 동작한다.
+플랫폼 → Web 사이트 도메인에 `http://localhost:5173` 등록. 키가 없거나 도메인이 맞지 않으면 지도 자리에 안내가 나오고, 그 아래 가까운 가게 목록으로 계속 쓸 수 있다.
 
-`pnpm test` 단위 테스트 · `pnpm typecheck` · `pnpm build`
+`pnpm test` 화면·규칙 테스트 · `pnpm typecheck` · `pnpm build`
 
-## 시연 순서 (약 5분, 상단 [시연 가이드]에 자동 체크)
+## 계정 (예시 데이터)
 
-1. 관리자 Halo 상품에서 "네일 기본 케어 체험권" [보강하기] → 주소 검색 또는 지도 클릭으로 위치 지정 (또는 [예시 값 채우기]) → [게시하기]
-2. 고객 앱 지도에 새 핀이 떨어진 것을 확인하고 눌러 상세 보기
-3. [구매하기] → 결제 동의 → 데모 결제
-4. 내 쿠폰에서 바코드·PIN 확인 → [매장 사용 처리] (확인 필요 1번을 설명하는 자리)
-5. 무료 상품(커피, 핸드 케어) [무료로 받기]
-6. 관리자 발급 현황에서 방금 발급한 내역과 Halo 월 한도 확인
+| 화면 | 계정 |
+| --- | --- |
+| 고객 | 아이디 `on_user` (비밀번호는 아무 값). 휴대폰 `010-1234-5678`로 가입된 계정이라, 카카오·Google로 처음 들어와 이 번호로 인증하면 같은 계정에 연결된다. 문자 인증번호는 6자리면 통과 |
+| 관리자 | 아이디 `ops.park` (비밀번호는 아무 값) |
 
-그 밖에: 고객 지도를 움직이면 [이 지역에서 다시 찾기], [내 위치]로 실제 위치 기준 정렬(성수동 5km 밖이면 성수동 기준).
+## 같이 쓰기
 
-## 화면의 장치
+- 데이터는 브라우저 저장소 `coupin-on-demo-v2`에 있다. 관리자 탭과 고객 앱 탭을 같이 열면, 관리자에서 게시·숨김·판매 조건을 바꾸는 즉시 고객 앱 탭에 반영된다.
+- 처음 상태로 돌리려면 개발자 도구에서 저장소 키 `coupin-on-demo-v2`를 지운다.
+- 날짜는 오늘 기준이다. 예시 주문·쿠폰은 목업 기준일(2026-10-15)과 오늘의 차이만큼 옮겨 만든다.
+- 결제창(PG)과 카카오·Google 동의 화면은 외부 화면을 대신하는 테스트 화면이다.
 
-- 상단 흐름 띠: 동작마다 PLUS · Halo · ON · 고객 · 매장 중 실제로 거칠 경로가 켜진다. 노란 점선은 아직 연동 방법이 확인되지 않은 경로
-- 연동 로그: 실제 연동이라면 호출됐을 API (`POST /v2/orders` 등)
-- 노란 "확인 필요 N" 배지: 노션 기획서 8번 섹션의 질문 번호와 같다
-- [처음 상태로]: 게시·발급 상태를 seed로 되돌린다 (브라우저 저장 키 `coupin-on-demo-react-v1`)
+## 디자인 기준
+
+- 구조·컴포넌트: `~/Documents/coupin-plus` (관리자: plus-admin-web, libs/cims-ui·cims-assets / 고객 모바일: plus-qr-web 치수)
+- 색: 쿠핀 컬러 시스템 `~/Documents/company/all.html` (ON Lime → Mint, Deep Navy)

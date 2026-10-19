@@ -92,3 +92,29 @@
   --font: 'Pretendard', system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif;
   --mono: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace;
 }
+
+/* 목업(on-mockup-split.html) 변수 이름 별칭: 고객 앱·관리자 CSS가 같이 쓴다 */
+:root {
+  --ink: #10162E;
+  --ink-2: #3F4866;
+  --ink-3: #8B92A8;
+  --line: #E8E9F3;
+  --line-2: #D0D2E0;
+  --paper: #F8FAFC;
+  --muted: #F0F1F8;
+  --white: #FFFFFF;
+  --navy: #24324A;
+  --on-grad: linear-gradient(135deg, #C3E89E 0%, #7FE7D8 100%);
+  --lime-50: #F4FBEC; --lime-100: #E8F6D8; --lime-200: #D9F0BE; --lime-300: #CDEBAB; --lime-500: #C3E89E; --lime-600: #A3CC7A; --lime-700: #7FA557; --lime-800: #5A7A3A; --lime-900: #3C5325;
+  --navy-50: #F4F5FA; --navy-200: #B8BECC; --navy-500: #5E6782;
+  --mint-50: #F0FBF9; --mint-100: #D6F5EF; --mint-700: #3FA597; --mint-800: #2A7D72;
+  --butter-50: #FFFBF0; --butter-100: #FFF4D8; --butter-600: #E0BE78; --butter-900: #5E4A1C;
+  --coral-50: #FFF0F2; --coral-100: #FFDCE1; --coral-600: #E07E90; --coral-800: #8A4A57;
+  --sky-50: #EFF7FF; --sky-700: #3F82BC;
+  --map-land: #EEF1EA; --map-block: #E2E7DC; --map-road: #FFFFFF; --map-park: #D3E8C4; --map-water: #CDE3F2; --map-rail: #9BCF8A;
+  --shadow-1: 0 6px 18px rgba(36, 50, 74, .12);
+  --shadow-2: 0 18px 48px -16px rgba(36, 50, 74, .35);
+  --ease: cubic-bezier(.32, .72, 0, 1);
+  --f-sans: "Pretendard", "Pretendard Variable", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}

@@ -1,0 +1,4 @@
+/* 매장 상세·상품 상세 */
+.info { margin-top: 14px; }
+.last:global(.dsec) { border-bottom: 0; }
+.none:global(.empty) { padding: 24px; }
