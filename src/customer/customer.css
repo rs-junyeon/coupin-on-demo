@@ -1,15 +1,16 @@
-/* 고객 앱 (모바일 웹) 공용 클래스. 목업 on-mockup-split.html의 고객 앱 CSS를 옮겼다
+/* 고객 앱 (모바일 웹) 공용 클래스. 기본 요소 초기화는 :where()로 우선순위를 0으로 둬서 .chip·.cta 같은 클래스가 이긴다.
+    목업 on-mockup-split.html의 고객 앱 CSS를 옮겼다
    치수는 쿠핀+ 모바일 웹(plus-qr-web): 입력 48px·radius 8, CTA 52px·radius 10, 카드 radius 12, 모달 radius 14
    색은 쿠핀 컬러 시스템 (ON Lime→Mint, Deep Navy) */
 
-.c-app, .c-app * { box-sizing: border-box; }
+:where(.c-app), :where(.c-app) * { box-sizing: border-box; }
 .c-app { background: var(--white); color: var(--ink); font-family: var(--f-sans); font-size: 14px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
-.c-app button, .c-app input, .c-app select, .c-app textarea { font: inherit; color: inherit; }
-.c-app button { cursor: pointer; border: 0; background: none; padding: 0; }
-.c-app button:disabled { cursor: not-allowed; }
-.c-app :focus-visible { outline: 2px solid var(--sky-700); outline-offset: 2px; }
-.c-app svg { display: block; }
-.c-app a { color: inherit; text-decoration: none; }
+:where(.c-app) :where(button, input, select, textarea) { font: inherit; color: inherit; }
+:where(.c-app) :where(button) { cursor: pointer; border: 0; background: none; padding: 0; }
+:where(.c-app) :where(button:disabled) { cursor: not-allowed; }
+:where(.c-app) :focus-visible { outline: 2px solid var(--sky-700); outline-offset: 2px; }
+:where(.c-app) :where(svg) { display: block; }
+:where(.c-app) :where(a) { color: inherit; text-decoration: none; }
 .num { font-variant-numeric: tabular-nums; }
 .mono { font-family: var(--f-mono); }
 
