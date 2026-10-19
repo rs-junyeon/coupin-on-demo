@@ -1,5 +1,5 @@
 // 고객 앱 아이콘 (목업 on-mockup-split.html의 선 아이콘). 관리자는 @ant-design/icons를 쓴다
-import type { IconName } from '../domain/types';
+import type { IconName } from '@/shared/api';
 
 const IP: Record<IconName, string> = {
   beauty: '<path d="M12 3l1.8 4.6L18.5 9.5l-4.7 1.9L12 16l-1.8-4.6L5.5 9.5l4.7-1.9z"/><path d="M18.5 15l.7 1.8 1.8.7-1.8.7-.7 1.8-.7-1.8-1.8-.7 1.8-.7z"/>',

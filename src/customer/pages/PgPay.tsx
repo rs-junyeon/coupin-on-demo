@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { Navigate, useNavigate, useParams, useSearchParams } from 'react-router-dom';
-import { isFree } from '../../domain/rules';
-import { won } from '../../domain/time';
-import { PAY_METHODS, useDB, type PayMethod } from '../../store/db';
-import { runBusy, useUi } from '../../store/ui';
-import { Icon } from '../../ui/Icon';
+import { isFree } from '@/domain/rules';
+import { won } from '@/shared/lib';
+import { PAY_METHODS, useDB, type PayMethod } from '@/shared/api';
+import { runBusy, useUi } from '@/shared/ui/mobile';
+import { Icon } from '@/shared/ui/icon';
 import s from './purchase.module.css';
 
 /** PG 결제창 (C-03-02-01). 쿠핀 ON이 아니라 결제사가 띄우는 화면이라 다른 모양(.ext)으로 보여 준다 */

@@ -1,8 +1,8 @@
 import { screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
-import { ACCT_PHONE, useDB } from '../../store/db';
-import { renderAt } from '../../test/render';
+import { ACCT_PHONE, useDB } from '@/shared/api';
+import { renderAt } from '@/test/render';
 
 const S = () => useDB.getState();
 

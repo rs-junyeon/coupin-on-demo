@@ -1,12 +1,10 @@
 import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { cStatus, ME, prodOf, storeOf } from '../../domain/rules';
-import { hm, won, ymdDot } from '../../domain/time';
-import { useDB } from '../../store/db';
-import { runBusy, useUi } from '../../store/ui';
-import { CatIcon } from '../../ui/CatIcon';
-import { Sheet } from '../components/Sheet';
-import { TopBar } from '../components/TopBar';
+import { cStatus, ME, prodOf, storeOf } from '@/domain/rules';
+import { hm, won, ymdDot } from '@/shared/lib';
+import { useDB } from '@/shared/api';
+import { runBusy, Sheet, TopBar, useUi } from '@/shared/ui/mobile';
+import { CatIcon } from '@/ui/CatIcon';
 import { orderChip } from './accountKit';
 import s from './account.module.css';
 import NotFound from './NotFound';

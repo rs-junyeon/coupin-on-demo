@@ -2,7 +2,7 @@
 import { Button, Form, Input } from 'antd';
 import { useState } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
-import { useDB } from '../../store/db';
+import { useDB } from '@/shared/api';
 import s from './catalog.module.css';
 
 export default function Login() {

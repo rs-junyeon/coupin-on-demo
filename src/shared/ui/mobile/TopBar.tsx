@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Icon } from '../../ui/Icon';
+import { Icon } from '@/shared/ui/icon';
 
 /** 화면 머리: 뒤로(push) 또는 닫기(모달) + 제목 + 오른쪽 버튼 (목업 .bar / .mh-row) */
 export function TopBar({ title, close = false, onBack, right, big = false }: { title: ReactNode; close?: boolean; onBack?: () => void; right?: ReactNode; big?: boolean }) {

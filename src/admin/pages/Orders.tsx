@@ -2,11 +2,10 @@
 import { Button, Table, type TableColumnsType } from 'antd';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { oStatus, prodOf, storeOf, who } from '../../domain/rules';
-import { dtA, won } from '../../domain/time';
-import type { Order } from '../../domain/types';
-import { useDB } from '../../store/db';
-import { ListBox, PageHead, SearchBox, SearchRadio, StatusTag, tableProps } from '../components/ui';
+import { oStatus, prodOf, storeOf, who } from '@/domain/rules';
+import { dtA, won } from '@/shared/lib';
+import { type Order, useDB } from '@/shared/api';
+import { ListBox, PageHead, SearchBox, SearchRadio, StatusTag, tableProps } from '@/shared/ui/admin';
 import { ListQFields, listHit, orderTag, Q0 } from './listFilter';
 import s from './orders.module.css';
 

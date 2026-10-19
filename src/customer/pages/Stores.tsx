@@ -1,14 +1,12 @@
 import type { CSSProperties } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
-import { catName, catShown, distTxt, isFree, pct, storeCat, storeProducts, tabStores, type ListFilter } from '../../domain/rules';
-import { hm, won } from '../../domain/time';
-import type { Store } from '../../domain/types';
-import { useLocateOrigin } from '../../map/StoreMap';
-import { useDB } from '../../store/db';
-import { useUi } from '../../store/ui';
-import { Icon } from '../../ui/Icon';
-import { photo } from '../../ui/photos';
-import { TopBar } from '../components/TopBar';
+import { catName, catShown, distTxt, isFree, pct, storeCat, storeProducts, tabStores, type ListFilter } from '@/domain/rules';
+import { hm, useOrigin, won } from '@/shared/lib';
+import { type Store, useDB } from '@/shared/api';
+import { useLocateOrigin } from '@/map/StoreMap';
+import { TopBar } from '@/shared/ui/mobile';
+import { Icon } from '@/shared/ui/icon';
+import { photo } from '@/shared/assets';
 import styles from './Stores.module.css';
 
 /** 매장 탭 (목업 baseStores): 카테고리 칩과 검색으로 거르고, 가까운 순으로 가게 목록. 누르면 매장 상세 */
@@ -16,7 +14,7 @@ export default function Stores() {
   const db = useDB();
   const [params, setParams] = useSearchParams();
   const f: ListFilter = { cat: params.get('cat') || '전체', q: params.get('q') ?? '' };
-  const origin = useUi(s => s.origin), originReal = useUi(s => s.originReal), originAt = useUi(s => s.originAt);
+  const origin = useOrigin(s => s.origin), originReal = useOrigin(s => s.originReal), originAt = useOrigin(s => s.originAt);
   const { run, busy } = useLocateOrigin();
   const list = tabStores(db, f, origin);
   const filtered = f.cat !== '전체' || f.q.trim() !== '';
@@ -72,7 +70,7 @@ export default function Stores() {
 /** 가게 한 줄 (목업 storeRow): 사진, 이름, 카테고리·거리·쿠폰 수, 소개, 조건에 맞는 대표 혜택 */
 function StoreRow({ s, f }: { s: Store; f: ListFilter }) {
   const db = useDB();
-  const origin = useUi(x => x.origin);
+  const origin = useOrigin(x => x.origin);
   const ps = storeProducts(db, s.id), q = f.q.trim();
   const best = ps.find(p => (f.cat === '전체' || p.cat === f.cat) && (!q || p.name.includes(q) || s.name.includes(q))) || ps[0];
   return (

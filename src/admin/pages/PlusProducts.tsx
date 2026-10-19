@@ -3,11 +3,10 @@ import { SyncOutlined } from '@ant-design/icons';
 import { App, Button, Table } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 import { useNavigate } from 'react-router-dom';
-import { adminStatus, isFree } from '../../domain/rules';
-import { dtA, won } from '../../domain/time';
-import type { Product } from '../../domain/types';
-import { useDB } from '../../store/db';
-import { ListBox, PageHead, StatusTag, tableProps } from '../components/ui';
+import { adminStatus, isFree } from '@/domain/rules';
+import { dtA, won } from '@/shared/lib';
+import { type Product, useDB } from '@/shared/api';
+import { ListBox, PageHead, StatusTag, tableProps } from '@/shared/ui/admin';
 import { CatCell, LimitCell, OnPriceCell, ProdCell, StateCell, useProductFilter } from './catalog';
 import s from './catalog.module.css';
 

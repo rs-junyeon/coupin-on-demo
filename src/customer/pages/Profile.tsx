@@ -1,8 +1,6 @@
 import { useNavigate } from 'react-router-dom';
-import type { SocialProvider } from '../../domain/types';
-import { useDB } from '../../store/db';
-import { useUi } from '../../store/ui';
-import { TopBar } from '../components/TopBar';
+import { type SocialProvider, useDB } from '@/shared/api';
+import { TopBar, useUi } from '@/shared/ui/mobile';
 import { maskPhone, SNS } from './accountKit';
 import s from './account.module.css';
 

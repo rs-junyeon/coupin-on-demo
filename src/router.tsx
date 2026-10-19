@@ -1,36 +1,36 @@
 import type { ReactElement } from 'react';
 import { createBrowserRouter, Navigate, type RouteObject } from 'react-router-dom';
-import type { Crumb } from './admin/AdminLayout';
-import { RequireLogin } from './customer/components/RequireLogin';
-import { CustomerLayout } from './customer/CustomerLayout';
-import AccountDelete from './customer/pages/AccountDelete';
-import Checkout from './customer/pages/Checkout';
-import Complete from './customer/pages/Complete';
-import CouponView from './customer/pages/CouponView';
-import Docs from './customer/pages/Docs';
-import Fail from './customer/pages/Fail';
-import FindAccount from './customer/pages/FindAccount';
-import Home from './customer/pages/Home';
-import Inquiries from './customer/pages/Inquiries';
-import InquiryDetail from './customer/pages/InquiryDetail';
-import InquiryNew from './customer/pages/InquiryNew';
-import Login from './customer/pages/Login';
-import My from './customer/pages/My';
-import NotFound from './customer/pages/NotFound';
-import OrderDetail from './customer/pages/OrderDetail';
-import Orders from './customer/pages/Orders';
-import PgPay from './customer/pages/PgPay';
-import ProductDetail from './customer/pages/ProductDetail';
-import Profile from './customer/pages/Profile';
-import Search from './customer/pages/Search';
-import Settings from './customer/pages/Settings';
-import Signup from './customer/pages/Signup';
-import SocialConsent from './customer/pages/SocialConsent';
-import SocialPhone from './customer/pages/SocialPhone';
-import StoreDetail from './customer/pages/StoreDetail';
-import Stores from './customer/pages/Stores';
-import Wallet from './customer/pages/Wallet';
-import Withdraw from './customer/pages/Withdraw';
+import type { Crumb } from '@/admin/AdminLayout';
+import { RequireLogin } from '@/customer/components/RequireLogin';
+import { CustomerLayout } from '@/customer/CustomerLayout';
+import AccountDelete from '@/customer/pages/AccountDelete';
+import Checkout from '@/customer/pages/Checkout';
+import Complete from '@/customer/pages/Complete';
+import CouponView from '@/customer/pages/CouponView';
+import Docs from '@/customer/pages/Docs';
+import Fail from '@/customer/pages/Fail';
+import FindAccount from '@/customer/pages/FindAccount';
+import Home from '@/customer/pages/Home';
+import Inquiries from '@/customer/pages/Inquiries';
+import InquiryDetail from '@/customer/pages/InquiryDetail';
+import InquiryNew from '@/customer/pages/InquiryNew';
+import Login from '@/customer/pages/Login';
+import My from '@/customer/pages/My';
+import NotFound from '@/customer/pages/NotFound';
+import OrderDetail from '@/customer/pages/OrderDetail';
+import Orders from '@/customer/pages/Orders';
+import PgPay from '@/customer/pages/PgPay';
+import ProductDetail from '@/customer/pages/ProductDetail';
+import Profile from '@/customer/pages/Profile';
+import Search from '@/customer/pages/Search';
+import Settings from '@/customer/pages/Settings';
+import Signup from '@/customer/pages/Signup';
+import SocialConsent from '@/customer/pages/SocialConsent';
+import SocialPhone from '@/customer/pages/SocialPhone';
+import StoreDetail from '@/customer/pages/StoreDetail';
+import Stores from '@/customer/pages/Stores';
+import Wallet from '@/customer/pages/Wallet';
+import Withdraw from '@/customer/pages/Withdraw';
 
 const c = (...crumb: string[]): Crumb => ({ crumb });
 /** 관리자(antd)는 화면마다 나눠 불러온다. 고객 모바일 웹은 관리자 코드를 내려받지 않는다 */
@@ -41,12 +41,12 @@ const L = (el: ReactElement) => <RequireLogin>{el}</RequireLogin>;
 export const routes: RouteObject[] = [
   {
     path: '/admin',
-    lazy: async () => ({ Component: (await import('./admin/AdminLayout')).AdminProviders }),
+    lazy: async () => ({ Component: (await import('@/admin/AdminLayout')).AdminProviders }),
     hydrateFallbackElement: <p className="page-loading">관리자 화면을 불러오고 있어요</p>,
     children: [
       { path: 'login', ...A('Login') },
       {
-        lazy: async () => ({ Component: (await import('./admin/AdminLayout')).AdminLayout }),
+        lazy: async () => ({ Component: (await import('@/admin/AdminLayout')).AdminLayout }),
         children: [
           { index: true, ...A('Dashboard'), handle: c('판매 현황') },
           { path: 'plus-products', ...A('PlusProducts'), handle: c('상품·판매 관리', 'PLUS 상품') },

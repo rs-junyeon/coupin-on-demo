@@ -1,11 +1,10 @@
 import { useNavigate, useSearchParams } from 'react-router-dom';
-import { cStatus, myCoupons, prodOf, storeOf } from '../../domain/rules';
-import { daysLeft, md, won, ymdDot } from '../../domain/time';
-import type { Coupon } from '../../domain/types';
-import { useDB } from '../../store/db';
-import { CatIcon } from '../../ui/CatIcon';
-import { Icon } from '../../ui/Icon';
-import { TopBar } from '../components/TopBar';
+import { cStatus, myCoupons, prodOf, storeOf } from '@/domain/rules';
+import { daysLeft, md, won, ymdDot } from '@/shared/lib';
+import { type Coupon, useDB } from '@/shared/api';
+import { CatIcon } from '@/ui/CatIcon';
+import { Icon } from '@/shared/ui/icon';
+import { TopBar } from '@/shared/ui/mobile';
 import s from './purchase.module.css';
 
 type Tab = 'all' | 'active' | 'past';

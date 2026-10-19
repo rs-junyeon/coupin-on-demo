@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { Navigate, useLocation, useNavigate, useParams, useSearchParams } from 'react-router-dom';
-import { blockReason, isFree, storeOf, validityTxt } from '../../domain/rules';
-import { won } from '../../domain/time';
-import { PAY_METHODS, useDB, type PayMethod } from '../../store/db';
-import { CatIcon } from '../../ui/CatIcon';
-import { TopBar } from '../components/TopBar';
+import { blockReason, isFree, storeOf, validityTxt } from '@/domain/rules';
+import { won } from '@/shared/lib';
+import { PAY_METHODS, useDB, type PayMethod } from '@/shared/api';
+import { CatIcon } from '@/ui/CatIcon';
+import { TopBar } from '@/shared/ui/mobile';
 import s from './purchase.module.css';
 
 const payMethodOf = (m: string | null): PayMethod => (m && m in PAY_METHODS ? (m as PayMethod) : 'easy');

@@ -1,9 +1,8 @@
 import { useNavigate } from 'react-router-dom';
-import { ME, unseenAnswer } from '../../domain/rules';
-import { useDB } from '../../store/db';
-import { useUi } from '../../store/ui';
-import { Icon } from '../../ui/Icon';
-import { BizInfo } from '../components/BizInfo';
+import { ME, unseenAnswer } from '@/domain/rules';
+import { useDB } from '@/shared/api';
+import { BizInfo, useUi } from '@/shared/ui/mobile';
+import { Icon } from '@/shared/ui/icon';
 import { loginWays, maskPhone } from './accountKit';
 
 /** 마이 탭: 프로필, 회원 정보·주문·문의·설정, 로그아웃 */

@@ -2,9 +2,9 @@
 import { render, waitFor } from '@testing-library/react';
 import { expect } from 'vitest';
 import { createMemoryRouter, RouterProvider } from 'react-router-dom';
-import { routes } from '../router';
-import { useDB } from '../store/db';
-import { useUi } from '../store/ui';
+import { routes } from '@/router';
+import { useDB } from '@/shared/api';
+import { useUi } from '@/shared/ui/mobile';
 
 export function renderAt(path: string, opts: { logged?: boolean; admin?: boolean } = {}) {
   useDB.getState().reset();

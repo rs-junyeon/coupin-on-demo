@@ -1,6 +1,6 @@
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
-import { useDB } from '../../store/db';
-import { useUi } from '../../store/ui';
+import { useDB } from '@/shared/api';
+import { useUi } from '@/shared/ui/mobile';
 import { isProv, safeNext, SNS } from './accountKit';
 import s from './account.module.css';
 import NotFound from './NotFound';

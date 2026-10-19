@@ -1,4 +1,4 @@
-import type { Bounds, LatLng } from './types';
+import type { Bounds, LatLng } from '@/shared/api';
 
 /** 성수역 부근 기준점 */
 export const SEONGSU: LatLng = { lat: 37.5446, lng: 127.0557 };

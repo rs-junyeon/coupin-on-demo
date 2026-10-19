@@ -1,10 +1,9 @@
 import { useLocation, useNavigate, useParams, useSearchParams } from 'react-router-dom';
-import { isFree } from '../../domain/rules';
-import { won } from '../../domain/time';
-import { useDB } from '../../store/db';
-import { runBusy } from '../../store/ui';
-import { Icon } from '../../ui/Icon';
-import { TopBar } from '../components/TopBar';
+import { isFree } from '@/domain/rules';
+import { won } from '@/shared/lib';
+import { useDB } from '@/shared/api';
+import { runBusy, TopBar } from '@/shared/ui/mobile';
+import { Icon } from '@/shared/ui/icon';
 
 /** 받기·결제 실패 (C-03-05). 유료는 결제를 자동으로 취소했다고 알린다 */
 export default function Fail() {

@@ -1,16 +1,15 @@
 import { Link } from 'react-router-dom';
-import { catName, distTxt, storeCat, storeProducts, type ListFilter } from '../../domain/rules';
-import type { Store } from '../../domain/types';
-import { useDB } from '../../store/db';
-import { useUi } from '../../store/ui';
-import { CatIcon } from '../../ui/CatIcon';
-import { Icon } from '../../ui/Icon';
+import { catName, distTxt, storeCat, storeProducts, type ListFilter } from '@/domain/rules';
+import { type Store, useDB } from '@/shared/api';
+import { useOrigin } from '@/shared/lib';
+import { CatIcon } from '@/ui/CatIcon';
+import { Icon } from '@/shared/ui/icon';
 import { ProductRow } from './ProductRow';
 
 /** 가게 카드 (목업 storeCard): 대표 상품 한 줄, [더보기]로 나머지 상품, [가게 정보]로 매장 상세 */
 export function StoreCard({ store, f, full, onMore, onClose }: { store: Store; f: ListFilter; full: boolean; onMore: () => void; onClose?: () => void }) {
   const db = useDB();
-  const origin = useUi(s => s.origin);
+  const origin = useOrigin(s => s.origin);
   const ps = storeProducts(db, store.id, f);
   if (!ps.length) return null;
   const cat = storeCat(db, store.id), rest = ps.slice(1);

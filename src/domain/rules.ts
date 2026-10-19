@@ -1,18 +1,13 @@
 // 노출·상태·한도·정산 계산 (순수 함수). 화면은 여기 값을 그대로 보여 준다
-import { distanceLabel, distanceM } from './geo';
-import { addDays, dtA, monthKey, monthLabel, startOfDay, today, won, ymdDot, md } from './time';
-import type { Category, Coupon, DB, LatLng, Order, PlusLogEntry, Product, Store } from './types';
+import { expOf, ME, myCoupons, prodOf, storeOf, type Category, type Coupon, type DB, type LatLng, type Order, type PlusLogEntry, type Product, type Store } from '@/shared/api';
+import { CAT_COLORS, FEE } from '@/shared/config';
+import { digits, distanceLabel, distanceM, dtA, md, monthKey, monthLabel, today, won, ymdDot } from '@/shared/lib';
 
-/** 판매수수료 n%(미정). 데모는 10%로 계산한다. 무료 쿠폰은 0원, 환불·취소 주문은 수수료 없음 */
-export const FEE = 0.1;
-export const ME = 'me';
+export { CAT_COLORS, FEE, digits, expOf, ME, myCoupons, prodOf, storeOf };
 export const UNCAT: Category = { color: '#8B92A8', icon: 'box' };
 export const CAT_ICONS = ['beauty', 'hair', 'fit', 'cafe', 'class', 'photo', 'food', 'pet', 'gift', 'box'] as const;
-export const CAT_COLORS = ['#D9779F', '#2A7D72', '#3F82BC', '#B07F2E', '#8C79D6', '#5A7A3A', '#C8664B', '#4C6FA8', '#9A6B9E', '#3D8F86'];
 
 export const isFree = (p: Product) => p.sale === 'FREE';
-export const storeOf = (db: Pick<DB, 'stores'>, id: string) => db.stores.find(s => s.id === id)!;
-export const prodOf = (db: Pick<DB, 'products'>, id: string) => db.products.find(p => p.id === id)!;
 export const catOf = (db: Pick<DB, 'cats'>, k: string | null) => (k && db.cats[k]) || UNCAT;
 export const catName = (db: Pick<DB, 'cats'>, k: string | null) => (k && db.cats[k] ? k : '미분류');
 export const limTxt = (p: Product, v: number) => (isFree(p) ? `${v.toLocaleString()}장` : won(v));
@@ -20,19 +15,10 @@ export const pct = (p: Product) => (p.list ? Math.round((1 - p.price / p.list) *
 export const fmtPin = (pin: string) => pin.replace(/(\d{4})(?=\d)/g, '$1 ');
 export const maskPin = (pin: string) => `${pin.slice(0, 4)} **** **** ${pin.slice(12)}`;
 export const who = (owner: string) => (owner === ME ? '김*온' : owner);
-export const digits = (s: string) => s.replace(/\D/g, '');
-
 /** 고객 앱 노출 조건: ON 게시 + PLUS 판매 중 + PLUS 승인 + 가게 위치 + 점주 PLUS 구독 중 */
 export function visible(db: Pick<DB, 'stores'>, p: Product) {
   const s = storeOf(db, p.sid);
   return p.on === 'PUBLISHED' && p.plus === 'ON_SALE' && p.appr === 'APPROVED' && !!s.pos && s.sub;
-}
-
-/** 만료일: 기간형은 받은 날 포함 여부에 따라, 만료일형은 그날 23:59까지 */
-export function expOf(p: Product, at: Date): Date {
-  if ('until' in p.val) { const [y, m, d] = p.val.until.split('-').map(Number); return new Date(y, m - 1, d); }
-  const d = startOfDay(at);
-  return addDays(d, p.val.incl ? p.val.days - 1 : p.val.days);
 }
 
 export function validityTxt(p: Product, base = today()) {
@@ -48,8 +34,6 @@ export function cStatus(c: Coupon, base = today()): CouponState {
   if (c.status === 'IN_USE') return { t: '일부 사용', k: 'part', active: true };
   return { t: '사용 가능', k: 'ok', active: true };
 }
-
-export const myCoupons = (db: Pick<DB, 'coupons'>) => db.coupons.filter(c => c.owner === ME);
 
 /** 받기·구매를 막는 이유. 없으면 null */
 export function blockReason(db: DB, p: Product): string | null {

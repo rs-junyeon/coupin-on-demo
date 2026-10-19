@@ -2,12 +2,11 @@
 import { Button } from 'antd';
 import { useState } from 'react';
 import { Link, Navigate, useNavigate, useParams } from 'react-router-dom';
-import { cStatus, maskPin, prodOf, who } from '../../domain/rules';
-import { dtA, won, ymd } from '../../domain/time';
-import type { Coupon, DB } from '../../domain/types';
-import { useDB } from '../../store/db';
+import { cStatus, maskPin, prodOf, who } from '@/domain/rules';
+import { dtA, won, ymd } from '@/shared/lib';
+import { type Coupon, type DB, useDB } from '@/shared/api';
 import { CancelCouponModal } from '../components/CancelCouponModal';
-import { BtnBox, Card, DlGroup, PageHead, StatusTag } from '../components/ui';
+import { BtnBox, Card, DlGroup, PageHead, StatusTag } from '@/shared/ui/admin';
 import s from './orders.module.css';
 
 function couponHist(db: Pick<DB, 'refunds'>, c: Coupon): [string, string][] {

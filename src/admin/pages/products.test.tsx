@@ -1,7 +1,7 @@
 import { fireEvent, screen, waitFor, within } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
-import { useDB } from '../../store/db';
-import { renderReady, settle } from '../../test/render';
+import { useDB } from '@/shared/api';
+import { renderReady, settle } from '@/test/render';
 
 const prod = (id: string) => useDB.getState().products.find(p => p.id === id)!;
 /** antd Select 열고 옵션 고르기 */

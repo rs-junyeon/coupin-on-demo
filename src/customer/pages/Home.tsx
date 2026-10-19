@@ -1,14 +1,11 @@
 import { useRef, useState, type CSSProperties } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
-import { inBounds } from '../../domain/geo';
-import { catShown, filterOn, shownStores, type ListFilter } from '../../domain/rules';
-import { hm } from '../../domain/time';
-import type { Bounds, Store } from '../../domain/types';
-import { KakaoGate, useKakaoReady } from '../../map/KakaoGate';
-import { StoreMap, useLocateOrigin } from '../../map/StoreMap';
-import { useDB } from '../../store/db';
-import { useUi } from '../../store/ui';
-import { Icon } from '../../ui/Icon';
+import { hm, inBounds, useOrigin } from '@/shared/lib';
+import { catShown, filterOn, shownStores, type ListFilter } from '@/domain/rules';
+import { type Bounds, type Store, useDB } from '@/shared/api';
+import { KakaoGate, useKakaoReady } from '@/shared/ui/kakao-map';
+import { StoreMap, useLocateOrigin } from '@/map/StoreMap';
+import { Icon } from '@/shared/ui/icon';
 import { StoreCard } from '../components/StoreCard';
 import styles from './Home.module.css';
 
@@ -18,7 +15,7 @@ export default function Home() {
   const nav = useNavigate();
   const [params, setParams] = useSearchParams();
   const f: ListFilter = { cat: params.get('cat') || '전체', q: params.get('q') ?? '' };
-  const origin = useUi(s => s.origin), originReal = useUi(s => s.originReal), originAt = useUi(s => s.originAt);
+  const origin = useOrigin(s => s.origin), originReal = useOrigin(s => s.originReal), originAt = useOrigin(s => s.originAt);
   const ready = useKakaoReady() === 'ready';
   const { run, busy } = useLocateOrigin();
 

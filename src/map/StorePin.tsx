@@ -1,10 +1,9 @@
 import type { CSSProperties } from 'react';
 import { CustomOverlayMap } from 'react-kakao-maps-sdk';
-import { catOf, isFree, storeProducts, type ListFilter } from '../domain/rules';
-import { won } from '../domain/time';
-import type { Store } from '../domain/types';
-import { useDB } from '../store/db';
-import { Icon } from '../ui/Icon';
+import { catOf, isFree, storeProducts, type ListFilter } from '@/domain/rules';
+import { won } from '@/shared/lib';
+import { type Store, useDB } from '@/shared/api';
+import { Icon } from '@/shared/ui/icon';
 import styles from './StoreMap.module.css';
 
 /** 가게 핀 (목업 .pin): 대표 상품 카테고리 색, 무료·쿠폰 수 태그. 고르면 대표 상품 가격을 보여 준다 */

@@ -1,6 +1,6 @@
 import { Navigate, useNavigate } from 'react-router-dom';
-import { useDB } from '../../store/db';
-import { TopBar } from '../components/TopBar';
+import { useDB } from '@/shared/api';
+import { TopBar } from '@/shared/ui/mobile';
 import s from './account.module.css';
 
 /** 계정 삭제 안내: 앱 밖(스토어 등록 주소)에서 들어온 경우. 로그인 상태면 회원 탈퇴로 바로 보낸다 */

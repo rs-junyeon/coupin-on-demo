@@ -3,11 +3,10 @@ import { InfoCircleOutlined, ProfileOutlined, SendOutlined } from '@ant-design/i
 import { App, Button, Input, Select, Tag } from 'antd';
 import { useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
-import { oStatus, prodOf, who } from '../../domain/rules';
-import { dtA } from '../../domain/time';
-import type { Inquiry, InquiryStatus, InquiryType } from '../../domain/types';
-import { useDB } from '../../store/db';
-import { PageHead, SearchBox, SearchField, StatusTag, type TagKind } from '../components/ui';
+import { oStatus, prodOf, who } from '@/domain/rules';
+import { dtA } from '@/shared/lib';
+import { type Inquiry, type InquiryStatus, type InquiryType, useDB } from '@/shared/api';
+import { PageHead, SearchBox, SearchField, StatusTag, type TagKind } from '@/shared/ui/admin';
 import s from './orders.module.css';
 
 const TYPES: InquiryType[] = ['결제·환불', '쿠폰 사용', '매장 정보 오류', '기타'];

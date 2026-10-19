@@ -1,8 +1,6 @@
 import { useNavigate } from 'react-router-dom';
-import { useDB } from '../../store/db';
-import { useUi } from '../../store/ui';
-import { BizInfo } from '../components/BizInfo';
-import { TopBar } from '../components/TopBar';
+import { useDB } from '@/shared/api';
+import { BizInfo, TopBar, useUi } from '@/shared/ui/mobile';
 import { DOCS, type DocKey } from './accountKit';
 import s from './account.module.css';
 

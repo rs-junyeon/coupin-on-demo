@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import { Navigate, useNavigate, useSearchParams } from 'react-router-dom';
-import { useDB } from '../../store/db';
-import { useUi } from '../../store/ui';
-import { Icon } from '../../ui/Icon';
-import { TopBar } from '../components/TopBar';
+import { useDB } from '@/shared/api';
+import { TopBar, useUi } from '@/shared/ui/mobile';
+import { Icon } from '@/shared/ui/icon';
 import { DocBody, DOCS, fmtPhone, isProv, loginWays, maskId, PhoneVerify, safeNext, SNS, type DocKey } from './accountKit';
 import s from './account.module.css';
 

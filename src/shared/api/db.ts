@@ -1,10 +1,12 @@
 // 데모 데이터와 모든 동작. 브라우저 저장소에 저장하고, 다른 탭(관리자 ↔ 고객 앱)과 storage 이벤트로 맞춘다
 import { create } from 'zustand';
 import { createJSONStorage, persist, type StateStorage } from 'zustand/middleware';
-import { ACCT_PHONE, pinOf, seed, STORAGE_KEY } from '../data/seed';
-import { adminStatus, blockReason, CAT_COLORS, catName, digits, expOf, isFree, limTxt, ME, prodOf, storeOf } from '../domain/rules';
-import { p2, won } from '../domain/time';
-import type { DB, IconName, InquiryStatus, InquiryType, Order, Product, SocialProvider } from '../domain/types';
+import { pinOf, seed, STORAGE_KEY } from './seed';
+import { adminStatus, blockReason, catName, isFree, limTxt } from '@/domain/rules';
+import { CAT_COLORS } from '@/shared/config';
+import { digits, p2, won } from '@/shared/lib';
+import { expOf, ME, prodOf } from './lookups';
+import type { DB, IconName, InquiryStatus, InquiryType, Order, Product, SocialProvider } from './schema';
 
 const safeStorage: StateStorage = {
   getItem: n => { try { return localStorage.getItem(n); } catch { return null; } },
@@ -63,13 +65,13 @@ type Actions = {
   setInquiryStatus(qid: string, st: InquiryStatus): void;
   forwardInquiry(qid: string): void;
 };
-export type Store = DB & Actions;
+export type DBState = DB & Actions;
 
 const iso = () => new Date().toISOString();
 const ymdC = (d: Date) => `${d.getFullYear()}${p2(d.getMonth() + 1)}${p2(d.getDate())}`;
 const clone = <T,>(x: T): T => JSON.parse(JSON.stringify(x));
 
-export const useDB = create<Store>()(
+export const useDB = create<DBState>()(
   persist(
     (set, get) => {
       /** 상태를 복사해 고치고 한 번에 반영한다 */
@@ -279,4 +281,3 @@ if (typeof window !== 'undefined') {
   window.addEventListener('storage', e => { if (e.key === STORAGE_KEY) void useDB.persist.rehydrate(); });
 }
 
-export { ACCT_PHONE, storeOf, prodOf };

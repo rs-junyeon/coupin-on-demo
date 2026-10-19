@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { Icon } from '../../ui/Icon';
+import { Icon } from '@/shared/ui/icon';
 import s from './account.module.css';
 
 /** 없는 주소·대상으로 들어왔을 때 */

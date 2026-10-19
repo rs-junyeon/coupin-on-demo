@@ -1,9 +1,9 @@
 // 주문·환불·발급 내역이 같이 쓰는 검색조건: 기간, 상품 카테고리, 가게 이름·상품명·고객 이름 (여러 칸에 적으면 모두 맞는 건만)
 import { Input, Select } from 'antd';
-import { storeOf, who } from '../../domain/rules';
-import { addDays, today } from '../../domain/time';
-import type { DB, Product, Refund } from '../../domain/types';
-import { SearchField, type TagKind } from '../components/ui';
+import { storeOf, who } from '@/domain/rules';
+import { addDays, today } from '@/shared/lib';
+import type { DB, Product, Refund } from '@/shared/api';
+import { SearchField, type TagKind } from '@/shared/ui/admin';
 
 export type Period = 'all' | 'today' | '7';
 export type ListQ = { per: Period; cat: string; qs: string; qp: string; qc: string };

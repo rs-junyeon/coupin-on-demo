@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react';
-import { SEONGSU, withinKm } from '../domain/geo';
-import type { LatLng } from '../domain/types';
+import { SEONGSU, withinKm } from '../geo';
+import type { LatLng } from '@/shared/api';
 
 const TIMEOUT_MS = 8000;
 

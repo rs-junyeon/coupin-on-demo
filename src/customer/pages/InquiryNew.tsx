@@ -1,10 +1,7 @@
 import { useRef, useState, type FormEvent } from 'react';
 import { useBlocker, useNavigate } from 'react-router-dom';
-import type { InquiryType } from '../../domain/types';
-import { useDB } from '../../store/db';
-import { useUi } from '../../store/ui';
-import { Sheet } from '../components/Sheet';
-import { TopBar } from '../components/TopBar';
+import { type InquiryType, useDB } from '@/shared/api';
+import { Sheet, TopBar, useUi } from '@/shared/ui/mobile';
 import s from './account.module.css';
 
 const TYPES: InquiryType[] = ['결제·환불', '쿠폰 사용', '매장 정보 오류', '기타'];

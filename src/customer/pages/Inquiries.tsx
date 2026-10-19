@@ -1,9 +1,9 @@
 import { useNavigate } from 'react-router-dom';
-import { ME } from '../../domain/rules';
-import { hm, ymdDot } from '../../domain/time';
-import { useDB } from '../../store/db';
-import { Icon } from '../../ui/Icon';
-import { TopBar } from '../components/TopBar';
+import { ME } from '@/domain/rules';
+import { hm, ymdDot } from '@/shared/lib';
+import { useDB } from '@/shared/api';
+import { Icon } from '@/shared/ui/icon';
+import { TopBar } from '@/shared/ui/mobile';
 import { inqChip } from './accountKit';
 import s from './account.module.css';
 

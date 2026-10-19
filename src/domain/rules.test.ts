@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { seed } from '../data/seed';
+import { seed } from '@/shared/api';
 import { adminStatus, blockReason, cStatus, myRefunds, plusSnaps, prodOf, settleRows, settleTot, visible } from './rules';
 
 describe('rules', () => {

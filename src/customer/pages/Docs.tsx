@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import { TopBar } from '../components/TopBar';
+import { TopBar } from '@/shared/ui/mobile';
 import { DocBody, DOCS, isDocKey } from './accountKit';
 import NotFound from './NotFound';
 

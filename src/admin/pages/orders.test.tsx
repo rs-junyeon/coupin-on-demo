@@ -1,10 +1,9 @@
 import { screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
-import { seed } from '../../data/seed';
-import { settleMonths } from '../../domain/rules';
-import { useDB } from '../../store/db';
-import { renderReady } from '../../test/render';
+import { seed, useDB } from '@/shared/api';
+import { settleMonths } from '@/domain/rules';
+import { renderReady } from '@/test/render';
 
 const S = () => useDB.getState();
 

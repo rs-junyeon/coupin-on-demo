@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
-import { useDB } from '../../store/db';
-import { useUi } from '../../store/ui';
-import { TopBar } from '../components/TopBar';
+import { useDB } from '@/shared/api';
+import { TopBar, useUi } from '@/shared/ui/mobile';
 import { fmtPhone, isProv, loginWays, maskId, maskPhone, PhoneVerify, safeNext, SNS } from './accountKit';
 import NotFound from './NotFound';
 

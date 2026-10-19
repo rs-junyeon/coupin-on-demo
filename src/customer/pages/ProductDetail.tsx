@@ -1,13 +1,12 @@
 import { useEffect, useRef } from 'react';
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
-import { blockReason, catName, distTxt, isFree, pct, storeOf, validityTxt } from '../../domain/rules';
-import { won } from '../../domain/time';
-import { useDB } from '../../store/db';
-import { runBusy, useUi } from '../../store/ui';
-import { Icon } from '../../ui/Icon';
-import { photo } from '../../ui/photos';
+import { blockReason, catName, distTxt, isFree, pct, storeOf, validityTxt } from '@/domain/rules';
+import { useOrigin, won } from '@/shared/lib';
+import { useDB } from '@/shared/api';
+import { runBusy, TopBar, useUi } from '@/shared/ui/mobile';
+import { Icon } from '@/shared/ui/icon';
+import { photo } from '@/shared/assets';
 import { StoreActions } from '../components/StoreCard';
-import { TopBar } from '../components/TopBar';
 import styles from './Detail.module.css';
 import NotFound from './NotFound';
 
@@ -16,7 +15,7 @@ export default function ProductDetail() {
   const { pid } = useParams();
   const nav = useNavigate();
   const db = useDB();
-  const origin = useUi(s => s.origin);
+  const origin = useOrigin(s => s.origin);
   const [sp, setSp] = useSearchParams();
   const p = db.products.find(x => x.id === pid);
   // 로그인하러 갔다가 돌아오면 하려던 무료 받기를 이어서 한다 (?claim=1, 한 번만)

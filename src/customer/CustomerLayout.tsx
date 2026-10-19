@@ -1,9 +1,9 @@
 import { NavLink, Outlet, useLocation } from 'react-router-dom';
-import { KakaoLoader } from '../map/KakaoGate';
-import { myCoupons, cStatus, unseenAnswer } from '../domain/rules';
-import { useDB } from '../store/db';
-import { Icon } from '../ui/Icon';
-import { Busy, Toast } from './components/Overlays';
+import { KakaoLoader } from '@/shared/ui/kakao-map';
+import { myCoupons, cStatus, unseenAnswer } from '@/domain/rules';
+import { useDB } from '@/shared/api';
+import { Icon } from '@/shared/ui/icon';
+import { Busy, Toast } from '@/shared/ui/mobile';
 import './customer.css';
 
 const TABS = [

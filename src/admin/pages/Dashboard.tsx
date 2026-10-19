@@ -4,11 +4,10 @@ import { App, Button, Form, InputNumber, Modal, Table } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 import { useState, type ReactNode } from 'react';
 import { Link } from 'react-router-dom';
-import { cStatus, FEE, isFree, ME, opsAlerts, prodOf, stats, storeOf, who } from '../../domain/rules';
-import { dtA, monthLabel, today, won } from '../../domain/time';
-import type { Coupon } from '../../domain/types';
-import { useDB } from '../../store/db';
-import { Card, DlGroup, ListBox, PageHead, StatusTag, tableProps } from '../components/ui';
+import { cStatus, FEE, isFree, ME, opsAlerts, prodOf, stats, storeOf, who } from '@/domain/rules';
+import { dtA, monthLabel, today, won } from '@/shared/lib';
+import { type Coupon, useDB } from '@/shared/api';
+import { Card, DlGroup, ListBox, PageHead, StatusTag, tableProps } from '@/shared/ui/admin';
 import { numFmt, numParse } from './catalog';
 import s from './catalog.module.css';
 

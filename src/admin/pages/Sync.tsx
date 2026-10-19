@@ -2,10 +2,9 @@
 import { SyncOutlined } from '@ant-design/icons';
 import { App, Button, Table } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
-import { dtA } from '../../domain/time';
-import type { SyncLog } from '../../domain/types';
-import { useDB } from '../../store/db';
-import { ListBox, PageHead, StatusTag, tableProps } from '../components/ui';
+import { dtA } from '@/shared/lib';
+import { type SyncLog, useDB } from '@/shared/api';
+import { ListBox, PageHead, StatusTag, tableProps } from '@/shared/ui/admin';
 import s from './catalog.module.css';
 
 export default function Sync() {

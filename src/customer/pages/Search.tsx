@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
-import { catShown, distTxt, matchQ, storeOf, visible } from '../../domain/rules';
-import { useDB } from '../../store/db';
-import { useUi } from '../../store/ui';
-import { CatIcon } from '../../ui/CatIcon';
-import { Icon } from '../../ui/Icon';
+import { catShown, distTxt, matchQ, storeOf, visible } from '@/domain/rules';
+import { useDB } from '@/shared/api';
+import { useOrigin } from '@/shared/lib';
+import { CatIcon } from '@/ui/CatIcon';
+import { Icon } from '@/shared/ui/icon';
 import { ProductRow } from '../components/ProductRow';
 
 /** 검색 (목업 mSearch): 검색어가 없으면 카테고리로 찾기, 있으면 상품 결과. 고르면 둘러보기 지도에 적용한다 */
@@ -14,7 +14,7 @@ export default function Search() {
   const loc = useLocation();
   const [params] = useSearchParams();
   const [text, setText] = useState(params.get('q') ?? '');
-  const origin = useUi(s => s.origin);
+  const origin = useOrigin(s => s.origin);
   const q = text.trim();
 
   const apply = (o: { q?: string; cat?: string }) => {

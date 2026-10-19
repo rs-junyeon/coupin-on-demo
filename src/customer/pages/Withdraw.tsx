@@ -1,10 +1,8 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { cStatus, myCoupons } from '../../domain/rules';
-import { useDB } from '../../store/db';
-import { useUi } from '../../store/ui';
-import { Sheet } from '../components/Sheet';
-import { TopBar } from '../components/TopBar';
+import { cStatus, myCoupons } from '@/domain/rules';
+import { useDB } from '@/shared/api';
+import { Sheet, TopBar, useUi } from '@/shared/ui/mobile';
 import s from './account.module.css';
 
 /** 회원 탈퇴: 안내 확인 → [탈퇴하기] → 확인 시트 → 탈퇴 */

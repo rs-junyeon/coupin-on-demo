@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { useUi } from '../../store/ui';
+import { useUi } from './overlay';
 
 /** 토스트 (3초 뒤 사라짐) */
 export function Toast() {

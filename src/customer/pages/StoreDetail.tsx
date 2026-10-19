@@ -1,12 +1,12 @@
 import { useParams } from 'react-router-dom';
-import { catName, distTxt, storeCat, storeProducts } from '../../domain/rules';
-import { useDB } from '../../store/db';
-import { useUi } from '../../store/ui';
-import { Icon } from '../../ui/Icon';
-import { photo } from '../../ui/photos';
+import { catName, distTxt, storeCat, storeProducts } from '@/domain/rules';
+import { useDB } from '@/shared/api';
+import { TopBar } from '@/shared/ui/mobile';
+import { useOrigin } from '@/shared/lib';
+import { Icon } from '@/shared/ui/icon';
+import { photo } from '@/shared/assets';
 import { ProductRow } from '../components/ProductRow';
 import { StoreActions } from '../components/StoreCard';
-import { TopBar } from '../components/TopBar';
 import styles from './Detail.module.css';
 import NotFound from './NotFound';
 
@@ -14,7 +14,7 @@ import NotFound from './NotFound';
 export default function StoreDetail() {
   const { sid } = useParams();
   const db = useDB();
-  const origin = useUi(s => s.origin);
+  const origin = useOrigin(s => s.origin);
   const s = db.stores.find(x => x.id === sid);
   if (!s) return <NotFound />;
   const ps = storeProducts(db, s.id);

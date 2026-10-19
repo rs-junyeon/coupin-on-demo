@@ -1,8 +1,8 @@
 import { act, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
-import { useDB } from '../../store/db';
-import { renderAt } from '../../test/render';
+import { useDB } from '@/shared/api';
+import { renderAt } from '@/test/render';
 
 describe('결제·내 쿠폰', () => {
   it('결제: 동의해야 결제 버튼이 켜지고, 결제창에서 결제하면 구매 완료', async () => {

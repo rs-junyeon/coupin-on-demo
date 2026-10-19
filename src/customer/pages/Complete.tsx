@@ -1,10 +1,10 @@
 import { useNavigate, useParams } from 'react-router-dom';
-import { isFree, ME, prodOf, storeOf } from '../../domain/rules';
-import { md, won } from '../../domain/time';
-import { useDB } from '../../store/db';
-import { CatIcon } from '../../ui/CatIcon';
-import { Icon } from '../../ui/Icon';
-import { TopBar } from '../components/TopBar';
+import { isFree, ME, prodOf, storeOf } from '@/domain/rules';
+import { md, won } from '@/shared/lib';
+import { useDB } from '@/shared/api';
+import { CatIcon } from '@/ui/CatIcon';
+import { Icon } from '@/shared/ui/icon';
+import { TopBar } from '@/shared/ui/mobile';
 import s from './purchase.module.css';
 
 /** 발급·구매 완료 (C-03-04) */

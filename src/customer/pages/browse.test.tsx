@@ -1,7 +1,7 @@
 import { screen, waitFor, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
-import { renderAt } from '../../test/render';
+import { renderAt } from '@/test/render';
 
 const q = (search: string) => new URLSearchParams(search);
 

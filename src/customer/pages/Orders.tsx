@@ -1,8 +1,8 @@
 import { useNavigate, useSearchParams } from 'react-router-dom';
-import { ME, myRefunds, prodOf, type MyRefund } from '../../domain/rules';
-import { won, ymdDot } from '../../domain/time';
-import { useDB } from '../../store/db';
-import { TopBar } from '../components/TopBar';
+import { ME, myRefunds, prodOf, type MyRefund } from '@/domain/rules';
+import { won, ymdDot } from '@/shared/lib';
+import { useDB } from '@/shared/api';
+import { TopBar } from '@/shared/ui/mobile';
 import { orderChip } from './accountKit';
 
 const PAID_CHIP: Record<MyRefund['result'], [string, string]> = { '완료': ['st-ok', '환불 완료'], '처리 중': ['st-warn', '환불 처리 중'], '거절': ['st-cancel', '환불 불가'] };

@@ -3,11 +3,11 @@ import { Button, Table, Tabs } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 import type { ReactNode } from 'react';
 import { Navigate, useNavigate, useParams, useSearchParams } from 'react-router-dom';
-import { adminStatus, editable, isFree, limTxt, plusSnaps, storeOf, validityTxt, type PlusSnap } from '../../domain/rules';
-import { dtA, won } from '../../domain/time';
-import { useDB } from '../../store/db';
-import { photo } from '../../ui/photos';
-import { BtnBox, Card, DlGroup, PageHead, StatusTag, tableProps } from '../components/ui';
+import { adminStatus, editable, isFree, limTxt, plusSnaps, storeOf, validityTxt, type PlusSnap } from '@/domain/rules';
+import { dtA, won } from '@/shared/lib';
+import { useDB } from '@/shared/api';
+import { photo } from '@/shared/assets';
+import { BtnBox, Card, DlGroup, PageHead, StatusTag, tableProps } from '@/shared/ui/admin';
 import { PLUS_KIND, StateCell } from './catalog';
 import s from './catalog.module.css';
 

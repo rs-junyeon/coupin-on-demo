@@ -3,10 +3,10 @@ import { CheckOutlined, DownOutlined, UpOutlined } from '@ant-design/icons';
 import { App, Button, Radio, Table, type TableColumnsType } from 'antd';
 import { useState } from 'react';
 import { Navigate, useNavigate, useParams } from 'react-router-dom';
-import { FEE, prodOf, settleCalc, settleMonths, settleRows, settleTot, storeOf, type SettleRow } from '../../domain/rules';
-import { md, p2, won } from '../../domain/time';
-import { useDB } from '../../store/db';
-import { BtnBox, ListBox, PageHead, StatusTag, tableProps } from '../components/ui';
+import { FEE, prodOf, settleCalc, settleMonths, settleRows, settleTot, storeOf, type SettleRow } from '@/domain/rules';
+import { md, p2, won } from '@/shared/lib';
+import { useDB } from '@/shared/api';
+import { BtnBox, ListBox, PageHead, StatusTag, tableProps } from '@/shared/ui/admin';
 import s from './orders.module.css';
 
 type View = 'store' | 'product';

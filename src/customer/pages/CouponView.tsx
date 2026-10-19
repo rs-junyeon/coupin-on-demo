@@ -1,13 +1,10 @@
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { cStatus, fmtPin, ME, prodOf, storeOf } from '../../domain/rules';
-import { daysLeft, hm, won, ymdDot } from '../../domain/time';
-import { useDB } from '../../store/db';
-import { runBusy, useUi } from '../../store/ui';
-import { Icon } from '../../ui/Icon';
-import { Barcode } from '../components/Barcode';
-import { Sheet } from '../components/Sheet';
-import { TopBar } from '../components/TopBar';
+import { cStatus, fmtPin, ME, prodOf, storeOf } from '@/domain/rules';
+import { daysLeft, hm, won, ymdDot } from '@/shared/lib';
+import { useDB } from '@/shared/api';
+import { Barcode, runBusy, Sheet, TopBar, useUi } from '@/shared/ui/mobile';
+import { Icon } from '@/shared/ui/icon';
 import s from './purchase.module.css';
 
 const REASONS = ['단순 변심', '매장 방문이 어려워요', '다른 상품으로 바꾸고 싶어요', '기타'];

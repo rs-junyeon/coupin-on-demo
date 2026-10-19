@@ -4,12 +4,11 @@ import { App, Button, Input, Table } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { CAT_ICONS, catShown, visible } from '../../domain/rules';
-import type { IconName } from '../../domain/types';
-import { useDB } from '../../store/db';
-import { CatIcon } from '../../ui/CatIcon';
-import { Icon } from '../../ui/Icon';
-import { Card, ListBox, PageHead, StatusTag, tableProps } from '../components/ui';
+import { CAT_ICONS, catShown, visible } from '@/domain/rules';
+import { type IconName, useDB } from '@/shared/api';
+import { CatIcon } from '@/ui/CatIcon';
+import { Icon } from '@/shared/ui/icon';
+import { Card, ListBox, PageHead, StatusTag, tableProps } from '@/shared/ui/admin';
 import s from './catalog.module.css';
 
 const IC_NAME: Record<(typeof CAT_ICONS)[number], string> = { beauty: '뷰티', hair: '헤어', fit: '운동', cafe: '카페', class: '클래스', photo: '사진', food: '음식', pet: '반려동물', gift: '선물', box: '기타' };

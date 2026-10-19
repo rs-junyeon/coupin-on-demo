@@ -3,12 +3,11 @@ import { App, Button, Form, Input, InputNumber, Select, Table } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 import { useState } from 'react';
 import { Navigate, useLocation, useNavigate, useParams } from 'react-router-dom';
-import { adminStatus, editable, FEE, isFree, storeOf, validityTxt } from '../../domain/rules';
-import { dtA, won } from '../../domain/time';
-import type { TermsLog } from '../../domain/types';
-import { useDB } from '../../store/db';
-import { photo } from '../../ui/photos';
-import { BtnBox, Card, DlGroup, PageHead, StatusTag, tableProps } from '../components/ui';
+import { adminStatus, editable, FEE, isFree, storeOf, validityTxt } from '@/domain/rules';
+import { dtA, won } from '@/shared/lib';
+import { type TermsLog, useDB } from '@/shared/api';
+import { photo } from '@/shared/assets';
+import { BtnBox, Card, DlGroup, PageHead, StatusTag, tableProps } from '@/shared/ui/admin';
 import { numFmt, numParse, ST_KIND } from './catalog';
 import s from './catalog.module.css';
 

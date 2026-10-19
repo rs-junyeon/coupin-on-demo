@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { digits } from '../../domain/rules';
-import { useDB } from '../../store/db';
-import { useUi } from '../../store/ui';
-import { TopBar } from '../components/TopBar';
+import { digits } from '@/domain/rules';
+import { useDB } from '@/shared/api';
+import { TopBar, useUi } from '@/shared/ui/mobile';
 import { loginWays, maskId, PhoneVerify } from './accountKit';
 import s from './account.module.css';
 

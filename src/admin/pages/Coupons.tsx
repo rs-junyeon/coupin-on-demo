@@ -2,12 +2,11 @@
 import { Button, Space, Table, type TableColumnsType } from 'antd';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { cStatus, maskPin, prodOf, storeOf, who, type CouponState } from '../../domain/rules';
-import { dtA, won } from '../../domain/time';
-import type { Coupon } from '../../domain/types';
-import { useDB } from '../../store/db';
+import { cStatus, maskPin, prodOf, storeOf, who, type CouponState } from '@/domain/rules';
+import { dtA, won } from '@/shared/lib';
+import { type Coupon, useDB } from '@/shared/api';
 import { CancelCouponModal } from '../components/CancelCouponModal';
-import { ListBox, PageHead, SearchBox, SearchRadio, StatusTag, tableProps } from '../components/ui';
+import { ListBox, PageHead, SearchBox, SearchRadio, StatusTag, tableProps } from '@/shared/ui/admin';
 import { ListQFields, listHit, Q0 } from './listFilter';
 import s from './orders.module.css';
 

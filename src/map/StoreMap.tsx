@@ -1,12 +1,11 @@
 import { useCallback, useEffect, useState } from 'react';
 import { CustomOverlayMap, Map as KakaoMap } from 'react-kakao-maps-sdk';
-import { SEONGSU } from '../domain/geo';
-import type { ListFilter } from '../domain/rules';
-import type { Bounds, LatLng, Store } from '../domain/types';
-import { useUi } from '../store/ui';
+import { SEONGSU, useMyLocation, useOrigin } from '@/shared/lib';
+import type { ListFilter } from '@/domain/rules';
+import type { Bounds, LatLng, Store } from '@/shared/api';
+import { useUi } from '@/shared/ui/mobile';
 import styles from './StoreMap.module.css';
 import { StorePin } from './StorePin';
-import { useMyLocation } from './useMyLocation';
 
 type Props = {
   stores: Store[];
@@ -47,7 +46,7 @@ export function useLocateOrigin() {
   const { locate, busy } = useMyLocation();
   const run = useCallback(async (): Promise<LatLng> => {
     const r = await locate();
-    const { setOrigin, showToast } = useUi.getState();
+    const { setOrigin } = useOrigin.getState(), { showToast } = useUi.getState();
     if (r.kind === 'ok') {
       setOrigin(r.origin, true);
       showToast('지금 있는 곳 근처 가게로 다시 찾았어요');

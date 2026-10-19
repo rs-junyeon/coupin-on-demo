@@ -1,18 +1,16 @@
 // PLUS 상품·상품 관리 공용: 검색조건(노출 상태·카테고리·판매 여부)과 표 칸, 숫자 입력 표기
 import { Select } from 'antd';
 import { useSearchParams } from 'react-router-dom';
-import { adminStatus, isFree, limTxt, storeOf, type AdminState } from '../../domain/rules';
-import { won } from '../../domain/time';
-import type { DB, Product } from '../../domain/types';
-import { CatIcon } from '../../ui/CatIcon';
-import { SearchBox, SearchField, SearchRadio, StatusTag, type TagKind } from '../components/ui';
+import { adminStatus, isFree, limTxt, storeOf, type AdminState } from '@/domain/rules';
+import { won } from '@/shared/lib';
+import type { DB, Product } from '@/shared/api';
+import { CatIcon } from '@/ui/CatIcon';
+import { SearchBox, SearchField, SearchRadio, StatusTag, type TagKind } from '@/shared/ui/admin';
 
 export const ST_KIND: Record<AdminState['k'], TagKind> = { pub: 'ok', hidden: 'exp', draft: 'warn', block: 'cancel' };
 export const PLUS_KIND: Record<string, TagKind> = { '판매 중': 'ok', '재승인 대기': 'warn', '판매 중지': 'cancel', '구독 종료': 'cancel' };
 
-/** InputNumber 천 단위 쉼표 */
-export const numFmt = (v: number | string | undefined) => `${v ?? ''}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-export const numParse = (v: string | undefined) => Number((v ?? '').replace(/\D/g, ''));
+export { numFmt, numParse } from '@/shared/lib';
 
 type St = 'all' | AdminState['k'];
 const ST_OPTS: [St, string][] = [['all', '전체'], ['pub', '게시 중'], ['draft', '미게시'], ['hidden', '숨김'], ['block', '노출 불가']];

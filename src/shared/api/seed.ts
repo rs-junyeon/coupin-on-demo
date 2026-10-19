@@ -1,8 +1,8 @@
 // 예시 데이터 (목업 on-mockup-split.html의 seed와 같은 내용). 목업 기준일 2026-10-15와 오늘의 차이만큼 날짜를 옮긴다
-import { SEONGSU } from '../domain/geo';
-import { CAT_COLORS, expOf, ME } from '../domain/rules';
-import { addDays, p2, startOfDay } from '../domain/time';
-import type { Category, Coupon, CouponStatus, DB, Inquiry, Order, PlusLogEntry, Product, Refund, Store } from '../domain/types';
+import { addDays, p2, SEONGSU, startOfDay } from '@/shared/lib';
+import { CAT_COLORS } from '@/shared/config';
+import { expOf, ME } from './lookups';
+import type { Category, Coupon, CouponStatus, DB, Inquiry, Order, PlusLogEntry, Product, Refund, Store } from './schema';
 
 export const STORAGE_KEY = 'coupin-on-demo-v2';
 /** 같은 사람인지는 문자로 인증한 휴대폰 번호로 판단한다. 이 번호로 가입한 계정이 이미 있다 (on_user) */
