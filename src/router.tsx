@@ -42,6 +42,7 @@ export const routes: RouteObject[] = [
   {
     path: '/admin',
     lazy: async () => ({ Component: (await import('./admin/AdminLayout')).AdminProviders }),
+    hydrateFallbackElement: <p className="page-loading">관리자 화면을 불러오고 있어요</p>,
     children: [
       { path: 'login', ...A('Login') },
       {

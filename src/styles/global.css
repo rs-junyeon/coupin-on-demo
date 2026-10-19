@@ -17,3 +17,5 @@ button { cursor: pointer; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
+/* 나눠 불러오는 화면(관리자)을 처음 여는 동안 */
+.page-loading { margin: 0; padding: 40vh 24px 0; text-align: center; color: var(--text-tertiary); font-size: 14px; }
