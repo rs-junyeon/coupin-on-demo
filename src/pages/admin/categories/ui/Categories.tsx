@@ -15,8 +15,9 @@ import { addCat, deleteCat, editCat } from '../model/actions';
 const IC_NAME: Record<(typeof CAT_ICONS)[number], string> = { beauty: '뷰티', hair: '헤어', fit: '운동', cafe: '카페', class: '클래스', photo: '사진', food: '음식', pet: '반려동물', gift: '선물', box: '기타' };
 
 /** 고른 아이콘: 기본 아이콘(icon) 또는 운영자가 올린 아이콘(img). warn·err는 올릴 때 안내 */
-type Pick = { icon: IconName; img: string | null; warn: string; err: string };
-const OPAQUE_WARN = '배경이 투명하지 않아 사각형으로 보여요. 배경이 투명한 PNG나 SVG를 올려 주세요';
+type Pick = { icon: IconName; img: string | null; warn: string; err: string; note?: string };
+const OPAQUE_WARN = '배경을 지우지 못해 사각형으로 보여요. 배경이 투명하거나 한 가지 색인 PNG·SVG를 올려 주세요';
+const BG_NOTE = '배경을 자동으로 지웠어요. 미리보기에서 모양을 확인해 주세요';
 
 /** 기본 아이콘 10개 중 고르거나 PNG·SVG를 직접 올린다. 오른쪽은 고객 앱에 보일 모습 (카테고리 색 위 흰색) */
 function IconPick({ value, onChange, color, idp }: { value: Pick; onChange: (v: Pick) => void; color: string; idp: string }) {
@@ -25,7 +26,7 @@ function IconPick({ value, onChange, color, idp }: { value: Pick; onChange: (v: 
     if (!f) return;
     const r = await toIconImage(f);
     if (!r.ok) { onChange({ ...value, warn: '', err: r.error }); return; }
-    onChange({ ...value, img: r.src, warn: r.opaque ? OPAQUE_WARN : '', err: '' });
+    onChange({ ...value, img: r.src, warn: r.opaque ? OPAQUE_WARN : '', note: r.bgRemoved && !r.opaque ? BG_NOTE : '', err: '' });
   };
   return (
     <div className={s.icpick} role="group" aria-label="아이콘">
@@ -46,6 +47,7 @@ const pickMsg = (v: Pick, extra: string) => (
   <>
     {(extra || v.err) && <p className={s.err} role="alert">{extra || v.err}</p>}
     {!extra && !v.err && v.warn && <p className={s.warn} role="status">{v.warn}</p>}
+    {!extra && !v.err && !v.warn && v.note && <p className={s.note} role="status">{v.note}</p>}
   </>
 );
 const PICK0: Pick = { icon: 'box', img: null, warn: '', err: '' };
@@ -116,7 +118,7 @@ export default function Categories() {
 
   return (
     <>
-      <PageHead title="카테고리" id="A-02-05" desc="고객 앱 둘러보기·매장 탭의 카테고리 칩과 핀 아이콘이에요. ON 운영자가 게시 전에 상품마다 하나를 골라요. 게시 중인 상품이 있는 카테고리만 고객 앱에 칩으로 보여요. 아이콘은 기본 아이콘에서 고르거나 PNG·SVG를 직접 올릴 수 있어요 (배경이 투명한 그림의 모양만 흰색으로 보여요)." />
+      <PageHead title="카테고리" id="A-02-05" desc="고객 앱 둘러보기·매장 탭의 카테고리 칩과 핀 아이콘이에요. ON 운영자가 게시 전에 상품마다 하나를 골라요. 게시 중인 상품이 있는 카테고리만 고객 앱에 칩으로 보여요. 아이콘은 기본 아이콘에서 고르거나 PNG·SVG를 직접 올릴 수 있어요 (단색 배경은 자동으로 지우고, 그림의 모양만 흰색으로 보여요)." />
       {uncat > 0 && (
         <div className="a-alert">
           <InfoCircleOutlined className={s.alertIcon} />
