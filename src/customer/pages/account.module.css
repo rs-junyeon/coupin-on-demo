@@ -1,0 +1,27 @@
+/* 고객 앱 C 묶음(마이·주문·문의·설정·계정) 전용: 목업의 인라인 스타일을 클래스로 옮김 */
+.err { margin: 0; font-size: 12.5px; font-weight: 600; color: var(--coral-800); }
+.note { margin: 0; font-size: 12.5px; color: var(--ink-3); line-height: 1.55; }
+.start { justify-self: start; }
+.sbtnWide { padding: 0 22px; }
+.boxTitle { display: block; font-size: 14.5px; }
+.boxRows { margin-top: 8px; }
+.boxNote { margin: 8px 0 0; font-size: 12.5px; color: var(--ink-3); }
+.secTitle { margin: 10px 0 0; font-size: 14px; }
+.muted { color: var(--ink-3); font-weight: 500; }
+.withdrawLink { justify-self: start; margin-top: 8px; }
+.pageTitle { margin: 4px 0 0; font-size: 20px; letter-spacing: -.02em; }
+.lead { margin: 0; color: var(--ink-2); font-size: 14px; line-height: 1.6; }
+.metaRow { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.metaAt { color: var(--ink-3); font-size: 12.5px; }
+.qTitle { font-size: 17px; }
+.waitBox { padding: 24px; }
+.formTop { align-content: start; }
+.input { height: 48px; border: 1px solid var(--line-2); border-radius: 8px; padding: 0 12px; font-size: 14.5px; background: var(--white); width: 100%; font-weight: 500; color: var(--ink); outline: 0; }
+.input:focus { border-color: var(--mint-700); box-shadow: 0 0 0 3px rgba(63,165,151,.18); }
+.extTitle { font-size: 18px; }
+.mono { font-size: 12.5px; }
+.version { border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+.version b { font-size: 14.5px; }
+.version span { color: var(--ink-3); font-size: 13px; }
+.subLead { margin: 0; }
+.ndotGap { margin-right: 6px; }
