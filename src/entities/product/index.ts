@@ -1,0 +1,1 @@
+export { type AdminState, adminStatus, blockReason, catShown, editable, filterOn, isFree, limTxt, type ListFilter, matches, matchQ, pct, type PlusSnap, plusSnaps, validityTxt, visible } from './model/product';

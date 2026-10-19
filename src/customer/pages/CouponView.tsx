@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { cStatus, fmtPin, ME, prodOf, storeOf } from '@/domain/rules';
+import { cStatus, fmtPin } from '@/entities/coupon';
+import { ME, prodOf, storeOf, useDB } from '@/shared/api';
 import { daysLeft, hm, won, ymdDot } from '@/shared/lib';
-import { useDB } from '@/shared/api';
 import { Barcode, runBusy, Sheet, TopBar, useUi } from '@/shared/ui/mobile';
 import { Icon } from '@/shared/ui/icon';
 import s from './purchase.module.css';

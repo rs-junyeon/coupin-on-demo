@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
-import { ME, unseenAnswer } from '@/domain/rules';
-import { useDB } from '@/shared/api';
+import { ME, useDB } from '@/shared/api';
+import { unseenAnswer } from '@/entities/inquiry';
 import { BizInfo, useUi } from '@/shared/ui/mobile';
 import { Icon } from '@/shared/ui/icon';
 import { loginWays, maskPhone } from './accountKit';

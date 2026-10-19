@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { CustomOverlayMap, Map as KakaoMap } from 'react-kakao-maps-sdk';
 import { SEONGSU, useMyLocation, useOrigin } from '@/shared/lib';
-import type { ListFilter } from '@/domain/rules';
+import { type ListFilter } from '@/entities/product';
 import type { Bounds, LatLng, Store } from '@/shared/api';
 import { useUi } from '@/shared/ui/mobile';
 import styles from './StoreMap.module.css';

@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { cStatus, ME, prodOf, storeOf } from '@/domain/rules';
+import { cStatus } from '@/entities/coupon';
+import { ME, prodOf, storeOf, useDB } from '@/shared/api';
 import { hm, won, ymdDot } from '@/shared/lib';
-import { useDB } from '@/shared/api';
 import { runBusy, Sheet, TopBar, useUi } from '@/shared/ui/mobile';
 import { CatIcon } from '@/ui/CatIcon';
 import { orderChip } from './accountKit';

@@ -2,7 +2,8 @@
 import { create } from 'zustand';
 import { createJSONStorage, persist, type StateStorage } from 'zustand/middleware';
 import { pinOf, seed, STORAGE_KEY } from './seed';
-import { adminStatus, blockReason, catName, isFree, limTxt } from '@/domain/rules';
+import { adminStatus, blockReason, isFree, limTxt } from '@/entities/product';
+import { catName } from '@/entities/category';
 import { CAT_COLORS } from '@/shared/config';
 import { digits, p2, won } from '@/shared/lib';
 import { expOf, ME, prodOf } from './lookups';

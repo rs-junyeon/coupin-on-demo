@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Navigate, useLocation, useNavigate, useParams, useSearchParams } from 'react-router-dom';
-import { blockReason, isFree, storeOf, validityTxt } from '@/domain/rules';
+import { blockReason, isFree, validityTxt } from '@/entities/product';
+import { PAY_METHODS, type PayMethod, storeOf, useDB } from '@/shared/api';
 import { won } from '@/shared/lib';
-import { PAY_METHODS, useDB, type PayMethod } from '@/shared/api';
 import { CatIcon } from '@/ui/CatIcon';
 import { TopBar } from '@/shared/ui/mobile';
 import s from './purchase.module.css';

@@ -1,7 +1,8 @@
 import { useRef, useState, type CSSProperties } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { hm, inBounds, useOrigin } from '@/shared/lib';
-import { catShown, filterOn, shownStores, type ListFilter } from '@/domain/rules';
+import { catShown, filterOn, type ListFilter } from '@/entities/product';
+import { shownStores } from '@/entities/store';
 import { type Bounds, type Store, useDB } from '@/shared/api';
 import { KakaoGate, useKakaoReady } from '@/shared/ui/kakao-map';
 import { StoreMap, useLocateOrigin } from '@/map/StoreMap';

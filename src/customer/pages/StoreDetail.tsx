@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom';
-import { catName, distTxt, storeCat, storeProducts } from '@/domain/rules';
+import { catName } from '@/entities/category';
+import { distTxt, storeCat, storeProducts } from '@/entities/store';
 import { useDB } from '@/shared/api';
 import { TopBar } from '@/shared/ui/mobile';
 import { useOrigin } from '@/shared/lib';

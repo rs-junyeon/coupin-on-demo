@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
-import { catName, distTxt, storeCat, storeProducts, type ListFilter } from '@/domain/rules';
+import { catName } from '@/entities/category';
+import { distTxt, storeCat, storeProducts } from '@/entities/store';
+import { type ListFilter } from '@/entities/product';
 import { type Store, useDB } from '@/shared/api';
 import { useOrigin } from '@/shared/lib';
 import { CatIcon } from '@/ui/CatIcon';

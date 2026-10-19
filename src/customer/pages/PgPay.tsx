@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Navigate, useNavigate, useParams, useSearchParams } from 'react-router-dom';
-import { isFree } from '@/domain/rules';
+import { isFree } from '@/entities/product';
 import { won } from '@/shared/lib';
 import { PAY_METHODS, useDB, type PayMethod } from '@/shared/api';
 import { runBusy, useUi } from '@/shared/ui/mobile';

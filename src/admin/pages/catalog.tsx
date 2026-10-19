@@ -1,9 +1,9 @@
 // PLUS 상품·상품 관리 공용: 검색조건(노출 상태·카테고리·판매 여부)과 표 칸, 숫자 입력 표기
 import { Select } from 'antd';
 import { useSearchParams } from 'react-router-dom';
-import { adminStatus, isFree, limTxt, storeOf, type AdminState } from '@/domain/rules';
+import { type AdminState, adminStatus, isFree, limTxt } from '@/entities/product';
+import { type DB, type Product, storeOf } from '@/shared/api';
 import { won } from '@/shared/lib';
-import type { DB, Product } from '@/shared/api';
 import { CatIcon } from '@/ui/CatIcon';
 import { SearchBox, SearchField, SearchRadio, StatusTag, type TagKind } from '@/shared/ui/admin';
 

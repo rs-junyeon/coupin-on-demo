@@ -1,7 +1,7 @@
 import { useNavigate, useSearchParams } from 'react-router-dom';
-import { cStatus, myCoupons, prodOf, storeOf } from '@/domain/rules';
+import { cStatus } from '@/entities/coupon';
+import { type Coupon, myCoupons, prodOf, storeOf, useDB } from '@/shared/api';
 import { daysLeft, md, won, ymdDot } from '@/shared/lib';
-import { type Coupon, useDB } from '@/shared/api';
 import { CatIcon } from '@/ui/CatIcon';
 import { Icon } from '@/shared/ui/icon';
 import { TopBar } from '@/shared/ui/mobile';

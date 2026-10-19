@@ -1,6 +1,8 @@
 import type { CSSProperties } from 'react';
 import { CustomOverlayMap } from 'react-kakao-maps-sdk';
-import { catOf, isFree, storeProducts, type ListFilter } from '@/domain/rules';
+import { catOf } from '@/entities/category';
+import { isFree, type ListFilter } from '@/entities/product';
+import { storeProducts } from '@/entities/store';
 import { won } from '@/shared/lib';
 import { type Store, useDB } from '@/shared/api';
 import { Icon } from '@/shared/ui/icon';

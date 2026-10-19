@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
-import { blockReason, isFree, pct } from '@/domain/rules';
+import { blockReason, isFree, pct } from '@/entities/product';
 import { won } from '@/shared/lib';
 import { type Product, useDB } from '@/shared/api';
 import { CatIcon } from '@/ui/CatIcon';

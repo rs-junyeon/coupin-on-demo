@@ -1,7 +1,8 @@
 import { NavLink, Outlet, useLocation } from 'react-router-dom';
 import { KakaoLoader } from '@/shared/ui/kakao-map';
-import { myCoupons, cStatus, unseenAnswer } from '@/domain/rules';
-import { useDB } from '@/shared/api';
+import { myCoupons, useDB } from '@/shared/api';
+import { cStatus } from '@/entities/coupon';
+import { unseenAnswer } from '@/entities/inquiry';
 import { Icon } from '@/shared/ui/icon';
 import { Busy, Toast } from '@/shared/ui/mobile';
 import './customer.css';

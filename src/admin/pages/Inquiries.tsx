@@ -3,9 +3,10 @@ import { InfoCircleOutlined, ProfileOutlined, SendOutlined } from '@ant-design/i
 import { App, Button, Input, Select, Tag } from 'antd';
 import { useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
-import { oStatus, prodOf, who } from '@/domain/rules';
+import { oStatus } from '@/entities/order';
+import { type Inquiry, type InquiryStatus, type InquiryType, prodOf, useDB } from '@/shared/api';
+import { who } from '@/entities/account';
 import { dtA } from '@/shared/lib';
-import { type Inquiry, type InquiryStatus, type InquiryType, useDB } from '@/shared/api';
 import { PageHead, SearchBox, SearchField, StatusTag, type TagKind } from '@/shared/ui/admin';
 import s from './orders.module.css';
 

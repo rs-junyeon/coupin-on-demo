@@ -2,7 +2,7 @@ import { AccountBookOutlined, AppstoreOutlined, BarChartOutlined, CustomerServic
 import { App as AntApp, Breadcrumb, Button, ConfigProvider, Layout, Menu, type MenuProps } from 'antd';
 import koKR from 'antd/locale/ko_KR';
 import { Link, Outlet, useLocation, useMatches, useNavigate } from 'react-router-dom';
-import { adminStatus } from '@/domain/rules';
+import { adminStatus } from '@/entities/product';
 import { useDB } from '@/shared/api';
 import './admin.css';
 import { RequireAdmin } from './components/RequireAdmin';

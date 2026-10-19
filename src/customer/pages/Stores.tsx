@@ -1,6 +1,8 @@
 import type { CSSProperties } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
-import { catName, catShown, distTxt, isFree, pct, storeCat, storeProducts, tabStores, type ListFilter } from '@/domain/rules';
+import { catName } from '@/entities/category';
+import { catShown, isFree, type ListFilter, pct } from '@/entities/product';
+import { distTxt, storeCat, storeProducts, tabStores } from '@/entities/store';
 import { hm, useOrigin, won } from '@/shared/lib';
 import { type Store, useDB } from '@/shared/api';
 import { useLocateOrigin } from '@/map/StoreMap';

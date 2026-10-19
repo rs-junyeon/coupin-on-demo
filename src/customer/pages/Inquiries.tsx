@@ -1,7 +1,6 @@
 import { useNavigate } from 'react-router-dom';
-import { ME } from '@/domain/rules';
+import { ME, useDB } from '@/shared/api';
 import { hm, ymdDot } from '@/shared/lib';
-import { useDB } from '@/shared/api';
 import { Icon } from '@/shared/ui/icon';
 import { TopBar } from '@/shared/ui/mobile';
 import { inqChip } from './accountKit';

@@ -1,8 +1,8 @@
 // 주문·환불·발급 내역이 같이 쓰는 검색조건: 기간, 상품 카테고리, 가게 이름·상품명·고객 이름 (여러 칸에 적으면 모두 맞는 건만)
 import { Input, Select } from 'antd';
-import { storeOf, who } from '@/domain/rules';
+import { type DB, type Product, type Refund, storeOf } from '@/shared/api';
+import { who } from '@/entities/account';
 import { addDays, today } from '@/shared/lib';
-import type { DB, Product, Refund } from '@/shared/api';
 import { SearchField, type TagKind } from '@/shared/ui/admin';
 
 export type Period = 'all' | 'today' | '7';

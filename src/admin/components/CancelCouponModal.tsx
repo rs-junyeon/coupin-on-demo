@@ -1,9 +1,9 @@
 // 쿠폰 취소 모달 (A-03-03-02): 발급 내역·쿠폰 상세·주문 상세에서 같이 쓴다. 처리자·시각·사유는 쿠폰 상태 이력에 남는다
 import { App, Button, Form, Input, Modal, Select } from 'antd';
 import { useState } from 'react';
-import { prodOf, who } from '@/domain/rules';
+import { prodOf, useDB } from '@/shared/api';
+import { who } from '@/entities/account';
 import { won } from '@/shared/lib';
-import { useDB } from '@/shared/api';
 import s from '../pages/orders.module.css';
 
 const REASONS = ['고객 요청', '매장 영업 종료', '잘못 발급됨', '직접 입력'] as const;

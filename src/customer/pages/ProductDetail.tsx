@@ -1,8 +1,10 @@
 import { useEffect, useRef } from 'react';
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
-import { blockReason, catName, distTxt, isFree, pct, storeOf, validityTxt } from '@/domain/rules';
+import { blockReason, isFree, pct, validityTxt } from '@/entities/product';
+import { catName } from '@/entities/category';
+import { distTxt } from '@/entities/store';
+import { storeOf, useDB } from '@/shared/api';
 import { useOrigin, won } from '@/shared/lib';
-import { useDB } from '@/shared/api';
 import { runBusy, TopBar, useUi } from '@/shared/ui/mobile';
 import { Icon } from '@/shared/ui/icon';
 import { photo } from '@/shared/assets';

@@ -2,9 +2,10 @@
 import { Button } from 'antd';
 import { useState } from 'react';
 import { Link, Navigate, useNavigate, useParams } from 'react-router-dom';
-import { cStatus, maskPin, prodOf, who } from '@/domain/rules';
+import { cStatus, maskPin } from '@/entities/coupon';
+import { type Coupon, type DB, prodOf, useDB } from '@/shared/api';
+import { who } from '@/entities/account';
 import { dtA, won, ymd } from '@/shared/lib';
-import { type Coupon, type DB, useDB } from '@/shared/api';
 import { CancelCouponModal } from '../components/CancelCouponModal';
 import { BtnBox, Card, DlGroup, PageHead, StatusTag } from '@/shared/ui/admin';
 import s from './orders.module.css';

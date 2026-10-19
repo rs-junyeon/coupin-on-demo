@@ -1,8 +1,7 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { ME } from '@/domain/rules';
+import { ME, useDB } from '@/shared/api';
 import { hm, ymdDot } from '@/shared/lib';
-import { useDB } from '@/shared/api';
 import { TopBar } from '@/shared/ui/mobile';
 import { inqChip } from './accountKit';
 import s from './account.module.css';

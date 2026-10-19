@@ -2,7 +2,7 @@
 import { ReloadOutlined } from '@ant-design/icons';
 import { App, Button, Table, type TableColumnsType } from 'antd';
 import { useNavigate } from 'react-router-dom';
-import { settleMonths, type SettleMonth } from '@/domain/rules';
+import { type SettleMonth, settleMonths } from '@/entities/settlement';
 import { won } from '@/shared/lib';
 import { useDB } from '@/shared/api';
 import { ListBox, PageHead, StatusTag, tableProps } from '@/shared/ui/admin';

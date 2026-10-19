@@ -1,5 +1,5 @@
 import { useLocation, useNavigate, useParams, useSearchParams } from 'react-router-dom';
-import { isFree } from '@/domain/rules';
+import { isFree } from '@/entities/product';
 import { won } from '@/shared/lib';
 import { useDB } from '@/shared/api';
 import { runBusy, TopBar } from '@/shared/ui/mobile';

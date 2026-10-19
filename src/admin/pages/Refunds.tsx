@@ -2,9 +2,9 @@
 import { App, Button, Table, type TableColumnsType } from 'antd';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { prodOf, storeOf, who } from '@/domain/rules';
+import { type Order, prodOf, type Product, type Refund, storeOf, useDB } from '@/shared/api';
+import { who } from '@/entities/account';
 import { dtA, won } from '@/shared/lib';
-import { type Order, type Product, type Refund, useDB } from '@/shared/api';
 import { ListBox, PageHead, SearchBox, SearchRadio, StatusTag, tableProps } from '@/shared/ui/admin';
 import { ListQFields, listHit, Q0, refundTag } from './listFilter';
 import s from './orders.module.css';

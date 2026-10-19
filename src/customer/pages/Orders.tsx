@@ -1,7 +1,7 @@
 import { useNavigate, useSearchParams } from 'react-router-dom';
-import { ME, myRefunds, prodOf, type MyRefund } from '@/domain/rules';
+import { ME, prodOf, useDB } from '@/shared/api';
+import { type MyRefund, myRefunds } from '@/entities/order';
 import { won, ymdDot } from '@/shared/lib';
-import { useDB } from '@/shared/api';
 import { TopBar } from '@/shared/ui/mobile';
 import { orderChip } from './accountKit';
 

@@ -1,5 +1,5 @@
 import type { CSSProperties } from 'react';
-import { catOf } from '@/domain/rules';
+import { catOf } from '@/entities/category';
 import { useDB } from '@/shared/api';
 import { Icon } from '@/shared/ui/icon';
 

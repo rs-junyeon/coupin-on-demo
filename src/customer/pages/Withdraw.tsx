@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { cStatus, myCoupons } from '@/domain/rules';
-import { useDB } from '@/shared/api';
+import { cStatus } from '@/entities/coupon';
+import { myCoupons, useDB } from '@/shared/api';
 import { Sheet, TopBar, useUi } from '@/shared/ui/mobile';
 import s from './account.module.css';
 

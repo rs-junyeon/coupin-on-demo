@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
-import { catShown, distTxt, matchQ, storeOf, visible } from '@/domain/rules';
-import { useDB } from '@/shared/api';
+import { catShown, matchQ, visible } from '@/entities/product';
+import { distTxt } from '@/entities/store';
+import { storeOf, useDB } from '@/shared/api';
 import { useOrigin } from '@/shared/lib';
 import { CatIcon } from '@/ui/CatIcon';
 import { Icon } from '@/shared/ui/icon';
