@@ -9,6 +9,7 @@ import { catShown, visible } from '@/entities/product';
 import { type IconName, useDB } from '@/shared/api';
 import { Icon } from '@/shared/ui/icon';
 import { Card, catalogCss as s, ListBox, PageHead, StatusTag, tableProps } from '@/shared/ui/admin';
+import { addCat, deleteCat, editCat } from '../model/actions';
 
 const IC_NAME: Record<(typeof CAT_ICONS)[number], string> = { beauty: '뷰티', hair: '헤어', fit: '운동', cafe: '카페', class: '클래스', photo: '사진', food: '음식', pet: '반려동물', gift: '선물', box: '기타' };
 
@@ -32,20 +33,20 @@ export default function Categories() {
   const uncat = db.products.filter(p => !p.cat).length;
 
   const add = () => {
-    const r = db.addCat(n.name, n.icon);
+    const r = addCat(n.name, n.icon);
     if (!r.ok) { setN(x => ({ ...x, err: r.error })); return; }
     message.success(`'${n.name.trim()}' 카테고리를 만들었어요. 이 카테고리로 상품을 게시하면 고객 앱에 칩이 생겨요`);
     setN({ name: '', icon: 'box', err: '' });
   };
   const saveEdit = () => {
     if (!ed) return;
-    const r = db.editCat(ed.key, ed.name, ed.icon);
+    const r = editCat(ed.key, ed.name, ed.icon);
     if (!r.ok) { setEd({ ...ed, err: r.error }); return; }
     setEd(null);
     message.success('카테고리를 바꿨어요. 고객 앱에 바로 반영돼요');
   };
   const del = (k: string) => {
-    const r = db.deleteCat(k);
+    const r = deleteCat(k);
     if (r.ok) message.success(`'${k}' 카테고리를 지웠어요`); else message.error(r.error);
   };
 

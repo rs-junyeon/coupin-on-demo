@@ -3,6 +3,7 @@ import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
 import { useDB } from '@/shared/api';
 import { renderAt } from './render';
+import { issue } from '@/features/issue-coupon';
 
 describe('결제·내 쿠폰', () => {
   it('결제: 동의해야 결제 버튼이 켜지고, 결제창에서 결제하면 구매 완료', async () => {
@@ -45,7 +46,7 @@ describe('결제·내 쿠폰', () => {
     const { router } = renderAt('/wallet', { logged: true });
     let cid = '';
     await act(async () => {
-      const r = useDB.getState().issue('p6');
+      const r = issue('p6');
       if (r.ok) cid = r.cid;
       await router.navigate(`/coupons/${cid}`);
     });

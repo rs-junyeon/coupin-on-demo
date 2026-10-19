@@ -8,6 +8,7 @@ import { FEE } from '@/shared/config';
 import { photo, storeOf, type TermsLog, useDB } from '@/shared/api';
 import { dtA, numFmt, numParse, won } from '@/shared/lib';
 import { BtnBox, Card, catalogCss as s, DlGroup, PageHead, StatusTag, tableProps } from '@/shared/ui/admin';
+import { saveTerms } from '../model/saveTerms';
 
 const NEW = '__new';
 
@@ -43,7 +44,7 @@ export default function Terms() {
     }
     if (andPublish && !c) { setCatErr('게시하려면 카테고리를 골라 주세요'); return; }
     if (field) return;
-    const r = db.saveTerms(p.id, { cat: c, price: pr, limit: lim || null }, andPublish);
+    const r = saveTerms(p.id, { cat: c, price: pr, limit: lim || null }, andPublish);
     if (!r.ok) { setSaveErr(r.error); return; }
     message.success(r.published ? `게시했어요. 고객 지도에 '${st.name}' 쿠폰이 나와요`
       : r.moved ? '저장했어요. 바뀐 가격은 PLUS 내보내기 페이지에 보이고 점주에게 알렸어요' : '판매 조건을 저장했어요. 다음 주문부터 적용돼요');

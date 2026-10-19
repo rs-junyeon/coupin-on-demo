@@ -7,6 +7,7 @@ import { adminStatus, CatCell, editable, LimitCell, OnPriceCell, ProdCell, State
 import { type Product, storeOf, useDB } from '@/shared/api';
 import { catalogCss as s, ListBox, PageHead, tableProps } from '@/shared/ui/admin';
 import { useProductFilter } from '@/features/product-filter';
+import { bulkApply, hide as hideProduct, publish as publishProduct } from '../model/actions';
 
 const NEW = '__new';
 
@@ -26,7 +27,7 @@ export default function Products() {
   const applyBulk = (andPublish: boolean) => {
     const cat = bulk.cat === NEW ? bulk.newCat.trim() : bulk.cat;
     if (!cat) { setBulk(b => ({ ...b, err: b.cat === NEW ? '새 카테고리 이름을 적어 주세요' : '지정할 카테고리를 골라 주세요' })); return; }
-    const r = db.bulkApply(sel, cat, andPublish);
+    const r = bulkApply(sel, cat, andPublish);
     const msg = `${r.count}개 상품을 '${cat}' 카테고리로 지정했어요`;
     message.success(!andPublish ? msg : `${msg} · ${r.published ? `${r.published}개 게시` : '게시한 상품 없음'}${r.skipped ? ` (${r.skipped}개는 이미 게시 중이거나 노출 불가라 건너뜀)` : ''}`);
     clearSel();
@@ -34,7 +35,7 @@ export default function Products() {
 
   const publish = (p: Product) => {
     if (!p.cat && editable(db, p)) { nav(`/admin/products/${p.id}/terms`, { state: { catErr: '게시하려면 카테고리를 먼저 골라 주세요' } }); return; }
-    const r = db.publish(p.id);
+    const r = publishProduct(p.id);
     if (!r.ok) { message.error(r.error); return; }
     message.success(`게시했어요. 고객 지도에 '${storeOf(db, p.sid).name}' 쿠폰이 나와요`);
   };
@@ -42,7 +43,7 @@ export default function Products() {
     title: '이 상품을 숨길까요?',
     content: `${p.name} · 고객 화면에서 바로 사라져요. 이미 받은 쿠폰은 그대로 쓸 수 있어요.`,
     okText: '숨김', cancelText: '닫기',
-    onOk: () => { db.hide(p.id); message.success('숨겼어요. 고객 화면에서 바로 사라져요. 이미 받은 쿠폰은 그대로 쓸 수 있어요'); },
+    onOk: () => { hideProduct(p.id); message.success('숨겼어요. 고객 화면에서 바로 사라져요. 이미 받은 쿠폰은 그대로 쓸 수 있어요'); },
   });
 
   const columns: ColumnsType<Product> = [

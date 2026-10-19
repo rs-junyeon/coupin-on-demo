@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { cStatus } from '@/entities/coupon';
 import { myCoupons, useDB } from '@/shared/api';
 import { accountCss as s, Sheet, TopBar, useUi } from '@/shared/ui/mobile';
+import { withdraw } from '../model/withdraw';
 
 /** 회원 탈퇴: 안내 확인 → [탈퇴하기] → 확인 시트 → 탈퇴 */
 export default function Withdraw() {
@@ -15,7 +16,7 @@ export default function Withdraw() {
   const go = () => {
     setAsk(false);
     // 먼저 둘러보기로 옮긴 뒤 탈퇴한다 (로그인이 필요한 화면에 남아 있으면 로그인 화면으로 넘어가기 때문)
-    void Promise.resolve(nav('/', { replace: true })).then(() => { db.withdraw(); toast('탈퇴했어요. 그동안 이용해 주셔서 고마워요'); });
+    void Promise.resolve(nav('/', { replace: true })).then(() => { withdraw(); toast('탈퇴했어요. 그동안 이용해 주셔서 고마워요'); });
   };
   return (
     <div className="c-page">

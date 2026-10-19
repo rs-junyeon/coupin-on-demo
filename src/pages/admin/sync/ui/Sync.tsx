@@ -5,10 +5,10 @@ import type { ColumnsType } from 'antd/es/table';
 import { dtA } from '@/shared/lib';
 import { type SyncLog, useDB } from '@/shared/api';
 import { catalogCss as s, ListBox, PageHead, StatusTag, tableProps } from '@/shared/ui/admin';
+import { sync } from '@/features/sync-plus';
 
 export default function Sync() {
   const log = useDB(x => x.syncLog);
-  const sync = useDB(x => x.sync);
   const { message } = App.useApp();
   const last = log.find(x => x.ok), fails = log.filter(x => !x.ok).length;
 

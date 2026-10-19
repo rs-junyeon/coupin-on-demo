@@ -5,6 +5,7 @@ import { ME, prodOf, storeOf, useDB } from '@/shared/api';
 import { daysLeft, hm, won, ymdDot } from '@/shared/lib';
 import { Barcode, purchaseCss as s, runBusy, Sheet, TopBar, useUi } from '@/shared/ui/mobile';
 import { Icon } from '@/shared/ui/icon';
+import { cancelFree as cancelFreeCoupon, requestRefund } from '@/features/refund-coupon';
 
 const REASONS = ['단순 변심', '매장 방문이 어려워요', '다른 상품으로 바꾸고 싶어요', '기타'];
 
@@ -32,12 +33,12 @@ export default function CouponView() {
   const openRefund = () => { setReason(REASONS[0]); setSheet('refund'); };
   const refund = async () => {
     setSheet(null);
-    const r = await runBusy(['쿠폰을 취소하고 있어요', '결제를 취소하고 있어요'], () => useDB.getState().requestRefund(c.id, reason));
+    const r = await runBusy(['쿠폰을 취소하고 있어요', '결제를 취소하고 있어요'], () => requestRefund(c.id, reason));
     toast(r.ok ? `${won(r.amount)} 환불을 요청했어요. 카드사에 따라 3~5영업일 걸려요` : r.error);
   };
   const cancelFree = async () => {
     setSheet(null);
-    const r = await runBusy(['쿠폰을 취소하고 있어요'], () => useDB.getState().cancelFree(c.id));
+    const r = await runBusy(['쿠폰을 취소하고 있어요'], () => cancelFreeCoupon(c.id));
     toast(r.ok ? '쿠폰을 취소했어요' : r.error);
   };
 

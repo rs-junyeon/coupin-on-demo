@@ -7,6 +7,7 @@ import { useDB } from '@/shared/api';
 import '../styles/admin.css';
 import { RequireAdmin } from '../router/RequireAdmin';
 import { adminTheme } from './adminTheme';
+import { adminLogout } from '@/features/admin-auth';
 
 /** 라우트 handle: 브레드크럼 (메뉴 묶음 > 메뉴 > 상세) */
 export type Crumb = { crumb: string[] };
@@ -37,7 +38,6 @@ function Shell() {
   const matches = useMatches();
   const nav = useNavigate();
   const name = useDB(s => s.admin.name);
-  const logout = useDB(s => s.adminLogout);
   const crumb = (matches.map(m => (m.handle as Crumb | undefined)?.crumb).filter(Boolean).pop() ?? ['판매 현황']) as string[];
   // 상세 화면도 메뉴는 목록 항목에 불이 들어오게: /admin/orders/ON-... → /admin/orders
   const selected = pathname === '/admin' ? '/admin' : `/admin/${pathname.split('/')[2] ?? ''}`;
@@ -52,7 +52,7 @@ function Shell() {
           <Breadcrumb items={crumb.map(t => ({ title: t }))} />
           <span className="sp" />
           <span className="a-user"><b>{name}</b> 님</span>
-          <Button type="text" icon={<LogoutOutlined />} aria-label="로그아웃" onClick={() => { logout(); nav('/admin/login'); }} />
+          <Button type="text" icon={<LogoutOutlined />} aria-label="로그아웃" onClick={() => { adminLogout(); nav('/admin/login'); }} />
         </Layout.Header>
         <Layout.Content className="a-content"><Outlet /></Layout.Content>
       </Layout>

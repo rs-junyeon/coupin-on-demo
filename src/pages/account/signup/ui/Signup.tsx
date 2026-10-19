@@ -7,6 +7,7 @@ import { isProv, loginWays, SNS } from '@/entities/account';
 import { DocBody, type DocKey, DOCS } from '@/shared/ui/legal-doc';
 import { fmtPhone, maskId, safeNext } from '@/shared/lib';
 import { PhoneVerify } from '@/features/verify-phone';
+import { signup, signupCheckPhone, socialJoin } from '@/features/auth';
 
 type AgreeKey = 'age' | 'svc' | 'priv' | 'loc' | 'mkt';
 const ROWS: { k: AgreeKey; t: string; req: boolean; doc?: DocKey }[] = [
@@ -73,13 +74,13 @@ export default function Signup() {
   );
 
   if (step === 'info') {
-    const onVerify = () => { setVerified(true); setDup(db.signupCheckPhone(phone) === 'dup'); };
+    const onVerify = () => { setVerified(true); setDup(signupCheckPhone(phone) === 'dup'); };
     const join = () => {
       const id = userId.trim();
       if (!id) { setErr('아이디를 입력해 주세요'); return; }
       if (id === db.account.userId) { setErr('이미 쓰고 있는 아이디예요'); return; }
       if (!PW_OK(pw)) { setErr('비밀번호는 영문과 숫자를 섞어 8자 이상으로 만들어 주세요'); return; }
-      db.signup({ userId: id, phone: fmtPhone(phone), mkt: agree.mkt });
+      signup({ userId: id, phone: fmtPhone(phone), mkt: agree.mkt });
       setDoneId(id); setStep('done');
     };
     const toLogin = () => {
@@ -121,7 +122,7 @@ export default function Signup() {
     );
   }
 
-  const snsJoin = () => { if (prov) { db.socialJoin(prov, fmtPhone(snsPhone), agree.mkt); setStep('done'); } };
+  const snsJoin = () => { if (prov) { socialJoin(prov, fmtPhone(snsPhone), agree.mkt); setStep('done'); } };
   return (
     <div className="c-page">
       <TopBar title={title} />

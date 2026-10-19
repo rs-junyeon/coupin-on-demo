@@ -5,6 +5,7 @@ import { prodOf, useDB } from '@/shared/api';
 import { who } from '@/entities/account';
 import { won } from '@/shared/lib';
 import { ordersCss as s } from '@/shared/ui/admin';
+import { adminCancelCoupon } from '@/features/cancel-coupon';
 
 const REASONS = ['고객 요청', '매장 영업 종료', '잘못 발급됨', '직접 입력'] as const;
 
@@ -25,7 +26,7 @@ function CancelBody({ cid, onClose }: { cid: string; onClose: () => void }) {
   const needText = sel === '직접 입력' && !t;
   const go = () => {
     const reason = t ? (sel === '직접 입력' ? t : `${sel} · ${t}`) : sel;
-    db.adminCancelCoupon(c.id, reason);
+    adminCancelCoupon(c.id, reason);
     message.success(c.paid ? `쿠폰을 취소하고 결제 ${won(c.paid)}을 환불했어요` : '쿠폰을 취소했어요');
     onClose();
   };

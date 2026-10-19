@@ -6,6 +6,7 @@ import { type SettleMonth, settleMonths, settleTag } from '@/entities/settlement
 import { won } from '@/shared/lib';
 import { useDB } from '@/shared/api';
 import { ListBox, PageHead, StatusTag, tableProps } from '@/shared/ui/admin';
+import { settleRun } from '../model/settleRun';
 
 export default function Settlements() {
   const db = useDB();
@@ -31,7 +32,7 @@ export default function Settlements() {
   return (
     <>
       <PageHead title="월별 정산" id="A-04-01" desc="매월 1일에 지난달 정산 내역을 자동으로 만들고 PLUS 발급 기록과 맞춰 봐요. 정산 상대는 점주이고, 점주 지급액은 판매가에서 판매수수료를 뺀 금액이에요." />
-      <ListBox total={months.length} extra={<Button icon={<ReloadOutlined />} onClick={() => { db.settleRun(); message.success(`${cur.label} 정산 내역을 다시 만들었어요. PLUS와 대조를 시작해요`); }}>수동 실행</Button>}>
+      <ListBox total={months.length} extra={<Button icon={<ReloadOutlined />} onClick={() => { settleRun(); message.success(`${cur.label} 정산 내역을 다시 만들었어요. PLUS와 대조를 시작해요`); }}>수동 실행</Button>}>
         <Table<SettleMonth> {...tableProps} rowKey="key" columns={columns} dataSource={months} />
       </ListBox>
     </>

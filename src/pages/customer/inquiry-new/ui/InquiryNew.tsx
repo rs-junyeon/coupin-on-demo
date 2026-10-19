@@ -1,7 +1,8 @@
 import { useRef, useState, type FormEvent } from 'react';
 import { useBlocker, useNavigate } from 'react-router-dom';
-import { type InquiryType, useDB } from '@/shared/api';
+import { type InquiryType } from '@/shared/api';
 import { accountCss as s, Sheet, TopBar, useUi } from '@/shared/ui/mobile';
+import { createInquiry } from '../model/createInquiry';
 
 const TYPES: InquiryType[] = ['결제·환불', '쿠폰 사용', '매장 정보 오류', '기타'];
 const TITLE_MAX = 40;
@@ -9,7 +10,6 @@ const TITLE_MAX = 40;
 /** 문의 작성: 쓰던 내용이 있으면 나가기 전에 확인한다 */
 export default function InquiryNew() {
   const nav = useNavigate();
-  const createInquiry = useDB(st => st.createInquiry);
   const toast = useUi(st => st.showToast);
   const [type, setType] = useState<InquiryType>(TYPES[0]);
   const [title, setTitle] = useState('');

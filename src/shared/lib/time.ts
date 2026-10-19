@@ -4,6 +4,8 @@ export const p2 = (n: number) => String(n).padStart(2, '0');
 export const startOfDay = (d: Date) => new Date(d.getFullYear(), d.getMonth(), d.getDate());
 export const addDays = (d: Date, n: number) => { const x = new Date(d); x.setDate(x.getDate() + n); return x; };
 export const now = () => new Date();
+/** 지금 시각 (저장용 ISO 문자열) */
+export const iso = () => new Date().toISOString();
 export const today = () => startOfDay(new Date());
 export const toD = (iso: string) => new Date(iso);
 

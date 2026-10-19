@@ -13,6 +13,7 @@ import { stats } from '@/entities/settlement';
 import { who } from '@/entities/account';
 import { dtA, monthLabel, numFmt, numParse, today, won } from '@/shared/lib';
 import { Card, catalogCss as s, DlGroup, ListBox, PageHead, StatusTag, tableProps } from '@/shared/ui/admin';
+import { setLimit } from '../model/setLimit';
 
 function Meter({ label, used, total, big, unit }: { label: string; used: number; total: number; big?: boolean; unit?: string }) {
   const f = (v: number) => (unit ? `${v.toLocaleString()}${unit}` : won(v));
@@ -96,7 +97,7 @@ export default function Dashboard() {
   const openLimit = () => { setLim({ total: db.limit.total, ftotal: db.limit.ftotal }); setLimitOpen(true); };
   const saveLimit = () => {
     if (!lim.total || !lim.ftotal) { message.error('한도를 입력해 주세요'); return; }
-    db.setLimit(lim.total, lim.ftotal);
+    setLimit(lim.total, lim.ftotal);
     setLimitOpen(false);
     message.success(`${m}월 전체 한도를 바꿨어요`);
   };

@@ -7,6 +7,7 @@ import { photo, storeOf, useDB } from '@/shared/api';
 import { useOrigin, won } from '@/shared/lib';
 import { detailCss as styles, NotFound, runBusy, TopBar, useUi } from '@/shared/ui/mobile';
 import { Icon } from '@/shared/ui/icon';
+import { issue } from '@/features/issue-coupon';
 
 /** 상품 상세 (목업 mDetail): 가격·유효기간·사용 장소·유의사항, 아래 [무료로 받기]·[구매하기]. 받을 수 없으면 이유를 보여 준다 */
 export default function ProductDetail() {
@@ -34,7 +35,7 @@ export default function ProductDetail() {
     // 로그인을 결제보다 먼저 끝낸다. 로그인하면 유료는 결제 화면으로, 무료는 이 화면에서 바로 받기를 이어 간다
     if (!db.account.logged) { nav(`/login?next=${encodeURIComponent(free ? `/products/${p.id}?claim=1` : `/checkout/${p.id}`)}`); return; }
     if (!free) { nav(`/checkout/${p.id}`); return; }
-    const r = await runBusy(['쿠폰을 발급하고 있어요'], () => useDB.getState().issue(p.id));
+    const r = await runBusy(['쿠폰을 발급하고 있어요'], () => issue(p.id));
     if (r.ok) nav(`/complete/${r.cid}`);
     else useUi.getState().showToast(r.error);
   };

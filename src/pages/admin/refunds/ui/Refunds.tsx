@@ -8,6 +8,7 @@ import { dtA, won } from '@/shared/lib';
 import { ListBox, ordersCss as s, PageHead, SearchBox, SearchRadio, StatusTag, tableProps } from '@/shared/ui/admin';
 import { refundTag } from '@/entities/order';
 import { listHit, ListQFields, Q0 } from '@/features/order-list-filter';
+import { retryRefund } from '@/features/retry-refund';
 
 type Res = 'all' | Refund['result'];
 const RES: { value: Res; label: string }[] = [{ value: 'all', label: '전체' }, { value: '처리 중', label: '처리 중' }, { value: '완료', label: '완료' }, { value: '거절', label: '거절' }];
@@ -26,7 +27,7 @@ export default function Refunds() {
   const rows = base.filter(r => res === 'all' || r.result === res);
   const opts = RES.map(o => ({ ...o, count: base.filter(r => o.value === 'all' || r.result === o.value).length }));
 
-  const retry = (oid: string) => { db.retryRefund(oid); message.success('결제 취소가 끝났어요'); };
+  const retry = (oid: string) => { retryRefund(oid); message.success('결제 취소가 끝났어요'); };
   const columns: TableColumnsType<Row> = [
     { title: '요청 일시', dataIndex: 'at', render: (v: string) => dtA(v) },
     { title: '주문번호', dataIndex: 'oid', render: (v: string) => <Link className={s.mono} to={`/admin/orders/${v}`}>{v}</Link> },

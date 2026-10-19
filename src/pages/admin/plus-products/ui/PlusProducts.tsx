@@ -8,6 +8,7 @@ import { dtA, won } from '@/shared/lib';
 import { type Product, useDB } from '@/shared/api';
 import { catalogCss as s, ListBox, PageHead, StatusTag, tableProps } from '@/shared/ui/admin';
 import { useProductFilter } from '@/features/product-filter';
+import { sync } from '@/features/sync-plus';
 
 export default function PlusProducts() {
   const db = useDB();
@@ -17,7 +18,7 @@ export default function PlusProducts() {
   const last = db.syncLog.find(x => x.ok);
 
   const runSync = () => {
-    db.sync();
+    sync();
     message.success(`PLUS에서 상품 ${useDB.getState().syncLog[0].n ?? 0}개를 다시 받았어요`);
   };
 

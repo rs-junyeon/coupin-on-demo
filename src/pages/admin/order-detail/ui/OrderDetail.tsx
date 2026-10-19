@@ -11,6 +11,8 @@ import { who } from '@/entities/account';
 import { dtA, won } from '@/shared/lib';
 import { BtnBox, Card, DlGroup, ordersCss as s, PageHead, StatusTag } from '@/shared/ui/admin';
 import { CancelCouponModal } from '@/features/cancel-coupon';
+import { resolveOrder } from '../model/resolveOrder';
+import { retryRefund } from '@/features/retry-refund';
 
 function orderHist(o: Order, c: Coupon | null): [string, string][] {
   const h: [string, string][] = [[o.at, `결제 승인 · ${o.method} ${won(o.amount)}`]];
@@ -64,8 +66,8 @@ export default function OrderDetail() {
       </Card>
       <BtnBox>
         <Button onClick={() => nav('/admin/orders')}>목록</Button>
-        {o.unconfirmed && <Button type="primary" onClick={() => { db.resolveOrder(o.id); message.success('PLUS에서 발급된 것을 확인했어요. 쿠폰을 복구했어요'); }}>tid로 발급 결과 확인</Button>}
-        {o.status === '환불 처리 중' && <Button type="primary" onClick={() => { db.retryRefund(o.id); message.success('결제 취소가 끝났어요'); }}>결제 취소 다시 시도</Button>}
+        {o.unconfirmed && <Button type="primary" onClick={() => { resolveOrder(o.id); message.success('PLUS에서 발급된 것을 확인했어요. 쿠폰을 복구했어요'); }}>tid로 발급 결과 확인</Button>}
+        {o.status === '환불 처리 중' && <Button type="primary" onClick={() => { retryRefund(o.id); message.success('결제 취소가 끝났어요'); }}>결제 취소 다시 시도</Button>}
         <Button danger disabled={!canRefund} onClick={() => c && setCancel(c.id)}>환불 처리</Button>
       </BtnBox>
       <CancelCouponModal cid={cancel} onClose={() => setCancel(null)} />

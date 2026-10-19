@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { Navigate, useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { isFree } from '@/entities/product';
 import { won } from '@/shared/lib';
-import { PAY_METHODS, useDB, type PayMethod } from '@/shared/api';
+import { useDB } from '@/shared/api';
+import { issue, PAY_METHODS, type PayMethod } from '@/features/issue-coupon';
 import { purchaseCss as s, runBusy, useUi } from '@/shared/ui/mobile';
 import { Icon } from '@/shared/ui/icon';
 
@@ -20,7 +21,7 @@ export default function PgPay() {
 
   const pay = async () => {
     setPaying(true);
-    const r = await runBusy(['결제를 확인하고 있어요', '쿠폰을 발급하고 있어요'], () => useDB.getState().issue(pid, method));
+    const r = await runBusy(['결제를 확인하고 있어요', '쿠폰을 발급하고 있어요'], () => issue(pid, method));
     if (r.ok) nav(`/complete/${r.cid}`, { replace: true });
     else nav(`/fail/${pid}?reason=${encodeURIComponent(r.error)}`, { replace: true });
   };

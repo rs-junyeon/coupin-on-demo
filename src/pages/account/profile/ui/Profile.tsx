@@ -3,12 +3,12 @@ import { type SocialProvider, useDB } from '@/shared/api';
 import { accountCss as s, TopBar, useUi } from '@/shared/ui/mobile';
 import { SNS } from '@/entities/account';
 import { maskPhone } from '@/shared/lib';
+import { unlinkSocial } from '../model/unlinkSocial';
 
 /** 회원 정보: 같은 휴대폰 번호의 계정 하나에 아이디·카카오·Google 로그인을 연결한다. 마지막 하나는 해제할 수 없다 */
 export default function Profile() {
   const nav = useNavigate();
   const account = useDB(st => st.account);
-  const unlinkSocial = useDB(st => st.unlinkSocial);
   const toast = useUi(st => st.showToast);
   const L = account.links;
   const unlink = (prov: SocialProvider) => {

@@ -4,10 +4,10 @@ import { useState } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { useDB } from '@/shared/api';
 import { catalogCss as s } from '@/shared/ui/admin';
+import { adminLogin } from '@/features/admin-auth';
 
 export default function Login() {
   const logged = useDB(x => x.admin.logged);
-  const adminLogin = useDB(x => x.adminLogin);
   const nav = useNavigate();
   const [err, setErr] = useState('');
   if (logged) return <Navigate to="/admin" replace />;

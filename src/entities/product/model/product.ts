@@ -1,6 +1,6 @@
 // 상품: 노출 조건, 받기·구매를 막는 이유, 관리자 노출 상태, 유효기간 표기, 상품변경 이력
 import { type DB, expOf, myCoupons, type PlusLogEntry, type Product, storeOf } from '@/shared/api';
-import { md, today, won, ymdDot } from '@/shared/lib';
+import { iso, md, today, won, ymdDot } from '@/shared/lib';
 
 export const isFree = (p: Product) => p.sale === 'FREE';
 
@@ -83,3 +83,10 @@ export function plusSnaps(p: Product): PlusSnap[] {
   });
   return rows.map((r, i) => ({ ...r, no: i + 1, chg: i ? Object.keys(r.v).filter(k => r.v[k as keyof PlusSnap['v']] !== rows[i - 1].v[k as keyof PlusSnap['v']]) : [] })).reverse();
 }
+
+/** 게시: 게시 순서를 새로 받는다 (고객 화면에서 최근 게시 순) */
+export function publishIn(d: DB, p: Product) {
+  p.on = 'PUBLISHED'; d.pubSeq += 1; p.pub = d.pubSeq;
+}
+/** 판매 조건 변경 기록 (A-02-02-01): 최신이 위 */
+export const logTerms = (p: Product, who: string, text: string) => p.hist.unshift({ at: iso(), who, text });

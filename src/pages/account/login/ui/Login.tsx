@@ -3,6 +3,7 @@ import { Navigate, useNavigate, useSearchParams } from 'react-router-dom';
 import { useDB } from '@/shared/api';
 import { accountCss as s, BizInfo, TopBar, useUi } from '@/shared/ui/mobile';
 import { safeNext } from '@/shared/lib';
+import { login } from '@/features/auth';
 
 /** 로그인: 아이디·비밀번호 또는 카카오·Google. 로그인하면 ?next= 화면으로 이어진다 */
 export default function Login() {
@@ -10,7 +11,6 @@ export default function Login() {
   const [sp] = useSearchParams();
   const rawNext = sp.get('next');
   const next = safeNext(rawNext);
-  const login = useDB(st => st.login);
   const logged = useDB(st => st.account.logged);
   const toast = useUi(st => st.showToast);
   const [wasLogged] = useState(logged);

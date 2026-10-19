@@ -6,6 +6,7 @@ import { hm, won, ymdDot } from '@/shared/lib';
 import { accountCss as s, NotFound, runBusy, Sheet, TopBar, useUi } from '@/shared/ui/mobile';
 import { CatIcon } from '@/entities/category';
 import { orderChip } from '@/entities/order';
+import { requestRefund } from '@/features/refund-coupon';
 
 const REASONS = ['단순 변심', '매장 방문이 어려워요', '다른 상품으로 바꾸고 싶어요', '기타'];
 
@@ -26,7 +27,7 @@ export default function OrderDetail() {
   const refund = () => {
     if (!c) return;
     setOpen(false);
-    void runBusy(['쿠폰을 취소하고 있어요', '결제를 취소하고 있어요'], () => db.requestRefund(c.id, reason)).then(r => {
+    void runBusy(['쿠폰을 취소하고 있어요', '결제를 취소하고 있어요'], () => requestRefund(c.id, reason)).then(r => {
       toast(r.ok ? `${won(r.amount)} 환불을 요청했어요. 카드사에 따라 3~5영업일 걸려요` : r.error);
     });
   };

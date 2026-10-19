@@ -3,11 +3,11 @@ import { render, waitFor } from '@testing-library/react';
 import { expect } from 'vitest';
 import { createMemoryRouter, RouterProvider } from 'react-router-dom';
 import { routes } from '../router/routes';
-import { useDB } from '@/shared/api';
+import { resetDB, useDB } from '@/shared/api';
 import { useUi } from '@/shared/ui/mobile';
 
 export function renderAt(path: string, opts: { logged?: boolean; admin?: boolean } = {}) {
-  useDB.getState().reset();
+  resetDB();
   useUi.setState({ toast: null, busy: null });
   if (opts.logged) useDB.setState(s => ({ account: { ...s.account, logged: true } }));
   if (opts.admin) useDB.setState(s => ({ admin: { ...s.admin, logged: true } }));

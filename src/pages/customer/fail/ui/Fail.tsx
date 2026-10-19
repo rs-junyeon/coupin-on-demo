@@ -4,6 +4,7 @@ import { won } from '@/shared/lib';
 import { useDB } from '@/shared/api';
 import { runBusy, TopBar } from '@/shared/ui/mobile';
 import { Icon } from '@/shared/ui/icon';
+import { issue } from '@/features/issue-coupon';
 
 /** 받기·결제 실패 (C-03-05). 유료는 결제를 자동으로 취소했다고 알린다 */
 export default function Fail() {
@@ -22,7 +23,7 @@ export default function Fail() {
   // 무료는 바로 다시 받고, 유료는 결제 화면부터 다시
   const retry = async () => {
     if (!free) { nav(`/checkout/${pid}`, { replace: true }); return; }
-    const r = await runBusy(['쿠폰을 발급하고 있어요'], () => useDB.getState().issue(pid));
+    const r = await runBusy(['쿠폰을 발급하고 있어요'], () => issue(pid));
     if (r.ok) nav(`/complete/${r.cid}`, { replace: true });
     else nav(`/fail/${pid}?reason=${encodeURIComponent(r.error)}`, { replace: true });
   };

@@ -8,6 +8,7 @@ import { prodOf, storeOf, useDB } from '@/shared/api';
 import { settleCalc, settleMonths, type SettleRow, settleRows, settleTot } from '@/entities/settlement';
 import { md, p2, won } from '@/shared/lib';
 import { BtnBox, ListBox, ordersCss as s, PageHead, StatusTag, tableProps } from '@/shared/ui/admin';
+import { settleCheck, settleConfirm } from '../model/actions';
 
 type View = 'store' | 'product';
 type Line = { key: string; label: string; sub: string; n: number; cx: number; gross: number; ded: number; fee: number; pay: number; plusN: number | null };
@@ -45,7 +46,7 @@ export default function SettlementDetail() {
       })
     : pr.map((r: SettleRow) => { const c = settleCalc(r); return { key: r.pid, label: prodOf(db, r.pid).name, sub: storeOf(db, r.sid).name, n: r.n, cx: r.cx, gross: r.gross, ded: r.ded, fee: c.fee, pay: c.pay, plusN: r.plusN }; });
 
-  const check = () => { db.settleCheck(); setOpen(false); message.success('차이 1건을 반영했어요. 이제 PLUS 정산과 일치해요'); };
+  const check = () => { settleCheck(); setOpen(false); message.success('차이 1건을 반영했어요. 이제 PLUS 정산과 일치해요'); };
   const csv = () => {
     const head = [view === 'store' ? '가게' : '상품', ...(view === 'product' ? ['가게'] : []), '발급', '취소', '판매가 합계', '취소·환불 차감', '판매수수료', '점주 지급액', 'PLUS 대조'];
     const body = lines.map(l => [l.label, ...(view === 'product' ? [l.sub] : []), l.n, l.cx, l.gross, -l.ded, l.fee, l.pay, l.plusN != null ? `PLUS ${l.plusN}장` : '일치']);
@@ -106,7 +107,7 @@ export default function SettlementDetail() {
       <BtnBox>
         <Button onClick={() => nav('/admin/settlements')}>목록</Button>
         <Button onClick={csv}>CSV 내려받기</Button>
-        <Button type="primary" disabled={diff || done} onClick={() => { db.settleConfirm(); message.success(`${m}월 정산을 확정했어요`); }}>{done ? `${m}월 정산 확정됨` : `${m}월 정산 확정`}</Button>
+        <Button type="primary" disabled={diff || done} onClick={() => { settleConfirm(); message.success(`${m}월 정산을 확정했어요`); }}>{done ? `${m}월 정산 확정됨` : `${m}월 정산 확정`}</Button>
       </BtnBox>
       {diff && !done && <p className={s.why}>PLUS와 차이가 나는 건을 확인해야 확정할 수 있어요.</p>}
     </>

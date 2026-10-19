@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDB } from '@/shared/api';
 import { accountCss as s, BizInfo, TopBar, useUi } from '@/shared/ui/mobile';
 import { type DocKey, DOCS } from '@/shared/ui/legal-doc';
+import { setMkt } from '../model/setMkt';
 
 const APP_VERSION = '1.0.0';
 const REQUIRED: DocKey[] = ['terms', 'privacy', 'location'];
@@ -10,7 +11,6 @@ const REQUIRED: DocKey[] = ['terms', 'privacy', 'location'];
 export default function Settings() {
   const nav = useNavigate();
   const mkt = useDB(st => st.account.mkt);
-  const setMkt = useDB(st => st.setMkt);
   const toast = useUi(st => st.showToast);
   const toggle = () => { setMkt(!mkt); toast(!mkt ? '마케팅 정보 받기를 켰어요' : '마케팅 정보 받기를 껐어요'); };
   return (

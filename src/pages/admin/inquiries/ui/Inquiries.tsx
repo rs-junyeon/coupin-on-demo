@@ -8,6 +8,7 @@ import { type Inquiry, type InquiryStatus, type InquiryType, prodOf, useDB } fro
 import { who } from '@/entities/account';
 import { dtA } from '@/shared/lib';
 import { ordersCss as s, PageHead, SearchBox, SearchField, StatusTag, type TagKind } from '@/shared/ui/admin';
+import { forwardInquiry, replyInquiry, setInquiryStatus } from '../model/actions';
 
 const TYPES: InquiryType[] = ['결제·환불', '쿠폰 사용', '매장 정보 오류', '기타'];
 const STS: InquiryStatus[] = ['접수', '처리 중', '답변 완료'];
@@ -59,14 +60,14 @@ function Detail({ q }: { q: Inquiry }) {
   const { message } = App.useApp();
   const [text, setText] = useState(() => draftOf(q.type));
   const os = db.orders.filter(o => o.owner === q.owner).slice(0, 3);
-  const send = () => { db.replyInquiry(q.id, text.trim()); message.success('답변을 보냈어요. 고객 앱 마이 탭과 문의 목록에 새 답변 표시가 생겨요'); };
+  const send = () => { replyInquiry(q.id, text.trim()); message.success('답변을 보냈어요. 고객 앱 마이 탭과 문의 목록에 새 답변 표시가 생겨요'); };
 
   return (
     <section className={s.inqD} aria-label="문의 상세">
       <div className={s.inqHead}>
         <Tag>{q.type}</Tag>
         <Select aria-label="처리 상태 바꾸기" value={q.status} options={STS.map(t => ({ value: t, label: t }))}
-          onChange={v => { db.setInquiryStatus(q.id, v); message.success(`문의 상태를 '${v}'(으)로 바꿨어요`); }} />
+          onChange={v => { setInquiryStatus(q.id, v); message.success(`문의 상태를 '${v}'(으)로 바꿨어요`); }} />
         <span className={s.meta}>{who(q.owner)} · {dtA(q.at)}</span>
       </div>
       <h3 className={s.inqTitle}>{q.title}<span className="a-sid">A-05-01-01</span></h3>
@@ -85,7 +86,7 @@ function Detail({ q }: { q: Inquiry }) {
             <>
               <div className="a-alert"><InfoCircleOutlined /><span>가게 정보는 점주가 PLUS에서 고쳐요. 점주에게 수정 요청을 보내고 고객에게 안내해 주세요.</span></div>
               <div>
-                <Button disabled={q.forwarded} onClick={() => { db.forwardInquiry(q.id); message.success('점주에게 수정 요청을 보냈어요'); }}>
+                <Button disabled={q.forwarded} onClick={() => { forwardInquiry(q.id); message.success('점주에게 수정 요청을 보냈어요'); }}>
                   {q.forwarded ? '점주에게 요청 보냄' : '점주에게 수정 요청 보내기'}
                 </Button>
               </div>

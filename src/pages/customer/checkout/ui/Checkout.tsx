@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { Navigate, useLocation, useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { blockReason, isFree, validityTxt } from '@/entities/product';
-import { PAY_METHODS, type PayMethod, storeOf, useDB } from '@/shared/api';
+import { storeOf, useDB } from '@/shared/api';
+import { PAY_METHODS, type PayMethod } from '@/features/issue-coupon';
 import { won } from '@/shared/lib';
 import { CatIcon } from '@/entities/category';
 import { purchaseCss as s, TopBar } from '@/shared/ui/mobile';

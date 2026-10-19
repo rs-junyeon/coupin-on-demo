@@ -5,6 +5,7 @@ import { BizInfo, useUi } from '@/shared/ui/mobile';
 import { Icon } from '@/shared/ui/icon';
 import { loginWays } from '@/entities/account';
 import { maskPhone } from '@/shared/lib';
+import { logout as signOut } from '@/features/auth';
 
 /** 마이 탭: 프로필, 회원 정보·주문·문의·설정, 로그아웃 */
 export default function My() {
@@ -16,7 +17,7 @@ export default function My() {
   const nInq = db.inquiries.filter(q => q.owner === ME).length;
   const logout = () => {
     // 먼저 둘러보기로 옮긴 뒤 로그아웃한다 (마이에 남아 있으면 로그인 화면으로 넘어가기 때문)
-    void Promise.resolve(nav('/', { replace: true })).then(() => { db.logout(); toast('로그아웃했어요'); });
+    void Promise.resolve(nav('/', { replace: true })).then(() => { signOut(); toast('로그아웃했어요'); });
   };
   return (
     <div className="c-page">

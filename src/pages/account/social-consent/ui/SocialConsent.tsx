@@ -3,6 +3,7 @@ import { useDB } from '@/shared/api';
 import { accountCss as s, NotFound, useUi } from '@/shared/ui/mobile';
 import { isProv, SNS } from '@/entities/account';
 import { safeNext } from '@/shared/lib';
+import { linkSocial, socialLogin } from '@/features/auth';
 
 const EXT = {
   kakao: { acct: '카카오계정', mail: 'kim.on@kakao.com', items: '닉네임, 이메일', mark: 'K' },
@@ -25,12 +26,12 @@ export default function SocialConsent() {
   const x = EXT[prov], name = SNS[prov];
   const ok = () => {
     if (link) {
-      db.linkSocial(prov);
+      linkSocial(prov);
       nav(safeNext(rawNext, '/my/profile'), { replace: true });
       toast(`${name} 로그인을 이 계정에 연결했어요`);
       return;
     }
-    if (db.socialLogin(prov) === 'logged') {
+    if (socialLogin(prov) === 'logged') {
       nav(safeNext(rawNext), { replace: true });
       if (!rawNext) toast(`${name}로 로그인했어요`);
       return;

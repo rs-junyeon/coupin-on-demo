@@ -5,6 +5,7 @@ import { NotFound, TopBar, useUi } from '@/shared/ui/mobile';
 import { isProv, loginWays, SNS } from '@/entities/account';
 import { fmtPhone, maskId, maskPhone, safeNext } from '@/shared/lib';
 import { PhoneVerify } from '@/features/verify-phone';
+import { socialLink, socialPhone } from '@/features/auth';
 
 /**
  * 소셜 로그인을 처음 쓸 때: 휴대폰 번호를 문자로 확인해 같은 사람의 계정을 찾는다.
@@ -24,13 +25,13 @@ export default function SocialPhone() {
   const name = SNS[prov];
 
   const goNext = () => {
-    if (db.socialPhone(phone) === 'link') { setFound(true); return; }
+    if (socialPhone(phone) === 'link') { setFound(true); return; }
     const q = new URLSearchParams({ sns: prov, phone: fmtPhone(phone) });
     if (rawNext) q.set('next', next);
     nav(`/signup?${q.toString()}`, { replace: true });
   };
   const linkAndLogin = () => {
-    db.socialLink(prov);
+    socialLink(prov);
     nav(next, { replace: true });
     toast(`${name} 로그인을 연결했어요. 이제 어느 방법으로 로그인해도 같은 계정이에요`);
   };

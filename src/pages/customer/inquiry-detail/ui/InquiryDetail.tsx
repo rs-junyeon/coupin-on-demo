@@ -4,14 +4,14 @@ import { ME, useDB } from '@/shared/api';
 import { hm, ymdDot } from '@/shared/lib';
 import { accountCss as s, NotFound, TopBar } from '@/shared/ui/mobile';
 import { inqChip } from '@/entities/inquiry';
+import { markInquirySeen } from '../model/markInquirySeen';
 
 /** 문의 상세: 열면 새 답변 표시를 지운다 */
 export default function InquiryDetail() {
   const { qid } = useParams();
   const q = useDB(st => st.inquiries.find(x => x.id === qid && x.owner === ME));
-  const markSeen = useDB(st => st.markInquirySeen);
   const unseen = !!q?.answer && !q.seen;
-  useEffect(() => { if (unseen && qid) markSeen(qid); }, [unseen, qid, markSeen]);
+  useEffect(() => { if (unseen && qid) markInquirySeen(qid); }, [unseen, qid]);
   if (!q) return <NotFound />;
   return (
     <div className="c-page">
