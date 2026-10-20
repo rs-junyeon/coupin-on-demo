@@ -101,15 +101,15 @@
 .a-table .ant-table-thead > tr > th { font-weight: 600; font-size: var(--fs-13); white-space: nowrap; border-radius: 0 !important; }
 .a-table .ant-table-tbody > tr > td { color: var(--text-primary); font-size: var(--fs-14); font-weight: 500; }
 .a-table .ant-table-cell + .ant-table-cell { border-inline-start: 1px solid var(--border-subtle); }
-.a-table .ant-table-tbody > tr.row-hl > td { background: var(--lime-50); }
+.a-table .ant-table-tbody > tr.row-hl > td { background: var(--mint-50); }
 .a-table .ant-table-tbody > tr.row-warn > td { background: var(--status-warning-50); }
 .a-table .ant-table-tbody > tr.row-link { cursor: pointer; }
-.a-table td.cell-chg { background: var(--lime-100) !important; color: var(--lime-900) !important; font-weight: 700; }
+.a-table td.cell-chg { background: var(--mint-100) !important; color: var(--mint-900) !important; font-weight: 700; }
 .a-table .sub { display: block; color: var(--gray-80); font-size: var(--fs-12); }
 .a-table .why { display: block; font-size: var(--fs-12); color: var(--status-danger-text); font-weight: 600; margin-top: 3px; max-width: 240px; white-space: normal; }
 .a-table .clip { display: inline-block; max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; vertical-align: middle; }
 .a-table .ant-pagination { justify-content: center; margin-top: var(--space-5) !important; }
-/* 페이지 번호 선택 (8.2): 배경 primary + 흰 글자. 공용 CSS의 --primary-50 배경은 Lime 500에서 대비가 모자라 바꾼다 */
+/* 페이지 번호 선택 (8.2): 배경 primary + 흰 글자. 공용 CSS의 --primary-50 배경은 Mint 500에서 대비가 모자라 바꾼다 */
 .a-root .ant-pagination .ant-pagination-item-active { background: var(--primary-color); border-color: var(--primary-color); }
 .a-root .ant-pagination .ant-pagination-item-active a, .a-root .ant-pagination .ant-pagination-item-active:hover a { color: var(--text-inverse); font-weight: 700; }
 .pmini { display: flex; align-items: center; gap: var(--space-2); }
@@ -170,10 +170,10 @@
 /* 판매 조건 페이지: 왼쪽 PLUS 상품 정보 340px (쿠핀+ 상품 수정 화면 배치) */
 .a-tgrid { display: grid; grid-template-columns: 340px minmax(0, 1fr); gap: var(--space-4); align-items: start; }
 .a-calc { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-2); }
-.a-calc div { border-radius: var(--radius-md); background: var(--lime-50); padding: 10px var(--space-3); }
-.a-calc span { display: block; font-size: var(--fs-12); color: var(--lime-900); font-weight: 700; }
+.a-calc div { border-radius: var(--radius-md); background: var(--mint-50); padding: 10px var(--space-3); }
+.a-calc span { display: block; font-size: var(--fs-12); color: var(--mint-900); font-weight: 700; }
 .a-calc b { font-size: var(--fs-16); }
-.a-bulk { display: flex; gap: var(--space-2); flex-wrap: wrap; align-items: center; padding: 10px var(--space-3); border-radius: var(--radius-md); background: var(--lime-50); border: 1px solid var(--lime-200); font-size: var(--fs-14); margin-bottom: var(--space-3); }
+.a-bulk { display: flex; gap: var(--space-2); flex-wrap: wrap; align-items: center; padding: 10px var(--space-3); border-radius: var(--radius-md); background: var(--mint-50); border: 1px solid var(--mint-200); font-size: var(--fs-14); margin-bottom: var(--space-3); }
 
 /* 브레이크포인트 (6.3): xl 1140 이하 2단 → 1단, sm 768 이하 모바일 여백 20 */
 @media (max-width: 1140px) {

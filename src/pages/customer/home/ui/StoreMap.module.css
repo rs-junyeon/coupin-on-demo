@@ -8,7 +8,7 @@
 .on .head, .on:hover .head { transform: scale(1.15); }
 .tags { display: flex; gap: var(--space-1); }
 .tags i { font-style: normal; font-size: var(--fs-12); font-weight: 700; line-height: 1.4; padding: 1px var(--space-2); border-radius: var(--radius-full); background: var(--surface-base); border: 1px solid var(--border-default); color: var(--text-primary); white-space: nowrap; }
-.tags i.free { background: var(--lime-500); border-color: var(--lime-500); }
+.tags i.free { background: var(--mint-500); border-color: var(--mint-500); }
 .tags i.price { background: var(--navy); border-color: var(--navy); color: var(--text-inverse); }
 
 .origin { display: grid; justify-items: center; transform: translateY(-7px); pointer-events: none; }

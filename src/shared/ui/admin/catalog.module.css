@@ -25,7 +25,7 @@
 /* 일별 발급 막대 그래프 */
 .grid { stroke: var(--border-subtle); stroke-width: 1; }
 .bar { fill: var(--chart-line-positive); }
-.barToday { fill: var(--lime-900); }
+.barToday { fill: var(--mint-900); }
 .hit { fill: transparent; }
 .barG:hover .bar, .barG:hover .barToday { opacity: .8; }
 
@@ -54,7 +54,7 @@
 .icpick { display: flex; gap: 6px; flex-wrap: wrap; }
 .icpick button { width: 36px; height: 36px; border-radius: var(--radius-md); border: 1px solid var(--border-default); background: var(--surface-base); color: var(--text-secondary); display: grid; place-items: center; padding: 0; }
 .icpick button:hover { border-color: var(--primary-color); }
-.icpick button[aria-pressed="true"] { background: var(--lime-100); border-color: var(--lime-700); color: var(--lime-900); box-shadow: 0 0 0 3px var(--primary-ring); }
+.icpick button[aria-pressed="true"] { background: var(--mint-100); border-color: var(--mint-700); color: var(--mint-900); box-shadow: 0 0 0 3px var(--primary-ring); }
 .editRow { display: grid; gap: 8px; }
 .loginBack { display: block; margin-top: var(--space-4); text-align: center; font-size: var(--fs-14); color: var(--gray-80); }
 .loginBack:hover { color: var(--text-primary); }

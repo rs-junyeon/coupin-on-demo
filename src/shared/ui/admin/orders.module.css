@@ -28,7 +28,7 @@
 .inqList { display: grid; gap: 8px; align-content: start; }
 .inqItem { text-align: left; background: var(--surface-base); border: 1px solid var(--border-subtle); border-radius: 8px; padding: 12px; display: grid; gap: 4px; width: 100%; cursor: pointer; font: inherit; color: var(--text-primary); }
 .inqItem:hover { border-color: var(--border-default); }
-.inqItem.on { border-color: var(--lime-700); background: var(--lime-50); box-shadow: 0 0 0 3px var(--primary-ring); }
+.inqItem.on { border-color: var(--mint-700); background: var(--mint-50); box-shadow: 0 0 0 3px var(--primary-ring); }
 .inqItem b { font-size: var(--fs-13); }
 .inqItem .r { display: flex; justify-content: space-between; gap: 6px; font-size: 12px; color: var(--gray-80); align-items: center; }
 .inqEmpty { margin: 4px 0; font-size: 13px; color: var(--gray-80); }
@@ -38,8 +38,8 @@
 .inqHead :global(.ant-select) { min-width: 120px; }
 .inqTitle { margin: 0; font-size: 16px; font-weight: 700; display: flex; align-items: center; }
 .q { background: var(--surface-subtle); border-radius: 8px; padding: 12px 14px; font-size: 14px; line-height: 1.6; white-space: pre-wrap; }
-.a { background: var(--lime-50); border-radius: 8px; padding: 12px 14px; font-size: 14px; line-height: 1.6; white-space: pre-wrap; }
-.a b { display: block; font-size: 12px; color: var(--lime-900); margin-bottom: 2px; }
+.a { background: var(--mint-50); border-radius: 8px; padding: 12px 14px; font-size: 14px; line-height: 1.6; white-space: pre-wrap; }
+.a b { display: block; font-size: 12px; color: var(--mint-900); margin-bottom: 2px; }
 .ro { border-radius: 8px; background: var(--surface-subtle); border: 1px solid var(--border-subtle); padding: 14px 16px; display: grid; gap: 8px; justify-items: start; font-size: 13px; }
 .ro .rh { display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 800; color: var(--gray-80); letter-spacing: .04em; }
 .ro p { margin: 0; font-size: 12px; color: var(--gray-80); }
