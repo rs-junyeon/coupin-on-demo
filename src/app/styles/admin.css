@@ -5,20 +5,40 @@
 .a-root.ant-layout { min-height: 100vh; min-height: 100dvh; }
 .a-root.ant-layout > .ant-layout { min-height: 100vh; min-height: 100dvh; }
 
-/* 다크 사이드바 (3.9): 배경 #161F27, 활성 Lime 500, 비활성 #ACACAC, 머리 64 */
+/* 다크 사이드바: 쿠핀+ cims-ui CustomSider와 같은 모양 (DESIGN.md 3.9, 6.2)
+   배경 #161F27, 항목 48·17px·#ACACAC, hover 흰 12% + Lime 500, 선택·펼침 흰 6%, 하위 메뉴는 왼쪽 안내선 + 24·16px, 아래 사용자 영역 72 */
 .a-sider.ant-layout-sider { position: sticky; top: 0; align-self: flex-start; height: 100vh; height: 100dvh; transition: all var(--motion-layout); }
 .a-sider .ant-layout-sider-children { display: flex; flex-direction: column; min-height: 0; }
-.a-sider .ant-layout-sider-children > .ant-menu { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: var(--sider-line) transparent; border-inline-end: 0 !important; }
-.a-logo { height: 64px; display: flex; align-items: center; padding: 0 var(--space-6); flex: none; }
-.a-logo img { display: block; height: 28px; width: auto; }
-.ant-layout-sider-collapsed .a-logo { justify-content: center; padding: 0; }
-.a-sider .ant-menu-dark .ant-menu-submenu-title { color: var(--sider-text); font-weight: 600; font-size: var(--fs-15); }
-.a-sider .ant-menu-dark .ant-menu-submenu-title:hover { color: var(--sider-hover); }
-.a-sider .ant-menu-dark .ant-menu-submenu-open > .ant-menu-submenu-title { color: var(--text-inverse); }
-.a-sider .ant-menu-dark .ant-menu-submenu-selected > .ant-menu-submenu-title { color: var(--sider-active); }
-.a-sider .ant-menu-dark .ant-menu-sub .ant-menu-item { padding-left: 48px !important; font-size: var(--fs-14); }
-.a-sider .ant-menu-dark .ant-menu-item-selected { font-weight: 700; }
-.a-sider .ant-menu-dark .ant-menu-item a { color: inherit; }
+.a-sider-head { height: 64px; flex: none; display: flex; align-items: center; justify-content: space-between; padding: var(--space-5); }
+.ant-layout-sider-collapsed .a-sider-head { justify-content: center; padding: 0; }
+.a-logo { display: block; }
+.a-logo img { display: block; width: 100px; height: auto; }
+.a-fold { width: 24px; height: 24px; display: grid; place-items: center; border: 0; border-radius: var(--radius-sm); background: none; color: var(--text-inverse); font-size: var(--fs-16); padding: 0; cursor: pointer; transition: background var(--motion-fast); }
+.a-fold:hover { background: var(--sider-hover-bg); }
+.a-sider-menu { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 0 var(--space-4) var(--space-6); border-bottom: 1px solid var(--sider-divider); scrollbar-width: thin; scrollbar-color: var(--sider-hover-bg) transparent; }
+.ant-layout-sider-collapsed .a-sider-menu { padding: 0 var(--space-3); }
+.a-sider .ant-menu { border-inline-end: 0 !important; }
+.a-sider .ant-menu-root > li ~ li { margin-top: var(--space-2); }
+.a-sider .ant-menu-root > .ant-menu-item, .a-sider .ant-menu-submenu-title { margin: 0 !important; width: 100% !important; height: 48px !important; line-height: 48px !important; padding-left: var(--space-3) !important; padding-right: var(--space-3); border-radius: var(--radius-sm); font-size: 17px; color: var(--sider-text); }
+.a-sider .ant-menu-root > .ant-menu-item:hover, .a-sider .ant-menu-submenu:hover > .ant-menu-submenu-title { background: var(--sider-hover-bg) !important; color: var(--sider-active); }
+.a-sider .ant-menu-submenu-open > .ant-menu-submenu-title, .a-sider .ant-menu-root > .ant-menu-item-selected, .a-sider .ant-menu-submenu-selected > .ant-menu-submenu-title { background: var(--sider-selected-bg); }
+.a-sider .ant-menu-submenu-open > .ant-menu-submenu-title { color: var(--sider-active); }
+.a-sider .ant-menu-submenu-selected > .ant-menu-submenu-title, .a-sider .ant-menu-item-selected .anticon { color: var(--sider-active); }
+.a-sider .ant-menu-root > .ant-menu-item-selected .ant-menu-title-content { color: var(--text-inverse); }
+/* 하위 메뉴: 왼쪽 안내선, 항목 24·16px, 사이 12 */
+.a-sider .ant-menu-sub.ant-menu-inline { margin: var(--space-4) 0 var(--space-4) 22px; padding-left: var(--space-6); border-left: 1px solid var(--sider-sub-line); background: transparent !important; }
+.a-sider .ant-menu-sub .ant-menu-item { margin: 0 !important; width: 100% !important; height: 24px !important; line-height: 24px !important; padding: 0 !important; font-size: var(--fs-16); color: var(--sider-text); background: transparent !important; border-radius: 0; }
+.a-sider .ant-menu-sub .ant-menu-item ~ .ant-menu-item { margin-top: var(--space-3) !important; }
+.a-sider .ant-menu-sub .ant-menu-item:hover { color: var(--sider-active) !important; }
+.a-sider .ant-menu-sub .ant-menu-item-selected { color: var(--text-inverse); font-weight: 700; }
+.a-sider .ant-menu-item a { color: inherit; }
+/* 아래 사용자 영역: 이름 + [로그아웃] 메뉴 */
+.a-sider-user { flex: none; height: 72px; display: flex; align-items: center; gap: 6px; width: 100%; padding: 0 var(--space-4); border: 0; background: var(--sider-bg); color: var(--text-inverse); font: inherit; font-size: 17px; cursor: pointer; text-align: left; }
+.a-sider-user > .anticon:first-child { font-size: 20px; }
+.a-sider-user .nm { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.a-sider-user .nm b { font-weight: 600; }
+.a-sider-user .caret { font-size: var(--fs-14); }
+.ant-layout-sider-collapsed .a-sider-user { justify-content: center; padding: 0; }
 .a-menu-badge { margin-left: 6px; background: var(--status-danger); color: var(--text-inverse); font-size: var(--fs-12); font-weight: 700; padding: 0 7px; border-radius: var(--radius-full); line-height: 18px; display: inline-block; }
 
 /* 헤더 (6.2): 높이 64, 좌우 72, 흰 배경 + header 그림자 */
@@ -26,8 +46,6 @@
 .a-header .ant-breadcrumb { font-size: var(--fs-15); font-weight: 600; }
 .a-header .ant-breadcrumb li:last-child { color: var(--text-primary); font-weight: 700; }
 .a-header .sp { flex: 1; }
-.a-user { font-size: var(--fs-14); color: var(--gray-80); white-space: nowrap; }
-.a-user b { color: var(--text-primary); }
 /* 본문 (6.2): 여백 32 72 24 */
 .a-content { padding: var(--space-8) var(--space-18) var(--space-6); display: grid; gap: var(--space-3); align-content: start; min-width: 0; }
 

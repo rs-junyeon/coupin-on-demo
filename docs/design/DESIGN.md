@@ -181,7 +181,7 @@ console 값에 **글자용 두 단계를 더했다 (ON 신규)**. info-700과 wa
 
 ### 3.9 관리자 다크 사이드바
 
-사이드바 배경은 공용 `Sider`의 `#161F27`을 그대로 쓴다. console이 다크 영역 안에서만 primary를 Mint 500으로 되돌리듯, ON은 Lime 500(`#C3E89E`, 12.19:1)으로, hover는 Lime 300(`#CEEFAF`)으로 되돌린다.
+사이드바 배경은 공용 `Sider`의 `#161F27`을 그대로 쓴다. console이 다크 영역 안에서만 primary를 Mint 500으로 되돌리듯, ON은 Lime 500(`#C3E89E`, 12.19:1)으로 되돌린다. hover는 console처럼 흰색 12% 바탕 + Lime 500 글자다.
 
 ### 3.10 그래프 (관리자 판매 현황)
 
@@ -508,16 +508,16 @@ console과 같다.
 
 console 레이아웃을 그대로 쓴다.
 
-| 요소            | 값                                                                    | 근거                          |
-| --------------- | --------------------------------------------------------------------- | ----------------------------- |
-| 사이드바        | 폭 256px, 접으면 72px, 992px 이하에서 접힘, 배경 `#161F27`, 머리 64px | `AdminLayout.tsx`, `base.css` |
-| 헤더            | 높이 64px, 좌우 여백 72px, 흰 배경, `--shadow-header`                 | `base.css`                    |
-| 본문            | 여백 32px 72px 24px, 블록 사이 32px                                   | `base.css .inner`             |
-| 박스 (`.box`)   | 여백 16px 24px, 테두리 `--border-subtle`, 모서리 12px, 흰 배경        | `component.css`               |
-| 폼 카드         | 머리 여백 16px 32px, 본문 24px 32px 32px, 모서리 12px, 그림자 없음    | `component.css .form-box`     |
-| 표              | 머리 배경 `#FBFBFB`, 모서리 0, 한 쪽에 10줄                           | `component.css`, PRD 5.3      |
-| 모달            | 머리 12px 24px + 아래 테두리, 본문 24px, 바닥 0 24px 24px             | `component.css .ant-modal`    |
-| 모바일 (≤768px) | 본문 여백 20px, 헤더 좌우 20px, 사이드바는 덮개로 열림                | audit·console 모바일 규칙     |
+| 요소            | 값                                                                                                                                                                                                                                                                                                                                        | 근거                                               |
+| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- |
+| 사이드바        | 폭 256px, 접으면 72px, 992px 이하에서 접힘, 배경 `#161F27`, 머리 64px(로고 + 접기 버튼). cims-ui `CustomSider` 모양 그대로: 메뉴 항목 48px·17px·`#ACACAC`·모서리 6px·사이 8px, hover 흰색 12%, 선택·펼침 흰색 6%, 하위 메뉴는 왼쪽 안내선 + 24px·16px·사이 12px, 아래 사용자 영역 72px(이름 + 로그아웃). 지금 화면의 그룹만 저절로 펼친다 | `AdminLayout.tsx`, `base.css`, cims-ui `Sider.tsx` |
+| 헤더            | 높이 64px, 좌우 여백 72px, 흰 배경, `--shadow-header`                                                                                                                                                                                                                                                                                     | `base.css`                                         |
+| 본문            | 여백 32px 72px 24px, 블록 사이 32px                                                                                                                                                                                                                                                                                                       | `base.css .inner`                                  |
+| 박스 (`.box`)   | 여백 16px 24px, 테두리 `--border-subtle`, 모서리 12px, 흰 배경                                                                                                                                                                                                                                                                            | `component.css`                                    |
+| 폼 카드         | 머리 여백 16px 32px, 본문 24px 32px 32px, 모서리 12px, 그림자 없음                                                                                                                                                                                                                                                                        | `component.css .form-box`                          |
+| 표              | 머리 배경 `#FBFBFB`, 모서리 0, 한 쪽에 10줄                                                                                                                                                                                                                                                                                               | `component.css`, PRD 5.3                           |
+| 모달            | 머리 12px 24px + 아래 테두리, 본문 24px, 바닥 0 24px 24px                                                                                                                                                                                                                                                                                 | `component.css .ant-modal`                         |
+| 모바일 (≤768px) | 본문 여백 20px, 헤더 좌우 20px, 사이드바는 덮개로 열림                                                                                                                                                                                                                                                                                    | audit·console 모바일 규칙                          |
 
 문의 화면(A-05-01)처럼 목록과 상세를 한 화면에 둘 때는 왼쪽 목록 360px 고정, 오른쪽 상세는 남은 폭, 사이 24px로 둔다.
 
@@ -613,7 +613,7 @@ console 레이아웃을 그대로 쓴다.
 **규칙**
 
 1. **출처는 하나.** 고객 웹과 관리자 웹 모두 `@ant-design/icons`만 쓴다. 이 패키지는 antd 컴포넌트 없이도 단독으로 쓸 수 있어, antd를 쓰지 않는 고객 웹에도 들일 수 있다. 새 아이콘 라이브러리를 더하지 않는다.
-2. **Outlined만 쓴다.** Filled를 섞지 않는다. `UserFilled`, `CoffeeFilled`, `ScissorFilled`처럼 Filled가 없는 아이콘이 있어서, 섞으면 오히려 들쭉날쭉해진다. 탭바 같은 선택 상태는 채움이 아니라 **색**으로 표시한다 (활성 Lime 800, 비활성 `--gray-80`).
+2. **Outlined만 쓴다.** Filled를 섞지 않는다. `UserFilled`, `CoffeeFilled`, `ScissorFilled`처럼 Filled가 없는 아이콘이 있어서, 섞으면 오히려 들쭉날쭉해진다. 탭바 같은 선택 상태는 채움이 아니라 **색**으로 표시한다 (활성 Lime 800, 비활성 `--gray-80`). 예외는 관리자 사이드바 메뉴 그룹 하나로, PLUS 사이드바와 같은 채움형을 쓴다 (아래 관리자 웹).
 3. **크기는 세 단계.** 16px(글자 옆, 칩 안), 20px(목록 행, 버튼 안, 카테고리 원 안), 24px(탭바, 헤더 버튼). 빈 상태 그림만 64px.
 4. **색은 `currentColor`.** 아이콘에 hex를 쓰지 않고, 감싼 요소의 글자색 토큰을 따른다.
 5. **antd에 없으면 직접 그린다.** antd 규격(`viewBox="64 64 896 896"`, 같은 선 두께)으로 그리고 `<Icon component={...} />`로 감싼다. console 사이드바의 `SiderIcon.tsx` + `@ant-design/icons` `Icon` 방식과 같다. CSS 안 data URI SVG는 새로 만들지 않는다.
@@ -656,18 +656,18 @@ console 레이아웃을 그대로 쓴다.
 
 카테고리 기본 10개에는 antd 아이콘(운동은 `TrophyOutlined`)을 두고, 위 세 개는 운영자가 고를 수 있는 추가 아이콘으로 둔다. 출시 지역 업종에 맞춰 기본 10개와 바꿔도 된다.
 
-**관리자 웹**도 같은 규칙으로 `@ant-design/icons` Outlined를 쓴다. 사이드바 메뉴 그룹(IA A-00-02)의 아이콘은 아래와 같고, 하위 메뉴에는 아이콘을 두지 않는다 (console과 같음). 붙이는 방식은 console처럼 메뉴 데이터의 `icon` 값으로 넘긴다.
+**관리자 웹**도 화면 안에서는 같은 규칙으로 `@ant-design/icons` Outlined를 쓴다. **사이드바 메뉴 그룹(IA A-00-02)만 예외**로, PLUS console·admin 사이드바와 똑같이 보이도록 cims-ui `SiderIcon.tsx`와 같은 채움형 24px 아이콘을 쓴다 (2026-10-20 결정). PLUS 아이콘 중 맞는 것은 그대로 가져오고, PLUS에 없는 정산·고객 지원만 같은 규격(viewBox `0 0 24 24`, 채움, 둥근 모서리, `currentColor`)으로 새로 그렸다. 하위 메뉴에는 아이콘을 두지 않는다 (console과 같음). 붙이는 방식은 console처럼 `@ant-design/icons` `Icon`의 `component`로 감싸 메뉴 데이터의 `icon` 값으로 넘긴다.
 
-| 메뉴 그룹      | antd 아이콘               |
-| -------------- | ------------------------- |
-| 판매 현황      | `DashboardOutlined`       |
-| 상품·판매 관리 | `TagsOutlined`            |
-| 주문·쿠폰      | `ProfileOutlined`         |
-| 정산           | `AccountBookOutlined`     |
-| 고객 지원      | `CustomerServiceOutlined` |
-| 시스템         | `SettingOutlined`         |
+| 메뉴 그룹      | 아이콘                       | 출처                                |
+| -------------- | ---------------------------- | ----------------------------------- |
+| 판매 현황      | `dashboardIcon`              | cims-ui `SiderIcon.tsx` 그대로      |
+| 상품·판매 관리 | `saleIcon`                   | cims-ui `SiderIcon.tsx` 그대로      |
+| 주문·쿠폰      | `couponIcon`                 | cims-ui `SiderIcon.tsx` 그대로      |
+| 정산           | 영수증 (`sider-settle.svg`)  | 새로 그림 (`docs/on/assets/icons/`) |
+| 고객 지원      | 말풍선 (`sider-support.svg`) | 새로 그림 (`docs/on/assets/icons/`) |
+| 시스템         | `systemIcon`                 | cims-ui `SiderIcon.tsx` 그대로      |
 
-PLUS console·admin 사이드바는 cims-ui `SiderIcon.tsx`의 채움형 아이콘을 쓰지만, ON은 Outlined 규칙을 지키기 위해 쓰지 않는다. 그래서 ON 사이드바는 PLUS 콘솔보다 선이 가볍게 보인다. 크기·색 규칙(활성 Lime 500, 비활성 `#ACACAC`)은 console과 같다. `@coupin/cims-icons`는 로그인 입력칸처럼 PLUS와 똑같이 맞출 자리에서만 쓴다.
+크기·색 규칙(활성 Lime 500, 비활성 `#ACACAC`)과 사이드바 모양(6.2)은 console과 같다. `@coupin/cims-icons`는 로그인 입력칸처럼 PLUS와 똑같이 맞출 자리에서만 쓴다.
 
 ---
 

@@ -15,9 +15,9 @@ export const adminTheme: ThemeConfig = {
     Layout: { siderBg: '#161F27', triggerBg: '#161F27', headerBg: '#FFFFFF', bodyBg: '#F8FAFC', headerHeight: 64, headerPadding: '0 72px' },
     Menu: {
       darkItemBg: '#161F27', darkSubMenuItemBg: '#161F27', darkPopupBg: '#161F27',
-      darkItemColor: '#ACACAC', darkItemHoverColor: '#CEEFAF', darkItemHoverBg: 'transparent',
-      darkItemSelectedBg: 'rgba(195, 232, 158, 0.08)', darkItemSelectedColor: '#C3E89E',
-      itemHeight: 44, itemBorderRadius: 6, subMenuItemBorderRadius: 6, iconSize: 18, collapsedIconSize: 20, itemMarginInline: 12,
+      darkItemColor: '#ACACAC', darkItemHoverColor: '#C3E89E', darkItemHoverBg: 'rgba(255, 255, 255, 0.12)',
+      darkItemSelectedBg: 'rgba(255, 255, 255, 0.06)', darkItemSelectedColor: '#FFFFFF',
+      itemHeight: 48, itemBorderRadius: 6, subMenuItemBorderRadius: 6, iconSize: 24, collapsedIconSize: 24, iconMarginInlineEnd: 10, itemMarginInline: 0,
     },
     Button: { primaryShadow: 'none', defaultShadow: 'none', dangerShadow: 'none', fontWeight: 600 },
     Table: { headerBg: '#FBFBFB', headerColor: '#5E6280', headerSplitColor: 'transparent', headerBorderRadius: 0, rowHoverBg: '#F2FCE7', borderColor: '#E8E9F3', cellPaddingBlock: 12, cellPaddingInline: 12 },
