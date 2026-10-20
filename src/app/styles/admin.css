@@ -52,8 +52,13 @@
 
 /* 헤더 (6.2): 높이 64, 좌우 72, 흰 배경 + header 그림자 */
 .a-header { display: flex; align-items: center; gap: var(--space-3); box-shadow: var(--shadow-header); position: sticky; top: 0; z-index: 10; }
-.a-header .ant-breadcrumb { font-size: var(--fs-15); font-weight: 600; }
-.a-header .ant-breadcrumb li:last-child { color: var(--text-primary); font-weight: 700; }
+/* 브레드크럼: 16px (cims-assets component.css), 모든 단계 700 gray-80, 지금 화면만 text-primary (plus-console-web theme.css)
+   구분자는 16px › 선 아이콘 #CACACA, 양옆 4px */
+.a-header .ant-breadcrumb { font-size: var(--fs-16); }
+.a-header .ant-breadcrumb ol { align-items: center; }
+.a-header .ant-breadcrumb .ant-breadcrumb-separator { display: inline-flex; align-items: center; margin-inline: var(--space-1); font-size: var(--fs-16); color: var(--crumb-sep); }
+.a-header .ant-breadcrumb .ant-breadcrumb-link { font-weight: 700; color: var(--gray-80); }
+.a-header .ant-breadcrumb li:last-child .ant-breadcrumb-link { color: var(--text-primary); }
 .a-header .sp { flex: 1; }
 /* 본문 (6.2): 여백 32 72 24 */
 .a-content { padding: var(--space-8) var(--space-18) var(--space-6); display: grid; gap: var(--space-3); align-content: start; min-width: 0; }
