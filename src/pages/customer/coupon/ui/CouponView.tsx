@@ -54,11 +54,11 @@ export default function CouponView() {
               <Barcode pin={c.pin} />
               <div className="pin-row">
                 <span className="pin-no" aria-label="PIN 번호">{fmtPin(c.pin)}</span>
-                {cs.active && <button type="button" className="pin-copy" onClick={copyPin}>PIN 복사</button>}
+                {cs.active && <button type="button" className="pin-copy" onClick={copyPin}><Icon name="copy" size={16} />PIN 복사</button>}
               </div>
-              {cs.active && <span className="bright"><Icon name="info" size={13} />화면 밝기를 최대로 올리면 잘 읽혀요</span>}
+              {cs.active && <span className="bright"><Icon name="info" size={16} />화면 밝기를 최대로 올리면 잘 읽혀요</span>}
               {!cs.active && <span className={`stamp ${cs.k === 'cancel' ? s.stampCancel : s.stampPast}`}>{cs.t}</span>}
-              {cs.active && <div className="dline"><span>남은 기간</span><b>{dd === 0 ? 'D-day' : `D-${dd}`} · {ymdDot(c.exp)} 23:59까지</b></div>}
+              {cs.active && <div className="dline"><span>남은 기간</span><b>{dd === 0 ? '오늘까지' : `D-${dd}`} · {ymdDot(c.exp)} 23:59까지</b></div>}
               {c.balance != null && cs.k !== 'cancel' && <div className="bal"><span>남은 금액</span><b className="num">{won(c.balance)} / {won(p.list ?? c.balance)}</b></div>}
             </div>
           </div>
@@ -96,7 +96,7 @@ export default function CouponView() {
           {REASONS.map(r => <button key={r} type="button" role="radio" aria-checked={reason === r} className={reason === r ? 'on' : ''} onClick={() => setReason(r)}>{r}</button>)}
         </div>
         <p className={`sub ${s.fine}`}>환불하면 쿠폰은 바로 쓸 수 없게 돼요. 카드 취소는 카드사에 따라 3~5영업일 걸려요.</p>
-        <button type="button" className="cta dark" onClick={refund}>환불 요청하기</button>
+        <button type="button" className="cta danger" onClick={refund}>환불 요청하기</button>
       </Sheet>
 
       <Sheet open={sheet === 'cancel'} onClose={() => setSheet(null)} label="쿠폰 취소">
@@ -109,7 +109,7 @@ export default function CouponView() {
           </div>
         </div>
         <p className={`sub ${s.fine}`}>취소한 쿠폰은 되살릴 수 없어요. 혜택이 남아 있으면 다시 받을 수 있어요.</p>
-        <button type="button" className="cta dark" onClick={cancelFree}>쿠폰 취소하기</button>
+        <button type="button" className="cta danger" onClick={cancelFree}>쿠폰 취소하기</button>
       </Sheet>
     </div>
   );

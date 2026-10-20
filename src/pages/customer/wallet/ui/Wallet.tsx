@@ -27,7 +27,7 @@ export default function Wallet() {
     const st = cStatus(c);
     if (st.active) {
       const dd = daysLeft(c.exp);
-      return <span className={`dd ${dd <= 7 ? 'soon' : ''}`}>{dd === 0 ? 'D-day' : `D-${dd}`} · {md(c.exp)}까지{c.status === 'IN_USE' && c.balance != null ? ` · 잔액 ${won(c.balance)}` : ''}</span>;
+      return <span className={`dd ${dd <= 7 ? 'soon' : ''}`}>{dd === 0 ? '오늘까지' : `D-${dd} · ${md(c.exp)}까지`}{c.status === 'IN_USE' && c.balance != null ? ` · 잔액 ${won(c.balance)}` : ''}</span>;
     }
     const txt = c.usedAt ? `${ymdDot(c.usedAt)} 사용` : st.k === 'cancel' ? (c.paid > 0 ? '환불로 취소됨' : '발급 취소됨') : `${ymdDot(c.exp)} 만료`;
     return <span className={`dd ${s.ddPast}`}>{txt}</span>;
@@ -48,14 +48,14 @@ export default function Wallet() {
             const p = prodOf(db, c.pid), st = cStatus(c);
             return (
               <button key={c.id} type="button" className={`wc ${st.active ? '' : 'past'}`} onClick={() => nav(`/coupons/${c.id}`)}>
-                <CatIcon cat={p.cat} size={22} />
+                <CatIcon cat={p.cat} size={24} />
                 <span><b>{p.name}</b><span className="s">{storeOf(db, p.sid).name}</span>{sub(c)}</span>
                 <span className={`st-chip st-${st.k}`}>{st.t}</span>
               </button>
             );
           }) : (
             <div className="empty">
-              <Icon name="ticket" size={36} stroke={1.6} />
+              <Icon name="ticket" size={64} />
               <b>{EMPTY[tab]}</b>
               <span>주변 가게 혜택을 둘러보세요.</span>
               <button type="button" className={`sbtn line ${s.emptyBtn}`} onClick={() => nav('/')}>둘러보기</button>

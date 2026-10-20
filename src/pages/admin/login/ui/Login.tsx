@@ -2,6 +2,7 @@
 import { Button, Form, Input } from 'antd';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { useDB } from '@/shared/api';
+import { onLogoBlack } from '@/shared/ui/brand';
 import { catalogCss as s } from '@/shared/ui/admin';
 import { adminLogin } from '@/features/admin-auth';
 
@@ -19,7 +20,7 @@ export default function Login() {
   return (
     <div className={s.login}>
       <div className={s.loginCard}>
-        <div className={s.loginLogo}><span className={s.mark}>ON</span>ON 관리자<span className="a-sid">A-00-01</span></div>
+        <h1 className={s.loginLogo}><img src={onLogoBlack} alt="쿠핀 ON" width={179} height={32} /><span>관리자</span><span className="a-sid">A-00-01</span></h1>
         <p className={s.loginDesc}>운영자 계정으로 로그인해요. 고객 계정과는 따로 관리해요.</p>
         <Form layout="vertical" requiredMark={false} initialValues={{ id: 'ops.park', pw: 'onadmin1' }} onFinish={submit}>
           <Form.Item label="아이디" name="id"><Input autoComplete="username" /></Form.Item>

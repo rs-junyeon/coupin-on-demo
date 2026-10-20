@@ -1,14 +1,14 @@
 /* 결제·완료·실패·내 쿠폰·쿠폰 화면 전용 (목업의 인라인 스타일을 옮김) */
-.agreeNote { display: block; color: var(--ink-3); }
+.agreeNote { display: block; color: var(--gray-80); }
 .rowsGap { margin-top: 12px; }
-.oid { font-size: 12.5px; }
+.oid { font-size: var(--fs-13); }
 .emptyBtn { padding: 0 20px; }
-.ddPast { color: var(--ink-3); }
-.stampCancel { color: var(--coral-800); }
-.stampPast { color: var(--ink-3); }
+.ddPast { color: var(--gray-80); }
+.stampCancel { color: var(--status-danger-text); }
+.stampPast { color: var(--gray-80); }
 .infoTitle { margin: 0 0 8px; font-size: 14px; }
-.usedNote { margin: 0; text-align: center; font-size: 12.5px; color: var(--ink-3); }
+.usedNote { margin: 0; text-align: center; font-size: var(--fs-13); color: var(--gray-80); }
 .amt { font-weight: 800; }
 /* 시트 안 작은 안내 (.bsheet p.sub보다 우선) */
-:global(.bsheet) p:global(.sub).fine { font-size: 12.5px; color: var(--ink-3); }
+:global(.bsheet) p:global(.sub).fine { font-size: var(--fs-13); color: var(--gray-80); }
 .pgName { font-size: 18px; }

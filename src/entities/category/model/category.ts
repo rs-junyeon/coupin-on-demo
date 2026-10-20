@@ -4,7 +4,8 @@ import { CAT_COLORS } from '@/shared/config';
 
 export const UNCAT: Category = { color: '#8B92A8', icon: 'box' };
 
-export const CAT_ICONS = ['beauty', 'hair', 'fit', 'cafe', 'class', 'photo', 'food', 'pet', 'gift', 'box'] as const;
+/** 운영자가 고르는 카테고리 아이콘: 기본 10개 + antd에 없어 직접 그린 3개 (DESIGN.md 7.7) */
+export const CAT_ICONS = ['cafe', 'dessert', 'hair', 'beauty', 'fit', 'class', 'experiment', 'photo', 'pet', 'shopping', 'dumbbell', 'food', 'nail'] as const;
 
 export const catOf = (db: Pick<DB, 'cats'>, k: string | null) => (k && db.cats[k]) || UNCAT;
 

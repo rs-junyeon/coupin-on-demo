@@ -1,0 +1,7 @@
+/* 아이콘 크기 (DESIGN.md 7.7): 16 글자 옆·칩, 20 목록·버튼, 24 탭바·헤더, 32 결과 원 안, 64 빈 상태 */
+.icon { display: inline-flex; flex: none; line-height: 0; }
+.s16 { font-size: 16px; }
+.s20 { font-size: 20px; }
+.s24 { font-size: 24px; }
+.s32 { font-size: 32px; }
+.s64 { font-size: 64px; }

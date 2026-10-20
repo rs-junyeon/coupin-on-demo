@@ -10,7 +10,7 @@ export function ProductRow({ p, rep = false, icon = false, sub }: { p: Product; 
   const why = blockReason(useDB(), p);
   return (
     <Link to={`/products/${p.id}`} className={`prow ${rep ? 'rep' : ''}`}>
-      {icon && <CatIcon cat={p.cat} size={18} />}
+      {icon && <CatIcon cat={p.cat} size={20} />}
       <span>
         {rep && p.rep && <span className="rep-l">대표 상품</span>}
         <span className="pn">{p.name}</span>

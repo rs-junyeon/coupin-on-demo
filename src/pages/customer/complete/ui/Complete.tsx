@@ -25,7 +25,7 @@ export default function Complete() {
       <TopBar title={free ? '발급 완료' : '구매 완료'} close onBack={home} />
       <div className="scroll">
         <div className="done">
-          <div className="done-ic"><Icon name="check" size={36} stroke={2.6} /></div>
+          <div className="done-ic"><Icon name="check" size={64} /></div>
           <h2>{free ? '쿠폰을 받았어요' : '구매가 끝났어요'}</h2>
           <p>내 쿠폰에서 바로 꺼내 쓸 수 있어요.</p>
           <div className="box">
@@ -40,7 +40,7 @@ export default function Complete() {
         </div>
       </div>
       <div className="cta-bar">
-        <button type="button" className="cta dark" onClick={toCoupon}>내 쿠폰에서 보기</button>
+        <button type="button" className="cta primary" onClick={toCoupon}>내 쿠폰에서 보기</button>
         <button type="button" className="cta line" onClick={home}>계속 둘러보기</button>
       </div>
     </div>

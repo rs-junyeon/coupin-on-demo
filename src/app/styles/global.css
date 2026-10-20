@@ -1,21 +1,24 @@
+/* 고객 앱·관리자 공통 바탕 (DESIGN.md 4.1, 10장). 글꼴 파일은 app/index.tsx에서 패키지로 불러온다 */
 * { box-sizing: border-box; }
 html, body { margin: 0; }
 body {
-  font-family: var(--font);
-  font-size: 14px;
-  line-height: 1.55;
-  letter-spacing: -0.005em;
+  font-family: var(--font-sans);
+  font-size: var(--fs-14);
+  font-weight: 500;
+  line-height: 1.5;
   color: var(--text-primary);
   background: var(--surface-subtle);
   -webkit-font-smoothing: antialiased;
+  word-break: keep-all;
+  overflow-wrap: break-word;
   min-height: 100vh;
 }
 button, input, select, textarea { font: inherit; color: inherit; }
 button { cursor: pointer; }
-:focus-visible { outline: 2px solid var(--coupin-navy); outline-offset: 2px; }
+:focus-visible { outline: 2px solid var(--primary-color); outline-offset: 2px; }
 .num { font-variant-numeric: tabular-nums; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
 /* 나눠 불러오는 화면(관리자)을 처음 여는 동안 */
-.page-loading { margin: 0; padding: 40vh 24px 0; text-align: center; color: var(--text-tertiary); font-size: 14px; }
+.page-loading { margin: 0; padding: 40vh 24px 0; text-align: center; color: var(--gray-80); font-size: var(--fs-14); }

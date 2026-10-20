@@ -2,6 +2,7 @@
 // 동작(받기·환불·게시 등)은 features와 각 화면 model에 있고, mutate로 데이터를 고친다
 import { create } from 'zustand';
 import { createJSONStorage, persist, type StateStorage } from 'zustand/middleware';
+import { CAT_COLORS } from '@/shared/config';
 import type { DB } from './schema';
 import { seed, STORAGE_KEY } from './seed';
 
@@ -14,8 +15,23 @@ const safeStorage: StateStorage = {
 /** 동작의 결과: 성공이면 ok와 값, 실패면 고객·운영자에게 보여 줄 문구 */
 export type Result<T = object> = ({ ok: true } & T) | { ok: false; error: string };
 
+/** 버전 1의 카테고리 팔레트. 이미 저장된 카테고리 색을 옮길 때만 쓴다 */
+const V1_CAT_COLORS = ['#D9779F', '#2A7D72', '#3F82BC', '#B07F2E', '#8C79D6', '#5A7A3A', '#C8664B', '#4C6FA8', '#9A6B9E', '#3D8F86'];
+
+/** 저장된 데이터 옮기기. v1 → v2: 카테고리 색을 ON 팔레트로 바꾼다 (예전 팔레트 몇 번째 색이었는지 그대로) */
+function migrateDB(saved: unknown, version: number) {
+  const d = saved as DB;
+  if (version < 2) {
+    Object.values(d.cats).forEach((c, n) => {
+      const i = V1_CAT_COLORS.indexOf(c.color);
+      c.color = CAT_COLORS[(i < 0 ? n : i) % CAT_COLORS.length];
+    });
+  }
+  return d;
+}
+
 export const useDB = create<DB>()(
-  persist(() => seed(), { name: STORAGE_KEY, version: 1, storage: createJSONStorage(() => safeStorage) }),
+  persist(() => seed(), { name: STORAGE_KEY, version: 2, storage: createJSONStorage(() => safeStorage), migrate: migrateDB }),
 );
 
 const clone = <T,>(x: T): T => JSON.parse(JSON.stringify(x));

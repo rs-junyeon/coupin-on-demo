@@ -22,8 +22,12 @@ export function myRefunds(db: DB): MyRefund[] {
   return rs.sort((a, b) => +new Date(b.at) - +new Date(a.at));
 }
 
-export const orderChip = (st: OrderStatus) => (st === '완료' ? 'st-ok' : st === '환불 완료' || st.startsWith('실패') ? 'st-cancel' : 'st-warn');
-
-/** 주문 상태 표시: 완료, 환불 완료·실패, 그 밖(발급 중·결과 미확인·환불 처리 중)은 확인 필요 */
-export const orderTag = (st: string): TagKind => (st === '완료' ? 'ok' : st === '환불 완료' || st.startsWith('실패') ? 'cancel' : 'warn');
+/** 주문 상태 칩 색 (DESIGN.md 3.6): 결제 확인·발급 중 info, 완료 success, 실패 danger, 환불 처리 중 warning, 환불 완료 회색.
+ *  결과 미확인(관리자만 보임)은 운영자가 확인해야 해서 warning */
+const ORDER_TAG: Record<string, TagKind> = {
+  '결제 확인 중': 'part', '발급 중': 'part', '완료': 'ok', '실패(결제 취소됨)': 'cancel', '환불 처리 중': 'warn', '환불 완료': 'used', '결과 미확인': 'warn',
+};
+export const orderTag = (st: string): TagKind => ORDER_TAG[st] ?? 'warn';
+/** 고객 앱 상태 칩 클래스 (.st-*) */
+export const orderChip = (st: OrderStatus) => `st-${orderTag(st)}`;
 export const refundTag = (r: Refund['result']): TagKind => (r === '완료' ? 'ok' : r === '거절' ? 'cancel' : 'warn');

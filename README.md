@@ -40,5 +40,6 @@ pnpm dev               # http://localhost:5173
 
 ## 디자인 기준
 
-- 구조·컴포넌트: `~/Documents/coupin-plus` (관리자: plus-admin-web, libs/cims-ui·cims-assets / 고객 모바일: plus-qr-web 치수)
-- 색: 쿠핀 컬러 시스템 `~/Documents/company/all.html` (ON Lime → Mint, Deep Navy)
+- 쿠핀 ON 디자인 시스템: [docs/design/DESIGN.md](docs/design/DESIGN.md), 소개 페이지 [docs/design/design-system.html](docs/design/design-system.html)
+- 색은 ON 시그니처(Lime #C3E89E → Mint #7FE7D8)에 맞춰 만든 스케일, 레이아웃·글꼴·여백은 쿠핀+ 웹 앱(console·qr-web)과 같다. 토큰은 `src/app/styles/tokens.css`
+- 아이콘은 고객 앱·관리자 모두 `@ant-design/icons` Outlined. 글꼴(Pretendard Variable, JetBrains Mono)은 패키지로 불러온다

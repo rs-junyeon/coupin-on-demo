@@ -12,7 +12,10 @@ import { Icon, MaskIcon } from '@/shared/ui/icon';
 import { Card, catalogCss as s, ListBox, PageHead, StatusTag, tableProps } from '@/shared/ui/admin';
 import { addCat, deleteCat, editCat } from '../model/actions';
 
-const IC_NAME: Record<(typeof CAT_ICONS)[number], string> = { beauty: '뷰티', hair: '헤어', fit: '운동', cafe: '카페', class: '클래스', photo: '사진', food: '음식', pet: '반려동물', gift: '선물', box: '기타' };
+const IC_NAME: Record<(typeof CAT_ICONS)[number], string> = {
+  cafe: '카페', dessert: '디저트·음료', hair: '헤어', beauty: '뷰티·케어', fit: '운동·스포츠', class: '클래스·교육', experiment: '체험·공방',
+  photo: '사진·스튜디오', pet: '건강·반려', shopping: '소품·리빙', dumbbell: '운동(덤벨)', food: '식당', nail: '네일',
+};
 
 /** 고른 아이콘: 기본 아이콘(icon) 또는 운영자가 올린 아이콘(img). warn·err는 올릴 때 안내 */
 type Pick = { icon: IconName; img: string | null; warn: string; err: string; note?: string };

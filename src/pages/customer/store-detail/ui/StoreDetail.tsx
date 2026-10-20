@@ -23,7 +23,7 @@ export default function StoreDetail() {
         <div className="dsec">
           <div className="tags"><span className="tag">{catName(db, storeCat(db, s.id))}</span><span className="tag">쿠폰 {ps.length}</span></div>
           <h2>{s.name}</h2>
-          <div className="st"><Icon name="place" size={15} />{s.pos ? `${distTxt(s, origin)} · ` : ''}{s.intro}</div>
+          <div className="st"><Icon name="place" size={16} />{s.pos ? `${distTxt(s, origin)} · ` : ''}{s.intro}</div>
           {s.desc && <p className="sd-desc">{s.desc}</p>}
           <dl className={`info ${styles.info}`}>
             <div><dt>주소</dt><dd>{s.addr}</dd></div>

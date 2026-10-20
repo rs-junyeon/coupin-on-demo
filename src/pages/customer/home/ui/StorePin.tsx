@@ -7,7 +7,7 @@ import { won } from '@/shared/lib';
 import { type Store, useDB } from '@/shared/api';
 import styles from './StoreMap.module.css';
 
-/** 가게 핀 (목업 .pin): 대표 상품 카테고리 색, 무료·쿠폰 수 태그. 고르면 대표 상품 가격을 보여 준다 */
+/** 가게 핀 (DESIGN.md 7.5): 대표 상품 카테고리 색 원, 무료·쿠폰 수 라벨. 고르면 1.15배, 라벨 대신 가격(Navy, 무료는 Lime) */
 export function StorePin({ store, f, sel, onClick }: { store: Store; f: ListFilter; sel: boolean; onClick: () => void }) {
   const db = useDB();
   const ps = storeProducts(db, store.id, f);
@@ -17,10 +17,10 @@ export function StorePin({ store, f, sel, onClick }: { store: Store; f: ListFilt
     <CustomOverlayMap position={store.pos} xAnchor={0.5} yAnchor={0} zIndex={sel ? 4 : 2} clickable>
       <button type="button" className={`${styles.pin} ${sel ? styles.on : ''}`} style={{ '--c': k.color } as CSSProperties}
         onClick={onClick} aria-label={store.name} aria-pressed={sel}>
-        <span className={styles.head}><CatGlyph c={k} size={17} /></span>
+        <span className={styles.head}><CatGlyph c={k} size={20} /></span>
         <span className={styles.tags}>
           {sel
-            ? <i className={styles.price}>{isFree(rep) ? '무료' : won(rep.price)}</i>
+            ? <i className={isFree(rep) ? styles.free : styles.price}>{isFree(rep) ? '무료' : won(rep.price)}</i>
             : <>{ps.some(isFree) && <i className={styles.free}>무료</i>}{ps.length >= 2 && <i>쿠폰 {ps.length}</i>}</>}
         </span>
       </button>

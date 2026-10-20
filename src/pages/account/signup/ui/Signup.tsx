@@ -64,12 +64,12 @@ export default function Signup() {
       <TopBar title="회원가입" close onBack={finish} />
       <div className="scroll">
         <div className="done">
-          <div className="done-ic"><Icon name="check" size={36} stroke={2.6} /></div>
+          <div className="done-ic"><Icon name="check" size={64} /></div>
           <h2>가입이 끝났어요</h2>
           <p>{prov ? `${SNS[prov]} 계정으로 가입했어요.` : `${doneId} 님, 반가워요.`}<br />이제 쿠폰을 받고 살 수 있어요.</p>
         </div>
       </div>
-      <div className="cta-bar"><button type="button" className="cta dark" onClick={finish}>{rawNext ? '하려던 일 계속하기' : '시작하기'}</button></div>
+      <div className="cta-bar"><button type="button" className="cta primary" onClick={finish}>{rawNext ? '하려던 일 계속하기' : '시작하기'}</button></div>
     </div>
   );
 
@@ -115,8 +115,8 @@ export default function Signup() {
         </div>
         <div className="cta-bar">
           {dup
-            ? <button type="button" className="cta dark" onClick={toLogin}>로그인하기</button>
-            : <button type="button" className="cta dark" disabled={!verified} onClick={join}>가입하기</button>}
+            ? <button type="button" className="cta primary" onClick={toLogin}>로그인하기</button>
+            : <button type="button" className="cta primary" disabled={!verified} onClick={join}>가입하기</button>}
         </div>
       </div>
     );
@@ -145,8 +145,8 @@ export default function Signup() {
       </div>
       <div className="cta-bar">
         {prov
-          ? <button type="button" className="cta dark" disabled={!req} onClick={snsJoin}>동의하고 가입하기</button>
-          : <button type="button" className="cta dark" disabled={!req} onClick={() => setStep('info')}>다음</button>}
+          ? <button type="button" className="cta primary" disabled={!req} onClick={snsJoin}>동의하고 가입하기</button>
+          : <button type="button" className="cta primary" disabled={!req} onClick={() => setStep('info')}>다음</button>}
       </div>
     </div>
   );

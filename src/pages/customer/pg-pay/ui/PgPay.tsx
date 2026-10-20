@@ -43,7 +43,7 @@ export default function PgPay() {
               <div><span className="k">결제 금액</span><b className="num">{won(p.price)}</b></div>
               <div><span className="k">결제 수단</span><span>{PAY_METHODS[method]}</span></div>
             </div>
-            <button type="button" className="cta dark" onClick={pay}><Icon name="card" size={18} />결제하기</button>
+            <button type="button" className="cta dark" onClick={pay}><Icon name="card" size={20} />결제하기</button>
             <button type="button" className="cta line" onClick={cancel}>취소</button>
           </div>
         </div>

@@ -52,7 +52,7 @@ export default function SocialPhone() {
             </div></div>
           </div>
         </div>
-        <div className="cta-bar"><button type="button" className="cta dark" onClick={linkAndLogin}>연결하고 로그인</button></div>
+        <div className="cta-bar"><button type="button" className="cta primary" onClick={linkAndLogin}>연결하고 로그인</button></div>
       </div>
     );
   }
@@ -66,7 +66,7 @@ export default function SocialPhone() {
           <PhoneVerify idp="sn" phone={phone} onPhone={v => { setPhone(v); setVerified(false); }} verified={verified} onVerify={() => setVerified(true)} />
         </div>
       </div>
-      <div className="cta-bar"><button type="button" className="cta dark" disabled={!verified} onClick={goNext}>다음</button></div>
+      <div className="cta-bar"><button type="button" className="cta primary" disabled={!verified} onClick={goNext}>다음</button></div>
     </div>
   );
 }

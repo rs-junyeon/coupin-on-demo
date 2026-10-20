@@ -9,6 +9,7 @@ export default defineConfig({
   test: {
     environment: 'jsdom',
     setupFiles: ['./src/app/tests/setup.ts'],
-    css: { modules: { classNameStrategy: 'non-scoped' } },
+    // tokens.css는 adminTheme.test.ts가 ?raw로 읽는다. 나머지 CSS는 테스트에서 처리하지 않는다
+    css: { include: [/tokens\.css/], modules: { classNameStrategy: 'non-scoped' } },
   },
 });

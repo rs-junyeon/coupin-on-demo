@@ -10,7 +10,7 @@ export function Barcode({ pin, className = 'bc' }: { pin: string; className?: st
   });
   return (
     <svg className={className} viewBox={`0 0 ${x.toFixed(1)} 80`} preserveAspectRatio="none" role="img" aria-label="쿠폰 바코드">
-      {bars.map(b => <rect key={b.x} x={b.x.toFixed(1)} y="0" width={b.w.toFixed(1)} height="80" fill="#10162E" />)}
+      {bars.map(b => <rect key={b.x} x={b.x.toFixed(1)} y="0" width={b.w.toFixed(1)} height="80" fill="currentColor" />)}
     </svg>
   );
 }

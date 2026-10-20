@@ -1,28 +1,31 @@
 /* 관리자 D1 묶음 전용 (로그인·판매 현황·상품·카테고리·동기화). 공용 모양은 admin.css */
 
-/* 운영자 로그인 (A-00-01) */
-.login { min-height: 100vh; display: grid; place-items: center; padding: 24px 16px; background: var(--navy); }
-.loginCard { width: 400px; max-width: 100%; background: #fff; border-radius: 14px; padding: 32px 32px 28px; box-shadow: 0 16px 48px rgba(16,22,46,.24); }
-.loginLogo { display: flex; align-items: center; gap: 8px; font-size: 18px; font-weight: 800; margin-bottom: 8px; }
-.loginLogo .mark { width: 32px; height: 32px; border-radius: 9px; background: var(--on-grad); color: var(--ink); display: grid; place-items: center; font-size: 12px; font-weight: 800; }
-.loginDesc { margin: 0 0 24px; color: var(--ink-3); font-size: 13.5px; line-height: 1.6; }
-.loginBtn { width: 100%; height: 44px !important; font-size: 15px !important; }
+/* 운영자 로그인 (A-00-01): console 로그인 카드 (모서리 20, raised 그림자), 로그인 버튼은 ON 그라데이션 + Navy 글자 (8.2) */
+.login { min-height: 100vh; display: grid; place-items: center; padding: var(--space-6) var(--space-4); background: var(--surface-subtle); }
+.loginCard { width: 420px; max-width: 100%; background: var(--surface-base); border-radius: var(--radius-3xl); padding: var(--space-8) var(--space-8) 28px; box-shadow: var(--shadow-raised); }
+.loginLogo { display: flex; align-items: center; gap: var(--space-2); margin: 0 0 var(--space-2); font-size: var(--fs-18); font-weight: 700; }
+.loginLogo img { display: block; height: 32px; width: auto; }
+.loginDesc { margin: 0 0 var(--space-6); color: var(--gray-80); font-size: var(--fs-14); line-height: 1.6; }
+.loginBtn { width: 100%; height: 48px !important; font-size: var(--fs-16) !important; }
+.loginBtn:global(.ant-btn-primary), .loginBtn:global(.ant-btn-primary):not(:disabled):hover, .loginBtn:global(.ant-btn-primary):not(:disabled):active { background: var(--on-gradient); color: var(--text-primary); border: 0; }
+.loginBtn:global(.ant-btn-primary):not(:disabled):hover { filter: brightness(1.05); }
+.loginBtn:global(.ant-btn-primary):not(:disabled):active { filter: brightness(0.95); }
 
 /* 카드 머리 보조 문구 */
-.cardSub { font-size: 12.5px; font-weight: 500; color: var(--ink-3); }
+.cardSub { font-size: var(--fs-13); font-weight: 500; color: var(--gray-80); }
 
 /* 운영 알림 */
 .alerts { display: grid; gap: 8px; }
 .alertGroups { display: grid; gap: 20px; }
-.danger { background: var(--coral-50); border-color: var(--coral-100); color: var(--coral-900); }
+.danger { background: var(--status-danger-50); color: var(--status-danger-text); }
 .alertIcon { margin-top: 3px; flex: none; }
-.none { margin: 0; font-size: 13px; color: var(--ink-3); }
-.mono { font-family: var(--f-mono); font-size: 12.5px; }
+.none { margin: 0; font-size: var(--fs-13); color: var(--gray-80); }
+.mono { font-family: var(--font-mono); font-size: var(--fs-12); }
 
 /* 일별 발급 막대 그래프 */
-.grid { stroke: var(--line); stroke-width: 1; }
-.bar { fill: var(--lime-700); }
-.barToday { fill: var(--mint-700); }
+.grid { stroke: var(--border-subtle); stroke-width: 1; }
+.bar { fill: var(--chart-line-positive); }
+.barToday { fill: var(--lime-900); }
 .hit { fill: transparent; }
 .barG:hover .bar, .barG:hover .barToday { opacity: .8; }
 
@@ -35,28 +38,28 @@
 .sp { flex: 1; }
 .bulkSel { width: 200px; }
 .bulkInput { width: 180px !important; }
-.err { flex-basis: 100%; margin: 6px 0 0; color: var(--coral-800); font-size: 12.5px; font-weight: 600; }
-.dash { color: var(--ink-3); }
+.err { flex-basis: 100%; margin: 6px 0 0; color: var(--status-danger-text); font-size: var(--fs-13); font-weight: 600; }
+.dash { color: var(--gray-80); }
 
 /* 판매 조건 */
 .newCat { margin-top: 8px; }
 .roVal { font-size: 15px; font-weight: 700; }
 .wide { width: 100% !important; }
-.terms :global(.ant-form-item-extra) { font-size: 12.5px; line-height: 1.55; margin-top: 4px; }
+.terms :global(.ant-form-item-extra) { font-size: var(--fs-13); line-height: 1.55; margin-top: 4px; }
 .imgGap { margin-bottom: 16px; }
 
 /* 카테고리: 아이콘 고르기 */
 .catForm { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
 .catName { width: 220px !important; }
 .icpick { display: flex; gap: 6px; flex-wrap: wrap; }
-.icpick button { width: 36px; height: 36px; border-radius: 8px; border: 1px solid var(--line-2); background: #fff; color: var(--ink-2); display: grid; place-items: center; padding: 0; }
-.icpick button:hover { border-color: var(--lime-700); }
-.icpick button[aria-pressed="true"] { background: var(--lime-50); border-color: var(--lime-700); color: var(--lime-900); box-shadow: 0 0 0 2px rgba(127,165,87,.18); }
+.icpick button { width: 36px; height: 36px; border-radius: var(--radius-md); border: 1px solid var(--border-default); background: var(--surface-base); color: var(--text-secondary); display: grid; place-items: center; padding: 0; }
+.icpick button:hover { border-color: var(--primary-color); }
+.icpick button[aria-pressed="true"] { background: var(--lime-100); border-color: var(--lime-700); color: var(--lime-900); box-shadow: 0 0 0 3px var(--primary-ring); }
 .editRow { display: grid; gap: 8px; }
-.loginBack { display: block; margin-top: 16px; text-align: center; font-size: 13.5px; color: var(--ink-3); }
-.loginBack:hover { color: var(--ink); }
+.loginBack { display: block; margin-top: var(--space-4); text-align: center; font-size: var(--fs-14); color: var(--gray-80); }
+.loginBack:hover { color: var(--text-primary); }
 .icUpload { width: auto !important; padding: 0 10px !important; display: inline-flex !important; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; }
 .fileInput { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
-.icPreview { gap: 8px; margin-left: 4px; font-size: 12.5px; color: var(--ink-3); }
-.warn { flex-basis: 100%; margin: 6px 0 0; color: var(--butter-900); font-size: 12.5px; font-weight: 600; }
-.note { flex-basis: 100%; margin: 6px 0 0; color: var(--ink-3); font-size: 12.5px; }
+.icPreview { gap: 8px; margin-left: 4px; font-size: var(--fs-13); color: var(--gray-80); }
+.warn { flex-basis: 100%; margin: 6px 0 0; color: var(--status-warning-text); font-size: var(--fs-13); font-weight: 600; }
+.note { flex-basis: 100%; margin: 6px 0 0; color: var(--gray-80); font-size: var(--fs-13); }

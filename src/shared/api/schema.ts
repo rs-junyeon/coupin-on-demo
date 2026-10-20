@@ -121,4 +121,5 @@ export type DB = {
 export type IconName =
   | 'beauty' | 'hair' | 'fit' | 'cafe' | 'class' | 'photo' | 'search' | 'locate' | 'map' | 'list' | 'ticket' | 'user'
   | 'back' | 'chev' | 'down' | 'up' | 'check' | 'x' | 'lock' | 'chart' | 'box' | 'receipt' | 'coins' | 'refund' | 'chat'
-  | 'place' | 'phone' | 'info' | 'doc' | 'out' | 'send' | 'alert' | 'card' | 'store' | 'tag' | 'food' | 'pet' | 'gift' | 'clock';
+  | 'place' | 'phone' | 'info' | 'doc' | 'out' | 'send' | 'alert' | 'card' | 'store' | 'tag' | 'food' | 'pet' | 'gift' | 'clock'
+  | 'dessert' | 'experiment' | 'shopping' | 'dumbbell' | 'nail' | 'copy';

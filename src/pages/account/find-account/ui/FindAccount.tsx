@@ -69,12 +69,12 @@ export default function FindAccount() {
           {err && <p className={s.err} role="alert">{err}</p>}
         </div>
       </div>
-      {verified && !found && tab === 'id' && <div className="cta-bar"><button type="button" className="cta dark" onClick={() => nav('/signup', { replace: true })}>회원가입</button></div>}
+      {verified && !found && tab === 'id' && <div className="cta-bar"><button type="button" className="cta primary" onClick={() => nav('/signup', { replace: true })}>회원가입</button></div>}
       {found && (
         <div className="cta-bar">
           {tab === 'id'
-            ? <button type="button" className="cta dark" onClick={toLogin}>로그인하러 가기</button>
-            : <button type="button" className="cta dark" onClick={savePw}>비밀번호 바꾸기</button>}
+            ? <button type="button" className="cta primary" onClick={toLogin}>로그인하러 가기</button>
+            : <button type="button" className="cta primary" onClick={savePw}>비밀번호 바꾸기</button>}
         </div>
       )}
     </div>

@@ -1,120 +1,175 @@
 /* =========================================================
-   Coupin Color System 토큰 (~/Documents/company/all.html 기준)
-   텍스트 시맨틱은 문서 07 Semantic Tokens 표(Navy 스케일) 값을 따른다
+   쿠핀 ON 디자인 토큰 (docs/design/DESIGN.md 5.4 토큰 묶음)
+   hex 값은 이 파일에만 둔다. 화면 CSS는 var(--…)만 쓴다
    ========================================================= */
 :root {
   color-scheme: light;
 
-  /* 1. Master Core */
-  --coupin-mint: #7FE7D8;
-  --coupin-sky: #7CCBFF;
-  --coupin-lavender: #B9A7FF;
-  --coupin-pink: #FFB7D5;
-  --coupin-navy: #24324A;
-  --coupin-indigo: #1D1753;
-  --coupin-milk: #F8FAFC;
+  /* 시그니처 (3.1) */
+  --on-gradient: linear-gradient(135deg, #C3E89E 0%, #7FE7D8 100%);
+  --on-button-neg: linear-gradient(135deg, #378247 0%, #1E7B76 100%);
 
-  /* 2. Extended */
-  --coupin-apricot: #FFB78F;
-  --coupin-coral: #FF9FB0;
-  --coupin-lime: #C3E89E;
-  --coupin-butter: #FFE0A0;
-  --coupin-orchid: #E79AE4;
+  /* Lime (Point): ON 스케일 (3.2) */
+  --lime-50: #F2FCE7;
+  --lime-100: #E6F8D5;
+  --lime-200: #DAF4C0;
+  --lime-300: #CEEFAF;
+  --lime-500: #C3E89E;
+  --lime-600: #9BD079;
+  --lime-700: #6CAF5D;
+  --lime-800: #378247;
+  --lime-900: #1B5431;
 
-  /* 3. Service gradients (135°) */
-  --coupin-gradient: linear-gradient(135deg, var(--coupin-mint) 0%, var(--coupin-sky) 35%, var(--coupin-lavender) 70%, var(--coupin-pink) 100%);
-  --on-gradient: linear-gradient(135deg, var(--coupin-lime) 0%, var(--coupin-mint) 100%);
-  --on-button-neg: linear-gradient(135deg, #5A7A3A 0%, #2A7D72 100%);
-  --plus-gradient: linear-gradient(135deg, var(--coupin-mint) 0%, var(--coupin-sky) 100%);
-  --halo-gradient: linear-gradient(135deg, var(--coupin-coral) 0%, var(--coupin-apricot) 100%);
-  --audit-gradient: linear-gradient(135deg, #7CCBFF 0%, #3F82BC 52%, #24324A 100%);
+  /* Mint (Sub): ON 스케일 (3.2) */
+  --mint-50: #E9FCF9;
+  --mint-100: #D1F9F2;
+  --mint-200: #B7F6EC;
+  --mint-300: #9BF0E3;
+  --mint-500: #7FE7D8;
+  --mint-600: #5ACABD;
+  --mint-700: #38A299;
+  --mint-800: #1E7B76;
+  --mint-900: #0A4F4E;
 
-  /* 4. Scales (필요한 단계만) */
-  --lime-50: #F4FBEC; --lime-100: #E8F6D8; --lime-200: #D9F0BE; --lime-300: #CDEBAB; --lime-600: #A3CC7A; --lime-700: #7FA557; --lime-800: #5A7A3A; --lime-900: #3C5325;
-  --mint-50: #F0FBF9; --mint-100: #D6F5EF; --mint-700: #3FA597; --mint-800: #2A7D72; --mint-900: #1B544D;
-  --sky-50: #EFF7FF; --sky-100: #D4EAFF; --sky-700: #3F82BC;
-  --lavender-100: #E5DDFF; --lavender-300: #C2B0FF; --lavender-600: #9784DD;
-  --pink-100: #FFE0EC; --pink-300: #FFC0D7; --pink-600: #DD96B3;
-  --coral-50: #FFF0F2; --coral-100: #FFDCE1; --coral-300: #FFB3BE; --coral-600: #E07E90; --coral-800: #8A4A57; --coral-900: #5E313A;
-  --butter-50: #FFFBF0; --butter-100: #FFF4D8; --butter-300: #FFE6AE; --butter-600: #E0BE78; --butter-800: #8A6E2A; --butter-900: #5E4A1C;
-  --navy-50: #F4F5FA; --navy-100: #E0E3EC; --navy-900: #10162E;
+  /* Navy */
+  --navy: #24324A;
+  --navy-dark: #10162E;
 
-  /* 5. Semantic */
+  /* primary 매핑 (솔리드 = Lime 800, 3.3) */
+  --primary-color: #378247;
+  --primary-hovered-color: #1B5431;
+  --primary-ring: rgba(55, 130, 71, 0.18);
+
+  /* 시맨틱 (PLUS console 과 같음, 3.4) */
   --text-primary: #10162E;
   --text-secondary: #3F4866;
   --text-tertiary: #8B92A8;
   --text-inverse: #FFFFFF;
   --surface-base: #FFFFFF;
-  --surface-subtle: var(--coupin-milk);
+  --surface-subtle: #F8FAFC;
   --surface-muted: #F0F1F8;
-  --surface-inverse: var(--coupin-navy);
+  --surface-inverse: #24324A;
   --border-subtle: #E8E9F3;
   --border-default: #D0D2E0;
   --border-strong: #8B92A8;
+
+  /* 상태 (3.5) */
   --status-success: #3FA597;
+  --status-success-50: #EAF6F3;
+  --status-success-text: #266B62;
+  --status-info: #7CCBFF;
+  --status-info-50: #EAF5FF;
+  --status-info-text: #2B5E8A;
   --status-warning: #F5B544;
+  --status-warning-50: #FEF5E3;
+  --status-warning-text: #7A5416;
   --status-danger: #E55F6B;
-  --status-info: var(--coupin-sky);
+  --status-danger-50: #FEEFF1;
+  --status-danger-700: #B33846;
+  --status-danger-text: #B33846;
 
-  /* 6. 데모 역할 토큰 (60·30·10: 시그니처는 CTA·강조에만) */
-  --cta: var(--on-gradient);
-  --cta-text: var(--text-primary);
-  --selected: var(--coupin-navy);
-  --accent-soft: var(--lime-50);
-  --accent-soft-2: var(--lime-100);
-  --accent-line: var(--lime-300);
-  --accent-mark: var(--lime-700);
-  --accent-text: var(--lime-800);
-  --accent-ink: var(--lime-900);
-  --free-text: var(--mint-800);
-  --danger-text: var(--coral-800);
-  --check-bg: var(--butter-100);
-  --check-line: var(--butter-600);
-  --check-text: var(--butter-900);
-  --halo-soft: var(--coral-50);
-  --halo-text: var(--coral-800);
-  --plus-soft: var(--mint-50);
-  --plus-text: var(--mint-900);
-  --shadow-1: 0 6px 18px rgba(36, 50, 74, .12);
-  --shadow-2: 0 18px 48px -16px rgba(36, 50, 74, .35);
+  /* 중립 회색 (PLUS console 과 같음) */
+  --gray-5: #F8FAFC;
+  --gray-10: #EEF0F6;
+  --gray-20: #E8E9F3;
+  --gray-30: #D0D2E0;
+  --gray-40: #C2C5D6;
+  --gray-50: #B0B4C8;
+  --gray-60: #9CA0B6;
+  --gray-70: #8B92A8;
+  --gray-80: #5E6280;
+  --gray-90: #3F4866;
+  --gray-100: #10162E;
 
-  /* 카테고리 (확장 팔레트에서 배정) */
-  --cat-BEAUTY: var(--pink-600);   --cat-BEAUTY-soft: var(--pink-100);   --cat-BEAUTY-mid: var(--pink-300);
-  --cat-CAFE: var(--butter-600);   --cat-CAFE-soft: var(--butter-100);   --cat-CAFE-mid: var(--butter-300);
-  --cat-FOOD: var(--coral-600);    --cat-FOOD-soft: var(--coral-100);    --cat-FOOD-mid: var(--coral-300);
-  --cat-FIT: var(--lime-600);      --cat-FIT-soft: var(--lime-100);      --cat-FIT-mid: var(--lime-300);
-  --cat-CLASS: var(--lavender-600); --cat-CLASS-soft: var(--lavender-100); --cat-CLASS-mid: var(--lavender-300);
+  /* 카테고리 (3.8). 실제 카테고리 색은 shared/config CAT_COLORS 데이터로 붙는다 */
+  --cat-green: #468E53;
+  --cat-teal: #098E8B;
+  --cat-sky: #2C84B9;
+  --cat-indigo: #7272BE;
+  --cat-violet: #9864A8;
+  --cat-rose: #B05D7F;
+  --cat-coral: #B65F54;
+  --cat-amber: #AC6A28;
 
-  --radius-s: 10px;
-  --radius-m: 14px;
-  --radius-l: 20px;
-  --radius-xl: 24px;
-  --font: 'Pretendard', system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif;
-  --mono: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace;
-}
+  /* 관리자 다크 사이드바 (3.9, 7.7) */
+  --sider-bg: #161F27;
+  --sider-text: #ACACAC;
+  --sider-active: #C3E89E;
+  --sider-hover: #CEEFAF;
+  --sider-line: rgba(255, 255, 255, 0.1);
 
-/* 목업(on-mockup-split.html) 변수 이름 별칭: 고객 앱·관리자 CSS가 같이 쓴다 */
-:root {
-  --ink: #10162E;
-  --ink-2: #3F4866;
-  --ink-3: #8B92A8;
-  --line: #E8E9F3;
-  --line-2: #D0D2E0;
-  --paper: #F8FAFC;
-  --muted: #F0F1F8;
-  --white: #FFFFFF;
-  --navy: #24324A;
-  --on-grad: linear-gradient(135deg, #C3E89E 0%, #7FE7D8 100%);
-  --lime-50: #F4FBEC; --lime-100: #E8F6D8; --lime-200: #D9F0BE; --lime-300: #CDEBAB; --lime-500: #C3E89E; --lime-600: #A3CC7A; --lime-700: #7FA557; --lime-800: #5A7A3A; --lime-900: #3C5325;
-  --navy-50: #F4F5FA; --navy-200: #B8BECC; --navy-500: #5E6782;
-  --mint-50: #F0FBF9; --mint-100: #D6F5EF; --mint-700: #3FA597; --mint-800: #2A7D72;
-  --butter-50: #FFFBF0; --butter-100: #FFF4D8; --butter-600: #E0BE78; --butter-900: #5E4A1C;
-  --coral-50: #FFF0F2; --coral-100: #FFDCE1; --coral-600: #E07E90; --coral-800: #8A4A57;
-  --sky-50: #EFF7FF; --sky-700: #3F82BC;
-  --map-land: #EEF1EA; --map-block: #E2E7DC; --map-road: #FFFFFF; --map-park: #D3E8C4; --map-water: #CDE3F2; --map-rail: #9BCF8A;
-  --shadow-1: 0 6px 18px rgba(36, 50, 74, .12);
-  --shadow-2: 0 18px 48px -16px rgba(36, 50, 74, .35);
-  --ease: cubic-bezier(.32, .72, 0, 1);
-  --f-sans: "Pretendard", "Pretendard Variable", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
-  --f-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  /* 관리자 표 머리 (cims-assets component.css) */
+  --table-head: #FBFBFB;
+
+  /* 그래프 (3.10) */
+  --chart-line-positive: #378247;
+  --chart-fill-positive: rgba(55, 130, 71, 0.12);
+  --chart-line-negative: #B05D7F;
+  --chart-fill-negative: rgba(176, 93, 127, 0.12);
+  --chart-line-neutral: #1E7B76;
+
+  /* 글꼴 (4.1, 4.2) */
+  --font-sans: "Pretendard Variable", Pretendard, -apple-system, system-ui, Roboto, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  --font-mono: "JetBrains Mono", "SF Mono", Consolas, monospace;
+  --fs-24: 24px;
+  --fs-20: 20px;
+  --fs-18: 18px;
+  --fs-16: 16px;
+  --fs-15: 15px;
+  --fs-14: 14px;
+  --fs-13: 13px;
+  --fs-12: 12px;
+
+  /* 간격 (5.1) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-18: 72px;
+
+  /* 모서리 (5.2) */
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 10px;
+  --radius-xl: 12px;
+  --radius-2xl: 14px;
+  --radius-3xl: 20px;
+  --radius-full: 999px;
+
+  /* 그림자 (5.3) */
+  --shadow-header: 0 0 35px 0 rgba(154, 161, 171, 0.15);
+  --shadow-card: 0 0 8px 0 rgba(0, 0, 0, 0.03);
+  --shadow-raised: 0 8px 28px rgba(16, 22, 46, 0.08);
+  --shadow-sheet: 0 -8px 28px rgba(16, 22, 46, 0.12);
+  --shadow-pin: 0 2px 6px rgba(16, 22, 46, 0.24);
+  --dim: rgba(16, 22, 46, 0.5);
+  --me-ring: rgba(44, 132, 185, 0.2);
+
+  /* 움직임 (9장) */
+  --motion-fast: 0.2s ease;
+  --motion-layout: 0.25s ease-in-out;
+  --motion-screen: 0.28s cubic-bezier(0.32, 0.72, 0, 1);
+
+  /* 지도를 불러오는 동안의 자리 (스켈레톤) */
+  --map-land: #EEF1EA;
+  --map-block: #E2E7DC;
+
+  /* 외부 화면 흉내 (ON이 만들지 않는 화면: PG 결제창, OS 권한 창, 소셜 로그인 버튼) */
+  --ext-bg: #ECEEF3;
+  --ext-bar: #DFE2E9;
+  --os-dialog-bg: #F2F2F7;
+  --os-dialog-text: #000000;
+  --os-dialog-sub: #3C3C43;
+  --os-dialog-line: rgba(60, 60, 67, 0.22);
+  --os-dialog-action: #0A64D6;
+  --os-dim: rgba(0, 0, 0, 0.38);
+  --kakao-bg: #FEE500;
+  --kakao-text: #191600;
+  --google-blue: #4285F4;
 }
