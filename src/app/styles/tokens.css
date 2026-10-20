@@ -173,5 +173,9 @@
   --os-dim: rgba(0, 0, 0, 0.38);
   --kakao-bg: #FEE500;
   --kakao-text: #191600;
+  --kakao-symbol: #000000;
+  --google-red: #EA4335;
   --google-blue: #4285F4;
+  --google-yellow: #FBBC05;
+  --google-green: #34A853;
 }

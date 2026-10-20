@@ -1,13 +1,14 @@
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { useDB } from '@/shared/api';
+import { SnsLogo } from '@/shared/ui/brand';
 import { accountCss as s, NotFound, useUi } from '@/shared/ui/mobile';
 import { isProv, SNS } from '@/entities/account';
 import { safeNext } from '@/shared/lib';
 import { linkSocial, socialLogin } from '@/features/auth';
 
 const EXT = {
-  kakao: { acct: '카카오계정', mail: 'kim.on@kakao.com', items: '닉네임, 이메일', mark: 'K' },
-  google: { acct: 'Google 계정', mail: 'kim.on@gmail.com', items: '이름, 이메일', mark: 'G' },
+  kakao: { acct: '카카오계정', mail: 'kim.on@kakao.com', items: '닉네임, 이메일' },
+  google: { acct: 'Google 계정', mail: 'kim.on@gmail.com', items: '이름, 이메일' },
 } as const;
 
 /**
@@ -53,7 +54,7 @@ export default function SocialConsent() {
             <div><span className="k">계정</span><span>{x.mail}</span></div>
             <div><span className="k">제공 항목</span><span>{x.items}</span></div>
           </div>
-          <button type="button" className={`sns ${prov}`} onClick={ok}><i aria-hidden="true">{x.mark}</i>동의하고 계속하기</button>
+          <button type="button" className={`sns ${prov}`} onClick={ok}><SnsLogo prov={prov} />동의하고 계속하기</button>
           <button type="button" className="cta line" onClick={cancel}>취소</button>
         </div>
         <p className="ext-note">휴대폰 번호는 {name}에서 받지 않고, 처음 한 번 문자로 확인해요.</p>

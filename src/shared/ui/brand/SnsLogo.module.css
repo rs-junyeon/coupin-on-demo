@@ -1,0 +1,7 @@
+/* 소셜 로그인 버튼 로고: 20px, 색은 tokens.css의 각 회사 색 */
+.logo { display: block; flex: none; width: 20px; height: 20px; }
+.kakao { fill: var(--kakao-symbol); }
+.red { fill: var(--google-red); }
+.blue { fill: var(--google-blue); }
+.yellow { fill: var(--google-yellow); }
+.green { fill: var(--google-green); }
