@@ -80,7 +80,7 @@ export default function PlusProductDetail() {
       <div className="a-lhead"><h4>전체 {snaps.length}건</h4></div>
       <Table {...tableProps} rowKey="no" columns={histCols} dataSource={snaps} locale={{ emptyText: '변경 이력이 없어요' }} />
       <p className="a-hint">
-        동기화 때마다 PLUS 값을 저장해 시점별로 쌓아요{last && ` (마지막 동기화 ${dtA(last.at)})`}. 바로 앞 줄과 달라진 칸은 연두색으로 보여요.
+        동기화 때마다 PLUS 값을 저장해 시점별로 쌓아요{last && ` (마지막 동기화 ${dtA(last.at)})`}. 바로 앞 줄과 달라진 칸은 민트색으로 보여요.
         ON 운영자가 바꾼 판매 조건(카테고리·ON 판매가·한도)은 상품 관리의 판매 조건 변경 기록에 남아요.
       </p>
     </Card>

@@ -10,8 +10,8 @@
 <path d="M374.282 16.018H369.902V43.82H369.558L350.269 16.018H345.988V51.644H350.416V23.891H350.761L370.05 51.644H374.282Z" fill="url(#on_wordmark_gradient)"/>
 <defs>
 <linearGradient id="on_wordmark_gradient" x1="308.000" y1="15.526" x2="374.282" y2="52.136" gradientUnits="userSpaceOnUse">
-<stop stop-color="#C3E89E"/>
-<stop offset="1" stop-color="#7FE7D8"/>
+<stop stop-color="#7FE7D8"/>
+<stop offset="1" stop-color="#C3E89E"/>
 </linearGradient>
 <linearGradient id="paint0_linear_184_177" x1="9.98189" y1="18.4182" x2="52.7274" y2="54.7115" gradientUnits="userSpaceOnUse">
 <stop offset="0.0043" stop-color="#64DACF"/>

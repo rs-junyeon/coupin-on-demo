@@ -33,7 +33,7 @@ function Meter({ label, used, total, unit }: { label: string; used: number; tota
   );
 }
 
-/** 이번 달 일별 발급 막대 그래프. 오늘 막대는 민트색 */
+/** 이번 달 일별 발급 막대 그래프. 오늘 막대는 더 진한 색 */
 function DailyChart({ data, month }: { data: number[]; month: number }) {
   const W = 460, H = 180, L = 26, B = 22, T = 16;
   const top = Math.max(...data), max = Math.max(25, Math.ceil(top / 5) * 5);
@@ -139,7 +139,7 @@ export default function Dashboard() {
         </Card>
         <Card title={<>일별 발급 건수<span className={s.cardSub}>{m}월</span></>}>
           <DailyChart data={daily} month={m} />
-          <p className="a-hint">막대에 마우스를 올리면 그날 발급 건수가 보여요. 오늘({d}일)은 민트색이에요.</p>
+          <p className="a-hint">막대에 마우스를 올리면 그날 발급 건수가 보여요. 오늘({d}일) 막대는 더 진해요.</p>
         </Card>
       </div>
       <ListBox title="월별 통계">
