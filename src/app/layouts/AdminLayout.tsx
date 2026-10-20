@@ -63,11 +63,6 @@ function Shell() {
         <div className="a-sider-menu">
           <Menu theme="dark" mode="inline" items={items} selectedKeys={[selected]} openKeys={collapsed ? undefined : openKeys} onOpenChange={setOpenKeys} />
         </div>
-        {/* 아래 사용자 영역은 이름만 (로그아웃은 쿠핀 서비스들처럼 헤더) */}
-        <div className="a-sider-user">
-          {SiderIcon.user}
-          {!collapsed && <span className="nm"><b>{name}</b> 님</span>}
-        </div>
       </Layout.Sider>
       <Layout>
         <Layout.Header className="a-header">
