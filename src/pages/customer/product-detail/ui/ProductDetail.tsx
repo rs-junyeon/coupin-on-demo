@@ -53,7 +53,7 @@ export default function ProductDetail() {
             <span className="tag">{catName(db, p.cat)}</span>
           </div>
           <h2>{p.name}</h2>
-          <div className="st"><Icon name="place" size={15} />{s.name}{s.pos ? ` · ${distTxt(s, origin)}` : ''}</div>
+          <div className="st"><Icon name="place" size={16} />{s.name}{s.pos ? ` · ${distTxt(s, origin)}` : ''}</div>
           <div className="price">
             {free
               ? <>{p.list != null && <s>정가 {won(p.list)}</s>}<div className="row"><span className="free">무료</span></div></>

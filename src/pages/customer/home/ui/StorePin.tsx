@@ -17,7 +17,7 @@ export function StorePin({ store, f, sel, onClick }: { store: Store; f: ListFilt
     <CustomOverlayMap position={store.pos} xAnchor={0.5} yAnchor={0} zIndex={sel ? 4 : 2} clickable>
       <button type="button" className={`${styles.pin} ${sel ? styles.on : ''}`} style={{ '--c': k.color } as CSSProperties}
         onClick={onClick} aria-label={store.name} aria-pressed={sel}>
-        <span className={styles.head}><CatGlyph c={k} size={17} /></span>
+        <span className={styles.head}><CatGlyph c={k} size={16} /></span>
         <span className={styles.tags}>
           {sel
             ? <i className={styles.price}>{isFree(rep) ? '무료' : won(rep.price)}</i>

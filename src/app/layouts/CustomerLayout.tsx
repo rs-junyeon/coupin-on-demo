@@ -26,14 +26,14 @@ export function CustomerLayout() {
     <div className="c-shell">
       <KakaoLoader />
       {/* 고객 앱 ↔ 관리자 오가기. 앱 폭(480px) 바깥이 남는 넓은 화면에서만 보인다 */}
-      <Link to="/admin" className="mode-switch">관리자 화면<Icon name="chev" size={14} /></Link>
+      <Link to="/admin" className="mode-switch">관리자 화면<Icon name="chev" size={16} /></Link>
       <div className={`c-app ${showTabs ? '' : 'no-tabs'}`}>
         <Outlet />
         {showTabs && (
           <nav className="tabs" aria-label="앱 메뉴">
             {TABS.map(t => (
               <NavLink key={t.to} to={t.to} end={t.end} className={({ isActive }) => (isActive ? 'on' : '')}>
-                <Icon name={t.icon} size={22} />{t.label}
+                <Icon name={t.icon} size={24} />{t.label}
                 {t.to === '/wallet' && active > 0 && <span className="sr-only">사용 가능 {active}장</span>}
                 {t.to === '/my' && newAnswer && <i className="ndot" role="img" aria-label="새 답변" />}
               </NavLink>

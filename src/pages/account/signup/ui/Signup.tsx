@@ -64,7 +64,7 @@ export default function Signup() {
       <TopBar title="회원가입" close onBack={finish} />
       <div className="scroll">
         <div className="done">
-          <div className="done-ic"><Icon name="check" size={36} stroke={2.6} /></div>
+          <div className="done-ic"><Icon name="check" size={64} /></div>
           <h2>가입이 끝났어요</h2>
           <p>{prov ? `${SNS[prov]} 계정으로 가입했어요.` : `${doneId} 님, 반가워요.`}<br />이제 쿠폰을 받고 살 수 있어요.</p>
         </div>

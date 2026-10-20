@@ -33,7 +33,7 @@ export default function Fail() {
       <TopBar title={free ? '발급 결과' : '결제 결과'} close onBack={close} />
       <div className="scroll">
         <div className="done">
-          <div className="done-ic fail"><Icon name="x" size={34} stroke={2.6} /></div>
+          <div className="done-ic fail"><Icon name="x" size={32} /></div>
           {free ? (
             <><h2>쿠폰을 받지 못했어요</h2><p>다시 시도하거나 다른 혜택을 둘러보세요.</p></>
           ) : (

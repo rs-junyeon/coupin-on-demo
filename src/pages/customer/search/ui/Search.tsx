@@ -30,10 +30,10 @@ export default function Search() {
   return (
     <div className="c-page">
       <header className="bar">
-        <button type="button" className="ib" onClick={close} aria-label="닫기"><Icon name="x" size={22} /></button>
+        <button type="button" className="ib" onClick={close} aria-label="닫기"><Icon name="x" size={24} /></button>
         <h1 className="sr-only">검색</h1>
         <form className="sbox" role="search" onSubmit={e => { e.preventDefault(); applyQ(); }}>
-          <Icon name="search" size={18} />
+          <Icon name="search" size={20} />
           <input type="search" enterKeyHint="search" placeholder="가게나 상품 이름으로 찾기" value={text} onChange={e => setText(e.target.value)}
             autoComplete="off" aria-label="검색어" autoFocus />
         </form>
@@ -45,7 +45,7 @@ export default function Search() {
               <h3>카테고리로 찾기</h3>
               <div className="cats">
                 {Object.keys(db.cats).filter(k => catShown(db, k)).map(c => (
-                  <button key={c} type="button" onClick={() => apply({ cat: c })}><CatIcon cat={c} size={18} />{c}</button>
+                  <button key={c} type="button" onClick={() => apply({ cat: c })}><CatIcon cat={c} size={20} />{c}</button>
                 ))}
               </div>
             </div>
@@ -57,7 +57,7 @@ export default function Search() {
                 {res.map(p => { const s = storeOf(db, p.sid); return <ProductRow key={p.id} p={p} icon sub={`${s.name} · ${distTxt(s, origin)}`} />; })}
               </div>
               <div className="sfoot">
-                <button type="button" className="cta dark" onClick={applyQ}><Icon name="map" size={18} />'{q}' 지도에서 보기</button>
+                <button type="button" className="cta dark" onClick={applyQ}><Icon name="map" size={20} />'{q}' 지도에서 보기</button>
               </div>
             </>
           )}

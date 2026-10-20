@@ -84,7 +84,7 @@ describe('관리자 상품', () => {
   it('카테고리를 추가하고 행 안에서 이름을 바꾼다, 판매 현황에서 한도를 고친다', async () => {
     const { router } = await renderReady('/admin/categories', { admin: true });
     fireEvent.change(screen.getByLabelText('새 카테고리 이름'), { target: { value: '반려동물' } });
-    fireEvent.click(screen.getByRole('button', { name: '아이콘 반려동물' }));
+    fireEvent.click(screen.getByRole('button', { name: '아이콘 건강·반려' }));
     fireEvent.click(screen.getByRole('button', { name: '추가' }));
     expect(useDB.getState().cats['반려동물']).toMatchObject({ icon: 'pet' });
     fireEvent.click(screen.getByRole('button', { name: '반려동물 수정' }));

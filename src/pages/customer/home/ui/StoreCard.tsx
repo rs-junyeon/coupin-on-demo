@@ -18,7 +18,7 @@ export function StoreCard({ store, f, full, onMore, onClose }: { store: Store; f
       <div className="store-h">
         <CatIcon cat={cat} />
         <div><b>{store.name}</b><span>{catName(db, cat)} · {distTxt(store, origin)} · 쿠폰 {ps.length}</span></div>
-        {onClose ? <button type="button" className="ib" onClick={onClose} aria-label="닫기"><Icon name="x" size={18} /></button> : <span />}
+        {onClose ? <button type="button" className="ib" onClick={onClose} aria-label="닫기"><Icon name="x" size={20} /></button> : <span />}
       </div>
       <ProductRow p={ps[0]} rep />
       {full && rest.map(p => <ProductRow key={p.id} p={p} />)}

@@ -33,7 +33,7 @@ export default function Stores() {
       <TopBar big title="매장" />
       <div className="st-top">
         <form className="sbox" role="search" onSubmit={e => e.preventDefault()}>
-          <Icon name="search" size={18} />
+          <Icon name="search" size={20} />
           <input type="search" enterKeyHint="search" placeholder="가게나 상품 이름으로 찾기" value={f.q} onChange={e => setFilter({ q: e.target.value })}
             autoComplete="off" aria-label="매장 검색어" />
         </form>
@@ -51,7 +51,7 @@ export default function Stores() {
             <>
               <div className="list-meta">
                 <span>가게 {list.length}곳 · {originReal && originAt ? `${hm(originAt)}에 확인한 위치` : '성수역'}에서 가까운 순</span>
-                <button type="button" className={styles.relocate} onClick={() => run()} disabled={busy}><Icon name="locate" size={14} />{busy ? '확인 중' : '다시 찾기'}</button>
+                <button type="button" className={styles.relocate} onClick={() => run()} disabled={busy}><Icon name="locate" size={16} />{busy ? '확인 중' : '다시 찾기'}</button>
               </div>
               {list.map(s => <StoreRow key={s.id} s={s} f={f} />)}
             </>

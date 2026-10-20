@@ -21,12 +21,12 @@ export default function Inquiries() {
               <span className="s">{ymdDot(q.at)} {hm(q.at)}</span>
             </button>
           )) : (
-            <div className="empty"><Icon name="chat" size={36} stroke={1.6} /><b>남긴 문의가 없어요</b><span>궁금한 점을 남기면 보통 하루 안에 답해 드려요.</span></div>
+            <div className="empty"><Icon name="chat" size={64} /><b>남긴 문의가 없어요</b><span>궁금한 점을 남기면 보통 하루 안에 답해 드려요.</span></div>
           )}
         </div>
       </div>
       <div className="cta-bar">
-        <button type="button" className="cta dark" onClick={() => nav('/my/inquiries/new')}><Icon name="chat" size={18} />문의하기</button>
+        <button type="button" className="cta dark" onClick={() => nav('/my/inquiries/new')}><Icon name="chat" size={20} />문의하기</button>
       </div>
     </div>
   );

@@ -48,14 +48,14 @@ export default function Wallet() {
             const p = prodOf(db, c.pid), st = cStatus(c);
             return (
               <button key={c.id} type="button" className={`wc ${st.active ? '' : 'past'}`} onClick={() => nav(`/coupons/${c.id}`)}>
-                <CatIcon cat={p.cat} size={22} />
+                <CatIcon cat={p.cat} size={24} />
                 <span><b>{p.name}</b><span className="s">{storeOf(db, p.sid).name}</span>{sub(c)}</span>
                 <span className={`st-chip st-${st.k}`}>{st.t}</span>
               </button>
             );
           }) : (
             <div className="empty">
-              <Icon name="ticket" size={36} stroke={1.6} />
+              <Icon name="ticket" size={64} />
               <b>{EMPTY[tab]}</b>
               <span>주변 가게 혜택을 둘러보세요.</span>
               <button type="button" className={`sbtn line ${s.emptyBtn}`} onClick={() => nav('/')}>둘러보기</button>

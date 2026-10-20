@@ -52,7 +52,7 @@ export default function Home() {
     <div className={`home-top ${ready ? '' : styles.static}`}>
       <div className={styles.searchWrap}>
         <button type="button" className="search" onClick={() => nav(`/search${params.toString() ? `?${params}` : ''}`)}>
-          <Icon name="search" size={18} /><span className={`t ${f.q ? 'has' : ''}`}>{f.q || '가게나 상품 이름으로 찾기'}</span>
+          <Icon name="search" size={20} /><span className={`t ${f.q ? 'has' : ''}`}>{f.q || '가게나 상품 이름으로 찾기'}</span>
         </button>
         {f.q && <button type="button" className={styles.clear} onClick={() => setFilter({ q: '' })} aria-label="검색어 지우기"><Icon name="x" size={16} /></button>}
       </div>
@@ -101,7 +101,7 @@ export default function Home() {
           ? <StoreSheet key={selStore.id} store={selStore} f={f} full={full} setFull={setFull} onClose={() => { setSel(null); setFull(false); }} />
           : (
             <button type="button" className={`fab locate ${styles.locate}`} onClick={locateMe} disabled={busy}>
-              {busy ? <><span className="spin sm" />위치 확인 중</> : <><Icon name="locate" size={18} />내 위치</>}
+              {busy ? <><span className="spin sm" />위치 확인 중</> : <><Icon name="locate" size={20} />내 위치</>}
             </button>
           )}
       </div>

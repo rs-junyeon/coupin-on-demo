@@ -9,7 +9,7 @@ export function TopBar({ title, close = false, onBack, right, big = false }: { t
   if (big) return <header className="bar big"><h1>{title}</h1>{right}</header>;
   return (
     <header className="bar">
-      <button type="button" className="ib" onClick={back} aria-label={close ? '닫기' : '뒤로'}><Icon name={close ? 'x' : 'back'} size={22} /></button>
+      <button type="button" className="ib" onClick={back} aria-label={close ? '닫기' : '뒤로'}><Icon name={close ? 'x' : 'back'} size={24} /></button>
       <h1>{title}</h1>
       {right ?? <span className="ib" aria-hidden="true" />}
     </header>
