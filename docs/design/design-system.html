@@ -20,8 +20,8 @@
        토큰 원본: docs/on/DESIGN.md 5.4 (이 페이지는 그 값을 그대로 옮김)
        ========================================================= */
       :root {
-        --on-gradient: linear-gradient(135deg, #c3e89e 0%, #7fe7d8 100%);
-        --on-button-neg: linear-gradient(135deg, #2f8059 0%, #1e7b76 100%);
+        --on-gradient: linear-gradient(135deg, #7fe7d8 0%, #c3e89e 100%);
+        --on-button-neg: linear-gradient(135deg, #1e7b76 0%, #2f8059 100%);
 
         --lime-50: #effced;
         --lime-100: #dff8df;
@@ -49,8 +49,8 @@
         --navy: #24324a;
         --sider: #161f27;
 
-        --primary-color: #2f8059;
-        --primary-hovered-color: #16523c;
+        --primary-color: #1e7b76;
+        --primary-hovered-color: #0a4f4e;
 
         --text-primary: #10162e;
         --text-secondary: #3f4866;
@@ -309,7 +309,7 @@
       }
       .statement b {
         font-weight: 700;
-        color: var(--lime-800);
+        color: var(--mint-800);
       }
       .principles {
         display: grid;
@@ -334,7 +334,7 @@
         display: block;
         font-family: var(--font-mono);
         font-size: 11px;
-        color: var(--lime-800);
+        color: var(--mint-800);
         margin-bottom: 6px;
       }
 
@@ -506,7 +506,7 @@
         padding: 1px 6px;
         border-radius: var(--radius-full);
         background: var(--text-inverse);
-        color: var(--lime-900);
+        color: var(--mint-900);
         font-size: 9.5px;
         font-weight: 700;
       }
@@ -1021,7 +1021,7 @@
       .space-bar {
         height: 12px;
         border-radius: 3px;
-        background: var(--lime-500);
+        background: var(--mint-500);
       }
       .w-4 {
         width: 4px;
@@ -1073,8 +1073,8 @@
       .radius-shape {
         width: 56px;
         height: 56px;
-        background: var(--lime-100);
-        border: 2px solid var(--lime-700);
+        background: var(--mint-100);
+        border: 2px solid var(--mint-700);
       }
       .r-4 {
         border-radius: 4px;
@@ -1255,9 +1255,9 @@
         color: var(--text-inverse);
       }
       .cat-chip.is-selected {
-        background: var(--lime-100);
-        border-color: var(--lime-700);
-        color: var(--lime-900);
+        background: var(--mint-100);
+        border-color: var(--mint-700);
+        color: var(--mint-900);
       }
       .map {
         position: relative;
@@ -1313,8 +1313,8 @@
         white-space: nowrap;
       }
       .pin__label--free {
-        background: var(--lime-500);
-        border-color: var(--lime-500);
+        background: var(--mint-500);
+        border-color: var(--mint-500);
       }
       .pin__label--price {
         background: var(--navy);
@@ -1443,7 +1443,7 @@
         color: var(--gray-80);
       }
       .tabbar__item.is-active {
-        color: var(--lime-800);
+        color: var(--mint-800);
       }
       .detail {
         flex: 1;
@@ -1454,7 +1454,7 @@
         background: var(--on-gradient);
         display: grid;
         place-items: center;
-        color: var(--lime-900);
+        color: var(--mint-900);
         font-size: 13px;
         font-weight: 700;
       }
@@ -1502,8 +1502,8 @@
         height: 22px;
         padding: 0 8px;
         border-radius: var(--radius-full);
-        background: var(--lime-100);
-        color: var(--lime-900);
+        background: var(--mint-100);
+        color: var(--mint-900);
         font-size: 12px;
         font-weight: 700;
       }
@@ -1840,7 +1840,7 @@
         flex: none;
       }
       .admin__menu.is-open {
-        color: var(--lime-500);
+        color: var(--mint-500);
         background: rgba(255, 255, 255, 0.06);
         font-weight: 700;
       }
@@ -2118,7 +2118,7 @@
       .input.is-focus {
         outline: none;
         border-color: var(--primary-color);
-        box-shadow: 0 0 0 3px rgba(47, 128, 89, 0.18);
+        box-shadow: 0 0 0 3px rgba(30, 123, 118, 0.18);
       }
       .store-row {
         display: grid;
@@ -2318,17 +2318,17 @@
         font-size: 12px;
         font-weight: 600;
       }
-      .c-white-lime800 {
-        background: var(--lime-800);
+      .c-white-mint800 {
+        background: var(--mint-800);
         color: var(--text-inverse);
       }
       .c-navy-gradient {
         background: var(--on-gradient);
         color: var(--text-primary);
       }
-      .c-lime900-lime100 {
-        background: var(--lime-100);
-        color: var(--lime-900);
+      .c-mint900-mint100 {
+        background: var(--mint-100);
+        color: var(--mint-900);
       }
       .c-gray80-white {
         background: var(--surface-base);
@@ -2543,12 +2543,12 @@
         <div class="hero__text">
           <p class="hero__eyebrow">Coupin ON · Design System</p>
           <h1 class="hero__title">
-            PLUS의 옆자리,<br /><b>Lime에서 Mint로.</b>
+            PLUS의 옆자리,<br /><b>Mint에서 Lime으로.</b>
           </h1>
           <p class="hero__lead">
             쿠핀 ON은 PLUS 점주의 쿠폰을 동네 고객에게 잇는 판매 루트입니다.
-            그래서 화면의 뼈대는 PLUS와 같게 두고, 색만 PLUS의 Mint 바로 옆
-            연두로 옮겼습니다. 형제처럼 닮았지만 한눈에 다른 서비스로 읽힙니다.
+            그래서 화면의 뼈대는 PLUS와 같게 두고, 포인트는 PLUS와 같은 Mint를
+            한 단계 짙게 쓰고 서브로 연두를 더했습니다.
           </p>
           <ul class="hero__chips">
             <li class="hero__chip">고객 웹 · 모바일 390px</li>
@@ -2567,7 +2567,7 @@
           <p class="section__desc">
             PLUS 콘솔 로고(logo.svg, logo-black.svg, favicon.ico)와 같은
             구조입니다. 쿠핀 심볼과 coupin 글자는 마스터 그대로 두고, 서비스
-            이름 자리의 Plus를 ON으로 바꿔 ON 시그니처(Lime → Mint)로
+            이름 자리의 Plus를 ON으로 바꿔 ON 시그니처(Mint → Lime)로
             칠했습니다. ON 글자는 Plus와 같은 글자 높이와 기준선에 Pretendard
             Regular로 그렸습니다.
           </p>
@@ -2652,8 +2652,8 @@
         </div>
         <div class="panel">
           <p class="statement">
-            PLUS console이 <b>Mint</b>로 하는 일을 ON은 <b>Lime</b>으로 합니다.
-            같은 자리, 같은 크기, 같은 규칙에 색만 바꿔 끼웁니다.
+            PLUS console이 <b>Mint</b>로 하는 일을 ON도 <b>Mint</b>로 하되 한
+            단계 짙게 합니다. <b>Lime</b>은 그라데이션과 보조 틴트를 맡습니다.
           </p>
           <ul class="principles">
             <li>
@@ -2686,26 +2686,28 @@
           <span class="section__index">02 · Palette</span>
           <h2 class="section__title">세 가지 색이 화면을 이끕니다.</h2>
           <p class="section__desc">
-            Lime은 ON의 정체성, Mint는 PLUS에서 이어 온 DNA, Navy는 글자와
-            결제처럼 무게가 있는 자리를 맡습니다. 아래 줄은 지도 핀과 카테고리
-            아이콘에만 쓰는 카테고리 8색입니다 (06장).
+            Mint는 포인트, Lime은 ON 그라데이션·로고의 끝색인 서브, Navy는
+            글자와 결제처럼 무게가 있는 자리를 맡습니다. 아래 줄은 지도 핀과
+            카테고리 아이콘에만 쓰는 카테고리 8색입니다 (06장).
           </p>
         </div>
         <ul class="palette">
           <li class="swatch-card">
-            <div class="swatch-card__chip bg-lime-500"></div>
-            <div class="swatch-card__meta">
-              <p class="swatch-card__name">Lime 연두</p>
-              <p class="swatch-card__role">Point · ON 정체성</p>
-              <p class="swatch-card__hex">#C3E89E</p>
-            </div>
-          </li>
-          <li class="swatch-card">
             <div class="swatch-card__chip bg-mint-500"></div>
             <div class="swatch-card__meta">
               <p class="swatch-card__name">Cloud Mint</p>
-              <p class="swatch-card__role">Sub · PLUS에서 이어 온 DNA</p>
+              <p class="swatch-card__role">Point · 기본 버튼, 선택 상태</p>
               <p class="swatch-card__hex">#7FE7D8</p>
+            </div>
+          </li>
+          <li class="swatch-card">
+            <div class="swatch-card__chip bg-lime-500"></div>
+            <div class="swatch-card__meta">
+              <p class="swatch-card__name">Lime 연두</p>
+              <p class="swatch-card__role">
+                Sub · ON 그라데이션·로고, 보조 틴트
+              </p>
+              <p class="swatch-card__hex">#C3E89E</p>
             </div>
           </li>
           <li class="swatch-card">
@@ -2781,19 +2783,19 @@
       <section class="section" id="signature">
         <div class="section__head">
           <span class="section__index">03 · Signature</span>
-          <h2 class="section__title">받기는 연두, 구매는 Navy.</h2>
+          <h2 class="section__title">받기는 민트, 구매는 Navy.</h2>
           <p class="section__desc">
             ON 그라데이션은 가장 강한 유입 계기인 [무료로 받기]에 씁니다.
             결제처럼 무게가 있는 행동은 all.html의 규칙대로 Navy 솔리드로
-            둡니다. 그 밖의 일반 버튼은 흰 글자 대비 4.82:1인 Lime 800입니다.
+            둡니다. 그 밖의 일반 버튼은 흰 글자 대비 5.06:1인 Mint 800입니다.
           </p>
         </div>
         <div class="signature">
           <div class="signature__bar">
-            <span class="signature__role">ON · Lime + Mint · 135°</span>
+            <span class="signature__role">ON · Mint + Lime · 135°</span>
             <p class="signature__name">쿠핀 ON</p>
             <div class="signature__stops">
-              <span>#C3E89E 0%</span><span>#7FE7D8 100%</span>
+              <span>#7FE7D8 0%</span><span>#C3E89E 100%</span>
             </div>
           </div>
           <div class="signature__roles">
@@ -2810,7 +2812,7 @@
               </button>
             </div>
             <div class="role">
-              <p class="role__label">Primary <em>Lime 800 솔리드</em></p>
+              <p class="role__label">Primary <em>Mint 800 솔리드</em></p>
               <button class="btn btn--lg btn--primary" type="button">
                 로그인
               </button>
@@ -2836,26 +2838,8 @@
         <ul class="scale-list">
           <li class="scale">
             <div class="scale__head">
-              <span class="label">Lime · Point</span
-              ><code>--lime-* · --primary-*</code>
-            </div>
-            <ul class="scale__row">
-              <li class="bg-lime-50">50<small>EFFCED</small></li>
-              <li class="bg-lime-100">100<small>DFF8DF</small></li>
-              <li class="bg-lime-200">200<small>CEF5D0</small></li>
-              <li class="bg-lime-300">300<small>BDF0C2</small></li>
-              <li class="bg-lime-500 is-base">500<small>C3E89E</small></li>
-              <li class="bg-lime-600">600<small>87CE93</small></li>
-              <li class="bg-lime-700">700<small>5CAB75</small></li>
-              <li class="bg-lime-800 is-dark is-primary">
-                800<small>2F8059</small>
-              </li>
-              <li class="bg-lime-900 is-dark">900<small>16523C</small></li>
-            </ul>
-          </li>
-          <li class="scale">
-            <div class="scale__head">
-              <span class="label">Mint · Sub</span><code>--mint-*</code>
+              <span class="label">Mint · Point</span
+              ><code>--mint-* · --primary-*</code>
             </div>
             <ul class="scale__row">
               <li class="bg-mint-50">50<small>E9FCF9</small></li>
@@ -2865,8 +2849,26 @@
               <li class="bg-mint-500 is-base">500<small>7FE7D8</small></li>
               <li class="bg-mint-600">600<small>5ACABD</small></li>
               <li class="bg-mint-700">700<small>38A299</small></li>
-              <li class="bg-mint-800 is-dark">800<small>1E7B76</small></li>
+              <li class="bg-mint-800 is-dark is-primary">
+                800<small>1E7B76</small>
+              </li>
               <li class="bg-mint-900 is-dark">900<small>0A4F4E</small></li>
+            </ul>
+          </li>
+          <li class="scale">
+            <div class="scale__head">
+              <span class="label">Lime · Sub</span><code>--lime-*</code>
+            </div>
+            <ul class="scale__row">
+              <li class="bg-lime-50">50<small>EFFCED</small></li>
+              <li class="bg-lime-100">100<small>DFF8DF</small></li>
+              <li class="bg-lime-200">200<small>CEF5D0</small></li>
+              <li class="bg-lime-300">300<small>BDF0C2</small></li>
+              <li class="bg-lime-500 is-base">500<small>C3E89E</small></li>
+              <li class="bg-lime-600">600<small>87CE93</small></li>
+              <li class="bg-lime-700">700<small>5CAB75</small></li>
+              <li class="bg-lime-800 is-dark">800<small>2F8059</small></li>
+              <li class="bg-lime-900 is-dark">900<small>16523C</small></li>
             </ul>
           </li>
           <li class="scale">
@@ -2895,16 +2897,17 @@
             >
           </div>
           <div class="mapping__item">
-            <b>ON: Lime 800</b>기본 버튼 색입니다. Mint 쪽으로 기울어 그라데이션
-            두 끝 사이에 놓입니다. hover는 Lime 900입니다.<br /><span
+            <b>ON: Mint 800</b>기본 버튼 색입니다. PLUS의 솔리드 Mint 700보다 한
+            단계 짙어 흰 글자가 AA를 넘습니다. hover는 Mint 900입니다.<br /><span
               class="mapping__ratio is-pass"
-              >흰 글자 4.82:1 · AA</span
+              >흰 글자 5.06:1 · AA</span
             >
           </div>
           <div class="mapping__item">
-            <b>Lime 700은 글자 배경 금지</b>흰 글자 대비가 부족해 아이콘, 그래프
-            선, 테두리에만 씁니다.<br /><span class="mapping__ratio is-fail"
-              >흰 글자 2.79:1</span
+            <b>Mint·Lime 700은 글자 배경 금지</b>흰 글자 대비가 부족해 아이콘,
+            그래프 선, 테두리에만 씁니다.<br /><span
+              class="mapping__ratio is-fail"
+              >흰 글자 3.09 · 2.79:1</span
             >
           </div>
         </div>
@@ -3912,7 +3915,7 @@
           <h3>ON 관리자 웹</h3>
           <p>
             plus-console-web의 AdminLayout과 같은 틀입니다. 다크 사이드바의 활성
-            메뉴는 Lime 500이고, 메뉴 그룹 아이콘과 모양은 PLUS 사이드바(cims-ui
+            메뉴는 Mint 500이고, 메뉴 그룹 아이콘과 모양은 PLUS 사이드바(cims-ui
             SiderIcon·CustomSider)와 같은 채움형입니다.
           </p>
           <div class="admin">
@@ -4150,7 +4153,7 @@
           <div class="comp">
             <h3>입력과 칩</h3>
             <p>
-              입력 48px · 모서리 8px · 초점은 Lime 800 테두리와 3px 링. 카테고리
+              입력 48px · 모서리 8px · 초점은 Mint 800 테두리와 3px 링. 카테고리
               칩은 36px입니다.
             </p>
             <div class="stack">
@@ -4848,9 +4851,9 @@
           </p>
         </div>
         <div class="contrast">
-          <div class="contrast__item c-white-lime800">
+          <div class="contrast__item c-white-mint800">
             <span class="contrast__sample">기본 버튼</span
-            ><span class="contrast__ratio">흰 글자 / Lime 800 · 4.82:1</span>
+            ><span class="contrast__ratio">흰 글자 / Mint 800 · 5.06:1</span>
           </div>
           <div class="contrast__item c-navy-gradient">
             <span class="contrast__sample">무료로 받기</span
@@ -4858,9 +4861,9 @@
               >#10162E / 그라데이션 · 12.18:1 이상</span
             >
           </div>
-          <div class="contrast__item c-lime900-lime100">
+          <div class="contrast__item c-mint900-mint100">
             <span class="contrast__sample">무료 배지</span
-            ><span class="contrast__ratio">Lime 900 / Lime 100 · 8.08:1</span>
+            ><span class="contrast__ratio">Mint 900 / Mint 100 · 8.27:1</span>
           </div>
           <div class="contrast__item c-white-navy">
             <span class="contrast__sample">구매하기</span
@@ -4891,11 +4894,11 @@
         </div>
         <ul class="a11y__list">
           <li>
-            <span class="a11y__dot bg-lime-500"></span>누를 수 있는 것은 44×44px
+            <span class="a11y__dot bg-mint-500"></span>누를 수 있는 것은 44×44px
             이상입니다. 칩처럼 보이는 크기가 작으면 바깥 여백으로 채웁니다.
           </li>
           <li>
-            <span class="a11y__dot bg-mint-500"></span>초점 표시는 Lime 800 2px
+            <span class="a11y__dot bg-lime-500"></span>초점 표시는 Mint 800 2px
             외곽선이고, 키보드로 움직일 때만 보입니다.
           </li>
           <li>
