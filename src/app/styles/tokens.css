@@ -102,6 +102,8 @@
 
   /* 관리자 표 머리 (cims-assets component.css) */
   --table-head: #FBFBFB;
+  /* 관리자 헤더 브레드크럼 구분자 (cims-assets component.css) */
+  --crumb-sep: #CACACA;
 
   /* 그래프 (3.10) */
   --chart-line-positive: #378247;

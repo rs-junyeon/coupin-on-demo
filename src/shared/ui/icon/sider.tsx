@@ -100,6 +100,12 @@ const Fold = () => (
     <path d="M10.6 17.2L5 11.6L10.6 6M19 17.2L13.4 11.6L19 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 );
+// 헤더 브레드크럼 구분자 (coupin-plus cims-assets component.css .ant-breadcrumb-separator 이미지 원본, 색만 currentColor)
+const CrumbSep = () => (
+  <svg width="1em" height="1em" viewBox="0 0 16 16" fill="none">
+    <path d="M6.66667 4.6665L10 7.99984L6.66667 11.3332" stroke="currentColor" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
 
 /** 사이드바 묶음 아이콘. antd Menu의 icon 자리에 그대로 넣는다 */
 export const SiderIcon = {
@@ -111,4 +117,5 @@ export const SiderIcon = {
   system: <AntIcon component={System} />,
   user: <AntIcon component={User} />,
   fold: <AntIcon component={Fold} />,
+  crumbSep: <AntIcon component={CrumbSep} />,
 };

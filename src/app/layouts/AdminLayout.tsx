@@ -72,7 +72,8 @@ function Shell() {
       </Layout.Sider>
       <Layout>
         <Layout.Header className="a-header">
-          <Breadcrumb items={crumb.map(t => ({ title: t }))} />
+          {/* 쿠핀+ 헤더와 같은 › 구분자 (cims-assets component.css) */}
+          <Breadcrumb separator={SiderIcon.crumbSep} items={crumb.map(t => ({ title: t }))} />
           <span className="sp" />
           <Button icon={<MobileOutlined />} onClick={() => nav('/')}>고객 앱</Button>
         </Layout.Header>
