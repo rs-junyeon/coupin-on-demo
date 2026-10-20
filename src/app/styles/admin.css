@@ -9,14 +9,19 @@
    배경 #161F27, 항목 48·17px·#ACACAC, hover 흰 12% + Lime 500, 선택·펼침 흰 6%, 하위 메뉴는 왼쪽 안내선 + 24·16px, 아래 사용자 영역 72 */
 .a-sider.ant-layout-sider { position: sticky; top: 0; align-self: flex-start; height: 100vh; height: 100dvh; transition: all var(--motion-layout); }
 .a-sider .ant-layout-sider-children { display: flex; flex-direction: column; min-height: 0; }
-.a-sider-head { height: 64px; flex: none; display: flex; align-items: center; justify-content: space-between; padding: var(--space-5); }
+.a-sider-head { height: 64px; flex: none; display: flex; align-items: center; justify-content: space-between; padding: var(--space-3) var(--space-5); }
 .ant-layout-sider-collapsed .a-sider-head { justify-content: center; padding: 0; }
 .a-logo { display: block; }
-.a-logo img { display: block; width: 100px; height: auto; }
-.a-fold { width: 24px; height: 24px; display: grid; place-items: center; border: 0; border-radius: var(--radius-sm); background: none; color: var(--text-inverse); font-size: var(--fs-16); padding: 0; cursor: pointer; transition: background var(--motion-fast); }
+/* 로고 폭 125 (plus-console-web theme.css .custom-sider_logo) */
+.a-logo img { display: block; width: 125px; height: auto; }
+/* 접기 버튼: PLUS와 같은 « 아이콘 24px #ACACAC, 접히면 180° 돌린다 */
+.a-fold { width: 24px; height: 24px; display: grid; place-items: center; border: 0; border-radius: var(--radius-sm); background: none; color: var(--sider-text); font-size: 24px; padding: 0; cursor: pointer; transition: background var(--motion-fast); }
+.a-fold .anticon { transition: transform var(--motion-layout); }
+.a-fold.closed .anticon { transform: rotate(180deg); }
 .a-fold:hover { background: var(--sider-hover-bg); }
-.a-sider-menu { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 0 var(--space-4) var(--space-6); border-bottom: 1px solid var(--sider-divider); scrollbar-width: thin; scrollbar-color: var(--sider-hover-bg) transparent; }
-.ant-layout-sider-collapsed .a-sider-menu { padding: 0 var(--space-3); }
+/* 메뉴 영역 위 여백 16 (cims-assets base.css .custom-sider_menu) */
+.a-sider-menu { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: var(--space-4) var(--space-4) var(--space-6); border-bottom: 1px solid var(--sider-divider); scrollbar-width: thin; scrollbar-color: var(--sider-hover-bg) transparent; }
+.ant-layout-sider-collapsed .a-sider-menu { padding: var(--space-4) var(--space-3); }
 .a-sider .ant-menu { border-inline-end: 0 !important; }
 .a-sider .ant-menu-root > li ~ li { margin-top: var(--space-2); }
 .a-sider .ant-menu-root > .ant-menu-item, .a-sider .ant-menu-submenu-title { margin: 0 !important; width: 100% !important; height: 48px !important; line-height: 48px !important; padding-left: var(--space-3) !important; padding-right: var(--space-3); border-radius: var(--radius-sm); font-size: 17px; color: var(--sider-text); }

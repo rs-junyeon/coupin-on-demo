@@ -1,4 +1,4 @@
-import { DownOutlined, LogoutOutlined, MenuFoldOutlined, MenuUnfoldOutlined, MobileOutlined } from '@ant-design/icons';
+import { DownOutlined, LogoutOutlined, MobileOutlined } from '@ant-design/icons';
 import { App as AntApp, Breadcrumb, Button, ConfigProvider, Dropdown, Layout, Menu, type MenuProps } from 'antd';
 import koKR from 'antd/locale/ko_KR';
 import { useEffect, useState } from 'react';
@@ -55,9 +55,9 @@ function Shell() {
       {/* 쿠핀+ console 사이드바 (cims-ui CustomSider): 폭 256, 992px 이하나 [접기]로 72. 머리(로고·접기) · 메뉴 · 아래 사용자 영역 */}
       <Layout.Sider width={256} className="a-sider" breakpoint="lg" collapsedWidth={72} collapsed={collapsed} onBreakpoint={setCollapsed} trigger={null}>
         <div className="a-sider-head">
-          {!collapsed && <Link to="/admin" className="a-logo" aria-label="쿠핀 ON 관리자 판매 현황"><img src={onLogo} alt="" width={100} height={18} /></Link>}
-          <button type="button" className="a-fold" onClick={() => setCollapsed(!collapsed)} aria-label={collapsed ? '메뉴 펼치기' : '메뉴 접기'}>
-            {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+          {!collapsed && <Link to="/admin" className="a-logo" aria-label="쿠핀 ON 관리자 판매 현황"><img src={onLogo} alt="" width={125} height={22} /></Link>}
+          <button type="button" className={`a-fold ${collapsed ? 'closed' : ''}`} onClick={() => setCollapsed(!collapsed)} aria-label={collapsed ? '메뉴 펼치기' : '메뉴 접기'}>
+            {SiderIcon.fold}
           </button>
         </div>
         <div className="a-sider-menu">

@@ -94,6 +94,12 @@ const User = () => (
     />
   </svg>
 );
+// 사이드바 접기 버튼 (coupin-plus cims-ui Sider.tsx .menunfold 이미지 원본, 색만 currentColor). 접힌 상태에서는 CSS로 180° 돌린다
+const Fold = () => (
+  <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none">
+    <path d="M10.6 17.2L5 11.6L10.6 6M19 17.2L13.4 11.6L19 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
 
 /** 사이드바 묶음 아이콘. antd Menu의 icon 자리에 그대로 넣는다 */
 export const SiderIcon = {
@@ -104,4 +110,5 @@ export const SiderIcon = {
   support: <AntIcon component={Support} />,
   system: <AntIcon component={System} />,
   user: <AntIcon component={User} />,
+  fold: <AntIcon component={Fold} />,
 };
