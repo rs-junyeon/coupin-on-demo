@@ -22,6 +22,10 @@
 /* 메뉴 영역 위 여백 16 (cims-assets base.css .custom-sider_menu) */
 .a-sider-menu { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: var(--space-4) var(--space-4) var(--space-6); border-bottom: 1px solid var(--sider-divider); scrollbar-width: thin; scrollbar-color: var(--sider-hover-bg) transparent; }
 .ant-layout-sider-collapsed .a-sider-menu { padding: var(--space-4) var(--space-3); }
+/* 접히면 antd가 메뉴 줄을 flex에서 글자 흐름(block)으로 바꿔 아이콘이 글자 기준선(vertical-align -0.125em)에 붙어 3px 올라간다.
+   console(cims-ui Sider.tsx 접힘 규칙)처럼 줄을 다시 flex 가운데 정렬로 둔다 */
+.a-sider.ant-layout-sider-collapsed .ant-menu-root > .ant-menu-item, .a-sider.ant-layout-sider-collapsed .ant-menu-submenu-title { display: flex; align-items: center; }
+.a-sider.ant-layout-sider-collapsed .ant-menu-item-icon { line-height: 0; vertical-align: 0; }
 .a-sider .ant-menu { border-inline-end: 0 !important; }
 .a-sider .ant-menu-root > li ~ li { margin-top: var(--space-2); }
 .a-sider .ant-menu-root > .ant-menu-item, .a-sider .ant-menu-submenu-title { margin: 0 !important; width: 100% !important; height: 48px !important; line-height: 48px !important; padding-left: var(--space-3) !important; padding-right: var(--space-3); border-radius: var(--radius-sm); font-size: 17px; color: var(--sider-text); }
