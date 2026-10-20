@@ -7,7 +7,7 @@ import { won } from '@/shared/lib';
 import { type Store, useDB } from '@/shared/api';
 import styles from './StoreMap.module.css';
 
-/** 가게 핀 (DESIGN.md 7.5): 대표 상품 카테고리 색 원, 무료·쿠폰 수 라벨. 고르면 1.15배, 라벨 대신 가격(Navy, 무료는 포인트 색 Lime 500) */
+/** 가게 핀 (DESIGN.md 7.5): 대표 상품 카테고리 색 원, 무료·쿠폰 수 라벨. 고르면 1.15배, 라벨 대신 가격(Navy, 무료는 Mint) */
 export function StorePin({ store, f, sel, onClick }: { store: Store; f: ListFilter; sel: boolean; onClick: () => void }) {
   const db = useDB();
   const ps = storeProducts(db, store.id, f);
