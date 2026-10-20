@@ -104,8 +104,8 @@
 
 .store { display: grid; gap: var(--space-3); }
 .store-h { display: grid; grid-template-columns: 40px minmax(0, 1fr) auto; gap: var(--space-3); align-items: center; }
-.store-h b { display: block; font-size: var(--fs-18); font-weight: 700; line-height: 1.4; }
-.store-h span { display: block; font-size: var(--fs-13); color: var(--gray-80); }
+.store-h > div > b { display: block; font-size: var(--fs-18); font-weight: 700; line-height: 1.4; }
+.store-h > div > span { display: block; font-size: var(--fs-13); color: var(--gray-80); }
 .store-h .ib { color: var(--gray-80); }
 .cat-ico { width: 40px; height: 40px; border-radius: 50%; background: var(--c); color: var(--text-inverse); display: grid; place-items: center; flex: none; }
 /* 상품 행 (7.4): 최소 높이 64, 상품명 15/600, 가격 15/700 또는 "무료" 배지 */

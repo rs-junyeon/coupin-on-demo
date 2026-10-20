@@ -1,6 +1,5 @@
-import type { CSSProperties } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
-import { catName } from '@/entities/category';
+import { CatIcon, catName } from '@/entities/category';
 import { catShown, isFree, type ListFilter, pct } from '@/entities/product';
 import { distTxt, storeCat, storeProducts, tabStores } from '@/entities/store';
 import { hm, useOrigin, won } from '@/shared/lib';
@@ -40,13 +39,13 @@ export default function Stores() {
         <div className="chips">
           {chips.map(c => (
             <button key={c} type="button" className={`chip ${f.cat === c ? 'on' : ''}`} onClick={() => setFilter({ cat: c })} aria-pressed={f.cat === c}>
-              {c !== '전체' && db.cats[c] && <span className="dot" style={{ '--c': db.cats[c].color } as CSSProperties} />}{c}
+              {c !== '전체' && db.cats[c] && <CatIcon cat={c} size={16} />}{c}
             </button>
           ))}
         </div>
       </div>
       <div className="scroll">
-        <div className="list-wrap">
+        <div className="list-wrap rows">
           {list.length ? (
             <>
               <div className="list-meta">
