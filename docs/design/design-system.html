@@ -1313,8 +1313,8 @@
         white-space: nowrap;
       }
       .pin__label--free {
-        background: var(--mint-500);
-        border-color: var(--mint-500);
+        background: var(--lime-500);
+        border-color: var(--lime-500);
       }
       .pin__label--price {
         background: var(--navy);
@@ -1502,8 +1502,8 @@
         height: 22px;
         padding: 0 8px;
         border-radius: var(--radius-full);
-        background: var(--mint-100);
-        color: var(--mint-900);
+        background: var(--lime-500);
+        color: var(--text-primary);
         font-size: 12px;
         font-weight: 700;
       }
@@ -1840,7 +1840,7 @@
         flex: none;
       }
       .admin__menu.is-open {
-        color: var(--mint-500);
+        color: var(--lime-500);
         background: rgba(255, 255, 255, 0.06);
         font-weight: 700;
       }
@@ -2326,9 +2326,9 @@
         background: var(--on-gradient);
         color: var(--text-primary);
       }
-      .c-mint900-mint100 {
-        background: var(--mint-100);
-        color: var(--mint-900);
+      .c-free-badge {
+        background: var(--lime-500);
+        color: var(--text-primary);
       }
       .c-gray80-white {
         background: var(--surface-base);
@@ -2547,8 +2547,8 @@
           </h1>
           <p class="hero__lead">
             쿠핀 ON은 PLUS 점주의 쿠폰을 동네 고객에게 잇는 판매 루트입니다.
-            그래서 화면의 뼈대는 PLUS와 같게 두고, 포인트는 PLUS와 같은 Mint를
-            한 단계 짙게 쓰고 서브로 연두를 더했습니다.
+            그래서 화면의 뼈대는 PLUS와 같게 두고, 기본 버튼은 PLUS와 같은
+            Mint를 한 단계 짙게 쓰고, 강조는 연두로 줍니다.
           </p>
           <ul class="hero__chips">
             <li class="hero__chip">고객 웹 · 모바일 390px</li>
@@ -2653,7 +2653,7 @@
         <div class="panel">
           <p class="statement">
             PLUS console이 <b>Mint</b>로 하는 일을 ON도 <b>Mint</b>로 하되 한
-            단계 짙게 합니다. <b>Lime</b>은 그라데이션과 보조 틴트를 맡습니다.
+            단계 짙게 합니다. 강조는 <b>Lime</b>으로 줍니다.
           </p>
           <ul class="principles">
             <li>
@@ -2686,9 +2686,10 @@
           <span class="section__index">02 · Palette</span>
           <h2 class="section__title">세 가지 색이 화면을 이끕니다.</h2>
           <p class="section__desc">
-            Mint는 포인트, Lime은 ON 그라데이션·로고의 끝색인 서브, Navy는
-            글자와 결제처럼 무게가 있는 자리를 맡습니다. 아래 줄은 지도 핀과
-            카테고리 아이콘에만 쓰는 카테고리 8색입니다 (06장).
+            Mint는 기본 버튼과 선택 상태(primary), Lime은 강조를 주는 포인트이자
+            그라데이션 끝색, Navy는 글자와 결제처럼 무게가 있는 자리를 맡습니다.
+            아래 줄은 지도 핀과 카테고리 아이콘에만 쓰는 카테고리 8색입니다
+            (06장).
           </p>
         </div>
         <ul class="palette">
@@ -2696,7 +2697,7 @@
             <div class="swatch-card__chip bg-mint-500"></div>
             <div class="swatch-card__meta">
               <p class="swatch-card__name">Cloud Mint</p>
-              <p class="swatch-card__role">Point · 기본 버튼, 선택 상태</p>
+              <p class="swatch-card__role">Primary · 기본 버튼, 선택 상태</p>
               <p class="swatch-card__hex">#7FE7D8</p>
             </div>
           </li>
@@ -2705,7 +2706,7 @@
             <div class="swatch-card__meta">
               <p class="swatch-card__name">Lime 연두</p>
               <p class="swatch-card__role">
-                Sub · ON 그라데이션·로고, 보조 틴트
+                Point · 무료 강조, 다크 면 강조, 그라데이션
               </p>
               <p class="swatch-card__hex">#C3E89E</p>
             </div>
@@ -2838,7 +2839,7 @@
         <ul class="scale-list">
           <li class="scale">
             <div class="scale__head">
-              <span class="label">Mint · Point</span
+              <span class="label">Mint · Primary</span
               ><code>--mint-* · --primary-*</code>
             </div>
             <ul class="scale__row">
@@ -2857,7 +2858,7 @@
           </li>
           <li class="scale">
             <div class="scale__head">
-              <span class="label">Lime · Sub</span><code>--lime-*</code>
+              <span class="label">Lime · Point</span><code>--lime-*</code>
             </div>
             <ul class="scale__row">
               <li class="bg-lime-50">50<small>EFFCED</small></li>
@@ -3915,8 +3916,8 @@
           <h3>ON 관리자 웹</h3>
           <p>
             plus-console-web의 AdminLayout과 같은 틀입니다. 다크 사이드바의 활성
-            메뉴는 Mint 500이고, 메뉴 그룹 아이콘과 모양은 PLUS 사이드바(cims-ui
-            SiderIcon·CustomSider)와 같은 채움형입니다.
+            메뉴는 포인트 색 Lime 500이고, 메뉴 그룹 아이콘과 모양은 PLUS
+            사이드바(cims-ui SiderIcon·CustomSider)와 같은 채움형입니다.
           </p>
           <div class="admin">
             <aside class="admin__sider">
@@ -4861,9 +4862,9 @@
               >#10162E / 그라데이션 · 12.18:1 이상</span
             >
           </div>
-          <div class="contrast__item c-mint900-mint100">
+          <div class="contrast__item c-free-badge">
             <span class="contrast__sample">무료 배지</span
-            ><span class="contrast__ratio">Mint 900 / Mint 100 · 8.27:1</span>
+            ><span class="contrast__ratio">#10162E / Lime 500 · 13.06:1</span>
           </div>
           <div class="contrast__item c-white-navy">
             <span class="contrast__sample">구매하기</span
