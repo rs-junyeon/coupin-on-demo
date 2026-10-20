@@ -161,7 +161,6 @@
 .a-meter .mh { display: flex; justify-content: space-between; gap: var(--space-2); font-size: var(--fs-13); align-items: center; flex-wrap: wrap; }
 .a-meter .mh > span { color: var(--text-secondary); font-size: var(--fs-13); display: inline-flex; gap: 6px; align-items: center; }
 .a-track { height: 10px; border-radius: var(--radius-sm); background: var(--surface-muted); overflow: hidden; }
-.a-track.big { height: 14px; }
 .a-track i { display: block; height: 100%; border-radius: var(--radius-sm); background: var(--chart-line-positive); }
 .a-track.warn i { background: var(--status-warning); }
 .a-track.full i { background: var(--status-danger); }

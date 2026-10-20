@@ -15,7 +15,7 @@ import { dtA, monthLabel, numFmt, numParse, today, won } from '@/shared/lib';
 import { Card, catalogCss as s, DlGroup, ListBox, PageHead, StatusTag, tableProps } from '@/shared/ui/admin';
 import { setLimit } from '../model/setLimit';
 
-function Meter({ label, used, total, big, unit }: { label: string; used: number; total: number; big?: boolean; unit?: string }) {
+function Meter({ label, used, total, unit }: { label: string; used: number; total: number; unit?: string }) {
   const f = (v: number) => (unit ? `${v.toLocaleString()}${unit}` : won(v));
   const r = total ? Math.min(1, used / total) : 1;
   const cls = r >= 1 ? 'full' : r >= 0.8 ? 'warn' : '';
@@ -28,7 +28,7 @@ function Meter({ label, used, total, big, unit }: { label: string; used: number;
           {r >= 1 ? <StatusTag kind="cancel">소진 · 판매 막힘</StatusTag> : r >= 0.8 ? <StatusTag kind="warn">80% 넘음</StatusTag> : null}
         </span>
       </div>
-      <div className={`a-track ${big ? 'big' : ''} ${cls}`}><i style={{ width: `${(r * 100).toFixed(1)}%` }} /></div>
+      <div className={`a-track ${cls}`}><i style={{ width: `${(r * 100).toFixed(1)}%` }} /></div>
     </div>
   );
 }
@@ -133,8 +133,8 @@ export default function Dashboard() {
       </div>
       <div className="a-grid2">
         <Card title={<>발급 한도<span className="a-sid">A-02-04</span><span className={s.cardSub}>유료는 판매가 합계, 무료는 쿠폰 수량 기준</span></>} extra={<Button onClick={openLimit}>한도 수정</Button>}>
-          <Meter label={`${m}월 전체 · 유료 판매가 합계`} used={db.limit.used} total={db.limit.total} big />
-          <Meter label={`${m}월 전체 · 무료 쿠폰`} used={db.limit.fused} total={db.limit.ftotal} big unit="장" />
+          <Meter label={`${m}월 전체 · 유료 판매가 합계`} used={db.limit.used} total={db.limit.total} />
+          <Meter label={`${m}월 전체 · 무료 쿠폰`} used={db.limit.fused} total={db.limit.ftotal} unit="장" />
           {db.products.filter(p => p.limit).map(p => <Meter key={p.id} label={p.name} used={p.limitUsed} total={p.limit!} unit={isFree(p) ? '장' : undefined} />)}
         </Card>
         <Card title={<>일별 발급 건수<span className={s.cardSub}>{m}월</span></>}>
