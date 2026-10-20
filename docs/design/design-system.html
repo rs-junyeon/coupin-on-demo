@@ -21,17 +21,17 @@
        ========================================================= */
       :root {
         --on-gradient: linear-gradient(135deg, #c3e89e 0%, #7fe7d8 100%);
-        --on-button-neg: linear-gradient(135deg, #378247 0%, #1e7b76 100%);
+        --on-button-neg: linear-gradient(135deg, #2f8059 0%, #1e7b76 100%);
 
-        --lime-50: #f2fce7;
-        --lime-100: #e6f8d5;
-        --lime-200: #daf4c0;
-        --lime-300: #ceefaf;
+        --lime-50: #effced;
+        --lime-100: #dff8df;
+        --lime-200: #cef5d0;
+        --lime-300: #bdf0c2;
         --lime-500: #c3e89e;
-        --lime-600: #9bd079;
-        --lime-700: #6caf5d;
-        --lime-800: #378247;
-        --lime-900: #1b5431;
+        --lime-600: #87ce93;
+        --lime-700: #5cab75;
+        --lime-800: #2f8059;
+        --lime-900: #16523c;
         --mint-50: #e9fcf9;
         --mint-100: #d1f9f2;
         --mint-200: #b7f6ec;
@@ -49,8 +49,8 @@
         --navy: #24324a;
         --sider: #161f27;
 
-        --primary-color: #378247;
-        --primary-hovered-color: #1b5431;
+        --primary-color: #2f8059;
+        --primary-hovered-color: #16523c;
 
         --text-primary: #10162e;
         --text-secondary: #3f4866;
@@ -77,6 +77,7 @@
         --status-danger-50: #feeff1;
         --status-danger-700: #b33846;
         --status-danger-text: #b33846;
+        --danger-button: #cd4656;
 
         --gray-10: #eef0f6;
         --gray-20: #e8e9f3;
@@ -85,14 +86,14 @@
         --gray-60: #9ca0b6;
         --gray-80: #5e6280;
 
-        --cat-green: #468e53;
-        --cat-teal: #098e8b;
-        --cat-sky: #2c84b9;
-        --cat-indigo: #7272be;
-        --cat-violet: #9864a8;
-        --cat-rose: #b05d7f;
-        --cat-coral: #b65f54;
-        --cat-amber: #ac6a28;
+        --cat-green: #57a364;
+        --cat-teal: #00a4a1;
+        --cat-sky: #3d98d1;
+        --cat-indigo: #8485d6;
+        --cat-violet: #ad77be;
+        --cat-rose: #c86e92;
+        --cat-coral: #ce7164;
+        --cat-amber: #c37d39;
 
         --radius-xs: 4px;
         --radius-sm: 6px;
@@ -1346,7 +1347,7 @@
         width: 24px;
         height: 24px;
         border-radius: 50%;
-        background: rgba(44, 132, 185, 0.2);
+        background: rgba(61, 152, 209, 0.2);
         display: grid;
         place-items: center;
       }
@@ -2065,8 +2066,12 @@
         padding: 0 4px;
       }
       .btn--danger {
-        background: var(--status-danger-700);
+        background: var(--danger-button);
         color: var(--text-inverse);
+      }
+      .btn--danger:hover,
+      .btn--danger:active {
+        background: var(--status-danger-700);
       }
       .btn--disabled {
         background: var(--gray-20);
@@ -2113,7 +2118,7 @@
       .input.is-focus {
         outline: none;
         border-color: var(--primary-color);
-        box-shadow: 0 0 0 3px rgba(55, 130, 71, 0.18);
+        box-shadow: 0 0 0 3px rgba(47, 128, 89, 0.18);
       }
       .store-row {
         display: grid;
@@ -2717,56 +2722,56 @@
             <div class="swatch-card__chip bg-cat-green"></div>
             <div class="swatch-card__meta">
               <p class="swatch-card__name">1 · 초록</p>
-              <p class="swatch-card__hex">#468E53</p>
+              <p class="swatch-card__hex">#57A364</p>
             </div>
           </li>
           <li class="swatch-card">
             <div class="swatch-card__chip bg-cat-teal"></div>
             <div class="swatch-card__meta">
               <p class="swatch-card__name">2 · 청록</p>
-              <p class="swatch-card__hex">#098E8B</p>
+              <p class="swatch-card__hex">#00A4A1</p>
             </div>
           </li>
           <li class="swatch-card">
             <div class="swatch-card__chip bg-cat-sky"></div>
             <div class="swatch-card__meta">
               <p class="swatch-card__name">3 · 하늘</p>
-              <p class="swatch-card__hex">#2C84B9</p>
+              <p class="swatch-card__hex">#3D98D1</p>
             </div>
           </li>
           <li class="swatch-card">
             <div class="swatch-card__chip bg-cat-indigo"></div>
             <div class="swatch-card__meta">
               <p class="swatch-card__name">4 · 남색</p>
-              <p class="swatch-card__hex">#7272BE</p>
+              <p class="swatch-card__hex">#8485D6</p>
             </div>
           </li>
           <li class="swatch-card">
             <div class="swatch-card__chip bg-cat-violet"></div>
             <div class="swatch-card__meta">
               <p class="swatch-card__name">5 · 보라</p>
-              <p class="swatch-card__hex">#9864A8</p>
+              <p class="swatch-card__hex">#AD77BE</p>
             </div>
           </li>
           <li class="swatch-card">
             <div class="swatch-card__chip bg-cat-rose"></div>
             <div class="swatch-card__meta">
               <p class="swatch-card__name">6 · 장미</p>
-              <p class="swatch-card__hex">#B05D7F</p>
+              <p class="swatch-card__hex">#C86E92</p>
             </div>
           </li>
           <li class="swatch-card">
             <div class="swatch-card__chip bg-cat-coral"></div>
             <div class="swatch-card__meta">
               <p class="swatch-card__name">7 · 산호</p>
-              <p class="swatch-card__hex">#B65F54</p>
+              <p class="swatch-card__hex">#CE7164</p>
             </div>
           </li>
           <li class="swatch-card">
             <div class="swatch-card__chip bg-cat-amber"></div>
             <div class="swatch-card__meta">
               <p class="swatch-card__name">8 · 호박</p>
-              <p class="swatch-card__hex">#AC6A28</p>
+              <p class="swatch-card__hex">#C37D39</p>
             </div>
           </li>
         </ul>
@@ -2780,7 +2785,7 @@
           <p class="section__desc">
             ON 그라데이션은 가장 강한 유입 계기인 [무료로 받기]에 씁니다.
             결제처럼 무게가 있는 행동은 all.html의 규칙대로 Navy 솔리드로
-            둡니다. 그 밖의 일반 버튼은 흰 글자 대비 4.72:1인 Lime 800입니다.
+            둡니다. 그 밖의 일반 버튼은 흰 글자 대비 4.82:1인 Lime 800입니다.
           </p>
         </div>
         <div class="signature">
@@ -2822,8 +2827,9 @@
           <p class="section__desc">
             500은 시그니처 그대로 두고, OKLCH에서 명도를 단계별로 내려
             만들었습니다. 어두워질수록 Lime은 초록 쪽, Mint는 청록 쪽으로
-            색상각을 조금씩 돌려 올리브·카키로 탁해지지 않게 했습니다. 50은
-            배경, 800은 흰 글자를 올리는 솔리드, 900은 파스텔 위 강조
+            색상각을 조금씩 돌려 올리브·카키로 탁해지지 않게 했습니다. Lime은
+            500을 뺀 단계마다 같은 단계의 Mint를 35% 섞어 민트빛을 더했습니다.
+            50은 배경, 800은 흰 글자를 올리는 솔리드, 900은 파스텔 위 강조
             글자입니다.
           </p>
         </div>
@@ -2834,17 +2840,17 @@
               ><code>--lime-* · --primary-*</code>
             </div>
             <ul class="scale__row">
-              <li class="bg-lime-50">50<small>F2FCE7</small></li>
-              <li class="bg-lime-100">100<small>E6F8D5</small></li>
-              <li class="bg-lime-200">200<small>DAF4C0</small></li>
-              <li class="bg-lime-300">300<small>CEEFAF</small></li>
+              <li class="bg-lime-50">50<small>EFFCED</small></li>
+              <li class="bg-lime-100">100<small>DFF8DF</small></li>
+              <li class="bg-lime-200">200<small>CEF5D0</small></li>
+              <li class="bg-lime-300">300<small>BDF0C2</small></li>
               <li class="bg-lime-500 is-base">500<small>C3E89E</small></li>
-              <li class="bg-lime-600">600<small>9BD079</small></li>
-              <li class="bg-lime-700">700<small>6CAF5D</small></li>
+              <li class="bg-lime-600">600<small>87CE93</small></li>
+              <li class="bg-lime-700">700<small>5CAB75</small></li>
               <li class="bg-lime-800 is-dark is-primary">
-                800<small>378247</small>
+                800<small>2F8059</small>
               </li>
-              <li class="bg-lime-900 is-dark">900<small>1B5431</small></li>
+              <li class="bg-lime-900 is-dark">900<small>16523C</small></li>
             </ul>
           </li>
           <li class="scale">
@@ -2892,13 +2898,13 @@
             <b>ON: Lime 800</b>기본 버튼 색입니다. Mint 쪽으로 기울어 그라데이션
             두 끝 사이에 놓입니다. hover는 Lime 900입니다.<br /><span
               class="mapping__ratio is-pass"
-              >흰 글자 4.72:1 · AA</span
+              >흰 글자 4.82:1 · AA</span
             >
           </div>
           <div class="mapping__item">
             <b>Lime 700은 글자 배경 금지</b>흰 글자 대비가 부족해 아이콘, 그래프
             선, 테두리에만 씁니다.<br /><span class="mapping__ratio is-fail"
-              >흰 글자 2.65:1</span
+              >흰 글자 2.79:1</span
             >
           </div>
         </div>
@@ -3089,7 +3095,7 @@
           <p class="section__desc">
             카테고리 색은 운영자가 고르지 않고 만든 순서대로 자동으로 붙습니다.
             8색은 OKLCH 명도와 채도를 똑같이 맞추고 색상각만 고르게 나눠, 지도
-            위에서 어느 한 업종만 튀지 않습니다. 흰 아이콘 대비는 모두 4.0:1
+            위에서 어느 한 업종만 튀지 않습니다. 흰 아이콘 대비는 모두 3.08:1
             이상입니다.
           </p>
         </div>
@@ -3109,8 +3115,8 @@
                 /></svg
             ></span>
             <p class="category__name">1 · 초록</p>
-            <p class="category__hex">#468E53 · 148°</p>
-            <p class="category__ratio">4.00:1</p>
+            <p class="category__hex">#57A364 · 148°</p>
+            <p class="category__ratio">3.08:1</p>
           </li>
           <li class="category">
             <span class="category__icon bg-cat-teal"
@@ -3130,8 +3136,8 @@
                 <path d="M140 404V620M884 404V620" /></svg
             ></span>
             <p class="category__name">2 · 청록</p>
-            <p class="category__hex">#098E8B · 192°</p>
-            <p class="category__ratio">4.00:1</p>
+            <p class="category__hex">#00A4A1 · 192°</p>
+            <p class="category__ratio">3.08:1</p>
           </li>
           <li class="category">
             <span class="category__icon bg-cat-sky"
@@ -3148,8 +3154,8 @@
                 /></svg
             ></span>
             <p class="category__name">3 · 하늘</p>
-            <p class="category__hex">#2C84B9 · 240°</p>
-            <p class="category__ratio">4.11:1</p>
+            <p class="category__hex">#3D98D1 · 240°</p>
+            <p class="category__ratio">3.18:1</p>
           </li>
           <li class="category">
             <span class="category__icon bg-cat-indigo"
@@ -3166,8 +3172,8 @@
                 /></svg
             ></span>
             <p class="category__name">4 · 남색</p>
-            <p class="category__hex">#7272BE · 282°</p>
-            <p class="category__ratio">4.32:1</p>
+            <p class="category__hex">#8485D6 · 282°</p>
+            <p class="category__ratio">3.33:1</p>
           </li>
           <li class="category">
             <span class="category__icon bg-cat-violet"
@@ -3184,8 +3190,8 @@
                 /></svg
             ></span>
             <p class="category__name">5 · 보라</p>
-            <p class="category__hex">#9864A8 · 318°</p>
-            <p class="category__ratio">4.45:1</p>
+            <p class="category__hex">#AD77BE · 318°</p>
+            <p class="category__ratio">3.41:1</p>
           </li>
           <li class="category">
             <span class="category__icon bg-cat-rose"
@@ -3202,8 +3208,8 @@
                 /></svg
             ></span>
             <p class="category__name">6 · 장미</p>
-            <p class="category__hex">#B05D7F · 355°</p>
-            <p class="category__ratio">4.45:1</p>
+            <p class="category__hex">#C86E92 · 356°</p>
+            <p class="category__ratio">3.44:1</p>
           </li>
           <li class="category">
             <span class="category__icon bg-cat-coral"
@@ -3220,8 +3226,8 @@
                 /></svg
             ></span>
             <p class="category__name">7 · 산호</p>
-            <p class="category__hex">#B65F54 · 28°</p>
-            <p class="category__ratio">4.42:1</p>
+            <p class="category__hex">#CE7164 · 29°</p>
+            <p class="category__ratio">3.40:1</p>
           </li>
           <li class="category">
             <span class="category__icon bg-cat-amber"
@@ -3238,8 +3244,8 @@
                 /></svg
             ></span>
             <p class="category__name">8 · 호박</p>
-            <p class="category__hex">#AC6A28 · 62°</p>
-            <p class="category__ratio">4.33:1</p>
+            <p class="category__hex">#C37D39 · 62°</p>
+            <p class="category__ratio">3.33:1</p>
           </li>
         </ul>
       </section>
@@ -4094,7 +4100,7 @@
           <p class="section__desc">
             버튼 52·48·36px, 입력 48px, 카드 모서리 12px은 plus-qr-web 값입니다.
             관리자 웹은 antd 5와 공용 cims-ui를 그대로 쓰고, colorPrimary만
-            #378247로 바꿉니다.
+            #2F8059로 바꿉니다.
           </p>
         </div>
         <div class="comp-grid">
@@ -4844,7 +4850,7 @@
         <div class="contrast">
           <div class="contrast__item c-white-lime800">
             <span class="contrast__sample">기본 버튼</span
-            ><span class="contrast__ratio">흰 글자 / Lime 800 · 4.72:1</span>
+            ><span class="contrast__ratio">흰 글자 / Lime 800 · 4.82:1</span>
           </div>
           <div class="contrast__item c-navy-gradient">
             <span class="contrast__sample">무료로 받기</span
@@ -4854,7 +4860,7 @@
           </div>
           <div class="contrast__item c-lime900-lime100">
             <span class="contrast__sample">무료 배지</span
-            ><span class="contrast__ratio">Lime 900 / Lime 100 · 7.95:1</span>
+            ><span class="contrast__ratio">Lime 900 / Lime 100 · 8.08:1</span>
           </div>
           <div class="contrast__item c-white-navy">
             <span class="contrast__sample">구매하기</span
@@ -4875,7 +4881,7 @@
           <div class="contrast__item c-white-lime700">
             <span class="contrast__sample">Lime 700</span
             ><span class="contrast__ratio"
-              >흰 글자 · 2.65:1 글자 배경 금지</span
+              >흰 글자 · 2.79:1 글자 배경 금지</span
             >
           </div>
           <div class="contrast__item c-tertiary-white">

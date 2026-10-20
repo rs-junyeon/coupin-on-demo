@@ -10,7 +10,7 @@
 | --- | --- |
 | 고객 앱 | 모바일 웹 `/` (가운데 최대 폭 480px, 쿠핀+ plus-qr-web 치수: 입력 48px·radius 8, CTA 52px·radius 10, 카드 radius 12, 모달 radius 14) |
 | 관리자 | 웹 `/admin` · **antd 5.29** (coupin-plus와 같은 버전) + 쿠핀+ 관리자 웹 구조 (어두운 사이드바, 브레드크럼 헤더, 검색조건/목록 박스, 상세 탭, 하단 버튼 영역) |
-| 색 | 쿠핀 ON 디자인 시스템 [docs/design/DESIGN.md](design/DESIGN.md) 3장: ON이 직접 만든 Lime·Mint 스케일, 기본 버튼 Lime 800(#378247) + 흰 글자, [무료로 받기]는 ON 그라데이션, [구매하기]는 Navy(#24324A). 카테고리 색은 8색 팔레트를 만든 순서대로 |
+| 색 | 쿠핀 ON 디자인 시스템 [docs/design/DESIGN.md](design/DESIGN.md) 3장: ON이 직접 만든 Lime·Mint 스케일, 기본 버튼 Lime 800(#2F8059) + 흰 글자, [무료로 받기]는 ON 그라데이션, [구매하기]는 Navy(#24324A). 카테고리 색은 8색 팔레트를 만든 순서대로 |
 | 지도 | 카카오맵 (`VITE_KAKAO_JS_KEY`). 키가 없으면 지도 자리에 안내, 나머지 기능은 동작 |
 | 상태 | zustand persist (`coupin-on-demo-v2`), 다른 탭과 storage 이벤트로 동기화 (관리자에서 게시하면 고객 앱 탭에 반영) |
 | 날짜 | 실제 오늘 기준. 시드 데이터는 목업 기준일(2026-10-15)과의 차이만큼 옮겨 만든다 |
