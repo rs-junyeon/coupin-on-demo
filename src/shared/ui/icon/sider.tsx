@@ -106,6 +106,19 @@ const CrumbSep = () => (
     <path d="M6.66667 4.6665L10 7.99984L6.66667 11.3332" stroke="currentColor" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 );
+// 헤더 로그아웃 (coupin-plus cims-ui SiteHeader 관리자 헤더의 logout 아이콘 원본, 색만 currentColor)
+const Logout = () => (
+  <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none">
+    <path
+      d="M17.2444 10.6586C17.3704 10.7846 17.2812 11 17.103 11L10 11C9.44772 11 9 11.4477 9 12C9 12.5523 9.44772 13 10 13L17.1029 13C17.2811 13 17.3703 13.2154 17.2443 13.3414L15.0502 15.5355C14.6597 15.926 14.6597 16.5592 15.0502 16.9497C15.4408 17.3402 16.0739 17.3402 16.4645 16.9497L20.7016 12.7125C20.7906 12.6249 20.8632 12.5208 20.9145 12.4052C20.9695 12.2813 21 12.1442 21 12C21 11.8684 20.9746 11.7427 20.9284 11.6276C20.8796 11.5058 20.8058 11.3916 20.7071 11.2929L16.4645 7.05022C16.0739 6.65969 15.4408 6.65969 15.0502 7.05022C14.6597 7.44074 14.6597 8.07391 15.0502 8.46443L17.2444 10.6586Z"
+      fill="currentColor"
+    />
+    <path
+      d="M11 3C12.1046 3 13 3.89543 13 5L13 8C13 8.55228 12.5523 9 12 9H10C8.34315 9 7 10.3431 7 12C7 13.6569 8.34315 15 10 15H12C12.5523 15 13 15.4477 13 16V19C13 20.1046 12.1046 21 11 21H7C4.79086 21 3 19.2091 3 17L3 7C3 4.79086 4.79086 3 7 3L11 3Z"
+      fill="currentColor"
+    />
+  </svg>
+);
 
 /** 사이드바 묶음 아이콘. antd Menu의 icon 자리에 그대로 넣는다 */
 export const SiderIcon = {
@@ -118,4 +131,5 @@ export const SiderIcon = {
   user: <AntIcon component={User} />,
   fold: <AntIcon component={Fold} />,
   crumbSep: <AntIcon component={CrumbSep} />,
+  logout: <AntIcon component={Logout} />,
 };

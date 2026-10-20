@@ -27,7 +27,7 @@ export default function Wallet() {
     const st = cStatus(c);
     if (st.active) {
       const dd = daysLeft(c.exp);
-      return <span className={`dd ${dd <= 7 ? 'soon' : ''}`}>{dd === 0 ? '오늘까지' : `D-${dd} · ${md(c.exp)}까지`}{c.status === 'IN_USE' && c.balance != null ? ` · 잔액 ${won(c.balance)}` : ''}</span>;
+      return <span className={`dd ${dd <= 7 ? 'soon' : ''}`}>{dd === 0 ? 'D-day' : `D-${dd}`} · {md(c.exp)}까지{c.status === 'IN_USE' && c.balance != null ? ` · 잔액 ${won(c.balance)}` : ''}</span>;
     }
     const txt = c.usedAt ? `${ymdDot(c.usedAt)} 사용` : st.k === 'cancel' ? (c.paid > 0 ? '환불로 취소됨' : '발급 취소됨') : `${ymdDot(c.exp)} 만료`;
     return <span className={`dd ${s.ddPast}`}>{txt}</span>;

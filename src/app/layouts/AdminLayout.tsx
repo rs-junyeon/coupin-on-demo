@@ -1,5 +1,5 @@
-import { DownOutlined, LogoutOutlined, MobileOutlined } from '@ant-design/icons';
-import { App as AntApp, Breadcrumb, Button, ConfigProvider, Dropdown, Layout, Menu, type MenuProps } from 'antd';
+import { MobileOutlined } from '@ant-design/icons';
+import { App as AntApp, Breadcrumb, Button, ConfigProvider, Layout, Menu, type MenuProps } from 'antd';
 import koKR from 'antd/locale/ko_KR';
 import { useEffect, useState } from 'react';
 import { Link, Outlet, useLocation, useMatches, useNavigate } from 'react-router-dom';
@@ -63,12 +63,11 @@ function Shell() {
         <div className="a-sider-menu">
           <Menu theme="dark" mode="inline" items={items} selectedKeys={[selected]} openKeys={collapsed ? undefined : openKeys} onOpenChange={setOpenKeys} />
         </div>
-        <Dropdown trigger={['click']} placement="topRight" menu={{ items: [{ key: 'logout', icon: <LogoutOutlined />, label: '로그아웃', onClick: () => { adminLogout(); nav('/admin/login'); } }] }}>
-          <button type="button" className="a-sider-user" aria-label={`${name} 님 계정 메뉴`}>
-            {SiderIcon.user}
-            {!collapsed && <><span className="nm"><b>{name}</b> 님</span><DownOutlined className="caret" /></>}
-          </button>
-        </Dropdown>
+        {/* 아래 사용자 영역은 이름만 (로그아웃은 쿠핀 서비스들처럼 헤더) */}
+        <div className="a-sider-user">
+          {SiderIcon.user}
+          {!collapsed && <span className="nm"><b>{name}</b> 님</span>}
+        </div>
       </Layout.Sider>
       <Layout>
         <Layout.Header className="a-header">
@@ -76,6 +75,9 @@ function Shell() {
           <Breadcrumb separator={SiderIcon.crumbSep} items={crumb.map(t => ({ title: t }))} />
           <span className="sp" />
           <Button icon={<MobileOutlined />} onClick={() => nav('/')}>고객 앱</Button>
+          {/* 쿠핀+ 관리자 헤더 (cims-ui SiteHeader isAdmin): 이름 님 + 로그아웃 */}
+          <span className="a-user"><b>{name}</b> 님</span>
+          <button type="button" className="a-logout" aria-label="로그아웃" onClick={() => { adminLogout(); nav('/admin/login'); }}>{SiderIcon.logout}</button>
         </Layout.Header>
         <Layout.Content className="a-content"><Outlet /></Layout.Content>
       </Layout>

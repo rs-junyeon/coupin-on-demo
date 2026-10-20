@@ -58,7 +58,7 @@ export default function CouponView() {
               </div>
               {cs.active && <span className="bright"><Icon name="info" size={16} />화면 밝기를 최대로 올리면 잘 읽혀요</span>}
               {!cs.active && <span className={`stamp ${cs.k === 'cancel' ? s.stampCancel : s.stampPast}`}>{cs.t}</span>}
-              {cs.active && <div className="dline"><span>남은 기간</span><b>{dd === 0 ? '오늘까지' : `D-${dd}`} · {ymdDot(c.exp)} 23:59까지</b></div>}
+              {cs.active && <div className="dline"><span>남은 기간</span><b>{dd === 0 ? 'D-day' : `D-${dd}`} · {ymdDot(c.exp)} 23:59까지</b></div>}
               {c.balance != null && cs.k !== 'cancel' && <div className="bal"><span>남은 금액</span><b className="num">{won(c.balance)} / {won(p.list ?? c.balance)}</b></div>}
             </div>
           </div>
