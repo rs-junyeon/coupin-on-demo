@@ -126,7 +126,7 @@
 .more:hover { background: var(--surface-subtle); }
 
 /* "무료" 배지 (7.3): 높이 22, Lime 100 + Lime 900, 12/700 */
-.free, .tag.free { display: inline-flex; align-items: center; min-height: 22px; padding: 0 var(--space-2); border-radius: var(--radius-full); background: var(--mint-100); color: var(--mint-900); font-size: var(--fs-12); font-weight: 700; white-space: nowrap; }
+.free, .tag.free { display: inline-flex; align-items: center; min-height: 22px; padding: 0 var(--space-2); border-radius: var(--radius-full); background: var(--lime-500); color: var(--text-primary); font-size: var(--fs-12); font-weight: 700; white-space: nowrap; }
 
 /* 매장 탭 (7.4 가게 카드): 행 여백 16 20, 아래 테두리. 썸네일 72 */
 .st-top { flex: none; padding: var(--space-3) var(--space-5); display: grid; gap: var(--space-3); border-bottom: 1px solid var(--border-subtle); background: var(--surface-base); }
@@ -356,7 +356,7 @@
 /* 토스트 (6.1): Navy + 흰 글자 14/500, 모서리 10, 탭바(또는 CTA) 위 16 */
 .toast { position: absolute; left: var(--space-5); right: var(--space-5); bottom: calc(72px + env(safe-area-inset-bottom)); z-index: 70; background: var(--navy); color: var(--text-inverse); border-radius: var(--radius-lg); padding: var(--space-3) var(--space-4); font-size: var(--fs-14); font-weight: 500; display: flex; gap: var(--space-3); align-items: center; box-shadow: var(--shadow-raised); }
 .toast.enter { animation: up var(--motion-fast); }
-.toast button { margin-left: auto; color: var(--mint-500); font-weight: 700; white-space: nowrap; }
+.toast button { margin-left: auto; color: var(--lime-500); font-weight: 700; white-space: nowrap; }
 .c-app.no-tabs .toast { bottom: calc(var(--space-6) + env(safe-area-inset-bottom)); }
 .c-app.no-tabs:has(.cta-bar) .toast { bottom: calc(132px + env(safe-area-inset-bottom)); }
 @keyframes up { from { transform: translateY(8px); opacity: 0; } }

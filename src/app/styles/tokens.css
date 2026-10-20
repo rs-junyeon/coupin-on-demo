@@ -9,7 +9,7 @@
   --on-gradient: linear-gradient(135deg, #7FE7D8 0%, #C3E89E 100%);
   --on-button-neg: linear-gradient(135deg, #1E7B76 0%, #2F8059 100%);
 
-  /* Mint (Point): ON 스케일 (3.2) */
+  /* Mint (Primary): ON 스케일 (3.2) */
   --mint-50: #E9FCF9;
   --mint-100: #D1F9F2;
   --mint-200: #B7F6EC;
@@ -20,7 +20,7 @@
   --mint-800: #1E7B76;
   --mint-900: #0A4F4E;
 
-  /* Lime (Sub): ON 스케일 (3.2) */
+  /* Lime (Point): ON 스케일 (3.2). 강조는 Lime 500 */
   --lime-50: #EFFCED;
   --lime-100: #DFF8DF;
   --lime-200: #CEF5D0;
@@ -96,7 +96,7 @@
   /* 관리자 다크 사이드바 (3.9, 7.7) */
   --sider-bg: #161F27;
   --sider-text: #ACACAC;
-  --sider-active: #7FE7D8;
+  --sider-active: #C3E89E;
   --sider-hover-bg: rgba(255, 255, 255, 0.12);
   --sider-selected-bg: rgba(255, 255, 255, 0.06);
   --sider-sub-line: rgba(255, 255, 255, 0.12);
