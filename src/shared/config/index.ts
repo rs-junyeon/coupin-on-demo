@@ -2,4 +2,4 @@
 export const FEE = 0.1;
 
 /** 카테고리 색 (DESIGN.md 3.8: green·teal·sky·indigo·violet·rose·coral·amber). 새 카테고리는 아직 쓰지 않은 색을 앞에서부터 받는다 */
-export const CAT_COLORS = ['#468E53', '#098E8B', '#2C84B9', '#7272BE', '#9864A8', '#B05D7F', '#B65F54', '#AC6A28'];
+export const CAT_COLORS = ['#57A364', '#00A4A1', '#3D98D1', '#8485D6', '#AD77BE', '#C86E92', '#CE7164', '#C37D39'];

@@ -7,18 +7,18 @@
 
   /* 시그니처 (3.1) */
   --on-gradient: linear-gradient(135deg, #C3E89E 0%, #7FE7D8 100%);
-  --on-button-neg: linear-gradient(135deg, #378247 0%, #1E7B76 100%);
+  --on-button-neg: linear-gradient(135deg, #2F8059 0%, #1E7B76 100%);
 
   /* Lime (Point): ON 스케일 (3.2) */
-  --lime-50: #F2FCE7;
-  --lime-100: #E6F8D5;
-  --lime-200: #DAF4C0;
-  --lime-300: #CEEFAF;
+  --lime-50: #EFFCED;
+  --lime-100: #DFF8DF;
+  --lime-200: #CEF5D0;
+  --lime-300: #BDF0C2;
   --lime-500: #C3E89E;
-  --lime-600: #9BD079;
-  --lime-700: #6CAF5D;
-  --lime-800: #378247;
-  --lime-900: #1B5431;
+  --lime-600: #87CE93;
+  --lime-700: #5CAB75;
+  --lime-800: #2F8059;
+  --lime-900: #16523C;
 
   /* Mint (Sub): ON 스케일 (3.2) */
   --mint-50: #E9FCF9;
@@ -36,9 +36,9 @@
   --navy-dark: #10162E;
 
   /* primary 매핑 (솔리드 = Lime 800, 3.3) */
-  --primary-color: #378247;
-  --primary-hovered-color: #1B5431;
-  --primary-ring: rgba(55, 130, 71, 0.18);
+  --primary-color: #2F8059;
+  --primary-hovered-color: #16523C;
+  --primary-ring: rgba(47, 128, 89, 0.18);
 
   /* 시맨틱 (PLUS console 과 같음, 3.4) */
   --text-primary: #10162E;
@@ -67,6 +67,8 @@
   --status-danger-50: #FEEFF1;
   --status-danger-700: #B33846;
   --status-danger-text: #B33846;
+  /* 위험 버튼 (7.1). hover·누름은 --status-danger-700 */
+  --danger-button: #CD4656;
 
   /* 중립 회색 (PLUS console 과 같음) */
   --gray-5: #F8FAFC;
@@ -82,14 +84,14 @@
   --gray-100: #10162E;
 
   /* 카테고리 (3.8). 실제 카테고리 색은 shared/config CAT_COLORS 데이터로 붙는다 */
-  --cat-green: #468E53;
-  --cat-teal: #098E8B;
-  --cat-sky: #2C84B9;
-  --cat-indigo: #7272BE;
-  --cat-violet: #9864A8;
-  --cat-rose: #B05D7F;
-  --cat-coral: #B65F54;
-  --cat-amber: #AC6A28;
+  --cat-green: #57A364;
+  --cat-teal: #00A4A1;
+  --cat-sky: #3D98D1;
+  --cat-indigo: #8485D6;
+  --cat-violet: #AD77BE;
+  --cat-rose: #C86E92;
+  --cat-coral: #CE7164;
+  --cat-amber: #C37D39;
 
   /* 관리자 다크 사이드바 (3.9, 7.7) */
   --sider-bg: #161F27;
@@ -106,10 +108,10 @@
   --crumb-sep: #CACACA;
 
   /* 그래프 (3.10) */
-  --chart-line-positive: #378247;
-  --chart-fill-positive: rgba(55, 130, 71, 0.12);
-  --chart-line-negative: #B05D7F;
-  --chart-fill-negative: rgba(176, 93, 127, 0.12);
+  --chart-line-positive: #2F8059;
+  --chart-fill-positive: rgba(47, 128, 89, 0.12);
+  --chart-line-negative: #C86E92;
+  --chart-fill-negative: rgba(200, 110, 146, 0.12);
   --chart-line-neutral: #1E7B76;
 
   /* 글꼴 (4.1, 4.2) */
@@ -153,7 +155,7 @@
   --shadow-sheet: 0 -8px 28px rgba(16, 22, 46, 0.12);
   --shadow-pin: 0 2px 6px rgba(16, 22, 46, 0.24);
   --dim: rgba(16, 22, 46, 0.5);
-  --me-ring: rgba(44, 132, 185, 0.2);
+  --me-ring: rgba(61, 152, 209, 0.2);
 
   /* 움직임 (9장) */
   --motion-fast: 0.2s ease;

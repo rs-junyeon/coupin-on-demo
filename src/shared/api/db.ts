@@ -18,7 +18,10 @@ export type Result<T = object> = ({ ok: true } & T) | { ok: false; error: string
 /** 버전 1의 카테고리 팔레트. 이미 저장된 카테고리 색을 옮길 때만 쓴다 */
 const V1_CAT_COLORS = ['#D9779F', '#2A7D72', '#3F82BC', '#B07F2E', '#8C79D6', '#5A7A3A', '#C8664B', '#4C6FA8', '#9A6B9E', '#3D8F86'];
 
-/** 저장된 데이터 옮기기. v1 → v2: 카테고리 색을 ON 팔레트로 바꾼다 (예전 팔레트 몇 번째 색이었는지 그대로) */
+/** 버전 2의 카테고리 팔레트 (2026-10-20 톤 업 전). 이미 저장된 카테고리 색을 옮길 때만 쓴다 */
+const V2_CAT_COLORS = ['#468E53', '#098E8B', '#2C84B9', '#7272BE', '#9864A8', '#B05D7F', '#B65F54', '#AC6A28'];
+
+/** 저장된 데이터 옮기기. v1 → v2: 카테고리 색을 ON 팔레트로 바꾼다 (예전 팔레트 몇 번째 색이었는지 그대로). v2 → v3: 톤 업한 팔레트의 같은 자리 색으로 바꾼다 */
 function migrateDB(saved: unknown, version: number) {
   const d = saved as DB;
   if (version < 2) {
@@ -27,11 +30,17 @@ function migrateDB(saved: unknown, version: number) {
       c.color = CAT_COLORS[(i < 0 ? n : i) % CAT_COLORS.length];
     });
   }
+  if (version < 3) {
+    Object.values(d.cats).forEach(c => {
+      const i = V2_CAT_COLORS.indexOf(c.color);
+      if (i >= 0) c.color = CAT_COLORS[i];
+    });
+  }
   return d;
 }
 
 export const useDB = create<DB>()(
-  persist(() => seed(), { name: STORAGE_KEY, version: 2, storage: createJSONStorage(() => safeStorage), migrate: migrateDB }),
+  persist(() => seed(), { name: STORAGE_KEY, version: 3, storage: createJSONStorage(() => safeStorage), migrate: migrateDB }),
 );
 
 const clone = <T,>(x: T): T => JSON.parse(JSON.stringify(x));
