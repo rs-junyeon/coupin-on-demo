@@ -1,0 +1,5 @@
+<svg viewBox="64 64 896 896" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="72" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+<path d="M248 144V376C248 452 296 500 360 500C424 500 472 452 472 376V144"/>
+<path d="M360 144V880"/>
+<path d="M680 880V144C772 196 812 316 812 520H680"/>
+</svg>
