@@ -6,7 +6,8 @@
 .a-root.ant-layout > .ant-layout { min-height: 100vh; min-height: 100dvh; }
 
 /* 다크 사이드바: 쿠핀+ cims-ui CustomSider와 같은 모양 (DESIGN.md 3.9, 6.2)
-   배경 #161F27, 항목 48·17px·#ACACAC, hover 흰 12% + Lime 500, 선택·펼침 흰 6%, 하위 메뉴는 왼쪽 안내선 + 24·16px, 아래 사용자 영역 72 */
+   배경 #161F27, 항목 48·17px·#ACACAC, hover 흰 12% + Lime 500, 선택·펼침 흰 6%, 하위 메뉴는 왼쪽 안내선 + 24·16px.
+   사용자 이름·로그아웃은 헤더에만 (PLUS도 1141px 이상에서는 사이드바 사용자 영역을 숨긴다) */
 .a-sider.ant-layout-sider { position: sticky; top: 0; align-self: flex-start; height: 100vh; height: 100dvh; transition: all var(--motion-layout); }
 .a-sider .ant-layout-sider-children { display: flex; flex-direction: column; min-height: 0; }
 .a-sider-head { height: 64px; flex: none; display: flex; align-items: center; justify-content: space-between; padding: var(--space-3) var(--space-5); }
@@ -41,12 +42,6 @@
 .a-sider .ant-menu-sub .ant-menu-item:hover { color: var(--sider-active) !important; }
 .a-sider .ant-menu-sub .ant-menu-item-selected { color: var(--text-inverse); font-weight: 700; }
 .a-sider .ant-menu-item a { color: inherit; }
-/* 아래 사용자 영역: 이름만 (plus-admin-web .custom-sider_user) */
-.a-sider-user { flex: none; height: 72px; display: flex; align-items: center; gap: 6px; width: 100%; padding: 0 var(--space-4); background: var(--sider-bg); color: var(--text-inverse); font-size: 17px; }
-.a-sider-user > .anticon:first-child { font-size: 20px; }
-.a-sider-user .nm { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.a-sider-user .nm b { font-weight: 600; }
-.ant-layout-sider-collapsed .a-sider-user { justify-content: center; padding: 0; }
 .a-menu-badge { margin-left: 6px; background: var(--status-danger); color: var(--text-inverse); font-size: var(--fs-12); font-weight: 700; padding: 0 7px; border-radius: var(--radius-full); line-height: 18px; display: inline-block; }
 
 /* 헤더 (6.2): 높이 64, 좌우 72, 흰 배경 + header 그림자 */

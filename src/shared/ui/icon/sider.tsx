@@ -85,15 +85,6 @@ const Support = () => (
   </svg>
 );
 
-// 사이드바 아래 사용자 영역 (coupin-plus plus-console-web AdminLayout.tsx의 사용자 아이콘 원본)
-const User = () => (
-  <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none">
-    <path
-      d="M12.0348 2C17.5401 2 22 6.45993 22 12.0348C22 17.5401 17.5401 22 12.0348 22C6.45993 22 2 17.5401 2 12.0348C2 6.45993 6.45993 2 12.0348 2ZM18.0279 18.7944C17.9582 15.5192 15.3101 12.9408 12.0348 12.9408C8.75958 12.9408 6.04181 15.5192 5.97213 18.7944C7.57491 20.1882 9.73519 21.0941 12.0348 21.0941C14.3345 21.0941 16.4251 20.1882 18.0279 18.7944ZM12.0348 5.62369C10.2927 5.62369 8.82927 7.01742 8.82927 8.75958C8.82927 10.5017 10.2927 11.9652 12.0348 11.9652C13.777 11.9652 15.1707 10.5017 15.1707 8.75958C15.1707 7.01742 13.777 5.62369 12.0348 5.62369Z"
-      fill="currentColor"
-    />
-  </svg>
-);
 // 사이드바 접기 버튼 (coupin-plus cims-ui Sider.tsx .menunfold 이미지 원본, 색만 currentColor). 접힌 상태에서는 CSS로 180° 돌린다
 const Fold = () => (
   <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none">
@@ -128,7 +119,6 @@ export const SiderIcon = {
   settle: <AntIcon component={Settle} />,
   support: <AntIcon component={Support} />,
   system: <AntIcon component={System} />,
-  user: <AntIcon component={User} />,
   fold: <AntIcon component={Fold} />,
   crumbSep: <AntIcon component={CrumbSep} />,
   logout: <AntIcon component={Logout} />,
