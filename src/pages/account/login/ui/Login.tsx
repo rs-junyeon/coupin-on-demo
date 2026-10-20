@@ -1,6 +1,7 @@
 import { useState, type FormEvent } from 'react';
 import { Navigate, useNavigate, useSearchParams } from 'react-router-dom';
 import { useDB } from '@/shared/api';
+import { GoogleLogo, KakaoLogo } from '@/shared/ui/brand';
 import { BizInfo, TopBar, useUi } from '@/shared/ui/mobile';
 import { safeNext } from '@/shared/lib';
 import { login } from '@/features/auth';
@@ -44,8 +45,8 @@ export default function Login() {
           <button type="button" className="lnk" onClick={() => nav(`/signup${q}`)}>회원가입</button>
         </div>
         <div className="or">또는</div>
-        <button type="button" className="sns kakao" onClick={() => nav(`/oauth/kakao${q}`)}><i aria-hidden="true">K</i>카카오로 계속하기</button>
-        <button type="button" className="sns google" onClick={() => nav(`/oauth/google${q}`)}><i aria-hidden="true">G</i>Google로 계속하기</button>
+        <button type="button" className="sns kakao" onClick={() => nav(`/oauth/kakao${q}`)}><KakaoLogo />카카오로 계속하기</button>
+        <button type="button" className="sns google" onClick={() => nav(`/oauth/google${q}`)}><GoogleLogo />Google로 계속하기</button>
         <BizInfo />
       </form>
     </div>
