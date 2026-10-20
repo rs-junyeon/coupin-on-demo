@@ -41,12 +41,11 @@
 .a-sider .ant-menu-sub .ant-menu-item:hover { color: var(--sider-active) !important; }
 .a-sider .ant-menu-sub .ant-menu-item-selected { color: var(--text-inverse); font-weight: 700; }
 .a-sider .ant-menu-item a { color: inherit; }
-/* 아래 사용자 영역: 이름 + [로그아웃] 메뉴 */
-.a-sider-user { flex: none; height: 72px; display: flex; align-items: center; gap: 6px; width: 100%; padding: 0 var(--space-4); border: 0; background: var(--sider-bg); color: var(--text-inverse); font: inherit; font-size: 17px; cursor: pointer; text-align: left; }
+/* 아래 사용자 영역: 이름만 (plus-admin-web .custom-sider_user) */
+.a-sider-user { flex: none; height: 72px; display: flex; align-items: center; gap: 6px; width: 100%; padding: 0 var(--space-4); background: var(--sider-bg); color: var(--text-inverse); font-size: 17px; }
 .a-sider-user > .anticon:first-child { font-size: 20px; }
 .a-sider-user .nm { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .a-sider-user .nm b { font-weight: 600; }
-.a-sider-user .caret { font-size: var(--fs-14); }
 .ant-layout-sider-collapsed .a-sider-user { justify-content: center; padding: 0; }
 .a-menu-badge { margin-left: 6px; background: var(--status-danger); color: var(--text-inverse); font-size: var(--fs-12); font-weight: 700; padding: 0 7px; border-radius: var(--radius-full); line-height: 18px; display: inline-block; }
 
@@ -60,6 +59,11 @@
 .a-header .ant-breadcrumb .ant-breadcrumb-link { font-weight: 700; color: var(--gray-80); }
 .a-header .ant-breadcrumb li:last-child .ant-breadcrumb-link { color: var(--text-primary); }
 .a-header .sp { flex: 1; }
+/* 헤더 오른쪽 이름 + 로그아웃 (cims-ui SiteHeader 관리자 헤더: 이름 16/500, 님 회색, 로그아웃 아이콘 24) */
+.a-user { margin-left: var(--space-2); padding: 6px 0 6px var(--space-3); font-size: var(--fs-16); color: var(--text-secondary); white-space: nowrap; }
+.a-user b { margin-right: var(--space-1); font-weight: 500; color: var(--text-primary); }
+.a-logout { width: 40px; height: 40px; display: grid; place-items: center; border: 0; border-radius: var(--radius-sm); background: none; color: var(--text-primary); font-size: 24px; padding: 0; cursor: pointer; transition: background var(--motion-fast); }
+.a-logout:hover { background: var(--surface-muted); }
 /* 본문 (6.2): 여백 32 72 24 */
 .a-content { padding: var(--space-8) var(--space-18) var(--space-6); display: grid; gap: var(--space-3); align-content: start; min-width: 0; }
 
