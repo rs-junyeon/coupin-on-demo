@@ -6,6 +6,8 @@ export const adminTheme: ThemeConfig = {
   token: {
     fontFamily: '"Pretendard Variable", Pretendard, -apple-system, system-ui, Roboto, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif',
     colorPrimary: '#1E7B76', colorLink: '#1E7B76', colorLinkHover: '#0A4F4E',
+    // 선택 배경 (표 체크된 행, Select 고른 항목). 자동 계산하면 짙은 primary에서 탁한 회색이 나와 Mint 100·200으로 정한다
+    colorPrimaryBg: '#D1F9F2', colorPrimaryBgHover: '#B7F6EC',
     colorSuccess: '#3FA597', colorWarning: '#F5B544', colorError: '#E55F6B', colorInfo: '#7CCBFF',
     colorText: '#10162E', colorTextSecondary: '#3F4866', colorTextTertiary: '#8B92A8', colorTextQuaternary: '#B0B4C8',
     colorBorder: '#D0D2E0', colorBorderSecondary: '#E8E9F3', colorBgLayout: '#F8FAFC', colorFillAlter: '#F8FAFC',

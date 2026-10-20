@@ -695,6 +695,9 @@ const customTheme = {
     // ON 시그니처: Lime+Mint. 솔리드/폼요소 = Mint 800, 그라데이션·다크면은 theme.css
     colorPrimary: '#1E7B76', // Mint 800
     colorLink: '#1E7B76',
+    // 선택 배경 (표 체크된 행, Select 고른 항목). 자동 계산하면 짙은 primary에서 탁한 회색(#AFBAB8)이 나와 직접 정한다
+    colorPrimaryBg: '#D1F9F2', // Mint 100
+    colorPrimaryBgHover: '#B7F6EC', // Mint 200
     colorError: '#E55F6B', // danger
     colorSuccess: '#3FA597',
     colorWarning: '#F5B544',
