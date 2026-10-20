@@ -98,6 +98,9 @@
   --sider-hover: #CEEFAF;
   --sider-line: rgba(255, 255, 255, 0.1);
 
+  /* 관리자 표 머리 (cims-assets component.css) */
+  --table-head: #FBFBFB;
+
   /* 그래프 (3.10) */
   --chart-line-positive: #378247;
   --chart-fill-positive: rgba(55, 130, 71, 0.12);
