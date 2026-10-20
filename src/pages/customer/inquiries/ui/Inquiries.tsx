@@ -26,7 +26,7 @@ export default function Inquiries() {
         </div>
       </div>
       <div className="cta-bar">
-        <button type="button" className="cta dark" onClick={() => nav('/my/inquiries/new')}><Icon name="chat" size={20} />문의하기</button>
+        <button type="button" className="cta primary" onClick={() => nav('/my/inquiries/new')}><Icon name="chat" size={20} />문의하기</button>
       </div>
     </div>
   );

@@ -96,7 +96,7 @@ export default function CouponView() {
           {REASONS.map(r => <button key={r} type="button" role="radio" aria-checked={reason === r} className={reason === r ? 'on' : ''} onClick={() => setReason(r)}>{r}</button>)}
         </div>
         <p className={`sub ${s.fine}`}>환불하면 쿠폰은 바로 쓸 수 없게 돼요. 카드 취소는 카드사에 따라 3~5영업일 걸려요.</p>
-        <button type="button" className="cta dark" onClick={refund}>환불 요청하기</button>
+        <button type="button" className="cta danger" onClick={refund}>환불 요청하기</button>
       </Sheet>
 
       <Sheet open={sheet === 'cancel'} onClose={() => setSheet(null)} label="쿠폰 취소">
@@ -109,7 +109,7 @@ export default function CouponView() {
           </div>
         </div>
         <p className={`sub ${s.fine}`}>취소한 쿠폰은 되살릴 수 없어요. 혜택이 남아 있으면 다시 받을 수 있어요.</p>
-        <button type="button" className="cta dark" onClick={cancelFree}>쿠폰 취소하기</button>
+        <button type="button" className="cta danger" onClick={cancelFree}>쿠폰 취소하기</button>
       </Sheet>
     </div>
   );

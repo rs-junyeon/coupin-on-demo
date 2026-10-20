@@ -49,7 +49,7 @@ export default function Fail() {
         </div>
       </div>
       <div className="cta-bar">
-        <button type="button" className="cta dark" onClick={retry}>다시 시도</button>
+        <button type="button" className="cta primary" onClick={retry}>다시 시도</button>
         <button type="button" className="cta line" onClick={close}>닫기</button>
       </div>
     </div>

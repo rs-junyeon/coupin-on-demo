@@ -37,7 +37,7 @@ export default function Login() {
         <label className="field" htmlFor="lpw"><span>비밀번호</span>
           <input id="lpw" type="password" value={pw} autoComplete="current-password" onChange={e => setPw(e.target.value)} />
         </label>
-        <button className="cta dark" type="submit">로그인</button>
+        <button className="cta primary" type="submit">로그인</button>
         <div className="links">
           <button type="button" className="lnk" onClick={() => nav('/find-account')}>아이디·비밀번호 찾기</button>
           <span aria-hidden="true">·</span>

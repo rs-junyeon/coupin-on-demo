@@ -61,7 +61,7 @@ export default function OrderDetail() {
       </div>
       {c && (
         <div className="cta-bar">
-          <button type="button" className="cta dark" onClick={() => nav(`/coupons/${c.id}`)}>쿠폰 보기</button>
+          <button type="button" className="cta primary" onClick={() => nav(`/coupons/${c.id}`)}>쿠폰 보기</button>
           {canRefund && <button type="button" className="cta line" onClick={() => { setReason(REASONS[0]); setOpen(true); }}>환불 요청</button>}
         </div>
       )}
@@ -76,7 +76,7 @@ export default function OrderDetail() {
           {REASONS.map(r => <button type="button" key={r} role="radio" aria-checked={reason === r} className={reason === r ? 'on' : ''} onClick={() => setReason(r)}>{r}</button>)}
         </div>
         <p className={s.note}>환불하면 쿠폰은 바로 쓸 수 없게 돼요. 카드 취소는 카드사에 따라 3~5영업일 걸려요.</p>
-        <button type="button" className="cta dark" onClick={refund}>환불 요청하기</button>
+        <button type="button" className="cta danger" onClick={refund}>환불 요청하기</button>
       </Sheet>
     </div>
   );

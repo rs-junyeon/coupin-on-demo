@@ -40,7 +40,7 @@ export default function Complete() {
         </div>
       </div>
       <div className="cta-bar">
-        <button type="button" className="cta dark" onClick={toCoupon}>내 쿠폰에서 보기</button>
+        <button type="button" className="cta primary" onClick={toCoupon}>내 쿠폰에서 보기</button>
         <button type="button" className="cta line" onClick={home}>계속 둘러보기</button>
       </div>
     </div>

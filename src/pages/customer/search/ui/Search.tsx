@@ -57,7 +57,7 @@ export default function Search() {
                 {res.map(p => { const s = storeOf(db, p.sid); return <ProductRow key={p.id} p={p} icon sub={`${s.name} · ${distTxt(s, origin)}`} />; })}
               </div>
               <div className="sfoot">
-                <button type="button" className="cta dark" onClick={applyQ}><Icon name="map" size={20} />'{q}' 지도에서 보기</button>
+                <button type="button" className="cta primary" onClick={applyQ}><Icon name="map" size={20} />'{q}' 지도에서 보기</button>
               </div>
             </>
           )}
