@@ -1,27 +1,27 @@
 /* 고객 앱 C 묶음(마이·주문·문의·설정·계정) 전용: 목업의 인라인 스타일을 클래스로 옮김 */
-.err { margin: 0; font-size: 12.5px; font-weight: 600; color: var(--status-danger-text); }
-.note { margin: 0; font-size: 12.5px; color: var(--gray-80); line-height: 1.55; }
+.err { margin: 0; font-size: var(--fs-13); font-weight: 600; color: var(--status-danger-text); }
+.note { margin: 0; font-size: var(--fs-13); color: var(--gray-80); line-height: 1.55; }
 .start { justify-self: start; }
 .sbtnWide { padding: 0 22px; }
-.boxTitle { display: block; font-size: 14.5px; }
+.boxTitle { display: block; font-size: var(--fs-15); }
 .boxRows { margin-top: 8px; }
-.boxNote { margin: 8px 0 0; font-size: 12.5px; color: var(--gray-80); }
+.boxNote { margin: 8px 0 0; font-size: var(--fs-13); color: var(--gray-80); }
 .secTitle { margin: 10px 0 0; font-size: 14px; }
 .muted { color: var(--gray-80); font-weight: 500; }
 .withdrawLink { justify-self: start; margin-top: 8px; }
 .pageTitle { margin: 4px 0 0; font-size: 20px; letter-spacing: -.02em; }
 .lead { margin: 0; color: var(--text-secondary); font-size: 14px; line-height: 1.6; }
 .metaRow { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
-.metaAt { color: var(--gray-80); font-size: 12.5px; }
+.metaAt { color: var(--gray-80); font-size: var(--fs-13); }
 .qTitle { font-size: 17px; }
 .waitBox { padding: 24px; }
 .formTop { align-content: start; }
-.input { height: 48px; border: 1px solid var(--border-default); border-radius: 8px; padding: 0 12px; font-size: 14.5px; background: var(--surface-base); width: 100%; font-weight: 500; color: var(--text-primary); outline: 0; }
-.input:focus { border-color: var(--primary-color); box-shadow: 0 0 0 3px rgba(63,165,151,.18); }
+.input { min-height: 48px; border: 1px solid var(--border-default); border-radius: var(--radius-md); padding: 0 14px; font-size: var(--fs-16); background: var(--surface-base); width: 100%; font-weight: 500; color: var(--text-primary); outline: 0; }
+.input:focus { border-color: var(--primary-color); box-shadow: 0 0 0 3px var(--primary-ring); }
 .extTitle { font-size: 18px; }
-.mono { font-size: 12.5px; }
+.mono { font-size: var(--fs-13); }
 .version { border: 1px solid var(--border-subtle); border-radius: 12px; padding: 14px 16px; display: flex; justify-content: space-between; align-items: center; gap: 10px; }
-.version b { font-size: 14.5px; }
+.version b { font-size: var(--fs-15); }
 .version span { color: var(--gray-80); font-size: 13px; }
 .subLead { margin: 0; }
 .ndotGap { margin-right: 6px; }
