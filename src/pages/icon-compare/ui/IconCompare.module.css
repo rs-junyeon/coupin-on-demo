@@ -1,0 +1,11 @@
+/* 아이콘 비교 화면: 휴대폰 크기 창 두 개를 가운데 나란히 (좁은 화면에서는 위아래로) */
+.page { min-height: 100vh; background: var(--surface-subtle); color: var(--text-primary); font-family: var(--font-sans); padding: var(--space-8) var(--space-5) var(--space-12); display: grid; gap: var(--space-6); justify-items: center; }
+.head { display: grid; gap: var(--space-2); text-align: center; max-width: 640px; }
+.head h1 { margin: 0; font-size: var(--fs-20); }
+.head p { margin: 0; font-size: var(--fs-14); color: var(--text-secondary); word-break: keep-all; }
+.row { display: flex; flex-wrap: wrap; gap: var(--space-8); justify-content: center; }
+.side { margin: 0; display: grid; gap: var(--space-3); justify-items: center; }
+.cap { display: grid; gap: var(--space-1); text-align: center; font-size: var(--fs-14); }
+.cap strong { font-family: var(--font-mono); font-size: var(--fs-15); }
+.cap span { color: var(--text-secondary); font-size: var(--fs-13); }
+.frame { width: 390px; height: 844px; max-width: 100%; border: 1px solid var(--border-default); border-radius: var(--radius-3xl); background: var(--surface-base); box-shadow: var(--shadow-raised); }
