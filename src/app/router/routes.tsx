@@ -11,7 +11,6 @@ import { DocsPage } from '@/pages/account/docs';
 import { FailPage } from '@/pages/customer/fail';
 import { FindAccountPage } from '@/pages/account/find-account';
 import { HomePage } from '@/pages/customer/home';
-import { IconComparePage } from '@/pages/icon-compare';
 import { InquiriesPage } from '@/pages/customer/inquiries';
 import { InquiryDetailPage } from '@/pages/customer/inquiry-detail';
 import { InquiryNewPage } from '@/pages/customer/inquiry-new';
@@ -87,8 +86,6 @@ export const routes: RouteObject[] = [
       },
     ],
   },
-  // 아이콘 라이브러리 비교 (고객 앱 두 개를 나란히). 고객 앱 탭·레이아웃 밖에 둔다
-  { path: '/compare-icons', element: <IconComparePage /> },
   {
     path: '/',
     element: <CustomerLayout />,

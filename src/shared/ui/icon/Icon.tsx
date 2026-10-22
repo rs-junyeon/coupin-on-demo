@@ -32,7 +32,7 @@ const IC: Record<IconName, ComponentType<{ className?: string; 'aria-hidden'?: b
   chart: BarChartOutlined,
 };
 
-/** 이 창을 lucide 로 그리는지: /compare-icons 오른쪽 창(iframe name="icons-lucide") 또는 ?icons=lucide 로 연 창 */
+/** 이 창을 lucide 로 그리는지: 아이콘 비교의 오른쪽 창(iframe name="icons-lucide") 또는 ?icons=lucide 로 연 창 */
 const USE_LUCIDE =
   typeof window !== 'undefined' &&
   (window.name === 'icons-lucide' || new URLSearchParams(window.location.search).get('icons') === 'lucide');
