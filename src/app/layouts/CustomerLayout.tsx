@@ -3,9 +3,13 @@ import { KakaoLoader } from '@/shared/ui/kakao-map';
 import { myCoupons, useDB } from '@/shared/api';
 import { cStatus } from '@/entities/coupon';
 import { unseenAnswer } from '@/entities/inquiry';
+import { IconComparePage } from '@/pages/icon-compare';
 import { Icon } from '@/shared/ui/icon';
 import { Busy, Toast } from '@/shared/ui/mobile';
 import '../styles/customer.css';
+
+/** 맨 바깥 창이면 고객 앱을 antd·lucide 두 창으로 나란히 띄운다 (아이콘 비교). 창(iframe) 안과 테스트에서는 앱을 그대로 그린다 */
+const SHOW_COMPARE = typeof window !== 'undefined' && window.self === window.top && import.meta.env.MODE !== 'test';
 
 const TABS = [
   { to: '/', label: '둘러보기', icon: 'map' as const, end: true },
@@ -15,8 +19,19 @@ const TABS = [
 ];
 const TAB_PATHS = ['/', '/stores', '/wallet', '/my'];
 
-/** 고객 모바일 웹: 가운데 최대 폭 480px, 아래 탭 4개 (둘러보기·매장·내 쿠폰·마이) */
+/** 고객 앱 자리: 맨 바깥 창이면 아이콘 비교(두 창), 아니면 고객 앱 */
 export function CustomerLayout() {
+  if (!SHOW_COMPARE) return <CustomerApp />;
+  return (
+    <>
+      <Link to="/admin" className="mode-switch">관리자 화면<Icon name="chev" size={16} /></Link>
+      <IconComparePage />
+    </>
+  );
+}
+
+/** 고객 모바일 웹: 가운데 최대 폭 480px, 아래 탭 4개 (둘러보기·매장·내 쿠폰·마이) */
+function CustomerApp() {
   const { pathname } = useLocation();
   const db = useDB();
   const showTabs = TAB_PATHS.includes(pathname);

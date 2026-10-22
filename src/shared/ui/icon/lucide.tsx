@@ -1,4 +1,4 @@
-// lucide 아이콘 대응표: 고객 앱 아이콘 라이브러리 비교(/compare-icons)용. 이름마다 antd Outlined(Icon.tsx)와 같은 뜻의 lucide 아이콘
+// lucide 아이콘 대응표: 고객 앱 아이콘 라이브러리 비교(고객 앱 자리의 두 창)용. 이름마다 antd Outlined(Icon.tsx)와 같은 뜻의 lucide 아이콘
 import {
   BookOpen, Camera, ChartColumn, Check, ChevronDown, ChevronLeft, ChevronRight, ChevronUp, CircleAlert, Clock, Coffee, Compass,
   Copy, CreditCard, CupSoda, Dumbbell, FileText, FlaskConical, Gift, Heart, Inbox, Info, List, LocateFixed, Lock, LogOut,
